@@ -639,7 +639,7 @@
 											"top": 398,
 											"width": 155.00341796875,
 											"height": 13,
-											"text": "+CodTratta: int",
+											"text": "+CodTratta: varchar[10]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4674,7 +4674,8 @@
 								"$ref": "AAAAAAF2ZwyxirgIY30="
 							},
 							"name": "CodTratta",
-							"type": "int"
+							"type": "varchar",
+							"multiplicity": "10"
 						},
 						{
 							"_type": "UMLAttribute",
