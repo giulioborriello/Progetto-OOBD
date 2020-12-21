@@ -17,11 +17,9 @@ public class Main {
 		
 		//2.OTTENGO CONNESSIONE
 		
-			System.out.println("il programma funziona");
 
 		Statement st=conn.createStatement();
-		ResultSet rs=st.executeQuery("SELECT * FROM tratta");
-		System.out.println("il programma funziona");
+		ResultSet rs=st.executeQuery("SELECT * FROM public.\"Tratta\" ");
 		int i=1;
 		
 		while(rs.next()) {
@@ -30,7 +28,7 @@ public class Main {
 			System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
 			System.out.println("Orario di partenza:"+rs.getTime("Orario di partenza"));
 			System.out.println("Data:" + rs.getDate("Data"));
-			System.out.println("Ngate" + rs.getInt("Ngate"));
+			System.out.println("Ngate:" + rs.getInt("Ngate"));
 			System.out.println("CodIATA:" + rs.getString("CodIATA"));
 			System.out.println("Destinazione:" + rs.getString("Destinazione"));
 			i++;
