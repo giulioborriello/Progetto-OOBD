@@ -13,7 +13,7 @@ public class Main {
 		Connection conn = null;
 		
 		try{
-			conn=DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto");
+			conn=DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgress", "abcd");
 		}
 		catch (SQLException e) {
 			System.out.println("Eccezione 1 SQL\n"+e);
