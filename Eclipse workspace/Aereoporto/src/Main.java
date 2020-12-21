@@ -12,7 +12,7 @@ public class Main {
 		
 		
 		try{
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "Postgres", "Sonofigo0!");
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 		
 		
 		//2.OTTENGO CONNESSIONE
@@ -20,7 +20,7 @@ public class Main {
 			System.out.println("il programma funziona");
 
 		Statement st=conn.createStatement();
-		ResultSet rs=st.executeQuery("SELECT * FROM Tratta");
+		ResultSet rs=st.executeQuery("SELECT * FROM tratta");
 		System.out.println("il programma funziona");
 		int i=1;
 		
