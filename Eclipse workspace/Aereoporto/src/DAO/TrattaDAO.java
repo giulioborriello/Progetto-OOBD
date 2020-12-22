@@ -1,14 +1,18 @@
 package DAO;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.*;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class TrattaDAO {
 	Connection conn = null;
-	PreparedStatement StGet = null;
+	PreparedStatement ps = null;
 	Statement st = null;
 	
 	public TrattaDAO(Connection conn) {
@@ -42,9 +46,9 @@ public class TrattaDAO {
 		
 	public void getTrattaByCodTratta(String CodTratta){
 		try {
-			StGet = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodTratta\" = ?");
-			StGet.setString(1, CodTratta);
-			ResultSet rs=StGet.executeQuery();
+			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodTratta\" = ?");
+			ps.setString(1, CodTratta);
+			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				System.out.println("CodTratta:"+rs.getString("CodTratta"));
 				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
@@ -63,9 +67,9 @@ public class TrattaDAO {
 	
 	public void getTrattaByData(String Data){
 		try {
-			StGet = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Data\" = ?");
-			StGet.setString(1, Data);
-			ResultSet rs=StGet.executeQuery();
+			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Data\" = ?");
+			ps.setString(1, Data);
+			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				System.out.println("CodTratta:"+rs.getString("CodTratta"));
 				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
@@ -84,9 +88,9 @@ public class TrattaDAO {
 	
 	public void getTrattaNgate(String Ngate){
 		try {
-			StGet = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
-			StGet.setString(1, Ngate);
-			ResultSet rs=StGet.executeQuery();
+			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
+			ps.setString(1, Ngate);
+			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				System.out.println("CodTratta:"+rs.getString("CodTratta"));
 				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
@@ -105,9 +109,9 @@ public class TrattaDAO {
 	
 	public void getTrattaCodIATA(String CodIATA){
 		try {
-			StGet = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodIATA\" = ?");
-			StGet.setString(1, CodIATA);
-			ResultSet rs=StGet.executeQuery();
+			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodIATA\" = ?");
+			ps.setString(1, CodIATA);
+			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				System.out.println("CodTratta:"+rs.getString("CodTratta"));
 				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
@@ -126,9 +130,9 @@ public class TrattaDAO {
 	
 	public void getTrattaDestinazione(String Destinazione){
 		try {
-			StGet = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Destinazione\" = ?");
-			StGet.setString(1, Destinazione);
-			ResultSet rs=StGet.executeQuery();
+			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Destinazione\" = ?");
+			ps.setString(1, Destinazione);
+			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				System.out.println("CodTratta:"+rs.getString("CodTratta"));
 				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
@@ -145,9 +149,17 @@ public class TrattaDAO {
 		}	
 	}
 	
-	public void insertTratta(String CodTratta, int Nprenotazioni, LocalTime Orario_Di_Partenza, LocalDate Data, int Ngate,  String CodIATA, String Destinazione) {
+	public void insertTratta(String CodTratta, int Nprenotazioni, Time localTime, Date localDate, int Ngate,  String CodIATA, String Destinazione) {
 		try {
-			st.executeQuery("INSERT INTO \"Tratta\" VALUES (\"CodTratta\", \"Nprenotazioni\", \"Orario_Di_Partenza\", \"Data\", \"Ngate\", \"CodIATA\", \"Destinazione\")");
+			ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?)");
+			ps.setString(1, CodTratta);
+			ps.setInt(2, Nprenotazioni);
+			ps.setTime(3, localTime);
+			ps.setDate(4, localDate);
+			ps.setInt(5, Ngate);
+			ps.setString(6, CodIATA);
+			ps.setString(7, Destinazione);
+	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
