@@ -68,6 +68,7 @@ public class BigliettoDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+	}
 	
 	public void InsertBiglietto(String CodFiscale)	{
 		
