@@ -1,5 +1,3 @@
-
-import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -14,15 +12,9 @@ public class Main {
 		catch (SQLException e) {
 			System.out.println("Eccezione 2 SQL\n"+e);
 		}
-	try {
-		Statement st = conn.createStatement();
-		TrattaDAO TDAO = new TrattaDAO();
-		TDAO.VerificaFormatoCodTratta(st);
-	} 
-	catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+		
+	TrattaDAO TDAO = new TrattaDAO(conn);
+	TDAO.GetTrattaByCodTratta("A1");
 	}
 }
 
