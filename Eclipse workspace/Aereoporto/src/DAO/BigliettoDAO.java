@@ -78,7 +78,7 @@ public class BigliettoDAO {
 	public void InsertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
 		
 		try {
-			ps = conn.prepareStatement("INSERT INTO \"Biglietto\"(\"CodFiscale\", \"Tipo di biglietto\", \"CodBiglietto\", \"CodTratta\", \"Posto\")  VALUES (?, ?, ?, ?, ?); ");
+			ps = conn.prepareStatement("INSERT INTO \"Biglietto\"  VALUES (?, ?, ?, ?, ?); ");
 			ps.setString(1, CodFiscale);
 			ps.setString(2, Tipo_di_biglietto);
 			ps.setString(3, CodBiglietto);
