@@ -967,7 +967,7 @@
 											"top": 421,
 											"width": 198.09765625,
 											"height": 13,
-											"text": "+CodTratta: int",
+											"text": "+CodTratta: varhar[10]",
 											"horizontalAlignment": 0
 										}
 									],
@@ -3652,7 +3652,7 @@
 											"top": 558,
 											"width": 166.8037109375,
 											"height": 13,
-											"text": "+CodTratta: int",
+											"text": "+CodTratta: varchar[10]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4797,7 +4797,8 @@
 								"$ref": "AAAAAAF2Zw0II7gzx4U="
 							},
 							"name": "CodTratta",
-							"type": "int"
+							"type": "varhar",
+							"multiplicity": "10"
 						}
 					]
 				},
@@ -5150,7 +5151,8 @@
 								"$ref": "AAAAAAF2djY+9P4R6As="
 							},
 							"name": "CodTratta",
-							"type": "int"
+							"type": "varchar",
+							"multiplicity": "10"
 						},
 						{
 							"_type": "UMLAttribute",
