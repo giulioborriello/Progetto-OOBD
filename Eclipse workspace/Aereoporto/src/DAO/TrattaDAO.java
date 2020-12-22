@@ -1,3 +1,4 @@
+package DAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,7 +43,7 @@ public class TrattaDAO {
 	public void GetTrattaByCodTratta(String CodTratta){
 		try {
 			StGet = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodTratta\" = ?");
-			StGet.setString(0, CodTratta);
+			StGet.setString(1, CodTratta);
 			ResultSet rs=StGet.executeQuery();
 			int i=1;
 			while(rs.next()) {
@@ -63,12 +64,12 @@ public class TrattaDAO {
 		}	
 	}
 	
-	public void VerificaFormatoCodTratta() {
-		 try {
-			st.executeUpdate("ALTER TABLE \"Tratta\" ADD CONSTRAINT Verifica_Formato_CodTratta CHECK(\"CodTratta\" ~* '^[a-zA-Z] + [a-zA-Z] + [a-zA-Z] + % +$ ')");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+//	public void VerificaFormatoCodTratta() {
+//		 try {
+//			st.executeUpdate("ALTER TABLE \"Tratta\" ADD CONSTRAINT Verifica_Formato_CodTratta CHECK(\"CodTratta\" ~* '^[a-zA-Z] + [a-zA-Z] + [a-zA-Z] + % +$ ')");
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 }
