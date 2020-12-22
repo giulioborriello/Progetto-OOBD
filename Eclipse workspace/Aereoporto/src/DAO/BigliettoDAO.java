@@ -9,8 +9,13 @@ public class BigliettoDAO {
 	ResultSet rs;
 	Statement st = null;
 	Connection conn = null;
-	PreparedStatement StGet = null;
+	PreparedStatement ps = null;
 	
+	public BigliettoDAO(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+
 	public void getAllBiglietto() {
 		try {
 			rs=st.executeQuery("SELECT * FROM public.\"Biglietto\"");
@@ -34,9 +39,9 @@ public class BigliettoDAO {
 
 	public void GetBigliettoByCodFiscale(String CodFiscale){
 		try {
-			StGet = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodFiscale\" = ?");
-			StGet.setString(1, CodFiscale);
-			ResultSet rs=StGet.executeQuery();
+			ps = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodFiscale\" = ?");
+			ps.setString(1, CodFiscale);
+			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				System.out.println("CodFiscale:"+rs.getString("CodFiscale"));
 				System.out.println("Tipo di biglietto:"+rs.getString("Tipo di biglietto"));
@@ -53,9 +58,9 @@ public class BigliettoDAO {
 	
 	public void GetBigliettoByCodTratta(String CodTratta){
 		try {
-			StGet = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodTratta\" = ?");
-			StGet.setString(1, CodTratta);
-			ResultSet rs=StGet.executeQuery();
+			ps = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodTratta\" = ?");
+			ps.setString(1, CodTratta);
+			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				System.out.println("CodFiscale:"+rs.getString("CodFiscale"));
 				System.out.println("Tipo di biglietto:"+rs.getString("Tipo di biglietto"));
@@ -73,13 +78,13 @@ public class BigliettoDAO {
 	public void InsertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
 		
 		try {
-			StGet = conn.prepareStatement("INSERT INTO \"Biglietto\"(\"CodFiscale\", \"Tipo di biglietto\", \"CodBiglietto\", \"CodTratta\", \"Posto\")  VALUES (?, ?, ?, ?, ?); ");
-			StGet.setString(1, CodFiscale);
-			StGet.setString(2, Tipo_di_biglietto);
-			StGet.setString(3, CodBiglietto);
-			StGet.setString(4, CodTratta);
-			StGet.setString(5, Posto);
-			;
+			ps = conn.prepareStatement("INSERT INTO \"Biglietto\"(\"CodFiscale\", \"Tipo di biglietto\", \"CodBiglietto\", \"CodTratta\", \"Posto\")  VALUES (?, ?, ?, ?, ?); ");
+			ps.setString(1, CodFiscale);
+			ps.setString(2, Tipo_di_biglietto);
+			ps.setString(3, CodBiglietto);
+			ps.setString(4, CodTratta);
+			ps.setString(5, Posto);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

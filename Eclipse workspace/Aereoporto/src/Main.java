@@ -1,10 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-
-import DAO.TrattaDAO;
+import DAO.*;
 
 public class Main {
 
@@ -17,8 +14,11 @@ public class Main {
 			System.out.println("Eccezione 2 SQL\n"+e);
 		}
 		
-	TrattaDAO TDAO = new TrattaDAO(conn);
+	//TrattaDAO TDAO = new TrattaDAO(conn);
 	//TDAO.insertTratta("A2", 0, LocalTime.of(0, 0, 0), LocalDate.of(2021, 2, 15), 1, "AL", "Milano");
+	
+		BigliettoDAO BDAO = new BigliettoDAO(conn);
+		BDAO.InsertBiglietto("abcd", "economy", "BG", "A1", "A11");
 	}
 }
 
