@@ -32,6 +32,7 @@ public class TrattaDAO {
 					System.out.println("Ngate: " + rs.getInt("Ngate"));
 					System.out.println("CodIATA: " + rs.getString("CodIATA"));
 					System.out.println("Destinazione: " + rs.getString("Destinazione"));
+					System.out.println("Scali: " + rs.getString("Scali"));
 					i++;
 				}
 			}
@@ -54,6 +55,7 @@ public class TrattaDAO {
 				System.out.println("Ngate" + rs.getInt("Ngate"));
 				System.out.println("CodIATA:" + rs.getString("CodIATA"));
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
+				System.out.println("Scali: " + rs.getString("Scali"));
 			}
 		}
 		catch (SQLException e) {
@@ -75,6 +77,7 @@ public class TrattaDAO {
 				System.out.println("Ngate" + rs.getInt("Ngate"));
 				System.out.println("CodIATA:" + rs.getString("CodIATA"));
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
+				System.out.println("Scali: " + rs.getString("Scali"));
 			}
 		}
 		catch (SQLException e) {
@@ -96,6 +99,7 @@ public class TrattaDAO {
 				System.out.println("Ngate" + rs.getInt("Ngate"));
 				System.out.println("CodIATA:" + rs.getString("CodIATA"));
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
+				System.out.println("Scali: " + rs.getString("Scali"));
 			}
 		}
 		catch (SQLException e) {
@@ -117,6 +121,7 @@ public class TrattaDAO {
 				System.out.println("Ngate" + rs.getInt("Ngate"));
 				System.out.println("CodIATA:" + rs.getString("CodIATA"));
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
+				System.out.println("Scali: " + rs.getString("Scali"));
 			}
 		}
 		catch (SQLException e) {
@@ -138,6 +143,7 @@ public class TrattaDAO {
 				System.out.println("Ngate" + rs.getInt("Ngate"));
 				System.out.println("CodIATA:" + rs.getString("CodIATA"));
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
+				System.out.println("Scali: " + rs.getString("Scali"));
 			}
 		}
 		catch (SQLException e) {
@@ -146,16 +152,17 @@ public class TrattaDAO {
 		}	
 	}
 	
-	public void insertTratta(String CodTratta, int Nprenotazioni, Time localTime, Date localDate, int Ngate,  String CodIATA, String Destinazione) {
+	public void insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, int Ngate,  String CodIATA, String Destinazione, String Scali) {
 		try {
-			ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?)");
+			ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 			ps.setString(1, CodTratta);
 			ps.setInt(2, Nprenotazioni);
-			ps.setTime(3, localTime);
-			ps.setDate(4, localDate);
+			ps.setTime(3, OrarioDiPartenza);
+			ps.setDate(4, Data);
 			ps.setInt(5, Ngate);
 			ps.setString(6, CodIATA);
 			ps.setString(7, Destinazione);
+			ps.setString(8, Scali);
 			ps.execute();
 	
 		} catch (SQLException e) {

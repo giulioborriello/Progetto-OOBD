@@ -23,10 +23,10 @@ public class Fedelt‡DAO {
 			int i=1;
 			while(rs.next()) {
 				System.out.println("Fedelt‡ numero: "+i);
-				System.out.println("Centokilometri: "+rs.getString("Centokilometri"));
+				System.out.println("Centokilometri: "+rs.getInt("Centokilometri"));
 				System.out.println("CodIATA: "+rs.getString("CodIATA"));
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
-				System.out.println("Punti: "+rs.getString("Punti"));
+				System.out.println("Punti: "+rs.getInt("Punti"));
 				i++;
 			}
 		}
@@ -43,10 +43,10 @@ public class Fedelt‡DAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Centokilometri: "+rs.getString("Centokilometri"));
+				System.out.println("Centokilometri: "+rs.getInt("Centokilometri"));
 				System.out.println("CodIATA: "+rs.getString("CodIATA"));
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
-				System.out.println("Punti: "+rs.getString("Punti"));
+				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
 		}
 		catch (SQLException e) {
@@ -62,10 +62,10 @@ public class Fedelt‡DAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Centokilometri: "+rs.getString("Centokilometri"));
+				System.out.println("Centokilometri: "+rs.getInt("Centokilometri"));
 				System.out.println("CodIATA: "+rs.getString("CodIATA"));
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
-				System.out.println("Punti: "+rs.getString("Punti"));
+				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
 		}
 		catch (SQLException e) {
@@ -81,10 +81,10 @@ public class Fedelt‡DAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Centokilometri: "+rs.getString("Centokilometri"));
+				System.out.println("Centokilometri: "+rs.getInt("Centokilometri"));
 				System.out.println("CodIATA: "+rs.getString("CodIATA"));
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
-				System.out.println("Punti: "+rs.getString("Punti"));
+				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
 		}
 		catch (SQLException e) {

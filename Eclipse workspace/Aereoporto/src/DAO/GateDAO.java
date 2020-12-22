@@ -20,7 +20,7 @@ public class GateDAO {
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Gate\"");
 			while(rs.next()) {
-				System.out.println("Ngate: "+rs.getString("Ngate"));
+				System.out.println("Ngate: "+rs.getInt("Ngate"));
 				System.out.println("CodTratta: "+rs.getString("CodTratta"));
 			}
 		}
@@ -37,7 +37,7 @@ public class GateDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Ngate: "+rs.getString("Ngate"));
+				System.out.println("Ngate: "+rs.getInt("Ngate"));
 				System.out.println("CodTratta: "+rs.getString("CodTratta"));
 			}
 		}
@@ -54,7 +54,7 @@ public class GateDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Ngate: "+rs.getString("Ngate"));
+				System.out.println("Ngate: "+rs.getInt("Ngate"));
 				System.out.println("CodTratta: "+rs.getString("CodTratta"));
 			}
 		}
