@@ -12,6 +12,13 @@ public class SlotDAO {
 	Connection conn = null;
 	PreparedStatement ps = null;
 	
+	
+	
+	public SlotDAO(Connection conn) {
+		super();
+		this.conn = conn;
+	}
+
 	public void getAllSlot() {
 		try {
 			st = conn.createStatement();

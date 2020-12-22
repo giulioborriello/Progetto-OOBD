@@ -56,7 +56,7 @@ public class BigliettoDAO {
 		}	
 	}
 	
-	public void GetBigliettoByCodTratta(String CodTratta){
+	public void getBigliettoByCodTratta(String CodTratta){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);
@@ -91,14 +91,6 @@ public class BigliettoDAO {
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
