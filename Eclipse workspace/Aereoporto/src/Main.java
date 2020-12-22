@@ -20,6 +20,9 @@ public class Main {
 		
 	TrattaDAO TDAO = new TrattaDAO(conn);
 	TDAO.insertTratta("A2", 0, Time.valueOf(LocalTime.of(0, 0, 0)), Date.valueOf(LocalDate.of(2021, 1, 1)), 1, "AL", "Milano");
+	
+		BigliettoDAO BDAO = new BigliettoDAO(conn);
+		BDAO.InsertBiglietto("abcd", "economy", "Bi", "A1", "A11");
 	}
 }
 

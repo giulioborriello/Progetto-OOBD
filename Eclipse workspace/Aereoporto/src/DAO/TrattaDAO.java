@@ -159,6 +159,7 @@ public class TrattaDAO {
 			ps.setInt(5, Ngate);
 			ps.setString(6, CodIATA);
 			ps.setString(7, Destinazione);
+			ps.execute();
 	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

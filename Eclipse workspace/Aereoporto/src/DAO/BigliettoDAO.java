@@ -84,7 +84,7 @@ public class BigliettoDAO {
 			ps.setString(3, CodBiglietto);
 			ps.setString(4, CodTratta);
 			ps.setString(5, Posto);
-			
+			ps.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
