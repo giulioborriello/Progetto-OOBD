@@ -18,7 +18,7 @@ public class Main {
 		}
 		
 	TrattaDAO TDAO = new TrattaDAO(conn);
-	TDAO.insertTratta("A2", 0, LocalTime.of(0, 0, 0), LocalDate.of(2021, 2, 15), 1, "AL", "Milano");
+	//TDAO.insertTratta("A2", 0, LocalTime.of(0, 0, 0), LocalDate.of(2021, 2, 15), 1, "AL", "Milano");
 	}
 }
 

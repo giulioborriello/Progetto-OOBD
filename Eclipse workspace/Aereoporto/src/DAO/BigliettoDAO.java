@@ -70,7 +70,20 @@ public class BigliettoDAO {
 		}	
 	}
 	
-	public void InsertBiglietto(String CodFiscale)	{
+	public void InsertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
+		
+		try {
+			StGet = conn.prepareStatement("INSERT INTO \"Biglietto\"(\"CodFiscale\", \"Tipo di biglietto\", \"CodBiglietto\", \"CodTratta\", \"Posto\")  VALUES (?, ?, ?, ?, ?); ");
+			StGet.setString(1, CodFiscale);
+			StGet.setString(2, Tipo_di_biglietto);
+			StGet.setString(3, CodBiglietto);
+			StGet.setString(4, CodTratta);
+			StGet.setString(5, Posto);
+			;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
