@@ -147,7 +147,7 @@ public class TrattaDAO {
 	
 	public void insertTratta(String CodTratta, int Nprenotazioni, LocalTime Orario_Di_Partenza, LocalDate Data, int Ngate,  String CodIATA, String Destinazione) {
 		try {
-			st.executeQuery("INSERT INTO \"Tratta\" VALUES (\\\"Tratta\\\", \\\"Tratta\\\", \\\"Tratta\\\", \\\"Tratta\\\", \\\"Tratta\\\", \\\"Tratta\\\")");
+			st.executeQuery("INSERT INTO \"Tratta\" VALUES (\"CodTratta\", \"Nprenotazioni\", \"Orario_Di_Partenza\", \"Data\", \"Ngate\", \"CodIATA\", \"Destinazione\")");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
