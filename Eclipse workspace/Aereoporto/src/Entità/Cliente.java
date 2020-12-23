@@ -1,21 +1,28 @@
 package Entità;
 
+import java.util.List;
+
 public class Cliente {
 	
 	private String CodFiscale;
 	private String Nome;
 	private String Cognome;
 	private String Email;
-	
-	
-public Cliente(String codFiscale, String nome, String cognome, String email) {
+	private List<Biglietto> Biglietto;
+	private List<Cliente> Cliente;
+
+
+
+
+public Cliente(String codFiscale, String nome, String cognome, String email, List<Biglietto> biglietto, List<Cliente> cliente) {
 		super();
 		CodFiscale = codFiscale;
 		Nome = nome;
 		Cognome = cognome;
 		Email = email;
+		setBiglietto(biglietto);
+		setCliente(cliente);
 	}
-
 public String getCodFiscale() {
 		return CodFiscale;
 	}
@@ -39,6 +46,18 @@ public String getCodFiscale() {
 	}
 	public void setEmail(String email) {
 		Email = email;
+	}
+	public List<Biglietto> getBiglietto() {
+		return Biglietto;
+	}
+	public void setBiglietto(List<Biglietto> biglietto) {
+		Biglietto = biglietto;
+	}
+	public List<Cliente> getCliente() {
+		return Cliente;
+	}
+	public void setCliente(List<Cliente> cliente) {
+		Cliente = cliente;
 	}
 	
 
