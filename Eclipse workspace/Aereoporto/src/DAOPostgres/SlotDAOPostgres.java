@@ -42,6 +42,7 @@ public class SlotDAOPostgres implements SlotDAO{
 	
 	public void getSlotByCodSlot(String CodSlot) {
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
