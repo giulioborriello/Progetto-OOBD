@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Fedelt‡DAOPostgres {
+public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	Connection conn;
 	PreparedStatement ps = null;
 	Statement st = null;
