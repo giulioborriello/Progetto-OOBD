@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import DAO.GateDAO;
+
 public class GateDAOPostgres implements GateDAO{
 	Connection conn;
 	PreparedStatement ps = null;

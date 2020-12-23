@@ -1,23 +1,27 @@
 package DAOPostgres;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class BigliettoDAOPostgres {
+import DAO.BigliettoDAO;
+
+public class BigliettoDAOPostgres implements BigliettoDAO {
 	ResultSet rs;
 	Statement st = null;
-	Connection conn = null;
 	PreparedStatement ps = null;
 	
-	public BigliettoDAOPostgres(Connection conn) {
-		super();
-		this.conn = conn;
+	public BigliettoDAOPostgres() {
+		
 	}
-
+	
+	
 	public void getAllBiglietto() {
 		try {
+			
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			rs=st.executeQuery("SELECT * FROM public.\"Biglietto\"");
 			int i=1;
 
@@ -30,6 +34,7 @@ public class BigliettoDAOPostgres {
 				System.out.println("Posto:" + rs.getString("Posto"));
 				i++;
 				}
+			conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -38,6 +43,8 @@ public class BigliettoDAOPostgres {
 
 	public void getBigliettoByCodFiscale(String CodFiscale){
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
+			
 			ps = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodFiscale\" = ?");
 			ps.setString(1, CodFiscale);
 			ResultSet rs=ps.executeQuery();
@@ -48,6 +55,7 @@ public class BigliettoDAOPostgres {
 				System.out.println("CodTratta:" + rs.getString("CodTratta"));
 				System.out.println("Posto:" + rs.getString("Posto"));
 				}
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,6 +64,8 @@ public class BigliettoDAOPostgres {
 	
 	public void getBigliettoByCodTratta(String CodTratta){
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
+			
 			ps = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);
 			ResultSet rs=ps.executeQuery();
@@ -66,6 +76,7 @@ public class BigliettoDAOPostgres {
 				System.out.println("CodTratta:" + rs.getString("CodTratta"));
 				System.out.println("Posto:" + rs.getString("Posto"));
 				}
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,6 +86,8 @@ public class BigliettoDAOPostgres {
 	public void insertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
 		
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
+			
 			ps = conn.prepareStatement("INSERT INTO \"Biglietto\"  VALUES (?, ?, ?, ?, ?); ");
 			ps.setString(1, CodFiscale);
 			ps.setString(2, Tipo_di_biglietto);
@@ -82,6 +95,8 @@ public class BigliettoDAOPostgres {
 			ps.setString(4, CodTratta);
 			ps.setString(5, Posto);
 			ps.execute();
+			
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 
-public class TrattaDAOPostgres TrattaDAO {
+
+import DAO.TrattaDAO;
+
+public class TrattaDAOPostgres implements TrattaDAO{
 	Connection conn = null;
 	PreparedStatement ps = null;
 	Statement st = null;

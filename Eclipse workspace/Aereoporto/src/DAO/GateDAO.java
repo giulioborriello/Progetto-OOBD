@@ -1,4 +1,4 @@
-package DAOPostgres;
+package DAO;
 
 public interface GateDAO {
 	public void getAllGate();

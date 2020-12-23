@@ -1,18 +1,26 @@
 package DAOPostgres;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Coda_di_imbarcoDAOPostgres {
+import DAO.CodaDiImbarcoDAO;
+
+public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	Statement st = null;
-	Connection conn = null;
 	PreparedStatement ps = null;
 	
-	public void getAllCode_di_imbarco() {
+	public CodaDiImbarcoDAOPostgres() {
+		
+	}
+	
+	public void getAllCodaDiImbarco() {
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
+			
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Code di imbarco\"");
 			while(rs.next()) {
@@ -21,14 +29,18 @@ public class Coda_di_imbarcoDAOPostgres {
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
+			
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
 
-	public void getCoda_di_imbarcoByCodCoda(String CodCoda){
+	public void getCodaDiImbarcoByCodCoda(String CodCoda){
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
+			
 			ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodCoda\" = ?");
 			ps.setString(1, CodCoda);
 			ResultSet rs=ps.executeQuery();
@@ -38,14 +50,18 @@ public class Coda_di_imbarcoDAOPostgres {
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
+			
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
 	
-	public void getCoda_di_imbarcoByNgate(String Ngate){
+	public void getCodaDiImbarcoByNgate(String Ngate){
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
+			
 			ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"Ngate\" = ?");
 			ps.setString(1, Ngate);
 			ResultSet rs=ps.executeQuery();
@@ -55,14 +71,18 @@ public class Coda_di_imbarcoDAOPostgres {
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
+			
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
 	
-	public void getCoda_di_imbarcoByCodSlot(String CodSlot){
+	public void getCodaDiImbarcoByCodSlot(String CodSlot){
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
+			
 			ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
@@ -72,21 +92,26 @@ public class Coda_di_imbarcoDAOPostgres {
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
+			
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
 	
-	public void insertCoda_di_imbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{
-			
+	public void insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{
 			try {
+				Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
+				
 				ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?); ");
 				ps.setInt(1, CodCoda);
 				ps.setString(2, Tipo_di_coda);
 				ps.setInt(3, Ngate);
 				ps.setInt(4, CodSlot);
 				ps.execute();
+				
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
