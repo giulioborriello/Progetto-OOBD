@@ -1,6 +1,15 @@
 package Entità;
 
+
 public class Biglietto {
+	
+	private String CodTratta;
+	private String CodFiscale;
+	private String Nome;
+	private String Posto;
+	private String Tipo_Di_Biglietto;
+	private String CodBiglietto;
+	
  public Biglietto(String codTratta, String codFiscale, String nome, String posto, String tipo_Di_Biglietto,
 			String codBiglietto) {
 		super();
@@ -47,14 +56,6 @@ public String getCodTratta() {
 	public void setCodBiglietto(String codBiglietto) {
 		CodBiglietto = codBiglietto;
 	}
-private String CodTratta;
- private String CodFiscale;
- private String Nome;
- private String Posto;
- private String Tipo_Di_Biglietto;
- private String CodBiglietto;
-	public Biglietto() {
-		
-	}
+	
 
 }

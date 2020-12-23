@@ -1,6 +1,13 @@
 package Entità;
 
 public class Cliente {
+	
+	private String CodFiscale;
+	private String Nome;
+	private String Cognome;
+	private String Email;
+	
+	
 public Cliente(String codFiscale, String nome, String cognome, String email) {
 		super();
 		CodFiscale = codFiscale;
@@ -8,6 +15,7 @@ public Cliente(String codFiscale, String nome, String cognome, String email) {
 		Cognome = cognome;
 		Email = email;
 	}
+
 public String getCodFiscale() {
 		return CodFiscale;
 	}
@@ -32,11 +40,6 @@ public String getCodFiscale() {
 	public void setEmail(String email) {
 		Email = email;
 	}
-private String CodFiscale;
-private String Nome;
-private String Cognome;
-private String Email;
-	public Cliente() {
-			}
+	
 
 }
