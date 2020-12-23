@@ -1,4 +1,4 @@
-package DAO;
+package DAOPostgres;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class CompagniaDAO {
+public class CompagniaDAOPostgres {
 	Connection conn;
 	PreparedStatement ps = null;
 	Statement st = null;
 	
-	public CompagniaDAO(Connection conn) {
+	public CompagniaDAOPostgres(Connection conn) {
 		this.conn = conn;
 	}
 	

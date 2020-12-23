@@ -1,4 +1,4 @@
-package DAO;
+package DAOPostgres;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Fedelt‡DAO {
+public class Fedelt‡DAOPostgres {
 	Connection conn;
 	PreparedStatement ps = null;
 	Statement st = null;
 	
-	public Fedelt‡DAO(Connection conn) {
+	public Fedelt‡DAOPostgres(Connection conn) {
 		super();
 		this.conn = conn;
 	}
@@ -104,12 +104,13 @@ public class Fedelt‡DAO {
 		}
 	}
 	
-	public void updateCentoKilometriByCodFiscale(int CentoKilometri, String CodFiscale)	{
+	public void updateCentoKilometriByCodFiscaleANDCodIATA(int CentoKilometri, String CodFiscale, String CodIATA)	{
 			
 			try {
-				ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"CentoKilometri\" = ? WHERE \"CodFiscale\" = ? ; ");
+				ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"CentoKilometri\" = ? WHERE \"CodFiscale\" = ? AND \"CodIATA\" = ? ; ");
 				ps.setInt(1, CentoKilometri);
 				ps.setString(2, CodFiscale);
+				ps.setString(3, CodIATA);
 				ps.execute();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -117,12 +118,13 @@ public class Fedelt‡DAO {
 			}
 	}
 	
-	public void updatePuntiByCentoKilometri(int CentoKilometri, int Punti)	{
+	public void updatePuntiByCentoKilometriANDCodIATA(int CentoKilometri, int Punti, String CodIATA)	{
 		
 		try {
-			ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"Punti\" = ? WHERE \"CentoKilometri\" = ? ; ");
+			ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"Punti\" = ? WHERE \"CentoKilometri\" = ? AND \"CodIATA\" = ?; ");
 			ps.setInt(1, Punti);
 			ps.setInt(2, CentoKilometri);
+			ps.setString(3, CodIATA);
 			ps.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

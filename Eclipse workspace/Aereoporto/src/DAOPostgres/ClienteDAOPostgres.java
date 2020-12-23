@@ -1,4 +1,4 @@
-package DAO;
+package DAOPostgres;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -7,10 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ClienteDAO {
+public class ClienteDAOPostgres {
 	Statement st = null;
 	Connection conn = null;
 	PreparedStatement ps = null;
+	
+	public ClienteDAOPostgres(Connection conn) {
+		super();
+		this.conn = conn;
+	}
 
 	public void getAllCliente() {
 		try {

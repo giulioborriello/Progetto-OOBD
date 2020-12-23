@@ -1,4 +1,4 @@
-package DAO;
+package DAOPostgres;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -7,14 +7,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SlotDAO {
+public class SlotDAOPostgres {
 	Statement st = null;
 	Connection conn = null;
 	PreparedStatement ps = null;
 	
 	
 	
-	public SlotDAO(Connection conn) {
+	public SlotDAOPostgres(Connection conn) {
 		super();
 		this.conn = conn;
 	}
@@ -107,12 +107,12 @@ public class SlotDAO {
 		
 	}
 	
-	public void updateTempoDiImbarcoEffettivoByCodSlot(String TempoDiImbarcoEffettivo, String CodSlot)	{
+	public void updateTempoDiImbarcoEffettivoByCodSlot(int TempoDiImbarcoEffettivo, int CodSlot)	{
 		
 		try {
 			ps = conn.prepareStatement("UPDATE \"Slot\" SET \"TempoDiImbarcoEffettivo\" = ? WHERE \"CodSlot\" = ? ; ");
-			ps.setString(1, TempoDiImbarcoEffettivo);
-			ps.setString(2, CodSlot);
+			ps.setInt(1, TempoDiImbarcoEffettivo);
+			ps.setInt(2, CodSlot);
 			ps.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

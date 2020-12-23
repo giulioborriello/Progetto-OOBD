@@ -1,16 +1,16 @@
-package DAO;
+package DAOPostgres;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class GateDAO {
+public class GateDAOPostgres {
 	Connection conn;
 	PreparedStatement ps = null;
 	Statement st = null;
 	
-	public GateDAO(Connection conn) {
+	public GateDAOPostgres(Connection conn) {
 		super();
 		this.conn = conn;
 	}
@@ -77,7 +77,7 @@ public class GateDAO {
 	public void updateCodTrattaByNgate(String CodTratta, int Ngate)	{
 		
 		try {
-			ps = conn.prepareStatement("UPDATE \"Slot\" SET \"CodTratta\" = ? WHERE \"Ngate\" = ? ; ");
+			ps = conn.prepareStatement("UPDATE \"Gate\" SET \"CodTratta\" = ? WHERE \"Ngate\" = ? ; ");
 			ps.setString(1, CodTratta);
 			ps.setInt(2, Ngate);
 			ps.execute();

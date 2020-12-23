@@ -1,4 +1,4 @@
-package DAO;
+package DAOPostgres;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Coda_di_imbarcoDAO {
+public class Coda_di_imbarcoDAOPostgres {
 	Statement st = null;
 	Connection conn = null;
 	PreparedStatement ps = null;

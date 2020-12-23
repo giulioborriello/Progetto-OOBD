@@ -1,4 +1,4 @@
-package DAO;
+package DAOPostgres;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -7,12 +7,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 
-public class TrattaDAO {
+public class TrattaDAOPostgres {
 	Connection conn = null;
 	PreparedStatement ps = null;
 	Statement st = null;
 	
-	public TrattaDAO(Connection conn) {
+	public TrattaDAOPostgres(Connection conn) {
 			super();
 			this.conn = conn;
 	}
