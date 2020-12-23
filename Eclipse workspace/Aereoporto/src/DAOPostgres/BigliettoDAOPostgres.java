@@ -32,7 +32,6 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 				System.out.println("CodBiglietto:"+rs.getString("CodBiglietto"));
 				System.out.println("CodTratta:" + rs.getString("CodTratta"));
 				System.out.println("Posto:" + rs.getString("Posto"));
-				i++;
 				}
 			conn.close();
 			} catch (SQLException e) {
