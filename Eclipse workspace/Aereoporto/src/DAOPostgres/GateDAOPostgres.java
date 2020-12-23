@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class GateDAOPostgres {
+public class GateDAOPostgres implements GateDAO{
 	Connection conn;
 	PreparedStatement ps = null;
 	Statement st = null;

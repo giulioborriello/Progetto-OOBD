@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class CompagniaDAOPostgres {
+import DAO.CompagniaDAO;
+
+public class CompagniaDAOPostgres implements CompagniaDAO {
 	Connection conn;
 	PreparedStatement ps = null;
 	Statement st = null;
