@@ -30,8 +30,7 @@ public class BigliettoDAO {
 				System.out.println("Posto:" + rs.getString("Posto"));
 				i++;
 				}
-			}
-			catch (SQLException e) {
+			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
@@ -49,8 +48,7 @@ public class BigliettoDAO {
 				System.out.println("CodTratta:" + rs.getString("CodTratta"));
 				System.out.println("Posto:" + rs.getString("Posto"));
 				}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -68,14 +66,13 @@ public class BigliettoDAO {
 				System.out.println("CodTratta:" + rs.getString("CodTratta"));
 				System.out.println("Posto:" + rs.getString("Posto"));
 				}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
 	
-	public void InsertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
+	public void insertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
 		
 		try {
 			ps = conn.prepareStatement("INSERT INTO \"Biglietto\"  VALUES (?, ?, ?, ?, ?); ");

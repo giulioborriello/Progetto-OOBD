@@ -35,8 +35,7 @@ public class TrattaDAO {
 					System.out.println("Scali: " + rs.getString("Scali"));
 					i++;
 				}
-			}
-			catch (SQLException e) {
+			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
@@ -57,8 +56,7 @@ public class TrattaDAO {
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
 				System.out.println("Scali: " + rs.getString("Scali"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -79,8 +77,7 @@ public class TrattaDAO {
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
 				System.out.println("Scali: " + rs.getString("Scali"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -101,8 +98,7 @@ public class TrattaDAO {
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
 				System.out.println("Scali: " + rs.getString("Scali"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -123,8 +119,7 @@ public class TrattaDAO {
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
 				System.out.println("Scali: " + rs.getString("Scali"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -145,8 +140,7 @@ public class TrattaDAO {
 				System.out.println("Destinazione:" + rs.getString("Destinazione"));
 				System.out.println("Scali: " + rs.getString("Scali"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -170,6 +164,7 @@ public class TrattaDAO {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	
 //	public void VerificaFormatoCodTratta() {

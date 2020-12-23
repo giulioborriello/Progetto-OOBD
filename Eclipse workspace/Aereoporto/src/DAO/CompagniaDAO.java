@@ -27,8 +27,7 @@ public class CompagniaDAO {
 				System.out.println("Sito web: "+rs.getString("Sito web"));
 				i++;
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -46,8 +45,7 @@ public class CompagniaDAO {
 				System.out.println("Nome Compagnia: "+rs.getString("Nome Compagnia"));
 				System.out.println("Sito web: "+rs.getString("Sito web"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -64,10 +62,24 @@ public class CompagniaDAO {
 				System.out.println("Nome Compagnia: "+rs.getString("Nome Compagnia"));
 				System.out.println("Sito web: "+rs.getString("Sito web"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
+	
+	public void insertCompagnia(String CodIATA, String Nome_compagnia, String Sito_web)	{
+		
+		try {
+			ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?, ?); ");
+			ps.setString(1, CodIATA);
+			ps.setString(2, Nome_compagnia);
+			ps.setString(3, Sito_web);
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Coda_di_imbarco {
+public class Coda_di_imbarcoDAO {
 	Statement st = null;
 	Connection conn = null;
 	PreparedStatement ps = null;
@@ -21,8 +21,7 @@ public class Coda_di_imbarco {
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -39,8 +38,7 @@ public class Coda_di_imbarco {
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -57,8 +55,7 @@ public class Coda_di_imbarco {
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -75,10 +72,26 @@ public class Coda_di_imbarco {
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
+	
+	public void insertCoda_di_imbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{
+			
+			try {
+				ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?); ");
+				ps.setInt(1, CodCoda);
+				ps.setString(2, Tipo_di_coda);
+				ps.setInt(3, Ngate);
+				ps.setInt(4, CodSlot);
+				ps.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+	}
+	
 }

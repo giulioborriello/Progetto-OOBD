@@ -23,8 +23,7 @@ public class GateDAO {
 				System.out.println("Ngate: "+rs.getInt("Ngate"));
 				System.out.println("CodTratta: "+rs.getString("CodTratta"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -40,8 +39,7 @@ public class GateDAO {
 				System.out.println("Ngate: "+rs.getInt("Ngate"));
 				System.out.println("CodTratta: "+rs.getString("CodTratta"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -57,25 +55,38 @@ public class GateDAO {
 				System.out.println("Ngate: "+rs.getInt("Ngate"));
 				System.out.println("CodTratta: "+rs.getString("CodTratta"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
 	
+	public void insertGate(int Ngate, String CodTratta)	{
+		
+		try {
+			ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?); ");
+			ps.setInt(1, Ngate);
+			ps.setString(2, CodTratta);
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
+	public void updateCodTrattaByNgate(String CodTratta, int Ngate)	{
+		
+		try {
+			ps = conn.prepareStatement("UPDATE \"Slot\" SET \"CodTratta\" = ? WHERE \"Ngate\" = ? ; ");
+			ps.setString(1, CodTratta);
+			ps.setInt(2, Ngate);
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
-//	public void InsertGate(Statement st){
-//		try {
-//			st.executeQuery("INSERT INTO public.\"Gate\"(\"Ngate\", \"CodTratta\") VALUES (?, ?)");
-//			
-//		} 
-//		
-//		catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
 	
 }
 

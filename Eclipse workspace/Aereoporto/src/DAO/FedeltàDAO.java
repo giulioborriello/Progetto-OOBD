@@ -29,8 +29,7 @@ public class Fedelt‡DAO {
 				System.out.println("Punti: "+rs.getInt("Punti"));
 				i++;
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -48,8 +47,7 @@ public class Fedelt‡DAO {
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
 				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -67,8 +65,7 @@ public class Fedelt‡DAO {
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
 				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -86,10 +83,53 @@ public class Fedelt‡DAO {
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
 				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
+	
+	public void insertFedelt‡(int CentoKilometri, String CodIATA,String CodFiscale , int Punti)	{
+		
+		try {
+			ps = conn.prepareStatement("INSERT INTO \"Fedelt‡\"  VALUES (?, ?, ?, ?); ");
+			ps.setInt(1, CentoKilometri);
+			ps.setString(2, CodIATA);
+			ps.setString(3, CodFiscale);
+			ps.setInt(4, Punti);
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void updateCentoKilometriByCodFiscale(int CentoKilometri, String CodFiscale)	{
+			
+			try {
+				ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"CentoKilometri\" = ? WHERE \"CodFiscale\" = ? ; ");
+				ps.setInt(1, CentoKilometri);
+				ps.setString(2, CodFiscale);
+				ps.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
+	public void updatePuntiByCentoKilometri(int CentoKilometri, int Punti)	{
+		
+		try {
+			ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"Punti\" = ? WHERE \"CentoKilometri\" = ? ; ");
+			ps.setInt(1, Punti);
+			ps.setInt(2, CentoKilometri);
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	
+
 }

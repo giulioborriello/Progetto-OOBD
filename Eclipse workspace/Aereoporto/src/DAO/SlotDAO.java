@@ -30,8 +30,7 @@ public class SlotDAO {
 				System.out.println("CodCoda" + rs.getInt("CodCoda"));
 				System.out.println("Data:" + rs.getDate("Data"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -49,8 +48,7 @@ public class SlotDAO {
 				System.out.println("CodCoda" + rs.getInt("CodCoda"));
 				System.out.println("Data:" + rs.getDate("Data"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -68,8 +66,7 @@ public class SlotDAO {
 				System.out.println("CodCoda" + rs.getInt("CodCoda"));
 				System.out.println("Data:" + rs.getDate("Data"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
@@ -87,14 +84,13 @@ public class SlotDAO {
 				System.out.println("CodCoda" + rs.getInt("CodCoda"));
 				System.out.println("Data:" + rs.getDate("Data"));
 			}
-		}
-		catch (SQLException e) {
+		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
 	
-	public void InsertBiglietto(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, int CodCoda, Date Data)	{
+	public void insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, int CodCoda, Date Data)	{
 		
 		try {
 			ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
@@ -109,5 +105,18 @@ public class SlotDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void updateTempoDiImbarcoEffettivoByCodSlot(String TempoDiImbarcoEffettivo, String CodSlot)	{
+		
+		try {
+			ps = conn.prepareStatement("UPDATE \"Slot\" SET \"TempoDiImbarcoEffettivo\" = ? WHERE \"CodSlot\" = ? ; ");
+			ps.setString(1, TempoDiImbarcoEffettivo);
+			ps.setString(2, CodSlot);
+			ps.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
