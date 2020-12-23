@@ -5,7 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class BigliettoDAOPostgres {
+import DAO.BigliettoDAO;
+
+public class BigliettoDAOPostgres implements BigliettoDAO {
 	ResultSet rs;
 	Statement st = null;
 	Connection conn = null;

@@ -1,4 +1,4 @@
-package DAOPostgres;
+package DAO;
 
 public interface FedeltaDAO {
 	public void getAllFedeltà();

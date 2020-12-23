@@ -7,7 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class ClienteDAOPostgres {
+import DAO.ClienteDAO;
+
+public class ClienteDAOPostgres implements ClienteDAO {
 	Statement st = null;
 	Connection conn = null;
 	PreparedStatement ps = null;
