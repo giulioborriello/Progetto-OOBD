@@ -9,19 +9,16 @@ public class Cliente {
 	private String Cognome;
 	private String Email;
 	private List<Biglietto> Biglietto;
-	private List<Cliente> Cliente;
-
-
-
-
-public Cliente(String codFiscale, String nome, String cognome, String email, List<Biglietto> biglietto, List<Cliente> cliente) {
+	private List<Fedeltà> Fedeltà;
+	
+public Cliente(String codFiscale, String nome, String cognome, String email, List<Biglietto> biglietto, List<Fedeltà> fedeltà) {
 		super();
 		CodFiscale = codFiscale;
 		Nome = nome;
 		Cognome = cognome;
 		Email = email;
 		setBiglietto(biglietto);
-		setCliente(cliente);
+		Fedeltà = fedeltà;
 	}
 public String getCodFiscale() {
 		return CodFiscale;
@@ -53,11 +50,11 @@ public String getCodFiscale() {
 	public void setBiglietto(List<Biglietto> biglietto) {
 		Biglietto = biglietto;
 	}
-	public List<Cliente> getCliente() {
-		return Cliente;
+	public List<Fedeltà> getFedeltà() {
+		return Fedeltà;
 	}
-	public void setCliente(List<Cliente> cliente) {
-		Cliente = cliente;
+	public void setCliente(List<Fedeltà> fedeltà) {
+		Fedeltà = fedeltà;
 	}
 	
 

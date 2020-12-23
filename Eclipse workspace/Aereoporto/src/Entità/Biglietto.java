@@ -27,6 +27,8 @@ public class Biglietto {
 		Cliente=cliente;
 	    Tratta= tratta;
 	}
+ 
+ 
 public String getCodTratta() {
 		return CodTratta;
 	}

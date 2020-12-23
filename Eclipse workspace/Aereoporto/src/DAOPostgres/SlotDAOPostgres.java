@@ -7,7 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
+
 import DAO.SlotDAO;
+import Entità.Slot;
 
 
 
@@ -15,24 +18,36 @@ public class SlotDAOPostgres implements SlotDAO{
 
 	Statement st = null;
 	PreparedStatement ps = null;
-	
+	List<Slot> ListSlot;
 	
 	
 	public SlotDAOPostgres() {
 	}
 
-	public void getAllSlot() {
+	public List<Slot> getAllSlot() {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Slot\"");
+			
+			
 			while(rs.next()) {
 				System.out.println("CodSlot:"+rs.getString("CodSlot"));
 				System.out.println("Tempo di imbarco stimato:"+rs.getInt("Tempo di imbarco stimato"));
 				System.out.println("Tempo di imbarco effettivo:"+rs.getTime("Tempo di imbarco effettivo"));
 				System.out.println("CodCoda" + rs.getInt("CodCoda"));
 				System.out.println("Data:" + rs.getDate("Data"));
+				
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				
+				Slot Slot = new Slot(rs.getString("CodSlot"), rs.getInt("Tempo di imbarco stimato"), 
+						rs.getTime("Tempo di imbarco effettivo"), rs.getInt("CodCoda"), rs.getDate("Data"),
+						coda.getCodaDiImbarcoByCodSlot(rs.getString("CodSlot")));
+				
+				ListSlot.add(Slot);
 			}
+			
+			return ListSlot;
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

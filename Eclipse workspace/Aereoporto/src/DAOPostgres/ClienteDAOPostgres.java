@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import DAO.ClienteDAO;
+import Entità.Cliente;
 
 public class ClienteDAOPostgres implements ClienteDAO {
 	Statement st = null;
@@ -37,7 +38,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 		}	
 	}
 	
-	public void getClienteByCodFiscale(String CodFiscale) {
+	public Cliente getClienteByCodFiscale(String CodFiscale) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
@@ -45,7 +46,12 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			ps.setString(1, CodFiscale);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodFiscale" + rs.getString("CodCoda"));
+				
+				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Ngate"), 
+						rs.getString("CodSlot"), null, null);
+				
+				
+				System.out.println("CodFiscale" + rs.getString("CodFiscale"));
 				System.out.println("Nome:"+rs.getString("Nome"));
 				System.out.println("Cognome:"+rs.getString("Ngate"));
 				System.out.println("E-mail"+rs.getString("CodSlot"));

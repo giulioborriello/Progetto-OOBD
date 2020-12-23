@@ -5,35 +5,43 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import DAO.BigliettoDAO;
+import Entità.Biglietto;
 
 public class BigliettoDAOPostgres implements BigliettoDAO {
 	ResultSet rs;
 	Statement st = null;
 	PreparedStatement ps = null;
+	List<Biglietto> ListBiglietto;
 	
 	public BigliettoDAOPostgres() {
 		
 	}
 	
 	
-	public void getAllBiglietto() {
+	public List<Biglietto> getAllBiglietto() {
 		try {
 			
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			rs=st.executeQuery("SELECT * FROM public.\"Biglietto\"");
 			int i=1;
-
+			
+			Biglietto biglietto;
+			
 			while(rs.next()) {
-				System.out.println("Numero Biglietto:"+i);
-				System.out.println("CodFiscale:"+rs.getString("CodFiscale"));
-				System.out.println("Tipo di biglietto:"+rs.getString("Tipo di biglietto"));
-				System.out.println("CodBiglietto:"+rs.getString("CodBiglietto"));
-				System.out.println("CodTratta:" + rs.getString("CodTratta"));
-				System.out.println("Posto:" + rs.getString("Posto"));
+				
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
+				
+				
+				biglietto = new Biglietto(rs.getString("CodFiscale"), rs.getString("Tipo di biglietto"), rs.getString("CodBiglietto"),
+						rs.getString("CodTratta"), rs.getString("Posto"), null, null);
+				
+				ListBiglietto.add(biglietto);
 				}
 			conn.close();
+			return biglietto;
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

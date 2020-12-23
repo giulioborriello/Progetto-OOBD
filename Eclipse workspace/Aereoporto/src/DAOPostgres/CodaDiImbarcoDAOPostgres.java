@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import DAO.CodaDiImbarcoDAO;
+import Entità.CodaDiImbarco;
 
 public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	Statement st = null;
@@ -79,7 +80,7 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 		}	
 	}
 	
-	public void getCodaDiImbarcoByCodSlot(String CodSlot){
+	public CodaDiImbarco getCodaDiImbarcoByCodSlot(String CodSlot){
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
@@ -92,7 +93,7 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 				System.out.println("Ngate:"+rs.getInt("Ngate"));
 				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
 			}
-			
+			CodaDiImbarco coda = new CodaDiImbarco();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
