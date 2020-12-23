@@ -1,10 +1,6 @@
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 import DAOPostgres.*;
 
@@ -27,7 +23,6 @@ public class Main {
 	
 	Fedelt‡DAOPostgres FDAO = new Fedelt‡DAOPostgres(conn);
 	FDAO.updateCentoKilometriByCodFiscaleANDCodIATA(22, "abcd", "AL");
-	
 	
 //	
 //	SlotDAO SDAO = new SlotDAO(conn);
