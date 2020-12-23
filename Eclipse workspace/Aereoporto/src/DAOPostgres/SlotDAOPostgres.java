@@ -2,25 +2,24 @@ package DAOPostgres;
 
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SlotDAOPostgres {
+public class SlotDAOPostgres implements SlotDAO {
 	Statement st = null;
-	Connection conn = null;
 	PreparedStatement ps = null;
 	
 	
 	
-	public SlotDAOPostgres(Connection conn) {
-		super();
-		this.conn = conn;
+	public SlotDAOPostgres() {
 	}
 
 	public void getAllSlot() {
 		try {
+			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Slot\"");
 			while(rs.next()) {
@@ -30,6 +29,7 @@ public class SlotDAOPostgres {
 				System.out.println("CodCoda" + rs.getInt("CodCoda"));
 				System.out.println("Data:" + rs.getDate("Data"));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

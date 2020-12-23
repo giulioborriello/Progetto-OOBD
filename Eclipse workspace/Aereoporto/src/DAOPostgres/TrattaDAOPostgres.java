@@ -1,25 +1,25 @@
 package DAOPostgres;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 
-public class TrattaDAOPostgres {
+public class TrattaDAOPostgres TrattaDAO {
 	Connection conn = null;
 	PreparedStatement ps = null;
 	Statement st = null;
 	
-	public TrattaDAOPostgres(Connection conn) {
-			super();
-			this.conn = conn;
+	public TrattaDAOPostgres() {
 	}
 	
 		
 	public void getAllTratta() {
 			try {
+				Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 				st = conn.createStatement();
 				ResultSet rs=st.executeQuery("SELECT * FROM public.\"Tratta\"");
 				int i=1;
@@ -35,6 +35,7 @@ public class TrattaDAOPostgres {
 					System.out.println("Scali: " + rs.getString("Scali"));
 					i++;
 				}
+				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
