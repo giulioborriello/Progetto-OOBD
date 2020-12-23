@@ -2,16 +2,21 @@ package Entità;
 
 
 public class Biglietto {
+
 	
-	private String CodTratta;
-	private String CodFiscale;
-	private String Nome;
-	private String Posto;
-	private String Tipo_Di_Biglietto;
-	private String CodBiglietto;
-	
+
+	 private String CodTratta;
+	 private String CodFiscale;
+	 private String Nome;
+	 private String Posto;
+	 private String Tipo_Di_Biglietto;
+	 private String CodBiglietto;
+	 private Cliente Cliente;
+	 private Tratta Tratta;
+	 
+
  public Biglietto(String codTratta, String codFiscale, String nome, String posto, String tipo_Di_Biglietto,
-			String codBiglietto) {
+			String codBiglietto,Cliente cliente,Tratta tratta) {
 		super();
 		CodTratta = codTratta;
 		CodFiscale = codFiscale;
@@ -19,6 +24,8 @@ public class Biglietto {
 		Posto = posto;
 		Tipo_Di_Biglietto = tipo_Di_Biglietto;
 		CodBiglietto = codBiglietto;
+		Cliente=cliente;
+	    Tratta= tratta;
 	}
 public String getCodTratta() {
 		return CodTratta;
@@ -56,6 +63,21 @@ public String getCodTratta() {
 	public void setCodBiglietto(String codBiglietto) {
 		CodBiglietto = codBiglietto;
 	}
+
+	public Cliente getCliente() {
+		return Cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		Cliente = cliente;
+	}
+	public Tratta getTratta() {
+		return Tratta;
+	}
+	public void setTratta(Tratta tratta) {
+		Tratta = tratta;
+	}
+
+
 	
 
 }
