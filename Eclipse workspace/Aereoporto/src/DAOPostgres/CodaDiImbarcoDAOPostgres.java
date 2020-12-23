@@ -6,12 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Coda_di_imbarcoDAOPostgres {
+import DAO.CodaDiImbarcoDAO;
+
+public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	Statement st = null;
 	Connection conn = null;
 	PreparedStatement ps = null;
 	
-	public void getAllCode_di_imbarco() {
+	public void getAllCodaDiImbarco() {
 		try {
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Code di imbarco\"");
@@ -27,7 +29,7 @@ public class Coda_di_imbarcoDAOPostgres {
 		}	
 	}
 
-	public void getCoda_di_imbarcoByCodCoda(String CodCoda){
+	public void getCodaDiImbarcoByCodCoda(String CodCoda){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodCoda\" = ?");
 			ps.setString(1, CodCoda);
@@ -44,7 +46,7 @@ public class Coda_di_imbarcoDAOPostgres {
 		}	
 	}
 	
-	public void getCoda_di_imbarcoByNgate(String Ngate){
+	public void getCodaDiImbarcoByNgate(String Ngate){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"Ngate\" = ?");
 			ps.setString(1, Ngate);
@@ -61,7 +63,7 @@ public class Coda_di_imbarcoDAOPostgres {
 		}	
 	}
 	
-	public void getCoda_di_imbarcoByCodSlot(String CodSlot){
+	public void getCodaDiImbarcoByCodSlot(String CodSlot){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
@@ -78,7 +80,7 @@ public class Coda_di_imbarcoDAOPostgres {
 		}	
 	}
 	
-	public void insertCoda_di_imbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{
+	public void insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{
 			
 			try {
 				ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?); ");
