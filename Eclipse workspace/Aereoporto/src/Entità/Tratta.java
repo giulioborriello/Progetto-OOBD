@@ -2,6 +2,7 @@ package Entità;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.util.List;
 
 public class Tratta {
 
@@ -13,9 +14,12 @@ public class Tratta {
 	private String CodIATA;
 	private String Destinazione;
 	private String Scali;
-	
-	public Tratta(String codTratta, int nprenotazioni, Time orarioDiPartenza, Date data, int ngate, String codIATA,
-			String destinazione, String scali) {
+	private Gate Gate;
+	private List<Biglietto> Biglietto;
+	private Compagnia Compagnia;
+
+	public Tratta(String codTratta, int nprenotazioni, Time orarioDiPartenza, Date data, int ngate, String codIATA, 
+			String destinazione, String scali, Gate gate, Biglietto biglietto, Compagnia compagnia) {
 		super();
 		CodTratta = codTratta;
 		Nprenotazioni = nprenotazioni;
@@ -25,6 +29,9 @@ public class Tratta {
 		CodIATA = codIATA;
 		Destinazione = destinazione;
 		Scali = scali;
+		Gate = gate;
+		Biglietto.add(biglietto);
+		Compagnia = compagnia;
 	}
 
 	public String getCodTratta() {
@@ -89,6 +96,30 @@ public class Tratta {
 
 	public void setScali(String scali) {
 		Scali = scali;
+	}
+
+	public Gate getGate() {
+		return Gate;
+	}
+
+	public void setGate(Gate gate) {
+		Gate = gate;
+	}
+
+	public List<Biglietto> getBiglietto() {
+		return Biglietto;
+	}
+
+	public void addBiglietto(Biglietto biglietto) {
+		Biglietto.add(biglietto);
+	}
+
+	public Compagnia getCompagnia() {
+		return Compagnia;
+	}
+
+	public void setCompagnia(Compagnia compagnia) {
+		Compagnia = compagnia;
 	}
 	
 	
