@@ -6,8 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import DAO.SlotDAO;
 
-public class SlotDAOPostgres {
+public class SlotDAOPostgres implements SlotDAO{
 	Statement st = null;
 	Connection conn = null;
 	PreparedStatement ps = null;
