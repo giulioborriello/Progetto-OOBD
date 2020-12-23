@@ -21,8 +21,8 @@ public class Main {
 //	BigliettoDAO BDAO = new BigliettoDAO(conn);
 //	BDAO.insertBiglietto("abcd", "economy", "Bi", "A1", "A11");
 	
-	Fedelt‡DAOPostgres FDAO = new Fedelt‡DAOPostgres(conn);
-	FDAO.updateCentoKilometriByCodFiscaleANDCodIATA(22, "abcd", "AL");
+//	Fedelt‡DAOPostgres FDAO = new Fedelt‡DAOPostgres();
+//	FDAO.updateCentoKilometriByCodFiscaleANDCodIATA(22, "abcd", "AL");
 	
 //	
 //	SlotDAO SDAO = new SlotDAO(conn);
