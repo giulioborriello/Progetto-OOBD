@@ -2,8 +2,8 @@ package Entità;
 
 public class Gate {
 
-	int Ngate;
-	String CodTratta;
+	private int Ngate;
+	private String CodTratta;
 	
 	public Gate(int Ngate, String CodTratta) {
 		this.Ngate = Ngate;
