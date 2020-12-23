@@ -1,6 +1,7 @@
 package DAOPostgres;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,13 +14,12 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	PreparedStatement ps = null;
 	Statement st = null;
 	
-	public Fedelt‡DAOPostgres(Connection conn) {
-		super();
-		this.conn = conn;
+	public Fedelt‡DAOPostgres() {
 	}
 	
 	public void getAllFedelt‡() {
 		try {
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Fedelt‡\"");
 			int i=1;
@@ -31,6 +31,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 				System.out.println("Punti: "+rs.getInt("Punti"));
 				i++;
 			}
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -39,6 +40,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	
 	public void getFedelt‡ByCentoKilometri(String Centokilometri) {
 		try {
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedelt‡\" WHERE \"Centokilometri\" = ?");
 			ps.setString(1, Centokilometri);
 			ResultSet rs=ps.executeQuery();
@@ -49,6 +51,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
 				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -57,6 +60,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	
 	public void getFedelt‡ByCodIATA(String CodIATA) {
 		try {
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedelt‡\" WHERE \"CodIATA\" = ?");
 			ps.setString(1, CodIATA);
 			ResultSet rs=ps.executeQuery();
@@ -67,6 +71,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
 				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,6 +80,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	
 	public void getFedelt‡ByCodFiscale(String CodFiscale) {
 		try {
+			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedelt‡\" WHERE \"CodFiscale\" = ?");
 			ps.setString(1, CodFiscale);
 			ResultSet rs=ps.executeQuery();
@@ -85,6 +91,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
 				System.out.println("Punti: "+rs.getInt("Punti"));
 			}
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
