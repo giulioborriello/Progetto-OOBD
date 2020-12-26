@@ -22,6 +22,7 @@ public class SlotDAOPostgres implements SlotDAO{
 	
 	
 	public SlotDAOPostgres() {
+		
 	}
 
 	public List<Slot> getAllSlot() {
@@ -38,21 +39,20 @@ public class SlotDAOPostgres implements SlotDAO{
 				System.out.println("CodCoda" + rs.getInt("CodCoda"));
 				System.out.println("Data:" + rs.getDate("Data"));
 				
-				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
 				
-				Slot Slot = new Slot(rs.getString("CodSlot"), rs.getInt("Tempo di imbarco stimato"), 
-						rs.getTime("Tempo di imbarco effettivo"), rs.getInt("CodCoda"), rs.getDate("Data"),
-						coda.getCodaDiImbarcoByCodSlot(rs.getString("CodSlot")));
+				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("Tempo di imbarco stimato"), 
+						rs.getInt("Tempo di imbarco effettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
 				
 				ListSlot.add(Slot);
 			}
-			
-			return ListSlot;
 			conn.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		
+		return ListSlot;
 	}
 	
 	public void getSlotByCodSlot(String CodSlot) {

@@ -1,19 +1,13 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.util.List;
 
 import DAOPostgres.*;
+import Entit‡.Slot;
 
 public class Main {
 
 	public static void main(String[] args) {
-		Connection conn = null;
-		try{
-			 conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			}
-		catch (SQLException e) {
-			System.out.println("Eccezione 2 SQL\n"+e);
-		}
+		
+		
 		
 //	TrattaDAO TDAO = new TrattaDAO(conn);
 //	TDAO.insertTratta("A2", 0, Time.valueOf(LocalTime.of(0, 0, 0)), Date.valueOf(LocalDate.of(2021, 1, 1)), 1, "AL", "Milano");
@@ -24,10 +18,17 @@ public class Main {
 //	Fedelt‡DAOPostgres FDAO = new Fedelt‡DAOPostgres();
 //	FDAO.updateCentoKilometriByCodFiscaleANDCodIATA(22, "abcd", "AL");
 	
-//	
-//	SlotDAO SDAO = new SlotDAO(conn);
-//	SDAO.updateTempoDiImbarcoEffettivoByCodSlot(9000000, 12 );
-//	
+	
+	SlotDAOPostgres SDAO = new SlotDAOPostgres();
+	List<Slot> list = SDAO.getAllSlot();
+	
+	for(Slot slot:list) {
+		System.out.println(slot.getCodSlot());
+		System.out.println(slot.getCodCoda());
+		System.out.println(slot.getTempoDiImbarcoEffettivo());
+		System.out.println(slot.getTempoDiImbarcoStimato());
+	}
+	
 //	GateDAO GDAO = new GateDAO(conn);
 //	GDAO.updateCodTrattaByNgate("A1", 1);
 	

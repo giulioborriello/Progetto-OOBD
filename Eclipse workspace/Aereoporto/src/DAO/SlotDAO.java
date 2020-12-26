@@ -1,10 +1,13 @@
 package DAO;
 
 import java.sql.Date;
+import java.util.List;
+
+import Entità.Slot;
 
 public interface SlotDAO {
 
-	public void getAllSlot();
+	public List<Slot> getAllSlot();
 	public void getSlotByCodSlot(String CodSlot);
 	public void getSlotByCodCoda(String CodCoda);
 	public void getSlotByData(String Data);

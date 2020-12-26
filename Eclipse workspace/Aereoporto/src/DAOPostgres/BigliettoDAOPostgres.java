@@ -21,7 +21,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 	}
 	
 	
-	public List<Biglietto> getAllBiglietto() {
+	public void getAllBiglietto() {
 		try {
 			
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
@@ -35,13 +35,13 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
 				
 				
-				biglietto = new Biglietto(rs.getString("CodFiscale"), rs.getString("Tipo di biglietto"), rs.getString("CodBiglietto"),
-						rs.getString("CodTratta"), rs.getString("Posto"), null, null);
-				
-				ListBiglietto.add(biglietto);
+//				biglietto = new Biglietto(rs.getString("CodFiscale"), rs.getString("Tipo di biglietto"), rs.getString("CodBiglietto"),
+//						rs.getString("CodTratta"), rs.getString("Posto"), null, null);
+////				
+//				ListBiglietto.add(biglietto);
 				}
 			conn.close();
-			return biglietto;
+			
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

@@ -38,7 +38,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 		}	
 	}
 	
-	public Cliente getClienteByCodFiscale(String CodFiscale) {
+	public void getClienteByCodFiscale(String CodFiscale) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
