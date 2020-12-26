@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 import java.util.List;
 
 import DAO.SlotDAO;
@@ -18,7 +19,7 @@ public class SlotDAOPostgres implements SlotDAO{
 
 	Statement st = null;
 	PreparedStatement ps = null;
-	List<Slot> ListSlot;
+	List<Slot> ListSlot = new LinkedList<Slot>();
 	
 	
 	public SlotDAOPostgres() {
@@ -40,8 +41,8 @@ public class SlotDAOPostgres implements SlotDAO{
 				System.out.println("Data:" + rs.getDate("Data"));
 				
 				
-				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("Tempo di imbarco stimato"), 
-						rs.getInt("Tempo di imbarco effettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
+				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
 				
 				ListSlot.add(Slot);
 			}
@@ -55,64 +56,65 @@ public class SlotDAOPostgres implements SlotDAO{
 		return ListSlot;
 	}
 	
-	public void getSlotByCodSlot(String CodSlot) {
+	public List<Slot> getSlotByCodSlot(String CodSlot) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodSlot:"+rs.getString("CodSlot"));
-				System.out.println("Tempo di imbarco stimato:"+rs.getInt("Tempo di imbarco stimato"));
-				System.out.println("Tempo di imbarco effettivo:"+rs.getTime("Tempo di imbarco effettivo"));
-				System.out.println("CodCoda" + rs.getInt("CodCoda"));
-				System.out.println("Data:" + rs.getDate("Data"));
+				
+				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
+				
+				ListSlot.add(Slot);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListSlot;
 	}
 	
-	public void getSlotByCodCoda(String CodCoda) {
+	public List<Slot> getSlotByCodCoda(String CodCoda) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodCoda\" = ?");
 			ps.setString(1, CodCoda);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodSlot:"+rs.getString("CodSlot"));
-				System.out.println("Tempo di imbarco stimato:"+rs.getInt("Tempo di imbarco stimato"));
-				System.out.println("Tempo di imbarco effettivo:"+rs.getTime("Tempo di imbarco effettivo"));
-				System.out.println("CodCoda" + rs.getInt("CodCoda"));
-				System.out.println("Data:" + rs.getDate("Data"));
+				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
+				
+				ListSlot.add(Slot);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListSlot;
 	}
 	
-	public void getSlotByData(String Data) {
+	public List<Slot> getSlotByData(String Data) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"Data\" = ?");
 			ps.setString(1, Data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodSlot:"+rs.getString("CodSlot"));
-				System.out.println("Tempo di imbarco stimato:"+rs.getInt("Tempo di imbarco stimato"));
-				System.out.println("Tempo di imbarco effettivo:"+rs.getTime("Tempo di imbarco effettivo"));
-				System.out.println("CodCoda" + rs.getInt("CodCoda"));
-				System.out.println("Data:" + rs.getDate("Data"));
+				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
+				
+				ListSlot.add(Slot);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
+		return ListSlot;	
 	}
 	
 	public void insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, int CodCoda, Date Data)	{

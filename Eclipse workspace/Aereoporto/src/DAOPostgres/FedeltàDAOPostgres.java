@@ -6,39 +6,44 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 
 import DAO.FedeltaDAO;
+import Entit‡.Fedelt‡;
 
 public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	Connection conn;
 	PreparedStatement ps = null;
 	Statement st = null;
+	List<Fedelt‡> ListFedelt‡ = new LinkedList<Fedelt‡>();
+	
 	
 	public Fedelt‡DAOPostgres() {
 	}
 	
-	public void getAllFedelt‡() {
+	public List<Fedelt‡> getAllFedelt‡() {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Fedelt‡\"");
-			int i=1;
+			
 			while(rs.next()) {
-				System.out.println("Fedelt‡ numero: "+i);
-				System.out.println("Centokilometri: "+rs.getInt("Centokilometri"));
-				System.out.println("CodIATA: "+rs.getString("CodIATA"));
-				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
-				System.out.println("Punti: "+rs.getInt("Punti"));
-				i++;
+				
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"), null, null);
+				
+				ListFedelt‡.add(fedelt‡);
+				
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
+		return ListFedelt‡;	
 	}
 	
-	public void getFedelt‡ByCentoKilometri(String Centokilometri) {
+	public List<Fedelt‡> getFedelt‡ByCentoKilometri(String Centokilometri) {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedelt‡\" WHERE \"Centokilometri\" = ?");
@@ -46,19 +51,21 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Centokilometri: "+rs.getInt("Centokilometri"));
-				System.out.println("CodIATA: "+rs.getString("CodIATA"));
-				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
-				System.out.println("Punti: "+rs.getInt("Punti"));
+
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"), null, null);
+				
+				ListFedelt‡.add(fedelt‡);
+				
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListFedelt‡;	
 	}
 	
-	public void getFedelt‡ByCodIATA(String CodIATA) {
+	public List<Fedelt‡> getFedelt‡ByCodIATA(String CodIATA) {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedelt‡\" WHERE \"CodIATA\" = ?");
@@ -66,19 +73,21 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Centokilometri: "+rs.getInt("Centokilometri"));
-				System.out.println("CodIATA: "+rs.getString("CodIATA"));
-				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
-				System.out.println("Punti: "+rs.getInt("Punti"));
+
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"), null, null);
+				
+				ListFedelt‡.add(fedelt‡);
+				
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListFedelt‡;	
 	}
 	
-	public void getFedelt‡ByCodFiscale(String CodFiscale) {
+	public List<Fedelt‡> getFedelt‡ByCodFiscale(String CodFiscale) {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedelt‡\" WHERE \"CodFiscale\" = ?");
@@ -86,16 +95,18 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Centokilometri: "+rs.getInt("Centokilometri"));
-				System.out.println("CodIATA: "+rs.getString("CodIATA"));
-				System.out.println("CodFiscale: "+rs.getString("CodFiscale"));
-				System.out.println("Punti: "+rs.getInt("Punti"));
+
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"), null, null);
+				
+				ListFedelt‡.add(fedelt‡);
+				
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListFedelt‡;	
 	}
 	
 	public void insertFedelt‡(int CentoKilometri, String CodIATA,String CodFiscale , int Punti)	{

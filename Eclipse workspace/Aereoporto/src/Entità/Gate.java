@@ -9,12 +9,12 @@ public class Gate {
 	private List<CodaDiImbarco> CodaDiImbarco;
 	private Tratta Tratta;
 
-	public Gate(int ngate, String codTratta, CodaDiImbarco codaDiImbarco, Tratta tratta) {
+	public Gate(int ngate, String codTratta, Object codaDiImbarco, Object tratta) {
 		super();
 		Ngate = ngate;
 		CodTratta = codTratta;
-		CodaDiImbarco.add(codaDiImbarco);
-		Tratta = tratta;
+		CodaDiImbarco.add((Entità.CodaDiImbarco) codaDiImbarco);
+		Tratta = (Entità.Tratta) tratta;
 	}
 
 	public int getNgate() {

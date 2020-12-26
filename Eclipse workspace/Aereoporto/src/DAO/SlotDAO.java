@@ -8,9 +8,9 @@ import Entità.Slot;
 public interface SlotDAO {
 
 	public List<Slot> getAllSlot();
-	public void getSlotByCodSlot(String CodSlot);
-	public void getSlotByCodCoda(String CodCoda);
-	public void getSlotByData(String Data);
+	public List<Slot> getSlotByCodSlot(String CodSlot);
+	public List<Slot> getSlotByCodCoda(String CodCoda);
+	public List<Slot> getSlotByData(String Data);
 	public void insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, int CodCoda, Date Data);
 	public void updateTempoDiImbarcoEffettivoByCodSlot(int TempoDiImbarcoEffettivo, int CodSlot);
 	

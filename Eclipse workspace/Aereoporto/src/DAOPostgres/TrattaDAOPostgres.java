@@ -7,147 +7,138 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
-
+import java.util.LinkedList;
+import java.util.List;
 
 import DAO.TrattaDAO;
+import Entità.Tratta;
 
 public class TrattaDAOPostgres implements TrattaDAO{
 	Connection conn = null;
 	PreparedStatement ps = null;
 	Statement st = null;
+	List<Tratta> ListTratta = new LinkedList<Tratta>();
+	
 	
 	public TrattaDAOPostgres() {
 	}
 	
 		
-	public void getAllTratta() {
+	public List<Tratta> getAllTratta() {
 			try {
 				Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 				st = conn.createStatement();
 				ResultSet rs=st.executeQuery("SELECT * FROM public.\"Tratta\"");
-				int i=1;
 				while(rs.next()) {
-					System.out.println("Tratta numero: "+i);
-					System.out.println("CodTratta: "+rs.getString("CodTratta"));
-					System.out.println("Nprenotazioni: "+rs.getInt("Nprenotazioni"));
-					System.out.println("Orario di partenza: "+rs.getTime("Orario di partenza"));
-					System.out.println("Data: " + rs.getDate("Data"));
-					System.out.println("Ngate: " + rs.getInt("Ngate"));
-					System.out.println("CodIATA: " + rs.getString("CodIATA"));
-					System.out.println("Destinazione: " + rs.getString("Destinazione"));
-					System.out.println("Scali: " + rs.getString("Scali"));
-					i++;
+					
+					Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+							rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+							null, null, null);
+					
+					ListTratta.add(tratta);
 				}
 				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}	
+			}
+			return ListTratta;	
 		}
 		
-	public void getTrattaByCodTratta(String CodTratta){
+	public List<Tratta> getTrattaByCodTratta(String CodTratta){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodTratta:"+rs.getString("CodTratta"));
-				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
-				System.out.println("Orario di partenza:"+rs.getTime("Orario di partenza"));
-				System.out.println("Data:" + rs.getDate("Data"));
-				System.out.println("Ngate" + rs.getInt("Ngate"));
-				System.out.println("CodIATA:" + rs.getString("CodIATA"));
-				System.out.println("Destinazione:" + rs.getString("Destinazione"));
-				System.out.println("Scali: " + rs.getString("Scali"));
+				
+				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null, null);
+				
+				ListTratta.add(tratta);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListTratta;	
 	}
 	
-	public void getTrattaByData(String Data){
+	public List<Tratta> getTrattaByData(String Data){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Data\" = ?");
 			ps.setString(1, Data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodTratta:"+rs.getString("CodTratta"));
-				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
-				System.out.println("Orario di partenza:"+rs.getTime("Orario di partenza"));
-				System.out.println("Data:" + rs.getDate("Data"));
-				System.out.println("Ngate" + rs.getInt("Ngate"));
-				System.out.println("CodIATA:" + rs.getString("CodIATA"));
-				System.out.println("Destinazione:" + rs.getString("Destinazione"));
-				System.out.println("Scali: " + rs.getString("Scali"));
+				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null, null);
+				
+				ListTratta.add(tratta);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListTratta;	
 	}
 	
-	public void getTrattaNgate(String Ngate){
+	public List<Tratta> getTrattaNgate(String Ngate){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
 			ps.setString(1, Ngate);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodTratta:"+rs.getString("CodTratta"));
-				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
-				System.out.println("Orario di partenza:"+rs.getTime("Orario di partenza"));
-				System.out.println("Data:" + rs.getDate("Data"));
-				System.out.println("Ngate" + rs.getInt("Ngate"));
-				System.out.println("CodIATA:" + rs.getString("CodIATA"));
-				System.out.println("Destinazione:" + rs.getString("Destinazione"));
-				System.out.println("Scali: " + rs.getString("Scali"));
+				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null, null);
+				
+				ListTratta.add(tratta);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListTratta;	
 	}
 	
-	public void getTrattaCodIATA(String CodIATA){
+	public List<Tratta> getTrattaCodIATA(String CodIATA){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodIATA\" = ?");
 			ps.setString(1, CodIATA);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodTratta:"+rs.getString("CodTratta"));
-				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
-				System.out.println("Orario di partenza:"+rs.getTime("Orario di partenza"));
-				System.out.println("Data:" + rs.getDate("Data"));
-				System.out.println("Ngate" + rs.getInt("Ngate"));
-				System.out.println("CodIATA:" + rs.getString("CodIATA"));
-				System.out.println("Destinazione:" + rs.getString("Destinazione"));
-				System.out.println("Scali: " + rs.getString("Scali"));
+				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null, null);
+				
+				ListTratta.add(tratta);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListTratta;	
 	}
 	
-	public void getTrattaDestinazione(String Destinazione){
+	public List<Tratta> getTrattaDestinazione(String Destinazione){
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Destinazione\" = ?");
 			ps.setString(1, Destinazione);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodTratta:"+rs.getString("CodTratta"));
-				System.out.println("Nprenotazioni:"+rs.getInt("Nprenotazioni"));
-				System.out.println("Orario di partenza:"+rs.getTime("Orario di partenza"));
-				System.out.println("Data:" + rs.getDate("Data"));
-				System.out.println("Ngate" + rs.getInt("Ngate"));
-				System.out.println("CodIATA:" + rs.getString("CodIATA"));
-				System.out.println("Destinazione:" + rs.getString("Destinazione"));
-				System.out.println("Scali: " + rs.getString("Scali"));
+				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null, null);
+				
+				ListTratta.add(tratta);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListTratta;	
 	}
 	
 	public void insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, int Ngate,  String CodIATA, String Destinazione, String Scali) {

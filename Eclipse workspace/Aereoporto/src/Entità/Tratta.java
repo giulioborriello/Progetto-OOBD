@@ -19,7 +19,7 @@ public class Tratta {
 	private Compagnia Compagnia;
 
 	public Tratta(String codTratta, int nprenotazioni, Time orarioDiPartenza, Date data, int ngate, String codIATA, 
-			String destinazione, String scali, Gate gate, Biglietto biglietto, Compagnia compagnia) {
+			String destinazione, String scali, Object gate, Object biglietto, Object compagnia) {
 		super();
 		CodTratta = codTratta;
 		Nprenotazioni = nprenotazioni;
@@ -29,9 +29,9 @@ public class Tratta {
 		CodIATA = codIATA;
 		Destinazione = destinazione;
 		Scali = scali;
-		Gate = gate;
-		Biglietto.add(biglietto);
-		Compagnia = compagnia;
+		Gate = (Entità.Gate) gate;
+		Biglietto.add((Entità.Biglietto) biglietto);
+		Compagnia = (Entità.Compagnia) compagnia;
 	}
 
 	public String getCodTratta() {

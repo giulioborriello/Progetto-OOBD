@@ -5,34 +5,42 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 
 import DAO.GateDAO;
+import Entità.Gate;
 
 public class GateDAOPostgres implements GateDAO{
 	Connection conn;
 	PreparedStatement ps = null;
 	Statement st = null;
+	List<Gate> ListGate = new LinkedList<Gate>();
 	
 	public GateDAOPostgres() {
 	}
 	
-	public void getAllGate() {
+	public List<Gate> getAllGate() {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Gate\"");
 			while(rs.next()) {
-				System.out.println("Ngate: "+rs.getInt("Ngate"));
-				System.out.println("CodTratta: "+rs.getString("CodTratta"));
+				
+				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), null, null);
+				
+				ListGate.add(gate);
+				
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
+		return ListGate;	
 	}
 	
-	public void getGateByNgate(int Ngate) {
+	public List<Gate> getGateByNgate(int Ngate) {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"Ngate\" = ?");
@@ -40,17 +48,19 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Ngate: "+rs.getInt("Ngate"));
-				System.out.println("CodTratta: "+rs.getString("CodTratta"));
+				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), null, null);
+				
+				ListGate.add(gate);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListGate;
 	}
 	
-	public void getGateByCodTratta(String CodTratta) {
+	public List<Gate> getGateByCodTratta(String CodTratta) {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"CodTratta\" = ?");
@@ -58,14 +68,16 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println("Ngate: "+rs.getInt("Ngate"));
-				System.out.println("CodTratta: "+rs.getString("CodTratta"));
+				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), null, null);
+				
+				ListGate.add(gate);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListGate;
 	}
 	
 	public void insertGate(int Ngate, String CodTratta)	{
