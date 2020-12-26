@@ -1,10 +1,14 @@
 package DAO;
 
+import java.util.List;
+
+import Entità.Cliente;
+
 public interface ClienteDAO {
 
-	public void getAllCliente();
+	public List<Cliente> getAllCliente();
 	
-	public void getClienteByCodFiscale(String CodFiscale);
+	public List<Cliente> getClienteByCodFiscale(String CodFiscale);
 	
 	public void insertCliente(String CodFiscale, String Nome, String Cognome, String Email);
 	

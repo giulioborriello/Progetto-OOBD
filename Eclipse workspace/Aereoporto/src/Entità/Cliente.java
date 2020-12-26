@@ -11,14 +11,14 @@ public class Cliente {
 	private List<Biglietto> Biglietto;
 	private List<Fedeltà> Fedeltà;
 	
-public Cliente(String codFiscale, String nome, String cognome, String email, List<Biglietto> biglietto, List<Fedeltà> fedeltà) {
+public Cliente(String codFiscale, String nome, String cognome, String email, Object biglietto, Object fedeltà) {
 		super();
 		CodFiscale = codFiscale;
 		Nome = nome;
 		Cognome = cognome;
 		Email = email;
-		setBiglietto(biglietto);
-		Fedeltà = fedeltà;
+		Biglietto.add((Entità.Biglietto) biglietto);
+		Fedeltà = (List<Entità.Fedeltà>) fedeltà;
 	}
 public String getCodFiscale() {
 		return CodFiscale;

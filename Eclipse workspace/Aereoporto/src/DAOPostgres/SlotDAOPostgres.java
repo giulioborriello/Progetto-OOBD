@@ -34,11 +34,11 @@ public class SlotDAOPostgres implements SlotDAO{
 			
 			
 			while(rs.next()) {
-				System.out.println("CodSlot:"+rs.getString("CodSlot"));
-				System.out.println("Tempo di imbarco stimato:"+rs.getInt("Tempo di imbarco stimato"));
-				System.out.println("Tempo di imbarco effettivo:"+rs.getTime("Tempo di imbarco effettivo"));
-				System.out.println("CodCoda" + rs.getInt("CodCoda"));
-				System.out.println("Data:" + rs.getDate("Data"));
+//				("CodSlot:"+rs.getString("CodSlot"));
+//				("Tempo di imbarco stimato:"+rs.getInt("Tempo di imbarco stimato"));
+//				("Tempo di imbarco effettivo:"+rs.getTime("Tempo di imbarco effettivo"));
+//				("CodCoda" + rs.getInt("CodCoda"));
+//				rs.getDate("Data"));
 				
 				
 				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 

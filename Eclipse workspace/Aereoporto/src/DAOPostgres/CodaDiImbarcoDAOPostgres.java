@@ -6,39 +6,44 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 
 import DAO.CodaDiImbarcoDAO;
+import Entità.Biglietto;
 import Entità.CodaDiImbarco;
 
 public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	Statement st = null;
 	PreparedStatement ps = null;
-	
+	List<CodaDiImbarco> ListCodaDiImbarco = new LinkedList<CodaDiImbarco>();
+
 	public CodaDiImbarcoDAOPostgres() {
 		
 	}
 	
-	public void getAllCodaDiImbarco() {
+	public List<CodaDiImbarco> getAllCodaDiImbarco() {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Code di imbarco\"");
+			
 			while(rs.next()) {
-				System.out.println("CodCoda" + rs.getInt("CodCoda"));
-				System.out.println("Tipo di coda:"+rs.getString("Tipo di coda"));
-				System.out.println("Ngate:"+rs.getInt("Ngate"));
-				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
+				CodaDiImbarco codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),
+						rs.getInt("CodSlot"), null, null);
+				
 			}
 			
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
+		return ListCodaDiImbarco;	
 	}
 
-	public void getCodaDiImbarcoByCodCoda(String CodCoda){
+	public List<CodaDiImbarco> getCodaDiImbarcoByCodCoda(String CodCoda){
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
@@ -46,10 +51,9 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, CodCoda);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodCoda" + rs.getInt("CodCoda"));
-				System.out.println("Tipo di coda:"+rs.getString("Tipo di coda"));
-				System.out.println("Ngate:"+rs.getInt("Ngate"));
-				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
+				CodaDiImbarco codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),
+						rs.getInt("CodSlot"), null, null);
+			
 			}
 			
 			conn.close();
@@ -57,9 +61,11 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListCodaDiImbarco;	
+
 	}
 	
-	public void getCodaDiImbarcoByNgate(String Ngate){
+	public List<CodaDiImbarco> getCodaDiImbarcoByNgate(String Ngate){
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
@@ -67,10 +73,9 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, Ngate);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodCoda" + rs.getInt("CodCoda"));
-				System.out.println("Tipo di coda:"+rs.getString("Tipo di coda"));
-				System.out.println("Ngate:"+rs.getInt("Ngate"));
-				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
+				CodaDiImbarco codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),
+						rs.getInt("CodSlot"), null, null);
+			
 			}
 			
 			conn.close();
@@ -78,9 +83,11 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListCodaDiImbarco;	
+
 	}
 	
-	public void getCodaDiImbarcoByCodSlot(String CodSlot){
+	public List<CodaDiImbarco> getCodaDiImbarcoByCodSlot(String CodSlot){
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
@@ -88,16 +95,16 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				System.out.println("CodCoda" + rs.getInt("CodCoda"));
-				System.out.println("Tipo di coda:"+rs.getString("Tipo di coda"));
-				System.out.println("Ngate:"+rs.getInt("Ngate"));
-				System.out.println("CodSlot:"+rs.getInt("CodSlot"));
+				CodaDiImbarco codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),
+						rs.getInt("CodSlot"), null, null);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		return ListCodaDiImbarco;	
+
 	}
 	
 	public void insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{

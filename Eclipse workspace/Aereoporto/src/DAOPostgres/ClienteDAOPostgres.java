@@ -6,39 +6,44 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import java.util.List;
 
 import DAO.ClienteDAO;
+import Entità.Biglietto;
 import Entità.Cliente;
 
 public class ClienteDAOPostgres implements ClienteDAO {
 	Statement st = null;
 	PreparedStatement ps = null;
-	
+	List<Cliente> Listcliente = new LinkedList<Cliente>();
+
 	public ClienteDAOPostgres() {
 		
 	}
 
-	public void getAllCliente() {
+	public List<Cliente> getAllCliente() {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Cliente\"");
 			while(rs.next()) {
-				System.out.println("CodFiscale" + rs.getString("CodFiscale"));
-				System.out.println("Nome:"+rs.getString("Nome"));
-				System.out.println("Cognome:"+rs.getString("Cognome"));
-				System.out.println("E-mail"+rs.getString("E-mail"));
+				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"),
+						rs.getString("Email"),null, null);
+				
+				Listcliente.add(cliente);
 			}
 			
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
+		return Listcliente;	
 	}
 	
-	public void getClienteByCodFiscale(String CodFiscale) {
+	public  List<Cliente>  getClienteByCodFiscale(String CodFiscale) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
@@ -50,11 +55,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Ngate"), 
 						rs.getString("CodSlot"), null, null);
 				
-				
-				System.out.println("CodFiscale" + rs.getString("CodFiscale"));
-				System.out.println("Nome:"+rs.getString("Nome"));
-				System.out.println("Cognome:"+rs.getString("Ngate"));
-				System.out.println("E-mail"+rs.getString("CodSlot"));
+				Listcliente.add(cliente);
 			}
 			
 			conn.close();
@@ -62,6 +63,9 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
+		
+		return Listcliente;	
+
 	}
 	
 	public void insertCliente(String CodFiscale, String Nome, String Cognome, String Email)	{

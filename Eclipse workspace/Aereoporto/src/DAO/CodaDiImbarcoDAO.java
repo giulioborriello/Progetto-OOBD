@@ -1,15 +1,18 @@
 package DAO;
 
+import java.util.List;
+
+import Entità.CodaDiImbarco;
 
 public interface CodaDiImbarcoDAO {
 	
-	public void getAllCodaDiImbarco();
+	public List<CodaDiImbarco> getAllCodaDiImbarco();
 	
-	public void getCodaDiImbarcoByCodCoda(String CodCoda);
+	public List<CodaDiImbarco> getCodaDiImbarcoByCodCoda(String CodCoda);
 	
-	public void getCodaDiImbarcoByNgate(String Ngate);
+	public List<CodaDiImbarco> getCodaDiImbarcoByNgate(String Ngate);
 	
-	public void getCodaDiImbarcoByCodSlot(String CodSlot);
+	public List<CodaDiImbarco> getCodaDiImbarcoByCodSlot(String CodSlot);
 	
 	public void insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot);
 	

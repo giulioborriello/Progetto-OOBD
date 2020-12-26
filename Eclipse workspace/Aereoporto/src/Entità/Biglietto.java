@@ -16,7 +16,7 @@ public class Biglietto {
 	 
 
  public Biglietto(String codTratta, String codFiscale, String nome, String posto, String tipo_Di_Biglietto,
-			String codBiglietto,Cliente cliente,Tratta tratta) {
+			String codBiglietto,Object cliente,Object tratta) {
 		super();
 		CodTratta = codTratta;
 		CodFiscale = codFiscale;
@@ -24,8 +24,8 @@ public class Biglietto {
 		Posto = posto;
 		Tipo_Di_Biglietto = tipo_Di_Biglietto;
 		CodBiglietto = codBiglietto;
-		Cliente=cliente;
-	    Tratta= tratta;
+		Cliente=(Entità.Cliente) cliente;
+	    Tratta = (Entità.Tratta) tratta;
 	}
  
  
