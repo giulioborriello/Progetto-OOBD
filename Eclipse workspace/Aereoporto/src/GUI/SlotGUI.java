@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import DAOPostgres.SlotDAOPostgres;
+import Entità.Slot;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -18,6 +22,7 @@ import javax.swing.JSpinner;
 import javax.swing.JTextArea;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 
@@ -64,7 +69,16 @@ public class SlotGUI extends JFrame {
 		JButton btnNewButton = new JButton("Invia");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if comboBox.
+				String temp = (String) comboBox.getSelectedItem(); 
+				if (temp.equals("Seleziona tutti")) {
+					SlotDAOPostgres sl = new SlotDAOPostgres();
+					
+					List<Slot> ls = sl.getAllSlot();
+					for (Slot slot: ls) {
+						System.out.println(slot.getCodSlot());
+					}
+					
+				}
 			}
 		});
 		btnNewButton.setBounds(596, 128, 142, 42);
