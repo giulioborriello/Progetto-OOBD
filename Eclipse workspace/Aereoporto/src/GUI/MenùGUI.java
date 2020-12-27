@@ -21,10 +21,10 @@ public class MenùGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenùGUI(Controller controller2) {
-		controller = controller2;
+	public MenùGUI(Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 808, 571);
+		setBounds(100, 100, 800, 700);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -38,7 +38,7 @@ public class MenùGUI extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				controller2.OpenSlot();
+				controller.OpenSlot();
 			}
 		});
 		btnNewButton_1.setBounds(485, 181, 124, 70);

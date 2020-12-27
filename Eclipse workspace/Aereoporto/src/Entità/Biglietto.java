@@ -9,7 +9,7 @@ public class Biglietto {
 	 private String CodFiscale;
 	 private String Nome;
 	 private String Posto;
-	 private String Tipo_Di_Biglietto;
+	 private String TipoDiBiglietto;
 	 private String CodBiglietto;
 	 private Cliente Cliente;
 	 private Tratta Tratta;
@@ -22,7 +22,7 @@ public class Biglietto {
 		CodFiscale = codFiscale;
 		Nome = nome;
 		Posto = posto;
-		Tipo_Di_Biglietto = tipo_Di_Biglietto;
+		TipoDiBiglietto = tipo_Di_Biglietto;
 		CodBiglietto = codBiglietto;
 		Cliente=(Entità.Cliente) cliente;
 	    Tratta = (Entità.Tratta) tratta;
@@ -54,10 +54,10 @@ public String getCodTratta() {
 		Posto = posto;
 	}
 	public String getTipo_Di_Biglietto() {
-		return Tipo_Di_Biglietto;
+		return TipoDiBiglietto;
 	}
 	public void setTipo_Di_Biglietto(String tipo_Di_Biglietto) {
-		Tipo_Di_Biglietto = tipo_Di_Biglietto;
+		TipoDiBiglietto = tipo_Di_Biglietto;
 	}
 	public String getCodBiglietto() {
 		return CodBiglietto;

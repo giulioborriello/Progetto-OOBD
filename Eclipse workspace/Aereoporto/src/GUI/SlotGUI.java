@@ -1,6 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,13 +12,10 @@ import Entità.Slot;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.JMenuBar;
 import javax.swing.JComboBox;
-import javax.swing.JSpinner;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.util.List;
