@@ -8,13 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.lang.ModuleLayer.Controller;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 
-public class Menù extends JFrame {
+public class MenùGUI extends JFrame {
 	Controller controller;
 	private JPanel contentPane;
 	
@@ -22,7 +21,7 @@ public class Menù extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Menù(Controller controller2) {
+	public MenùGUI(Controller controller2) {
 		controller = controller2;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 808, 571);
@@ -91,4 +90,7 @@ public class Menù extends JFrame {
 		btnNewButton_7.setBounds(485, 343, 124, 70);
 		contentPane.add(btnNewButton_7);
 	}
+
+
+
 }

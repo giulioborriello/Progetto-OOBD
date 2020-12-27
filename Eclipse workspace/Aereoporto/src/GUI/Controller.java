@@ -1,16 +1,17 @@
+package GUI;
 import java.util.List;
 
 import DAOPostgres.*;
 import Entità.Slot;
-import GUI.Menù;
+import GUI.MenùGUI;
 import GUI.SlotGUI;
 
 public class Controller {
-	Menù menù;
+	MenùGUI menù;
 	SlotGUI slot;
 	
 	public Controller() {
-		menù = new Menù(this);
+		menù = new MenùGUI(this);
 		menù.setVisible(true);
 		slot = new SlotGUI();
 	}
@@ -24,13 +25,7 @@ public class Controller {
 	public void OpenSlot() {
 		menù.setVisible(false);
 		slot.setVisible(true);
-		
-	
-	
 	}
-	
-	
-	
 	
 }
 
