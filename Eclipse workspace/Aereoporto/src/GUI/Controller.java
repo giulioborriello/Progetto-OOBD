@@ -25,7 +25,13 @@ public class Controller {
 	public void OpenSlot() {
 		menù.setVisible(false);
 		slot.setVisible(true);
+		
+	
+	
 	}
+	
+	
+	
 	
 }
 

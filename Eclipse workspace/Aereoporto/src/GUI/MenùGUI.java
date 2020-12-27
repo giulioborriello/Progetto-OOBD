@@ -90,7 +90,4 @@ public class MenùGUI extends JFrame {
 		btnNewButton_7.setBounds(485, 343, 124, 70);
 		contentPane.add(btnNewButton_7);
 	}
-
-
-
 }
