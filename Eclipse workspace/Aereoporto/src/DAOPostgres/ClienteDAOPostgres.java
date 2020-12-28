@@ -14,19 +14,17 @@ import Entità.Biglietto;
 import Entità.Cliente;
 
 public class ClienteDAOPostgres implements ClienteDAO {
-	Statement st = null;
-	PreparedStatement ps = null;
+	Connection conn = null;
 	List<Cliente> Listcliente = new LinkedList<Cliente>();
 
-	public ClienteDAOPostgres() {
-		
+	public ClienteDAOPostgres(Connection connection) {
+		conn = connection;
 	}
 
 	public List<Cliente> getAllCliente() {
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
-			st = conn.createStatement();
+			Statement st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Cliente\"");
 			while(rs.next()) {
 				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Email"));
@@ -34,6 +32,8 @@ public class ClienteDAOPostgres implements ClienteDAO {
 				Listcliente.add(cliente);
 			}
 			
+			rs.close();
+			st.close();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -45,18 +45,18 @@ public class ClienteDAOPostgres implements ClienteDAO {
 	public  Cliente  getClienteByCodFiscale(String CodFiscale) {
 		Cliente cliente = null;
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
-			ps = conn.prepareStatement("SELECT * FROM \"Cliente\" WHERE \"CodFiscale\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Cliente\" WHERE \"CodFiscale\" = ?");
 			ps.setString(1, CodFiscale);
 			ResultSet rs=ps.executeQuery();
 				
 			cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Ngate"), 
 					rs.getString("CodSlot"));
 				
-			
-			
+			rs.close();
+			ps.close();
 			conn.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,15 +69,14 @@ public class ClienteDAOPostgres implements ClienteDAO {
 	public void insertCliente(String CodFiscale, String Nome, String Cognome, String Email)	{
 		
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			
-			ps = conn.prepareStatement("INSERT INTO \"Cliente\"  VALUES (?, ?, ?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Cliente\"  VALUES (?, ?, ?, ?); ");
 			ps.setString(1, CodFiscale);
 			ps.setString(2, Nome);
 			ps.setString(3, Cognome);
 			ps.setString(4, Email);
 			ps.execute();
 			
+			ps.close();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -89,13 +88,12 @@ public class ClienteDAOPostgres implements ClienteDAO {
 	public void updateEmailByCodFiscale(String Email, String CodFiscale)	{
 	
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			
-			ps = conn.prepareStatement("UPDATE \"Cliente\" SET \"Email\" = ? WHERE \"CodFiscale\" = ? ; ");
+			PreparedStatement ps = conn.prepareStatement("UPDATE \"Cliente\" SET \"Email\" = ? WHERE \"CodFiscale\" = ? ; ");
 			ps.setString(1, Email);
 			ps.setString(2, CodFiscale);
 			ps.execute();
 			
+			ps.close();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

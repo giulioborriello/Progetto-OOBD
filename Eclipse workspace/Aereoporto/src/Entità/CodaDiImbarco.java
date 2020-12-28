@@ -8,14 +8,14 @@ public class CodaDiImbarco {
 	private Slot Slot;
 	private Gate Gate;
 	
-	public CodaDiImbarco(int codCoda, String tipoDiCoda, int ngate, int codSlot, Object slot, Object gate) {
+	public CodaDiImbarco(int codCoda, String tipoDiCoda, int ngate, int codSlot, Slot slot, Gate gate) {
 		super();
 		CodCoda = codCoda;
 		TipoDiCoda = tipoDiCoda;
 		Ngate = ngate;
 		CodSlot = codSlot;
-		Slot = (Entità.Slot) slot;
-		Gate = (Entità.Gate) gate;
+		Slot = slot;
+		Gate = gate;
 	}
 
 	public int getCodCoda() {

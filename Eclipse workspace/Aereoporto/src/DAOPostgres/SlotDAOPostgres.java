@@ -53,12 +53,12 @@ public class SlotDAOPostgres implements SlotDAO{
 		return ListSlot;
 	}
 	
-	public Slot getSlotByCodSlot(String CodSlot) {
+	public Slot getSlotByCodSlot(int CodSlot) {
 		Slot slot = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
-			ps.setString(1, CodSlot);
+			ps.setInt(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
@@ -77,12 +77,13 @@ public class SlotDAOPostgres implements SlotDAO{
 		return slot;
 	}
 	
-	public Slot getSlotByCodCoda(String CodCoda) {
+	public Slot getSlotByCodCoda(int codCoda) {
 		Slot slot = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodCoda\" = ?");
-			ps.setString(1, CodCoda);
+			ps.setInt(1, codCoda);
+			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
