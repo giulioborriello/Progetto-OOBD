@@ -115,21 +115,6 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 		
 	}
 	
-public void DeleteBiglietto(String CodBiglietto)	{
-		
-		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			
-			ps = conn.prepareStatement("DELETE FROM \"Biglietto\"  WHERE CodBiglietto = ?; ");
-			ps.setString(1, CodBiglietto);
-			ps.execute();
-			
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
+
 	
 }
