@@ -15,8 +15,9 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextField;
 
-public class CodaDiImbarcoGUI extends JFrame {
-	String[] ValoriScelta = {"Seleziona tutti","CodCoda","Tipo Di Coda","N gate","CodSlot"};
+public class GateGUI extends JFrame {
+	String[] ValoriScelta = {"Seleziona tutti","N gate","CodTratta","CodaDiImbarco","Tratta"};
+
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -31,7 +32,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CodaDiImbarcoGUI frame = new CodaDiImbarcoGUI();
+					GateGUI frame = new GateGUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,9 +44,9 @@ public class CodaDiImbarcoGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CodaDiImbarcoGUI() {
+	public GateGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 816, 641);
+		setBounds(100, 100, 821, 639);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -54,82 +55,86 @@ public class CodaDiImbarcoGUI extends JFrame {
 		JLabel lblNewLabel_1 = new JLabel("Ricerca");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(315, 11, 136, 42);
+		lblNewLabel_1.setBounds(322, 11, 136, 42);
 		contentPane.add(lblNewLabel_1);
 		
 		JComboBox comboBox = new JComboBox(ValoriScelta);
-		comboBox.setBounds(10, 78, 149, 82);
+		comboBox.setBounds(10, 72, 149, 82);
 		contentPane.add(comboBox);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(315, 107, 136, 22);
+		textArea.setBounds(322, 101, 136, 22);
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("Invia");
-		btnNewButton.setBounds(648, 108, 142, 42);
+		btnNewButton.setBounds(618, 92, 142, 42);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Inserimento");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setForeground(Color.BLACK);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(315, 219, 136, 42);
+		lblNewLabel_1_1.setBounds(322, 200, 136, 42);
 		contentPane.add(lblNewLabel_1_1);
 		
-		JLabel lblNewLabel = new JLabel("CodCoda");
+		JLabel lblNewLabel = new JLabel("N gate");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(206, 296, 92, 14);
+		lblNewLabel.setBounds(153, 264, 65, 22);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblTipoDiCoda = new JLabel("Tipo di coda");
-		lblTipoDiCoda.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTipoDiCoda.setBounds(477, 288, 98, 22);
-		contentPane.add(lblTipoDiCoda);
+		JLabel lblCodtratta = new JLabel("CodTratta");
+		lblCodtratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCodtratta.setBounds(278, 268, 68, 14);
+		contentPane.add(lblCodtratta);
 		
-		JLabel lblCodslot = new JLabel("CodSlot");
-		lblCodslot.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodslot.setBounds(497, 374, 66, 14);
-		contentPane.add(lblCodslot);
+		JLabel lblCodadiimbarco = new JLabel("\t\tCodaDiImbarco");
+		lblCodadiimbarco.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCodadiimbarco.setBounds(407, 266, 117, 14);
+		contentPane.add(lblCodadiimbarco);
 		
-		JLabel lblNGate = new JLabel("N gate");
-		lblNGate.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNGate.setBounds(216, 366, 46, 22);
-		contentPane.add(lblNGate);
+		JLabel lblTratta = new JLabel("Tratta");
+		lblTratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTratta.setBounds(565, 268, 46, 14);
+		contentPane.add(lblTratta);
 		
 		textField = new JTextField();
-		textField.setBounds(192, 321, 86, 20);
+		textField.setBounds(143, 293, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(477, 321, 86, 20);
+		textField_1.setBounds(260, 293, 86, 20);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(192, 399, 86, 20);
+		textField_2.setBounds(421, 293, 86, 20);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(477, 399, 86, 20);
+		textField_3.setBounds(546, 293, 86, 20);
 		contentPane.add(textField_3);
+		
+		JButton btnNewButton_1 = new JButton("Invia");
+		btnNewButton_1.setBounds(618, 369, 142, 42);
+		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Elimina");
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1.setForeground(Color.BLACK);
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(302, 457, 149, 42);
+		lblNewLabel_1_1_1.setBounds(322, 476, 149, 42);
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("Inserisci N gate della riga da eliminare");
 		lblNewLabel_7_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_7_1.setBounds(236, 510, 275, 40);
+		lblNewLabel_7_1.setBounds(278, 529, 275, 40);
 		contentPane.add(lblNewLabel_7_1);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(334, 561, 86, 20);
+		textField_4.setBounds(347, 569, 86, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 	}

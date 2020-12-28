@@ -24,7 +24,7 @@ import java.awt.Color;
 
 
 public class SlotGUI extends JFrame {
-	String[] ValoriScelta = {"Seleziona tutti","CodSlot","CodCoda","Data" };
+	String[] ValoriScelta = {"Seleziona tutti","CodSlot","CodCoda","Data"};
 	
 	private JPanel contentPane;
 	private JTextField textField;
