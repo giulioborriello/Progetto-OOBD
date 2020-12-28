@@ -51,12 +51,14 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"), null, null);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
+				String codFiscale = rs.getString("CodFiscale");
+				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres();
+				String codIATA = rs.getString("CodIATA");
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
 				
 				ListFedelt‡.add(fedelt‡);
-				
-			}
+			}	
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -73,8 +75,11 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"), null, null);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
+				String codFiscale = rs.getString("CodFiscale");
+				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres();
+				String codIATA = rs.getString("CodIATA");
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
 				
 				ListFedelt‡.add(fedelt‡);
 				
@@ -96,8 +101,11 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			
 			while(rs.next()) {
 
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"), null, null);
-				
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
+				String codFiscale = rs.getString("CodFiscale");
+				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres();
+				String codIATA = rs.getString("CodIATA");
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
 				ListFedelt‡.add(fedelt‡);
 				
 			}
