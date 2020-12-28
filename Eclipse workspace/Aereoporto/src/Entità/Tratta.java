@@ -15,11 +15,10 @@ public class Tratta {
 	private String Destinazione;
 	private String Scali;
 	private Gate Gate;
-	private List<Biglietto> Biglietto;
 	private Compagnia Compagnia;
 
 	public Tratta(String codTratta, int nprenotazioni, Time orarioDiPartenza, Date data, int ngate, String codIATA, 
-			String destinazione, String scali, Object gate, Object biglietto, Object compagnia) {
+			String destinazione, String scali, Gate gate, Compagnia compagnia) {
 		super();
 		CodTratta = codTratta;
 		Nprenotazioni = nprenotazioni;
@@ -29,9 +28,8 @@ public class Tratta {
 		CodIATA = codIATA;
 		Destinazione = destinazione;
 		Scali = scali;
-		Gate = (Entità.Gate) gate;
-		Biglietto.add((Entità.Biglietto) biglietto);
-		Compagnia = (Entità.Compagnia) compagnia;
+		Gate = gate;
+		Compagnia = compagnia;
 	}
 
 	public String getCodTratta() {
@@ -104,14 +102,6 @@ public class Tratta {
 
 	public void setGate(Gate gate) {
 		Gate = gate;
-	}
-
-	public List<Biglietto> getBiglietto() {
-		return Biglietto;
-	}
-
-	public void addBiglietto(Biglietto biglietto) {
-		Biglietto.add(biglietto);
 	}
 
 	public Compagnia getCompagnia() {

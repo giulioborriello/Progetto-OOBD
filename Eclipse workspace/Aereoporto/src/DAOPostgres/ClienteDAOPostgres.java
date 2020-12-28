@@ -29,8 +29,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Cliente\"");
 			while(rs.next()) {
-				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"),
-						rs.getString("Email"),null, null);
+				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Email"));
 				
 				Listcliente.add(cliente);
 			}
@@ -53,7 +52,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			while(rs.next()) {
 				
 				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Ngate"), 
-						rs.getString("CodSlot"), null, null);
+						rs.getString("CodSlot"));
 				
 				Listcliente.add(cliente);
 			}

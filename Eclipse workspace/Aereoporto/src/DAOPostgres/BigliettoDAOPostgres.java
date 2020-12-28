@@ -31,6 +31,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			
 			
 			while(rs.next()) {
+				
 				Biglietto biglietto = new Biglietto(rs.getString("CodTratta"), rs.getString("CodFiscale"), rs.getString("Nome"),
 						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"), null, null);
 				

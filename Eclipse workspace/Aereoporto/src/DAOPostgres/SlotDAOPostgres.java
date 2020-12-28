@@ -10,7 +10,9 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
+import DAO.CodaDiImbarcoDAO;
 import DAO.SlotDAO;
+import Entità.CodaDiImbarco;
 import Entità.Slot;
 
 
@@ -34,15 +36,11 @@ public class SlotDAOPostgres implements SlotDAO{
 			
 			
 			while(rs.next()) {
-//				("CodSlot:"+rs.getString("CodSlot"));
-//				("Tempo di imbarco stimato:"+rs.getInt("Tempo di imbarco stimato"));
-//				("Tempo di imbarco effettivo:"+rs.getTime("Tempo di imbarco effettivo"));
-//				("CodCoda" + rs.getInt("CodCoda"));
-//				rs.getDate("Data"));
 				
-				
-				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				int codSlot = rs.getInt("CodSlot");
+				Slot Slot = new Slot(codSlot, rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), coda.getCodaDiImbarcoByCodSlot(codSlot));
 				
 				ListSlot.add(Slot);
 			}
@@ -56,45 +54,48 @@ public class SlotDAOPostgres implements SlotDAO{
 		return ListSlot;
 	}
 	
-	public List<Slot> getSlotByCodSlot(String CodSlot) {
+	public Slot getSlotByCodSlot(String CodSlot) {
+		Slot slot = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				int codSlot = rs.getInt("CodSlot");
+				slot = new Slot(codSlot, rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), coda.getCodaDiImbarcoByCodSlot(codSlot));
 				
-				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
-				
-				ListSlot.add(Slot);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return ListSlot;
+		return slot;
 	}
 	
-	public List<Slot> getSlotByCodCoda(String CodCoda) {
+	public Slot getSlotByCodCoda(String CodCoda) {
+		Slot slot = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodCoda\" = ?");
 			ps.setString(1, CodCoda);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				int codSlot = rs.getInt("CodSlot");
+				slot = new Slot(codSlot, rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), coda.getCodaDiImbarcoByCodSlot(codSlot));
 				
-				ListSlot.add(Slot);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return ListSlot;
+		return slot;
 	}
 	
 	public List<Slot> getSlotByData(String Data) {
@@ -104,8 +105,10 @@ public class SlotDAOPostgres implements SlotDAO{
 			ps.setString(1, Data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), null);
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				int codSlot = rs.getInt("CodSlot");
+				Slot Slot = new Slot(codSlot, rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), coda.getCodaDiImbarcoByCodSlot(codSlot));
 				
 				ListSlot.add(Slot);
 			}

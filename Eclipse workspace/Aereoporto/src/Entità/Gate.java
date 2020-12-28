@@ -6,15 +6,13 @@ public class Gate {
 
 	private int Ngate;
 	private String CodTratta;
-	private List<CodaDiImbarco> CodaDiImbarco;
 	private Tratta Tratta;
 
-	public Gate(int ngate, String codTratta, Object codaDiImbarco, Object tratta) {
+	public Gate(int ngate, String codTratta, Tratta tratta) {
 		super();
 		Ngate = ngate;
 		CodTratta = codTratta;
-		CodaDiImbarco.add((Entità.CodaDiImbarco) codaDiImbarco);
-		Tratta = (Entità.Tratta) tratta;
+		Tratta = tratta;
 	}
 
 	public int getNgate() {
@@ -32,15 +30,7 @@ public class Gate {
 	public void setCodTratta(String codTratta) {
 		CodTratta = codTratta;
 	}
-
-	public List<CodaDiImbarco> getCodaDiImbarco(){
-		return CodaDiImbarco;
-	}
 	
-	public void addCodaDiImbarco(CodaDiImbarco codaDiImbarco) {
-		CodaDiImbarco.add(codaDiImbarco);
-	}
-
 	public Tratta getTratta() {
 		return Tratta;
 	}

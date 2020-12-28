@@ -11,14 +11,14 @@ public class Slot {
 	private Date Data;
 	private CodaDiImbarco CodaDiImbarco;
 	
-	public Slot(int codSlot, int tempoDiImbarcoStimato, int tempoDiImbarcoEffettivo, int codCoda, Date data, Object codaDiImbarco) {
+	public Slot(int codSlot, int tempoDiImbarcoStimato, int tempoDiImbarcoEffettivo, int codCoda, Date data, CodaDiImbarco codaDiImbarco ) {
 		super();
 		CodSlot = codSlot;
 		TempoDiImbarcoStimato = tempoDiImbarcoStimato;
 		TempoDiImbarcoEffettivo = tempoDiImbarcoEffettivo;
 		CodCoda = codCoda;
 		Data = data;
-		CodaDiImbarco = (Entità.CodaDiImbarco) codaDiImbarco;
+		CodaDiImbarco = codaDiImbarco;
 	}
 	
 	public int getCodSlot() {

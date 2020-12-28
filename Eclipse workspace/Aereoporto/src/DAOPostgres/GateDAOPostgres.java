@@ -26,8 +26,9 @@ public class GateDAOPostgres implements GateDAO{
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Gate\"");
 			while(rs.next()) {
-				
-				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), null, null);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				int nGate = rs.getInt("Ngate");
+				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
 				ListGate.add(gate);
 				
@@ -40,7 +41,8 @@ public class GateDAOPostgres implements GateDAO{
 		return ListGate;	
 	}
 	
-	public List<Gate> getGateByNgate(int Ngate) {
+	public Gate getGateByNgate(int Ngate) {
+		Gate gate = null;
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"Ngate\" = ?");
@@ -48,19 +50,21 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), null, null);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				int nGate = rs.getInt("Ngate");
+				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
-				ListGate.add(gate);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-		return ListGate;
+		}
+		return gate;	
 	}
 	
-	public List<Gate> getGateByCodTratta(String CodTratta) {
+	public Gate getGateByCodTratta(String CodTratta) {
+		Gate gate = null;
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"CodTratta\" = ?");
@@ -68,16 +72,17 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), null, null);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				int nGate = rs.getInt("Ngate");
+				gate = new Gate(nGate, rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
-				ListGate.add(gate);
 			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-		return ListGate;
+		}
+		return gate;	
 	}
 	
 	public void insertGate(int Ngate, String CodTratta)	{
