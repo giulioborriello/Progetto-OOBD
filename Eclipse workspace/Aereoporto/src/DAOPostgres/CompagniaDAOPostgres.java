@@ -13,18 +13,17 @@ import DAO.CompagniaDAO;
 import Entità.Compagnia;
 
 public class CompagniaDAOPostgres implements CompagniaDAO {
-	PreparedStatement ps = null;
-	Statement st = null;
+	Connection conn;
 	List<Compagnia> ListCompagnia = new LinkedList<Compagnia>();
 	
 	
-	public CompagniaDAOPostgres() {
+	public CompagniaDAOPostgres(Connection connection) {
+		conn = connection;
 	}
 	
 	public List<Compagnia> getAllCompagnia() {
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			st = conn.createStatement();
+			Statement st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Compagnia\"");
 			while(rs.next()) {
 				
@@ -32,6 +31,8 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 				
 				ListCompagnia.add(compagnia);
 			}
+			rs.close();
+			st.close();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -44,14 +45,14 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 	public Compagnia getCompagniaByCodIATA(String CodIATA) {
 		Compagnia compagnia = null;
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"CodIATA\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"CodIATA\" = ?");
 			ps.setString(1, CodIATA);
 			ResultSet rs=ps.executeQuery();
 			
 			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"), rs.getString("Sito web"));
 				
-			
+			rs.close();
+			ps.close();
 			conn.close();
 			
 		} catch (SQLException e) {
@@ -64,8 +65,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 	public Compagnia getCompagniaByNomeCompagnia(String Nome) {
 		Compagnia compagnia = null;
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"Nome Compagnia\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"Nome Compagnia\" = ?");
 			ps.setString(1, Nome);
 			ResultSet rs=ps.executeQuery();
 			
@@ -81,12 +81,13 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 	
 	public void insertCompagnia(String CodIATA, String Nome_compagnia, String Sito_web)	{		
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?, ?); ");
 			ps.setString(1, CodIATA);
 			ps.setString(2, Nome_compagnia);
 			ps.setString(3, Sito_web);
 			ps.execute();
+			
+			ps.close();
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

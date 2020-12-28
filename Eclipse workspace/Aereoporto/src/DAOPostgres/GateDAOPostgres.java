@@ -17,13 +17,14 @@ public class GateDAOPostgres implements GateDAO{
 	Statement st = null;
 	List<Gate> ListGate = new LinkedList<Gate>();
 	
-	public GateDAOPostgres() {
+	public GateDAOPostgres(Connection connection) {
+		conn = connection;
 	}
 	
 	public List<Gate> getAllGate() {
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			st = conn.createStatement();
+			Statement st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Gate\"");
 			while(rs.next()) {
 				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
@@ -34,6 +35,8 @@ public class GateDAOPostgres implements GateDAO{
 				
 			}
 			conn.close();
+			rs.close();
+			st.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,7 +48,7 @@ public class GateDAOPostgres implements GateDAO{
 		Gate gate = null;
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"Ngate\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"Ngate\" = ?");
 			ps.setInt(1, Ngate);
 			ResultSet rs=ps.executeQuery();
 			
@@ -56,6 +59,8 @@ public class GateDAOPostgres implements GateDAO{
 				
 			}
 			conn.close();
+			rs.close();
+			st.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -67,7 +72,7 @@ public class GateDAOPostgres implements GateDAO{
 		Gate gate = null;
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"CodTratta\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);
 			ResultSet rs=ps.executeQuery();
 			
@@ -78,6 +83,8 @@ public class GateDAOPostgres implements GateDAO{
 				
 			}
 			conn.close();
+			rs.close();
+			st.close()
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -89,11 +96,13 @@ public class GateDAOPostgres implements GateDAO{
 		
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?); ");
 			ps.setInt(1, Ngate);
 			ps.setString(2, CodTratta);
 			ps.execute();
 			conn.close();
+			st.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -104,11 +113,12 @@ public class GateDAOPostgres implements GateDAO{
 		
 		try {
 			conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("UPDATE \"Gate\" SET \"CodTratta\" = ? WHERE \"Ngate\" = ? ; ");
+			PreparedStatement ps = conn.prepareStatement("UPDATE \"Gate\" SET \"CodTratta\" = ? WHERE \"Ngate\" = ? ; ");
 			ps.setString(1, CodTratta);
 			ps.setInt(2, Ngate);
 			ps.execute();
 			conn.close();
+			st.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

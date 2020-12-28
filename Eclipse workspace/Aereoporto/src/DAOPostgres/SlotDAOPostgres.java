@@ -19,19 +19,17 @@ import Entità.Slot;
 
 public class SlotDAOPostgres implements SlotDAO{
 
-	Statement st = null;
-	PreparedStatement ps = null;
 	List<Slot> ListSlot = new LinkedList<Slot>();
+	Connection conn;
 	
-	
-	public SlotDAOPostgres() {
-		
+	public SlotDAOPostgres(Connection connection) {
+		conn = connection;
 	}
 
 	public List<Slot> getAllSlot() {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			st = conn.createStatement();
+			Statement st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Slot\"");
 			
 			
@@ -45,7 +43,8 @@ public class SlotDAOPostgres implements SlotDAO{
 				ListSlot.add(Slot);
 			}
 			conn.close();
-			
+			st.close();
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,12 +53,12 @@ public class SlotDAOPostgres implements SlotDAO{
 		return ListSlot;
 	}
 	
-	public Slot getSlotByCodSlot(String CodSlot) {
+	public Slot getSlotByCodSlot(int CodSlot) {
 		Slot slot = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
-			ps.setString(1, CodSlot);
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
+			ps.setInt(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
@@ -69,6 +68,8 @@ public class SlotDAOPostgres implements SlotDAO{
 				
 			}
 			conn.close();
+			ps.close();
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -76,12 +77,13 @@ public class SlotDAOPostgres implements SlotDAO{
 		return slot;
 	}
 	
-	public Slot getSlotByCodCoda(String CodCoda) {
+	public Slot getSlotByCodCoda(int codCoda) {
 		Slot slot = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodCoda\" = ?");
-			ps.setString(1, CodCoda);
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodCoda\" = ?");
+			ps.setInt(1, codCoda);
+			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
@@ -91,6 +93,8 @@ public class SlotDAOPostgres implements SlotDAO{
 				
 			}
 			conn.close();
+			ps.close();
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -101,7 +105,7 @@ public class SlotDAOPostgres implements SlotDAO{
 	public List<Slot> getSlotByData(String Data) {
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"Data\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"Data\" = ?");
 			ps.setString(1, Data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
@@ -113,6 +117,9 @@ public class SlotDAOPostgres implements SlotDAO{
 				ListSlot.add(Slot);
 			}
 			conn.close();
+			ps.close();
+			rs.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -124,7 +131,7 @@ public class SlotDAOPostgres implements SlotDAO{
 		
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
 			ps.setInt(1, CodSlot);
 			ps.setInt(2, Tempo_di_imbarco_stimato);
 			ps.setInt(3, Tempo_di_imbarco_effettivo);
@@ -132,6 +139,8 @@ public class SlotDAOPostgres implements SlotDAO{
 			ps.setDate(5, Data);
 			ps.execute();
 			conn.close();
+			ps.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,11 +152,13 @@ public class SlotDAOPostgres implements SlotDAO{
 		
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			ps = conn.prepareStatement("UPDATE \"Slot\" SET \"TempoDiImbarcoEffettivo\" = ? WHERE \"CodSlot\" = ? ; ");
+			PreparedStatement ps = conn.prepareStatement("UPDATE \"Slot\" SET \"TempoDiImbarcoEffettivo\" = ? WHERE \"CodSlot\" = ? ; ");
 			ps.setInt(1, TempoDiImbarcoEffettivo);
 			ps.setInt(2, CodSlot);
 			ps.execute();
 			conn.close();
+			ps.close();
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
