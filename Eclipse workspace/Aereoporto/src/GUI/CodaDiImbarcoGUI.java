@@ -132,6 +132,14 @@ public class CodaDiImbarcoGUI extends JFrame {
 		textField_4.setBounds(334, 561, 86, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
+		
+		JButton btnNewButton_1 = new JButton("Invia");
+		btnNewButton_1.setBounds(648, 398, 142, 42);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("Invia");
+		btnNewButton_2.setBounds(648, 539, 142, 42);
+		contentPane.add(btnNewButton_2);
 	}
 
 }

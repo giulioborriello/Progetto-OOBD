@@ -10,7 +10,7 @@ public interface TrattaDAO {
 
 	
 	public List<Tratta> getAllTratta();
-	public List<Tratta> getTrattaByCodTratta(String CodTratta);
+	public Tratta getTrattaByCodTratta(String CodTratta);
 	public List<Tratta> getTrattaByData(String Data);
 	public List<Tratta> getTrattaNgate(String Ngate);
 	public List<Tratta> getTrattaCodIATA(String CodIATA);
