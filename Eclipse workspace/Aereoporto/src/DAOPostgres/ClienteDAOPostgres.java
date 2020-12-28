@@ -42,20 +42,19 @@ public class ClienteDAOPostgres implements ClienteDAO {
 		return Listcliente;	
 	}
 	
-	public  List<Cliente>  getClienteByCodFiscale(String CodFiscale) {
+	public  Cliente  getClienteByCodFiscale(String CodFiscale) {
+		Cliente cliente = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
 			ps = conn.prepareStatement("SELECT * FROM \"Cliente\" WHERE \"CodFiscale\" = ?");
 			ps.setString(1, CodFiscale);
 			ResultSet rs=ps.executeQuery();
-			while(rs.next()) {
 				
-				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Ngate"), 
-						rs.getString("CodSlot"));
+			cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Ngate"), 
+					rs.getString("CodSlot"));
 				
-				Listcliente.add(cliente);
-			}
+			
 			
 			conn.close();
 		} catch (SQLException e) {
@@ -63,7 +62,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			e.printStackTrace();
 		}	
 		
-		return Listcliente;	
+		return cliente;	
 
 	}
 	

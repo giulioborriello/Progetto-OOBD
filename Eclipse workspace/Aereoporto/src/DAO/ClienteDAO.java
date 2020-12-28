@@ -8,7 +8,7 @@ public interface ClienteDAO {
 
 	public List<Cliente> getAllCliente();
 	
-	public List<Cliente> getClienteByCodFiscale(String CodFiscale);
+	public Cliente getClienteByCodFiscale(String CodFiscale);
 	
 	public void insertCliente(String CodFiscale, String Nome, String Cognome, String Email);
 	

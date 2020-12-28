@@ -7,7 +7,7 @@ import Entità.Slot;
 
 public interface BigliettoDAO {
 	
-	public List<Biglietto>  getAllBiglietto();
+	public List<Biglietto> getAllBiglietto();
 	
 	public List<Biglietto> getBigliettoByCodFiscale(String CodFiscale);
 

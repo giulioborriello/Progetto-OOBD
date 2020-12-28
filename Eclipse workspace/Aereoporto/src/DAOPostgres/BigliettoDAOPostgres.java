@@ -29,11 +29,15 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			rs=st.executeQuery("SELECT * FROM public.\"Biglietto\"");
 			
-			
 			while(rs.next()) {
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				String codFiscale = rs.getString("CodFiscale");
+				String codTratta = rs.getString("CodTratta");
 				
-				Biglietto biglietto = new Biglietto(rs.getString("CodTratta"), rs.getString("CodFiscale"), rs.getString("Nome"),
-						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"), null, null);
+				Biglietto biglietto = new Biglietto(codTratta, codFiscale, rs.getString("Nome"),
+						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"), 
+						cliente.getClienteByCodFiscale(codFiscale), tratta.getTrattaByCodTratta(codTratta));
 				
 				ListBiglietto.add(biglietto);
 				}
@@ -55,8 +59,14 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				Biglietto	biglietto = new Biglietto(rs.getString("CodTratta"), rs.getString("CodFiscale"), rs.getString("Nome"),
-						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"), null, null);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				String codFiscale = rs.getString("CodFiscale");
+				String codTratta = rs.getString("CodTratta");
+				
+				Biglietto biglietto = new Biglietto(codTratta, codFiscale, rs.getString("Nome"),
+						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"), 
+						cliente.getClienteByCodFiscale(codFiscale), tratta.getTrattaByCodTratta(codTratta));
 				
 				ListBiglietto.add(biglietto);
 				
@@ -80,8 +90,14 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				Biglietto biglietto = new Biglietto(rs.getString("CodTratta"), rs.getString("CodFiscale"), rs.getString("Nome"),
-				rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"), null, null);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				String codFiscale = rs.getString("CodFiscale");
+				String codTratta = rs.getString("CodTratta");
+				
+				Biglietto biglietto = new Biglietto(codTratta, codFiscale, rs.getString("Nome"),
+				rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"),  
+				cliente.getClienteByCodFiscale(codFiscale), tratta.getTrattaByCodTratta(codTratta));
 				
 				ListBiglietto.add(biglietto);
 				}

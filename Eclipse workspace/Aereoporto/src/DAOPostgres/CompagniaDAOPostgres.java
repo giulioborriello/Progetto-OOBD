@@ -41,46 +41,42 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 	}
 	
 	
-	public List<Compagnia> getCompagniaByCodIATA(String CodIATA) {
+	public Compagnia getCompagniaByCodIATA(String CodIATA) {
+		Compagnia compagnia = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"CodIATA\" = ?");
 			ps.setString(1, CodIATA);
 			ResultSet rs=ps.executeQuery();
 			
-			while(rs.next()) {
+			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"), rs.getString("Sito web"));
 				
-				Compagnia compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"), rs.getString("Sito web"));
-				
-				ListCompagnia.add(compagnia);
-			}
+			
 			conn.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
-		return ListCompagnia;
+		}
+		return compagnia;
 	}
 	
-	public List<Compagnia> getCompagniaByNomeCompagnia(String Nome) {
+	public Compagnia getCompagniaByNomeCompagnia(String Nome) {
+		Compagnia compagnia = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"Nome Compagnia\" = ?");
 			ps.setString(1, Nome);
 			ResultSet rs=ps.executeQuery();
 			
-			while(rs.next()) {
+			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"), rs.getString("Sito web"));
 				
-				Compagnia compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"), rs.getString("Sito web"));
-				
-				ListCompagnia.add(compagnia);
-			}
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return ListCompagnia;
+		return compagnia;
 	}
 	
 	public void insertCompagnia(String CodIATA, String Nome_compagnia, String Sito_web)	{		
