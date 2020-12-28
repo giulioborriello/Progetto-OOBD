@@ -25,7 +25,6 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 	
 	public List<Biglietto> getAllBiglietto() {
 		try {
-	
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			rs=st.executeQuery("SELECT * FROM public.\"Biglietto\"");
 			

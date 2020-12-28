@@ -46,6 +46,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		}
 		
 	public Tratta getTrattaByCodTratta(String CodTratta){
+		Tratta tratta = null;
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);	
@@ -54,14 +55,16 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			    String codIATA = rs.getString("CodIATA");
 			    GateDAOPostgres gate = new GateDAOPostgres();
 			    CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres();
-				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+			    
+				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), ngate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
 						gate.getGateByNgate(ngate), compagnia.getCompagniaByCodIATA(codIATA));
-				return tratta;	
+				
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}	
+		}
+		return tratta;	
 		
 	}
 	
@@ -85,7 +88,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	}
 	
 	public Tratta getTrattaNgate(int nGate){
-		Tratta tratta;
+		Tratta tratta = null;
 		try {
 			ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
 			ps.setInt(1, nGate);
@@ -95,10 +98,9 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			while(rs.next()) {
 				int ngate = rs.getInt("Ngate");
 				String codIATA = rs.getString("CodIATA");
-				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), ngate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
 						gate.getGateByNgate(ngate), compagnia.getCompagniaByCodIATA(codIATA));
-				return tratta;	
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
