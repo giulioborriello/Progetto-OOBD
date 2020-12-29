@@ -59,6 +59,11 @@ public class GateGUI extends JFrame {
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("Invia");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.openRisultatiGate();
+			}
+		});
 		btnNewButton.setBounds(618, 92, 142, 42);
 		contentPane.add(btnNewButton);
 		

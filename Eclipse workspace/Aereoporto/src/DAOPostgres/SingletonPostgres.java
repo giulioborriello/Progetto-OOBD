@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SingletonPostgres {
-	Connection conn;
+	private Connection conn;
 	
 	private static SingletonPostgres instanza = null;
 	

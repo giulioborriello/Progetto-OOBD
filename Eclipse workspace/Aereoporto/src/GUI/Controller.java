@@ -1,4 +1,5 @@
 package GUI;
+import java.sql.Connection;
 import java.util.List;
 
 import DAOPostgres.*;
@@ -7,6 +8,8 @@ import GUI.MenùGUI;
 import GUI.SlotGUI;
 
 public class Controller {
+	static Connection conn;
+	
 	SlotGUI slot;
 	MenùGUI menù;
 	GateGUI gate;
@@ -16,6 +19,9 @@ public class Controller {
 	CodaDiImbarcoGUI codaDiImbarco;
 	ClienteGUI cliente;
 	BigliettoGUI biglietto;
+	
+	RisultatiGateGUI risultatiGate;
+	
 	
 	
 	public Controller() {
@@ -34,6 +40,8 @@ public class Controller {
 	public static void main(String[] args) {
 
 	Controller controller = new Controller();
+	SingletonPostgres instanza = SingletonPostgres.getInstance();
+	conn = instanza.getConnection();
 	}
 	
 	public void openSlot() {
@@ -94,6 +102,15 @@ public class Controller {
 		gate.setVisible(false);
 		slot.setVisible(false);
 		menù.setVisible(true);
+	}
+
+	public void openRisultatiGate() {
+		
+		GateDAOPostgres gatePostgres = new GateDAOPostgres(conn);
+		RisultatiGateGUI risultatiGate = new RisultatiGateGUI(gatePostgres.getAllGate());
+		gate.setVisible(false);
+		risultatiGate.setVisible(true);
+		
 	}
 	
 }

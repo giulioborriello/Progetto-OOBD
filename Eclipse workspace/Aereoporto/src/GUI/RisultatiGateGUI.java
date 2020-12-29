@@ -7,13 +7,16 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Entità.Gate;
+
 import javax.swing.JList;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
 import javax.swing.DefaultListModel;
 import javax.swing.JDesktopPane;
 
-public class RisultatiGUI extends JFrame {
+public class RisultatiGateGUI extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,21 +27,24 @@ public class RisultatiGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RisultatiGUI(String[] list) {
+	public RisultatiGateGUI(List<Gate> list) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1077, 699);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
- 	    JList list = new JList(list);
- 	   DefaultListModel listModel = new DefaultListModel();
- 	  
- 	   for (int i = 0; i < list.l; i++)
- 	  	{
- 		  	listModel.addElement(arrayList().get(i));
- 	  	}
- 	  	list.setModel(listModel);
+		
+		DefaultListModel<Gate> listModel = new DefaultListModel<Gate>();
+		
+		for(Gate gate:list) {
+			listModel.addElement(gate);
+		}
+		
+ 	    JList<Gate> jlist = new JList<Gate>(listModel);
+ 	    jlist.setLocation(62, 49);
+ 	    jlist.setSize(400, 363);
+ 	    contentPane.add(jlist);
 	}
 	
 
