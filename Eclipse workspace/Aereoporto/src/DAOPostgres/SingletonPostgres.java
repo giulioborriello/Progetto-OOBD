@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class SingletonPostgres {
 	Connection conn;
 	
-	private static SingletonPostgres istanza = null;
+	private static SingletonPostgres instanza = null;
 	
 	private SingletonPostgres() {
 		try {
@@ -16,19 +16,22 @@ public class SingletonPostgres {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-	
 	}
 	
 	public static SingletonPostgres getInstance() {
-		if (istanza == null) {
-			istanza = new SingletonPostgres();
-			
-		}
-		else if (istanza.getConnection().isClosed()) {​​
-			istanza = new SingletonPostgres();
-		}
-		return istanza;​​
+		if(instanza == null) {
+			instanza = new SingletonPostgres();
+		} else
+			try {
+				if(instanza.getConnection().isClosed()) {
+					instanza = new SingletonPostgres();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		return instanza;
 	}
 	
 	public Connection getConnection() {

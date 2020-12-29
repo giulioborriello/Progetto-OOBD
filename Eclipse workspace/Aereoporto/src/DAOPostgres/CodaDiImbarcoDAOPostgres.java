@@ -28,8 +28,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Code di imbarco\"");
 			
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres();
-				GateDAOPostgres gate = new GateDAOPostgres();
+				SlotDAOPostgres slot = new SlotDAOPostgres(conn);
+				GateDAOPostgres gate = new GateDAOPostgres(conn);
 				int codCoda = rs.getInt("CodCoda");
 				int ngate = rs.getInt("Ngate");
 				
@@ -55,8 +55,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, CodCoda);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres();
-				GateDAOPostgres gate = new GateDAOPostgres();
+				SlotDAOPostgres slot = new SlotDAOPostgres(conn);
+				GateDAOPostgres gate = new GateDAOPostgres(conn);
 				int codCoda = rs.getInt("CodCoda");
 				int ngate = rs.getInt("Ngate");
 				
@@ -82,8 +82,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, Ngate);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres();
-				GateDAOPostgres gate = new GateDAOPostgres();
+				SlotDAOPostgres slot = new SlotDAOPostgres(conn);
+				GateDAOPostgres gate = new GateDAOPostgres(conn);
 				int codCoda = rs.getInt("CodCoda");
 				int ngate = rs.getInt("Ngate");
 				
@@ -111,8 +111,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setInt(1, codSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres();
-				GateDAOPostgres gate = new GateDAOPostgres();
+				SlotDAOPostgres slot = new SlotDAOPostgres(conn);
+				GateDAOPostgres gate = new GateDAOPostgres(conn);
 				int codCoda = rs.getInt("CodCoda");
 				int ngate = rs.getInt("Ngate");
 				

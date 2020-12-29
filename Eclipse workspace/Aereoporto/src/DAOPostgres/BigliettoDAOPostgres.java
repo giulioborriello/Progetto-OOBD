@@ -29,8 +29,8 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Biglietto\"");
 			
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
 				String codFiscale = rs.getString("CodFiscale");
 				String codTratta = rs.getString("CodTratta");
 				
@@ -59,8 +59,8 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 
 			while(rs.next()) {
 				
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
 				String codFiscale = rs.getString("CodFiscale");
 				String codTratta = rs.getString("CodTratta");
 				
@@ -91,8 +91,8 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres();
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
 				String codFiscale = rs.getString("CodFiscale");
 				String codTratta = rs.getString("CodTratta");
 				
