@@ -14,6 +14,8 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CodaDiImbarcoGUI extends JFrame {
 	Controller controller;
@@ -57,79 +59,87 @@ public class CodaDiImbarcoGUI extends JFrame {
 		contentPane.add(textArea);
 		
 		JButton btnNewButton = new JButton("Invia");
-		btnNewButton.setBounds(648, 108, 142, 42);
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton.setBounds(618, 98, 142, 42);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Inserimento");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setForeground(Color.BLACK);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(315, 219, 136, 42);
+		lblNewLabel_1_1.setBounds(315, 175, 136, 42);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel = new JLabel("CodCoda");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(206, 296, 92, 14);
+		lblNewLabel.setBounds(206, 245, 92, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblTipoDiCoda = new JLabel("Tipo di coda");
 		lblTipoDiCoda.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTipoDiCoda.setBounds(477, 288, 98, 22);
+		lblTipoDiCoda.setBounds(477, 237, 98, 22);
 		contentPane.add(lblTipoDiCoda);
 		
 		JLabel lblCodslot = new JLabel("CodSlot");
 		lblCodslot.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodslot.setBounds(497, 374, 66, 14);
+		lblCodslot.setBounds(497, 323, 66, 14);
 		contentPane.add(lblCodslot);
 		
 		JLabel lblNGate = new JLabel("N gate");
 		lblNGate.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNGate.setBounds(216, 366, 46, 22);
+		lblNGate.setBounds(216, 315, 46, 22);
 		contentPane.add(lblNGate);
 		
 		textField = new JTextField();
-		textField.setBounds(192, 321, 86, 20);
+		textField.setBounds(192, 270, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(477, 321, 86, 20);
+		textField_1.setBounds(477, 270, 86, 20);
 		contentPane.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(192, 399, 86, 20);
+		textField_2.setBounds(192, 348, 86, 20);
 		contentPane.add(textField_2);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(477, 399, 86, 20);
+		textField_3.setBounds(477, 348, 86, 20);
 		contentPane.add(textField_3);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Elimina");
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1.setForeground(Color.BLACK);
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(302, 457, 149, 42);
+		lblNewLabel_1_1_1.setBounds(305, 398, 149, 42);
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("Inserisci N gate della riga da eliminare");
 		lblNewLabel_7_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_7_1.setBounds(236, 510, 275, 40);
+		lblNewLabel_7_1.setBounds(239, 451, 275, 40);
 		contentPane.add(lblNewLabel_7_1);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(334, 561, 86, 20);
+		textField_4.setBounds(337, 502, 86, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
 		JButton btnNewButton_1 = new JButton("Invia");
-		btnNewButton_1.setBounds(648, 398, 142, 42);
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1.setBounds(618, 337, 142, 42);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Invia");
-		btnNewButton_2.setBounds(648, 539, 142, 42);
+		JButton btnNewButton_2 = new JButton("Menù");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.backToMenù();
+			}
+		});
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_2.setBounds(618, 549, 142, 42);
 		contentPane.add(btnNewButton_2);
 	}
 
