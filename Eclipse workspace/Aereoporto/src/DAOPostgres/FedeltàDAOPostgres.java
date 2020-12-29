@@ -141,7 +141,8 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 				ps.setString(2, CodFiscale);
 				ps.setString(3, CodIATA);
 				ps.execute();
-				st.close();
+				
+				ps.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
