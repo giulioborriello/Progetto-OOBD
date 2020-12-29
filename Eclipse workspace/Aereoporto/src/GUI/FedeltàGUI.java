@@ -11,8 +11,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
-public class FedeltaGUI extends JFrame {
-
+public class Fedelt‡GUI extends JFrame {
+	Controller controller;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -27,7 +27,8 @@ public class FedeltaGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FedeltaGUI() {
+	public Fedelt‡GUI(Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 853, 554);
 		contentPane = new JPanel();

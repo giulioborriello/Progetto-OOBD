@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 
 public class CompagniaGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","CodIATA","Nome Compagnia","Tratta","Fedeltà"};
-
+	Controller controller;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -29,23 +29,12 @@ public class CompagniaGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CompagniaGUI frame = new CompagniaGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public CompagniaGUI() {
+	public CompagniaGUI(Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 808, 618);
 		contentPane = new JPanel();

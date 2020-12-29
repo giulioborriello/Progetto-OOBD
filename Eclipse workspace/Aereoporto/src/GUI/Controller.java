@@ -9,10 +9,26 @@ import GUI.SlotGUI;
 public class Controller {
 	SlotGUI slot;
 	MenùGUI menù;
+	GateGUI gate;
+	TrattaGUI tratta;
+	FedeltàGUI fedeltà;
+	CompagniaGUI compagnia;
+	CodaDiImbarcoGUI codaDiImbarco;
+	ClienteGUI cliente;
+	BigliettoGUI biglietto;
+	
+	
 	public Controller() {
 		menù = new MenùGUI(this);
 		menù.setVisible(true);
-		slot = new SlotGUI();
+		slot = new SlotGUI(this);
+		tratta = new TrattaGUI(this);
+		fedeltà = new FedeltàGUI(this);
+		compagnia = new CompagniaGUI(this);
+		codaDiImbarco = new CodaDiImbarcoGUI(this);
+		cliente = new ClienteGUI(this);
+		biglietto = new BigliettoGUI(this);
+		gate = new GateGUI(this);
 	}
 	
 	public static void main(String[] args) {
@@ -23,13 +39,50 @@ public class Controller {
 	public void OpenSlot() {
 		menù.setVisible(false);
 		slot.setVisible(true);
-		
-	
 	
 	}
 	
+	public void OpenGate() {
+		menù.setVisible(false);
+		gate.setVisible(true);
 	
+	}
 	
+	public void OpenTratta() {
+		menù.setVisible(false);
+		tratta.setVisible(true);
+	
+	}
+	
+	public void OpenFedeltà() {
+		menù.setVisible(false);
+		fedeltà.setVisible(true);
+	
+	}
+	
+	public void OpenCompagnia() {
+		menù.setVisible(false);
+		compagnia.setVisible(true);
+	
+	}
+	
+	public void OpenCodaDiImbarco() {
+		menù.setVisible(false);
+		codaDiImbarco.setVisible(true);
+	
+	}
+	
+	public void OpenCliente() {
+		menù.setVisible(false);
+		cliente.setVisible(true);
+	
+	}
+	
+	public void OpenBiglietto() {
+		menù.setVisible(false);
+		biglietto.setVisible(true);
+	
+	}
 	
 }
 

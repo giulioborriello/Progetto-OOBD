@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 public class ClienteGUI extends JFrame {
-
+	Controller controller;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -26,7 +26,8 @@ public class ClienteGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ClienteGUI() {
+	public ClienteGUI(Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 600);
 		contentPane = new JPanel();

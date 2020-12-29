@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 public class GateGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","N gate","CodTratta","CodaDiImbarco","Tratta"};
+	Controller controller;
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -28,23 +29,12 @@ public class GateGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GateGUI frame = new GateGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public GateGUI() {
+	public GateGUI(Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 821, 639);
 		contentPane = new JPanel();

@@ -16,6 +16,7 @@ import java.awt.Color;
 import javax.swing.JTextField;
 
 public class CodaDiImbarcoGUI extends JFrame {
+	Controller controller;
 	String[] ValoriScelta = {"Seleziona tutti","CodCoda","Tipo Di Coda","N gate","CodSlot"};
 	private JPanel contentPane;
 	private JTextField textField;
@@ -27,23 +28,13 @@ public class CodaDiImbarcoGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CodaDiImbarcoGUI frame = new CodaDiImbarcoGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public CodaDiImbarcoGUI() {
+	public CodaDiImbarcoGUI(Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 816, 641);
 		contentPane = new JPanel();

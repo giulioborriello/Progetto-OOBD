@@ -16,6 +16,7 @@ import java.awt.Color;
 
 public class TrattaGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","CodTratta","Ngate","Data","CodIATA","Destinazione" };
+	Controller controller;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -31,23 +32,12 @@ public class TrattaGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TrattaGUI frame = new TrattaGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public TrattaGUI() {
+	public TrattaGUI(Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 783, 688);
 		contentPane = new JPanel();

@@ -25,7 +25,7 @@ import java.awt.Color;
 
 public class SlotGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","CodSlot","CodCoda","Data"};
-	
+	Controller controller;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -40,23 +40,13 @@ public class SlotGUI extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SlotGUI frame = new SlotGUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public SlotGUI() {
+	public SlotGUI(Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 800);
 		contentPane = new JPanel();
