@@ -14,6 +14,8 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GateGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","N gate","CodTratta","CodaDiImbarco","Tratta"};
@@ -127,6 +129,16 @@ public class GateGUI extends JFrame {
 		textField_4.setBounds(347, 569, 86, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
+		
+		JButton btnNewButton_3 = new JButton("Torna indietro ");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.backToMenù();
+			}
+		});
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton_3.setBounds(0, 529, 180, 57);
+		contentPane.add(btnNewButton_3);
 	}
 
 }

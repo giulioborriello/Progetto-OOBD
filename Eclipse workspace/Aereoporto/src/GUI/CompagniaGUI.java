@@ -14,6 +14,8 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CompagniaGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","CodIATA","Nome Compagnia","Tratta","Fedeltà"};
@@ -141,6 +143,16 @@ public class CompagniaGUI extends JFrame {
 		JButton btnNewButton_2 = new JButton("Invia");
 		btnNewButton_2.setBounds(640, 526, 142, 42);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_3 = new JButton("Torna indietro ");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.backToMenù();
+			}
+		});
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton_3.setBounds(0, 514, 180, 57);
+		contentPane.add(btnNewButton_3);
 	}
 
 }

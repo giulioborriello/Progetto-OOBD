@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FedeltàGUI extends JFrame {
 	Controller controller;
@@ -104,5 +107,15 @@ public class FedeltàGUI extends JFrame {
 		textField_5.setColumns(10);
 		textField_5.setBounds(281, 383, 132, 43);
 		contentPane.add(textField_5);
+		
+		JButton btnNewButton_3 = new JButton("Torna indietro ");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.backToMenù();
+			}
+		});
+		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton_3.setBounds(0, 460, 180, 57);
+		contentPane.add(btnNewButton_3);
 	}
 }
