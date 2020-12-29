@@ -33,7 +33,7 @@ public class MenùGUI extends JFrame {
 		JButton btnNewButton = new JButton("Gate");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.OpenGate();
+				controller.openGate();
 			}
 		});
 		btnNewButton.setBounds(205, 181, 124, 70);
@@ -42,7 +42,7 @@ public class MenùGUI extends JFrame {
 		JButton btnNewButton_1 = new JButton("Slot");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.OpenSlot();
+				controller.openSlot();
 			}
 		});
 		btnNewButton_1.setBounds(485, 181, 124, 70);
@@ -51,7 +51,7 @@ public class MenùGUI extends JFrame {
 		JButton btnNewButton_2 = new JButton("Tratta");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.OpenTratta();
+				controller.openTratta();
 			}
 		});
 		btnNewButton_2.setBounds(205, 100, 124, 70);
@@ -60,7 +60,7 @@ public class MenùGUI extends JFrame {
 		JButton btnNewButton_3 = new JButton("Fedelt\u00E0");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.OpenFedeltà();
+				controller.openFedeltà();
 			}
 		});
 		btnNewButton_3.setBounds(205, 262, 124, 70);
@@ -69,7 +69,7 @@ public class MenùGUI extends JFrame {
 		JButton btnNewButton_4 = new JButton("Compagnia");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.OpenCompagnia();
+				controller.openCompagnia();
 			}
 		});
 		btnNewButton_4.setBounds(485, 262, 124, 70);
@@ -78,7 +78,7 @@ public class MenùGUI extends JFrame {
 		JButton btnNewButton_5 = new JButton("Coda di imbarco");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.OpenCodaDiImbarco();
+				controller.openCodaDiImbarco();
 			}
 		});
 		btnNewButton_5.setBounds(205, 343, 124, 70);
@@ -102,7 +102,7 @@ public class MenùGUI extends JFrame {
 		JButton btnNewButton_7 = new JButton("Cliente");
 		btnNewButton_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.OpenCliente();
+				controller.openCliente();
 			}
 		});
 		btnNewButton_7.setBounds(485, 343, 124, 70);

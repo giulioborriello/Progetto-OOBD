@@ -134,7 +134,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 		
 	}
 	
-	public void DeleteBiglietto(String CodBiglietto)	{
+	public void deleteBiglietto(String CodBiglietto)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("DELETE FROM \"Biglietto\"  WHERE CodBiglietto = ?; ");

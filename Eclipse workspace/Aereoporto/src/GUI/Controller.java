@@ -36,43 +36,43 @@ public class Controller {
 	Controller controller = new Controller();
 	}
 	
-	public void OpenSlot() {
+	public void openSlot() {
 		menù.setVisible(false);
 		slot.setVisible(true);
 	
 	}
 	
-	public void OpenGate() {
+	public void openGate() {
 		menù.setVisible(false);
 		gate.setVisible(true);
 	
 	}
 	
-	public void OpenTratta() {
+	public void openTratta() {
 		menù.setVisible(false);
 		tratta.setVisible(true);
 	
 	}
 	
-	public void OpenFedeltà() {
+	public void openFedeltà() {
 		menù.setVisible(false);
 		fedeltà.setVisible(true);
 	
 	}
 	
-	public void OpenCompagnia() {
+	public void openCompagnia() {
 		menù.setVisible(false);
 		compagnia.setVisible(true);
 	
 	}
 	
-	public void OpenCodaDiImbarco() {
+	public void openCodaDiImbarco() {
 		menù.setVisible(false);
 		codaDiImbarco.setVisible(true);
 	
 	}
 	
-	public void OpenCliente() {
+	public void openCliente() {
 		menù.setVisible(false);
 		cliente.setVisible(true);
 	
