@@ -28,7 +28,6 @@ public class SlotDAOPostgres implements SlotDAO{
 
 	public List<Slot> getAllSlot() {
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			Statement st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Slot\"");
 			
@@ -56,7 +55,6 @@ public class SlotDAOPostgres implements SlotDAO{
 	public Slot getSlotByCodSlot(int CodSlot) {
 		Slot slot = null;
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
 			ps.setInt(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
@@ -80,7 +78,6 @@ public class SlotDAOPostgres implements SlotDAO{
 	public Slot getSlotByCodCoda(int codCoda) {
 		Slot slot = null;
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodCoda\" = ?");
 			ps.setInt(1, codCoda);
 			
@@ -104,7 +101,6 @@ public class SlotDAOPostgres implements SlotDAO{
 	
 	public List<Slot> getSlotByData(String Data) {
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"Data\" = ?");
 			ps.setString(1, Data);
 			ResultSet rs=ps.executeQuery();
@@ -130,7 +126,6 @@ public class SlotDAOPostgres implements SlotDAO{
 	public void insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, int CodCoda, Date Data)	{
 		
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
 			ps.setInt(1, CodSlot);
 			ps.setInt(2, Tempo_di_imbarco_stimato);
@@ -151,7 +146,6 @@ public class SlotDAOPostgres implements SlotDAO{
 	public void updateTempoDiImbarcoEffettivoByCodSlot(int TempoDiImbarcoEffettivo, int CodSlot)	{
 		
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			PreparedStatement ps = conn.prepareStatement("UPDATE \"Slot\" SET \"TempoDiImbarcoEffettivo\" = ? WHERE \"CodSlot\" = ? ; ");
 			ps.setInt(1, TempoDiImbarcoEffettivo);
 			ps.setInt(2, CodSlot);
