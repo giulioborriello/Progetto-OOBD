@@ -102,11 +102,10 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			GateDAOPostgres gate = new GateDAOPostgres(conn);
 		    CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres(conn);
 			while(rs.next()) {
-				int ngate = rs.getInt("Ngate");
 				String codIATA = rs.getString("CodIATA");
-				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
-						rs.getDate("Data"), ngate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
-						gate.getGateByNgate(ngate), compagnia.getCompagniaByCodIATA(codIATA));
+				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
+						rs.getDate("Data"), nGate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null);
 			}
 			conn.close();
 			rs.close();

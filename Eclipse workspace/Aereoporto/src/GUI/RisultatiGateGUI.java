@@ -38,8 +38,7 @@ public class RisultatiGateGUI extends JFrame {
 		DefaultListModel<Gate> listModel = new DefaultListModel<Gate>();
 		
 		for(Gate gate:list) {
-			System.out.println(gate.getNgate());
-			//listModel.addElement(gate);
+			listModel.addElement(gate);
 		}
 		
  	    JList<Gate> jlist = new JList<Gate>(listModel);

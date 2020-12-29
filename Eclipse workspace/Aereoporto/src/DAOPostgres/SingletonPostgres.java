@@ -11,7 +11,7 @@ public class SingletonPostgres {
 	
 	private SingletonPostgres() {
 		try {
-			conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:50597","postgres","abcd");
+			conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/Aereoporto","postgres","abcd");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
