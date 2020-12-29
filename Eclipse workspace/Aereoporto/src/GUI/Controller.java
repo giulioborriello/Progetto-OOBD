@@ -78,10 +78,22 @@ public class Controller {
 	
 	}
 	
-	public void OpenBiglietto() {
+	public void openBiglietto() {
 		menù.setVisible(false);
 		biglietto.setVisible(true);
 	
+	}
+	
+	public void backToMenù() {
+		biglietto.setVisible(false);
+		cliente.setVisible(false);
+		codaDiImbarco.setVisible(false);
+		compagnia.setVisible(false);
+		fedeltà.setVisible(false);
+		tratta.setVisible(false);
+		gate.setVisible(false);
+		slot.setVisible(false);
+		menù.setVisible(true);
 	}
 	
 }

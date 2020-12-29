@@ -212,5 +212,14 @@ public class SlotGUI extends JFrame {
 		btnNewButton_3.setBounds(596, 686, 142, 42);
 		contentPane.add(btnNewButton_3);
 		
+		JButton btnNewButton_4 = new JButton("Indietro");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.backToMenù();
+			}
+		});
+		btnNewButton_4.setBounds(30, 686, 119, 42);
+		contentPane.add(btnNewButton_4);
+		
 	}
 }

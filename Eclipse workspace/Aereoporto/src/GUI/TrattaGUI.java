@@ -13,6 +13,8 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TrattaGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","CodTratta","Ngate","Data","CodIATA","Destinazione" };
@@ -183,5 +185,14 @@ public class TrattaGUI extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Invia");
 		btnNewButton_1_1.setBounds(588, 579, 142, 42);
 		contentPane.add(btnNewButton_1_1);
+		
+		JButton btnNewButton_2 = new JButton("Indietro");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.backToMenù();
+			}
+		});
+		btnNewButton_2.setBounds(24, 579, 135, 39);
+		contentPane.add(btnNewButton_2);
 	}
 }
