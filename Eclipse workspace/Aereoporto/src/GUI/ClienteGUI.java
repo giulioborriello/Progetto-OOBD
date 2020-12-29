@@ -11,6 +11,9 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
 
 public class ClienteGUI extends JFrame {
 	Controller controller;
@@ -21,7 +24,8 @@ public class ClienteGUI extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-
+	String[] valoriScelta = {"Seleziona tutti","Codice Fiscale"};
+	private JTextField textField_6;
 
 	/**
 	 * Create the frame.
@@ -93,35 +97,64 @@ public class ClienteGUI extends JFrame {
 		JLabel lblNewLabel_1_1 = new JLabel("Aggiorna Email");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(309, 194, 176, 58);
+		lblNewLabel_1_1.setBounds(309, 177, 176, 47);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblIndicareCodiceFiscale = new JLabel("Indicare Codice Fiscale");
 		lblIndicareCodiceFiscale.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIndicareCodiceFiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblIndicareCodiceFiscale.setBounds(124, 263, 154, 40);
+		lblIndicareCodiceFiscale.setBounds(127, 235, 154, 40);
 		contentPane.add(lblIndicareCodiceFiscale);
 		
 		JLabel lblNuovaEmail = new JLabel("Nuova email");
 		lblNuovaEmail.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNuovaEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNuovaEmail.setBounds(345, 263, 104, 40);
+		lblNuovaEmail.setBounds(348, 235, 104, 40);
 		contentPane.add(lblNuovaEmail);
 		
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
-		textField_4.setBounds(161, 307, 86, 20);
+		textField_4.setBounds(164, 279, 86, 20);
 		contentPane.add(textField_4);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(357, 307, 86, 20);
+		textField_5.setBounds(360, 279, 86, 20);
 		contentPane.add(textField_5);
 		
 		JButton btnNewButton_1 = new JButton("Invia");
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(544, 287, 85, 40);
+		btnNewButton_1.setBounds(643, 267, 85, 40);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Menu");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.backToMenù();
+			}
+		});
+		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1_1.setBounds(643, 490, 85, 40);
+		contentPane.add(btnNewButton_1_1);
+		
+		JLabel lblNewLabel_1_1_1 = new JLabel("Ricerca");
+		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1_1_1.setBounds(309, 324, 176, 40);
+		contentPane.add(lblNewLabel_1_1_1);
+		
+		JComboBox comboBox = new JComboBox(valoriScelta);
+		comboBox.setBounds(164, 391, 108, 22);
+		contentPane.add(comboBox);
+		
+		textField_6 = new JTextField();
+		textField_6.setColumns(10);
+		textField_6.setBounds(357, 392, 86, 20);
+		contentPane.add(textField_6);
+		
+		JButton btnNewButton_1_2 = new JButton("Invia");
+		btnNewButton_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1_2.setBounds(643, 380, 85, 40);
+		contentPane.add(btnNewButton_1_2);
 	}
-
 }

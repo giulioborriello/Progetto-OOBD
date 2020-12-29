@@ -12,6 +12,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class BigliettoGUI extends JFrame {
 
@@ -158,5 +160,15 @@ public class BigliettoGUI extends JFrame {
 		lblNewLabel_7_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_7_1.setBounds(234, 363, 275, 40);
 		contentPane.add(lblNewLabel_7_1);
+		
+		JButton btnNewButton_1_1_1 = new JButton("Menu");
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.backToMenù();
+			}
+		});
+		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1_1_1.setBounds(733, 496, 85, 40);
+		contentPane.add(btnNewButton_1_1_1);
 	}
 }
