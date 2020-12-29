@@ -53,8 +53,8 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ResultSet rs=ps.executeQuery();
 			    int ngate = rs.getInt("Ngate");
 			    String codIATA = rs.getString("CodIATA");
-			    GateDAOPostgres gate = new GateDAOPostgres();
-			    CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres();
+			    GateDAOPostgres gate = new GateDAOPostgres(conn);
+			    CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres(conn);
 			    
 				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), ngate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
@@ -99,8 +99,8 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
 			ps.setInt(1, nGate);
 			ResultSet rs=ps.executeQuery();
-			GateDAOPostgres gate = new GateDAOPostgres();
-		    CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres();
+			GateDAOPostgres gate = new GateDAOPostgres(conn);
+		    CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres(conn);
 			while(rs.next()) {
 				int ngate = rs.getInt("Ngate");
 				String codIATA = rs.getString("CodIATA");

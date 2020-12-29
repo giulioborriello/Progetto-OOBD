@@ -7,9 +7,8 @@ import GUI.MenùGUI;
 import GUI.SlotGUI;
 
 public class Controller {
-	MenùGUI menù;
 	SlotGUI slot;
-	
+	MenùGUI menù;
 	public Controller() {
 		menù = new MenùGUI(this);
 		menù.setVisible(true);
@@ -19,7 +18,6 @@ public class Controller {
 	public static void main(String[] args) {
 
 	Controller controller = new Controller();
-
 	}
 	
 	public void OpenSlot() {

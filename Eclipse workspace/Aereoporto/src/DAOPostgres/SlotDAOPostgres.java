@@ -35,7 +35,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			
 			while(rs.next()) {
 				
-				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres(conn);
 				int codSlot = rs.getInt("CodSlot");
 				Slot Slot = new Slot(codSlot, rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), coda.getCodaDiImbarcoByCodSlot(codSlot));
@@ -61,7 +61,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			ps.setInt(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres(conn);
 				int codSlot = rs.getInt("CodSlot");
 				slot = new Slot(codSlot, rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), coda.getCodaDiImbarcoByCodSlot(codSlot));
@@ -86,7 +86,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres(conn);
 				int codSlot = rs.getInt("CodSlot");
 				slot = new Slot(codSlot, rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), coda.getCodaDiImbarcoByCodSlot(codSlot));
@@ -109,7 +109,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			ps.setString(1, Data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres();
+				CodaDiImbarcoDAOPostgres coda = new CodaDiImbarcoDAOPostgres(conn);
 				int codSlot = rs.getInt("CodSlot");
 				Slot Slot = new Slot(codSlot, rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), coda.getCodaDiImbarcoByCodSlot(codSlot));

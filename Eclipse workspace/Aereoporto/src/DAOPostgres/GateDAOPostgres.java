@@ -27,7 +27,7 @@ public class GateDAOPostgres implements GateDAO{
 			Statement st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Gate\"");
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
 				int nGate = rs.getInt("Ngate");
 				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
@@ -53,7 +53,7 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
 				int nGate = rs.getInt("Ngate");
 				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
@@ -77,14 +77,14 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres();
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
 				int nGate = rs.getInt("Ngate");
 				gate = new Gate(nGate, rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
 			}
 			conn.close();
 			rs.close();
-			st.close()
+			st.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

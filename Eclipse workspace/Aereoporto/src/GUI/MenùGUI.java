@@ -53,6 +53,10 @@ public class MenùGUI extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Fedelt\u00E0");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnNewButton_3.setBounds(205, 262, 124, 70);
 		contentPane.add(btnNewButton_3);
 		
