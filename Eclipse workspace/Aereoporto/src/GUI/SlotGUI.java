@@ -67,16 +67,15 @@ public class SlotGUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				String temp = (String) comboBox.getSelectedItem(); 
 				if (temp.equals("Seleziona tutti")) {
-					SlotDAOPostgres sl = new SlotDAOPostgres();
-					
+					SlotDAOPostgres sl = new SlotDAOPostgres(controller.conn);			
 					List<Slot> ls = sl.getAllSlot();
 					for (Slot slot: ls) {
 						System.out.println(slot.getCodSlot());
 					}
-					
+				
 				}
 			}
-		});
+	});
 		btnNewButton.setBounds(596, 128, 142, 42);
 		contentPane.add(btnNewButton);
 		

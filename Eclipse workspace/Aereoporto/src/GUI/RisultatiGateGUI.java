@@ -2,6 +2,7 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -35,16 +36,18 @@ public class RisultatiGateGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		DefaultListModel<Gate> listModel = new DefaultListModel<Gate>();
+//		DefaultListModel<Gate> listModel = new DefaultListModel<Gate>();
+//		
+//		for(Gate gate:list) {
+//			listModel.addElement(gate);
+//		}
+		ArrayList<Gate> alist = (ArrayList<Gate>) list;
 		
-		for(Gate gate:list) {
-			listModel.addElement(gate);
-		}
-		
- 	    JList<Gate> jlist = new JList<Gate>(listModel);
+ 	    JList jlist = new JList(list.toArray(alist.toArray()));
  	    jlist.setLocation(62, 49);
  	    jlist.setSize(400, 363);
  	    contentPane.add(jlist);
+ 	     
 	}
 	
 
