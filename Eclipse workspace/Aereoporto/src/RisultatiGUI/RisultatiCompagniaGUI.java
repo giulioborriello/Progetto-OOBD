@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import Entità.CodaDiImbarco;
 import Entità.Compagnia;
+import Entità.Gate;
 import GUI.CompagniaGUI;
 import GUI.Controller;
 
@@ -39,7 +40,16 @@ public class RisultatiCompagniaGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JList jlist = new JList((ListModel) null);
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		
+		for(Compagnia compagnia: list) {
+			String string = compagnia.getCodIATA() + " " + compagnia.getNomeCompagnia() + " " + compagnia.getSitoWeb();
+			listModel.addElement(string);
+			
+		}
+		
+		
+		JList jlist = new JList(listModel);
 		jlist.setBounds(10, 11, 400, 363);
 		contentPane.add(jlist);
 		
@@ -47,16 +57,6 @@ public class RisultatiCompagniaGUI extends JFrame {
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton_3.setBounds(10, 385, 180, 57);
 		contentPane.add(btnNewButton_3);
-		
-DefaultListModel<String> listModel = new DefaultListModel<String>();
-		
-		
-		
-		for(Compagnia Compagnia: list) {
-			String string = Compagnia.getCodIATA()+ " " + Compagnia.getNomeCompagnia() + " " + Compagnia.getSitoWeb();
-			listModel.addElement(string);
 			
-		}
 	}
-
 }

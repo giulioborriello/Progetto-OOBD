@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CompagniaGUI extends JFrame {
-	String[] ValoriScelta = {"Seleziona tutti","CodIATA","Nome Compagnia","Tratta","Fedeltà"};
+	String[] ValoriScelta = {"Seleziona tutti","CodIATA","Nome Compagnia",};
 	Controller controller;
 	private JPanel contentPane;
 	private JTextField CodIATAtextField;

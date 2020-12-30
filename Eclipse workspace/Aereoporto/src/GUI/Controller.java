@@ -3,8 +3,13 @@ import java.sql.Connection;
 import java.util.List;
 
 import DAOPostgres.*;
+import Entit‡.Cliente;
+import Entit‡.CodaDiImbarco;
+import Entit‡.Compagnia;
+import Entit‡.Fedelt‡;
 import Entit‡.Gate;
 import Entit‡.Slot;
+import Entit‡.Tratta;
 import GUI.Men˘GUI;
 import GUI.SlotGUI;
 import RisultatiGUI.RisultatiBigliettoGUI;
@@ -151,46 +156,174 @@ public class Controller {
 	
 	
 
-	public void openRisultatiGate(String valore) {
+	public void openRisultatiGate(String valore, String ricerca) {
 		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(conn);
-		List<Gate> list;
-		if (valore == "Seleziona tutti") {
+		List<Gate> list = null;
+		if (ricerca == "Seleziona tutti") {
 				list = gatePostgres.getAllGate();
 		}
+		else if(ricerca == "N gate") {
+			list.add(gatePostgres.getGateByNgate(Integer.valueOf(valore)));
+			
+		}
 		
-		risultatiGate = new RisultatiGateGUI(list), this);
+		else if(ricerca == "CodTratta") {
+			list.add(gatePostgres.getGateByCodTratta(valore));
+		}
+		
+		risultatiGate = new RisultatiGateGUI(list, this);
 		gate.setVisible(false);
 		risultatiGate.setVisible(true);
 		
 	}
 	
-	public void openRisultatiTratta() {
+	public void openRisultatiTratta(String valore, String ricerca) {
 		
 		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(conn);
-		risultatiTratta = new RisultatiTrattaGUI(trattaPostgres.getAllTratta(), this);
-		gate.setVisible(false);
-		risultatiGate.setVisible(true);
+		
+		List<Tratta> list = null;
+		if (ricerca == "Seleziona tutti") {
+			list = trattaPostgres.getAllTratta();
+		}
+		else if(ricerca == "CodTratta") {
+			list.add(trattaPostgres.getTrattaByCodTratta(valore));
+		
+		}
+	
+		else if(ricerca == "Ngate") {
+			list = (trattaPostgres.getTrattaNgate(valore));
+		}
+	
+		else if(ricerca == "Data") {
+			list = (trattaPostgres.getTrattaByData(valore));
+		}
+		
+		else if(ricerca == "CodIATA") {
+			list = (trattaPostgres.getTrattaCodIATA(valore));
+		}
+		
+		else if(ricerca == "Destinazione") {
+			list = (trattaPostgres.getTrattaDestinazione(valore));
+		}	
+		
+		
+		risultatiTratta = new RisultatiTrattaGUI(list, this);
+		tratta.setVisible(false);
+		risultatiTratta.setVisible(true);
 		
 	}
 	
-	public void openRisultatiSlot() {
+	public void openRisultatiSlot(String valore, String ricerca) {
 		
-		TrattaDAOPostgres slotPostgres = new TrattaDAOPostgres(conn);
-		risultatiTratta = new RisultatiTrattaGUI(slotPostgres.getAllTratta(), this);
-		gate.setVisible(false);
-		risultatiGate.setVisible(true);
+		SlotDAOPostgres slotPostgres = new SlotDAOPostgres(conn);
+		List<Slot> list = null;
+		if (ricerca == "Seleziona tutti") {
+			list = slotPostgres.getAllSlot();
+		}
+		
+		else if(ricerca == "CodSlot") {
+			list = slotPostgres.getAllSlot();
+		}
+	
+		else if(ricerca == "CodCoda") {
+			list.add(slotPostgres.getSlotByCodCoda(Integer.valueOf(valore)));
+			
+		}
+		
+		else if(ricerca == "Data") {
+			list = slotPostgres.getSlotByData(valore);
+		}
+		
+		risultatiSlot = new RisultatiSlotGUI(list, this);
+		slot.setVisible(false);
+		risultatiSlot.setVisible(true);
+				
+	}
+	
+	public void openRisultatiFedelt‡(String valore, String ricerca) {
+		
+		Fedelt‡DAOPostgres fedelt‡Postgres = new Fedelt‡DAOPostgres(conn);
+		
+		List<Fedelt‡> list = null;
+		if (ricerca == "Seleziona tutti") {
+			list = fedelt‡Postgres.getAllFedelt‡();
+		}
+		
+		else if(ricerca == "CentoKilometri") {
+			list = fedelt‡Postgres.getFedelt‡ByCentoKilometri(valore);
+		}
+		
+		else if(ricerca == "CodiATA") {
+			list = fedelt‡Postgres.getFedelt‡ByCodIATA(valore);
+		}
+		
+		else if(ricerca == "CodFiscale") {
+			list = fedelt‡Postgres.getFedelt‡ByCodFiscale(valore);
+		}
+		
+		risultatiFedelt‡ = new RisultatiFedelt‡GUI(list, this);
+		fedelt‡.setVisible(false);
+		risultatiFedelt‡.setVisible(true);
 		
 	}
 	
-	public void openRisultatiGate() {
+	public void openRisultatiCompagnia(String valore, String ricerca) {
+		CompagniaDAOPostgres compagniaPostgres= new CompagniaDAOPostgres(conn);
+		List<Compagnia> list = null;
 		
-		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(conn);
-		risultatiTratta = new RisultatiTrattaGUI(trattaPostgres.getAllTratta(), this);
-		gate.setVisible(false);
-		risultatiGate.setVisible(true);
+		if (valore == "Seleziona tutti") {
+			list = compagniaPostgres.getAllCompagnia();
+		}
 		
+		else if(valore == "CodIATA") {
+			list = (List<Compagnia>) compagniaPostgres.getCompagniaByCodIATA(valore);
+		}
+		
+		else if(valore == "Nome Compagnia") {
+			list = (List<Compagnia>) compagniaPostgres.getCompagniaByNomeCompagnia(valore);
+		}
+		risultatiCompagnia = new RisultatiCompagniaGUI(list, this);
+		compagnia.setVisible(false);
+		risultatiCompagnia.setVisible(true);
+		
+	}	
+		
+	public void openRisultatiCodaDiImbarco(String valore, String ricerca) {
+		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(conn);
+		List<CodaDiImbarco> list = null;
+		
+		if (valore == "seleziona tutti") {
+			list = codaDiImbarcoPostgres.getAllCodaDiImbarco();	
+		}
+		
+		else if(valore == "CodCoda") {
+			list =  (List<CodaDiImbarco>) codaDiImbarcoPostgres.getCodaDiImbarcoByCodCoda(valore);
+		}
+		
+		else if(valore == "CodSlot") {
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(Integer.valueOf(valore)));
+		}
+	
+		else if(valore == "N gate") {
+			list = (List<CodaDiImbarco>) codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore);
+		}
+	
 	}
+	
+	public void openRisultatiCliente(String valore, String ricerca) {
+		ClienteDAOPostgres clientePostgres = new ClienteDAOPostgres(conn);
+		List<Cliente> list = null;
+		if (valore == "seleziona tutti") {
+			list = clientePostgres.getAllCliente();	
+		}
+		
+		if (valore == "Codice Fiscale") {
+			list = (List<Cliente>) clientePostgres.getClienteByCodFiscale(valore);	
+		}
+	}
+	
+	
 	
 	
 	

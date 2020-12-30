@@ -24,7 +24,7 @@ public class Fedelt‡GUI extends JFrame {
 	private JTextField txtRicercatextfield;
 	private JTextField txtEliminatextfield;
 
-    String [] ValoriScelta = {"CentoKilometri","CodiATA","CodFiscale"};
+    String [] ValoriScelta = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
 		
 
 	/**
