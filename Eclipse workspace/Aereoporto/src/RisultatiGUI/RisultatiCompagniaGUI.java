@@ -6,13 +6,22 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Entità.CodaDiImbarco;
+import Entità.Compagnia;
+import GUI.CompagniaGUI;
+import GUI.Controller;
+
 import javax.swing.JList;
 import javax.swing.ListModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.util.List;
 
 public class RisultatiCompagniaGUI extends JFrame {
 
+	Controller controller;
 	private JPanel contentPane;
 
 	/**
@@ -21,7 +30,8 @@ public class RisultatiCompagniaGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public RisultatiCompagniaGUI() {
+	public RisultatiCompagniaGUI(List<Compagnia> list, Controller c) {
+		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 714, 540);
 		contentPane = new JPanel();
@@ -37,6 +47,16 @@ public class RisultatiCompagniaGUI extends JFrame {
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton_3.setBounds(10, 385, 180, 57);
 		contentPane.add(btnNewButton_3);
+		
+DefaultListModel<String> listModel = new DefaultListModel<String>();
+		
+		
+		
+		for(Compagnia Compagnia: list) {
+			String string = Compagnia.getCodIATA()+ " " + Compagnia.getNomeCompagnia() + " " + Compagnia.getSitoWeb();
+			listModel.addElement(string);
+			
+		}
 	}
 
 }

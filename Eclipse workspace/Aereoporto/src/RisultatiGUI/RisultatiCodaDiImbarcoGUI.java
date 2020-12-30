@@ -34,8 +34,8 @@ public class RisultatiCodaDiImbarcoGUI extends JFrame {
 		
 		
 		for(CodaDiImbarco CodaDiImbarco: list) {
-			String[] astring = {String.valueOf(CodaDiImbarco.getCodCoda()), CodaDiImbarco.getTipoDiCoda()};
-			listModel.addElement(astring[0] + " " + astring[1]);
+			String string = CodaDiImbarco.getTipoDiCoda()+ " ";
+			listModel.addElement(string);
 			
 		}
 		
