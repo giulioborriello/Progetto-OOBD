@@ -18,7 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GateGUI extends JFrame {
-	String[] ValoriScelta = {"Seleziona tutti","N gate","CodTratta","CodaDiImbarco","Tratta"};
+	String[] ValoriScelta = {"Seleziona tutti","N gate","CodTratta",};
 	Controller controller;
 
 	private JPanel contentPane;
@@ -61,7 +61,7 @@ public class GateGUI extends JFrame {
 		JButton btnNewButton = new JButton("Invia");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiGate();
+				controller.openRisultatiGate(comboBox.getSelectedItem().toString());
 			}
 		});
 		btnNewButton.setBounds(618, 92, 142, 42);

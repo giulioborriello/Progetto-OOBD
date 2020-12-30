@@ -24,7 +24,7 @@ public class Fedelt‡GUI extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 
-    String [] ValoriScelta = {"CentoKilometri","CodiATA","CodFiscale"};
+    String [] ValoriScelta = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
 		
 
 	/**
