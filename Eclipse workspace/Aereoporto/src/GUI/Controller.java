@@ -6,7 +6,14 @@ import DAOPostgres.*;
 import Entità.Slot;
 import GUI.MenùGUI;
 import GUI.SlotGUI;
+import RisultatiGUI.RisultatiBigliettoGUI;
+import RisultatiGUI.RisultatiClienteGUI;
+import RisultatiGUI.RisultatiCodaDiImbarcoGUI;
+import RisultatiGUI.RisultatiCompagniaGUI;
+import RisultatiGUI.RisultatiFedeltàGUI;
 import RisultatiGUI.RisultatiGateGUI;
+import RisultatiGUI.RisultatiSlotGUI;
+import RisultatiGUI.RisultatiTrattaGUI;
 
 public class Controller {
 	static Connection conn;
@@ -20,12 +27,17 @@ public class Controller {
 	CodaDiImbarcoGUI codaDiImbarco;
 	ClienteGUI cliente;
 	BigliettoGUI biglietto;
-	
-	
-	
-	
-	
+	RisultatiSlotGUI risultatiSlot;
 	RisultatiGateGUI risultatiGate;
+	RisultatiTrattaGUI risultatiTratta;
+	RisultatiFedeltàGUI risultatiFedeltà;
+	RisultatiCompagniaGUI risultatiCompagnia;
+	RisultatiCodaDiImbarcoGUI risultatiCodaDiImbarco;
+	RisultatiClienteGUI risultatiCliente;
+	RisultatiBigliettoGUI risultatiBiglietto;
+	
+	
+	
 	
 	
 	
@@ -40,6 +52,8 @@ public class Controller {
 		cliente = new ClienteGUI(this);
 		biglietto = new BigliettoGUI(this);
 		gate = new GateGUI(this);
+		
+		 
 	}
 	
 	public static void main(String[] args) {
@@ -50,6 +64,9 @@ public class Controller {
 	}
 	
 	public void openSlot() {
+		if(risultatiSlot != null) {
+			risultatiSlot.setVisible(false);
+		}
 		menù.setVisible(false);
 		slot.setVisible(true);
 	
@@ -66,36 +83,54 @@ public class Controller {
 	}
 	
 	public void openTratta() {
+		if(risultatiTratta != null) {
+			risultatiTratta.setVisible(false);
+		}
 		menù.setVisible(false);
 		tratta.setVisible(true);
 	
 	}
 	
 	public void openFedeltà() {
+		if(risultatiFedeltà != null) {
+			risultatiFedeltà.setVisible(false);
+		}
 		menù.setVisible(false);
 		fedeltà.setVisible(true);
 	
 	}
 	
 	public void openCompagnia() {
+		if(risultatiCompagnia != null) {
+			risultatiCompagnia.setVisible(false);
+		}
 		menù.setVisible(false);
 		compagnia.setVisible(true);
 	
 	}
 	
 	public void openCodaDiImbarco() {
+		if(risultatiCodaDiImbarco != null) {
+			risultatiCodaDiImbarco.setVisible(false);
+		}
 		menù.setVisible(false);
 		codaDiImbarco.setVisible(true);
 	
 	}
 	
 	public void openCliente() {
+		if(risultatiCliente != null) {
+			risultatiCliente.setVisible(false);
+		}
 		menù.setVisible(false);
 		cliente.setVisible(true);
 	
 	}
 	
 	public void openBiglietto() {
+		if(risultatiBiglietto != null) {
+			risultatiBiglietto.setVisible(false);
+		}
 		menù.setVisible(false);
 		biglietto.setVisible(true);
 	
@@ -123,6 +158,18 @@ public class Controller {
 		risultatiGate.setVisible(true);
 		
 	}
+	
+	public void openRisultatiTratta() {
+		
+		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(conn);
+		risultatiTratta = new RisultatiTrattaGUI(trattaPostgres.getAllTratta(), this);
+		gate.setVisible(false);
+		risultatiGate.setVisible(true);
+		
+	}
+	
+	
+	
 	
 }
 
