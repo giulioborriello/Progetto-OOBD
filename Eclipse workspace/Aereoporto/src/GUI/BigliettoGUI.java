@@ -29,10 +29,6 @@ public class BigliettoGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti", "Codice Biglietto", "Codice Fiscale", "Nome", "Posto", "Tipo di biglietto",  "Codice Tratta"};
 	private JTextField textField_6;
 	
-
-	/**
-	 * Create the frame.
-	 */
 	public BigliettoGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -158,7 +154,7 @@ public class BigliettoGUI extends JFrame {
 		
 		JButton btnNewButton_1_1 = new JButton("Invia");
 		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1_1.setBounds(733, 394, 85, 40);
+		btnNewButton_1_1.setBounds(494, 402, 85, 40);
 		contentPane.add(btnNewButton_1_1);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("Inserisci N gate della riga da eliminare");

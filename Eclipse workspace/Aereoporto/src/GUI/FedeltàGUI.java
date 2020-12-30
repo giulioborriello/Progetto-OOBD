@@ -86,26 +86,26 @@ public class Fedelt‡GUI extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("Ricerca");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(43, 188, 94, 31);
+		lblNewLabel_2.setBounds(83, 188, 94, 31);
 		contentPane.add(lblNewLabel_2);
 		
 		JComboBox comboBox = new JComboBox(ValoriScelta);
-		comboBox.setBounds(43, 231, 94, 59);
+		comboBox.setBounds(53, 228, 119, 43);
 		contentPane.add(comboBox);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(317, 239, 132, 43);
+		textField_4.setBounds(281, 228, 132, 43);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Elimina");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_3.setBounds(72, 383, 173, 50);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_3.setBounds(89, 338, 73, 50);
 		contentPane.add(lblNewLabel_3);
 		
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
-		textField_5.setBounds(281, 383, 132, 43);
+		textField_5.setBounds(272, 408, 132, 43);
 		contentPane.add(textField_5);
 		
 		JButton btnNewButton_3 = new JButton("Torna indietro ");
@@ -115,7 +115,27 @@ public class Fedelt‡GUI extends JFrame {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton_3.setBounds(0, 460, 180, 57);
+		btnNewButton_3.setBounds(31, 399, 180, 57);
 		contentPane.add(btnNewButton_3);
+		
+		JButton btnNewButton_1 = new JButton("Invia");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1.setBounds(728, 92, 85, 40);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Invia");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.openRisultatiFedelt‡(comboBox.getSelectedItem().toString());
+			}
+		});
+		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1_1.setBounds(459, 228, 85, 40);
+		contentPane.add(btnNewButton_1_1);
+		
+		JButton btnNewButton_1_2 = new JButton("Invia");
+		btnNewButton_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1_2.setBounds(459, 408, 85, 40);
+		contentPane.add(btnNewButton_1_2);
 	}
 }
