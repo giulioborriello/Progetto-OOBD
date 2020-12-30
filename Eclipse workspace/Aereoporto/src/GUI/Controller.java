@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.util.List;
 
 import DAOPostgres.*;
+import Entità.Gate;
 import Entità.Slot;
 import GUI.MenùGUI;
 import GUI.SlotGUI;
@@ -150,10 +151,15 @@ public class Controller {
 	
 	
 
-	public void openRisultatiGate() {
+	public void openRisultatiGate(String valore) {
 		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(conn);
-		risultatiGate = new RisultatiGateGUI(gatePostgres.getAllGate(), this);
+		List<Gate> list;
+		if (valore == "Seleziona tutti") {
+				list = gatePostgres.getAllGate();
+		}
+		
+		risultatiGate = new RisultatiGateGUI(list), this);
 		gate.setVisible(false);
 		risultatiGate.setVisible(true);
 		
@@ -167,6 +173,25 @@ public class Controller {
 		risultatiGate.setVisible(true);
 		
 	}
+	
+	public void openRisultatiSlot() {
+		
+		TrattaDAOPostgres slotPostgres = new TrattaDAOPostgres(conn);
+		risultatiTratta = new RisultatiTrattaGUI(slotPostgres.getAllTratta(), this);
+		gate.setVisible(false);
+		risultatiGate.setVisible(true);
+		
+	}
+	
+	public void openRisultatiGate() {
+		
+		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(conn);
+		risultatiTratta = new RisultatiTrattaGUI(trattaPostgres.getAllTratta(), this);
+		gate.setVisible(false);
+		risultatiGate.setVisible(true);
+		
+	}
+	
 	
 	
 	
