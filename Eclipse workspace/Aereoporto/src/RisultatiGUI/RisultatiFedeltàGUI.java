@@ -7,13 +7,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Entit‡.Compagnia;
+import Entit‡.Fedelt‡;
+import Entit‡.Gate;
 import GUI.Controller;
 
 import javax.swing.JList;
 import javax.swing.ListModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class RisultatiFedelt‡GUI extends JFrame {
@@ -21,7 +26,7 @@ public class RisultatiFedelt‡GUI extends JFrame {
 	private JPanel contentPane;
 	private Controller controller;
 	
-	public RisultatiFedelt‡GUI(Controller c) {
+	public RisultatiFedelt‡GUI(List<Fedelt‡> list, Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 709, 544);
@@ -30,7 +35,16 @@ public class RisultatiFedelt‡GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JList jlist = new JList((ListModel) null);
+		
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		
+		for(Fedelt‡ fedelt‡: list) {
+			String string = fedelt‡.getCodFiscale() + " " + fedelt‡.getCodIATA() + " " + fedelt‡.getCentoKilometri() + " " + fedelt‡.getPunti();
+			listModel.addElement(string);
+			
+		}
+		
+		JList jlist = new JList(listModel);
 		jlist.setBounds(10, 11, 400, 363);
 		contentPane.add(jlist);
 		
