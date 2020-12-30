@@ -136,6 +136,11 @@ public class BigliettoGUI extends JFrame {
 		contentPane.add(comboBox);
 		
 		JButton btnNewButton_1 = new JButton("Invia");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.openRisultatiBiglietto(comboBox.getSelectedItem().toString());
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1.setBounds(456, 48, 85, 40);
 		contentPane.add(btnNewButton_1);

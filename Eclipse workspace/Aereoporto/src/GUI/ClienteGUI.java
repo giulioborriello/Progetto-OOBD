@@ -70,6 +70,10 @@ public class ClienteGUI extends JFrame {
 		contentPane.add(lblEmail);
 		
 		JButton btnNewButton = new JButton("Invia");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.setBounds(643, 124, 85, 40);
 		contentPane.add(btnNewButton);
@@ -153,6 +157,11 @@ public class ClienteGUI extends JFrame {
 		contentPane.add(textField_6);
 		
 		JButton btnNewButton_1_2 = new JButton("Invia");
+		btnNewButton_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.openRisultatiCliente(comboBox.getSelectedItem().toString());
+			}
+		});
 		btnNewButton_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1_2.setBounds(643, 380, 85, 40);
 		contentPane.add(btnNewButton_1_2);
