@@ -55,7 +55,9 @@ public class Controller {
 	}
 	
 	public void openGate() {
-		risultatiGate.setVisible(false);
+		if(risultatiGate != null) {
+			risultatiGate.setVisible(false);
+		}
 		menù.setVisible(false);
 		gate.setVisible(true);
 		 
@@ -115,7 +117,7 @@ public class Controller {
 	public void openRisultatiGate() {
 		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(conn);
-		risultatiGate = new RisultatiGateGUI(gatePostgres.getAllGate());
+		risultatiGate = new RisultatiGateGUI(gatePostgres.getAllGate(), this);
 		gate.setVisible(false);
 		risultatiGate.setVisible(true);
 		
