@@ -1,22 +1,19 @@
 package RisultatiGUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Entità.Biglietto;
-import Entità.Gate;
 import GUI.Controller;
 
 import javax.swing.JList;
-import javax.swing.ListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.util.List;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RisultatiBigliettoGUI extends JFrame {
 
@@ -50,6 +47,11 @@ public class RisultatiBigliettoGUI extends JFrame {
 		contentPane.add(jlist);
 		
 		JButton btnNewButton_3 = new JButton("Torna indietro ");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			controller.openBiglietto();
+			}
+		});
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton_3.setBounds(34, 414, 180, 57);
 		contentPane.add(btnNewButton_3);
