@@ -36,14 +36,17 @@ public class RisultatiGateGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-//		DefaultListModel<Gate> listModel = new DefaultListModel<Gate>();
-//		
-//		for(Gate gate:list) {
-//			listModel.addElement(gate);
-//		}
-		ArrayList<Gate> alist = (ArrayList<Gate>) list;
 		
- 	    JList jlist = new JList(list.toArray(alist.toArray()));
+		ArrayList<Gate> alist = new ArrayList<Gate>();
+		alist.addAll(list);
+		
+		DefaultListModel<Gate> listModel = new DefaultListModel<Gate>();
+		
+		for(int i = 1; i < alist.size(); i++) {
+			listModel.addElement(alist.get(i));
+		}
+		
+ 	    JList<Gate> jlist = new JList<Gate>(listModel);
  	    jlist.setLocation(62, 49);
  	    jlist.setSize(400, 363);
  	    contentPane.add(jlist);
