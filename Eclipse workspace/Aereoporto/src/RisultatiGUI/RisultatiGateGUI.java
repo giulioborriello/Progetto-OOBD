@@ -1,4 +1,4 @@
-package GUI;
+package RisultatiGUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Entità.Gate;
+import GUI.Controller;
 
 import javax.swing.JList;
 import javax.swing.JSeparator;

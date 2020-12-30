@@ -6,6 +6,7 @@ import DAOPostgres.*;
 import Entità.Slot;
 import GUI.MenùGUI;
 import GUI.SlotGUI;
+import RisultatiGUI.RisultatiGateGUI;
 
 public class Controller {
 	static Connection conn;
