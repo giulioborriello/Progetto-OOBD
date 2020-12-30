@@ -20,6 +20,10 @@ public class Controller {
 	ClienteGUI cliente;
 	BigliettoGUI biglietto;
 	
+	
+	
+	
+	
 	RisultatiGateGUI risultatiGate;
 	
 	
@@ -51,8 +55,10 @@ public class Controller {
 	}
 	
 	public void openGate() {
+		risultatiGate.setVisible(false);
 		menù.setVisible(false);
 		gate.setVisible(true);
+		 
 	
 	}
 	
@@ -103,11 +109,13 @@ public class Controller {
 		slot.setVisible(false);
 		menù.setVisible(true);
 	}
+	
+	
 
 	public void openRisultatiGate() {
 		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(conn);
-		RisultatiGateGUI risultatiGate = new RisultatiGateGUI(gatePostgres.getAllGate());
+		risultatiGate = new RisultatiGateGUI(gatePostgres.getAllGate());
 		gate.setVisible(false);
 		risultatiGate.setVisible(true);
 		
