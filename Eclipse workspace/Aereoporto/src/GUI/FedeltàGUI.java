@@ -17,12 +17,12 @@ import java.awt.event.ActionEvent;
 public class Fedelt‡GUI extends JFrame {
 	Controller controller;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField CtextField;
+	private JTextField txtCodiatatextfield;
+	private JTextField txtCodfiscaletextfield;
+	private JTextField txtPuntitextfield;
+	private JTextField txtRicercatextfield;
+	private JTextField txtEliminatextfield;
 
     String [] ValoriScelta = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
 		
@@ -64,25 +64,29 @@ public class Fedelt‡GUI extends JFrame {
 		lblNewLabel_1_3.setBounds(610, 70, 73, 31);
 		contentPane.add(lblNewLabel_1_3);
 		
-		textField = new JTextField();
-		textField.setBounds(53, 101, 109, 31);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		CtextField = new JTextField();
+		CtextField.setText("CentochilometriTextField");
+	    CtextField.setBounds(53, 101, 109, 31);
+		contentPane.add(CtextField);
+		CtextField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(255, 101, 109, 31);
-		contentPane.add(textField_1);
+		txtCodiatatextfield = new JTextField();
+		txtCodiatatextfield.setText("CodiATATextField");
+		txtCodiatatextfield.setColumns(10);
+		txtCodiatatextfield.setBounds(255, 101, 109, 31);
+		contentPane.add(txtCodiatatextfield);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(439, 101, 109, 31);
-		contentPane.add(textField_2);
+		txtCodfiscaletextfield = new JTextField();
+		txtCodfiscaletextfield.setText("CodFiscaleTextField");
+		txtCodfiscaletextfield.setColumns(10);
+		txtCodfiscaletextfield.setBounds(439, 101, 109, 31);
+		contentPane.add(txtCodfiscaletextfield);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(586, 101, 109, 31);
-		contentPane.add(textField_3);
+		txtPuntitextfield = new JTextField();
+		txtPuntitextfield.setText("PuntiTextField");
+		txtPuntitextfield.setColumns(10);
+		txtPuntitextfield.setBounds(586, 101, 109, 31);
+		contentPane.add(txtPuntitextfield);
 		
 		JLabel lblNewLabel_2 = new JLabel("Ricerca");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -93,20 +97,22 @@ public class Fedelt‡GUI extends JFrame {
 		comboBox.setBounds(53, 228, 119, 43);
 		contentPane.add(comboBox);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(281, 228, 132, 43);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		txtRicercatextfield = new JTextField();
+		txtRicercatextfield.setText("RicercaTextfield");
+		txtRicercatextfield.setBounds(281, 228, 132, 43);
+		contentPane.add(txtRicercatextfield);
+		txtRicercatextfield.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Elimina");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_3.setBounds(89, 338, 73, 50);
 		contentPane.add(lblNewLabel_3);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(272, 408, 132, 43);
-		contentPane.add(textField_5);
+		txtEliminatextfield = new JTextField();
+		txtEliminatextfield.setText("EliminaTextField");
+		txtEliminatextfield.setColumns(10);
+		txtEliminatextfield.setBounds(272, 408, 132, 43);
+		contentPane.add(txtEliminatextfield);
 		
 		JButton btnNewButton_3 = new JButton("Torna indietro ");
 		btnNewButton_3.addActionListener(new ActionListener() {

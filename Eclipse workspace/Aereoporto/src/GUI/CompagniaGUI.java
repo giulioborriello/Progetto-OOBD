@@ -21,12 +21,12 @@ public class CompagniaGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","CodIATA","Nome Compagnia",};
 	Controller controller;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField CodIATAtextField;
+	private JTextField NomeCompagniatextField;
+	private JTextField SitoWebtextField;
+	private JTextField TrattatextField;
+	private JTextField FedeltàtextField;
+	private JTextField EliminaCodIatatextField;
 
 	/**
 	 * Launch the application.
@@ -54,11 +54,16 @@ public class CompagniaGUI extends JFrame {
 		comboBox.setBounds(10, 73, 149, 82);
 		contentPane.add(comboBox);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(317, 102, 136, 22);
-		contentPane.add(textArea);
+		JTextArea RicercaTextArea = new JTextArea();
+		RicercaTextArea.setBounds(317, 102, 136, 22);
+		contentPane.add(RicercaTextArea);
 		
 		JButton btnNewButton = new JButton("Invia");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				comboBox.getSelectedItem().toString();
+			}
+		});
 		btnNewButton.setBounds(640, 103, 142, 42);
 		contentPane.add(btnNewButton);
 		
@@ -94,30 +99,35 @@ public class CompagniaGUI extends JFrame {
 		lblNewLabel_3_2.setBounds(421, 337, 59, 14);
 		contentPane.add(lblNewLabel_3_2);
 		
-		textField = new JTextField();
-		textField.setBounds(176, 290, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		CodIATAtextField = new JTextField();
+		CodIATAtextField.setBounds(176, 290, 86, 20);
+		contentPane.add(CodIATAtextField);
+		CodIATAtextField.setColumns(10);
+		CodIATAtextField.getText();
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(331, 290, 86, 20);
-		contentPane.add(textField_1);
+		NomeCompagniatextField = new JTextField();
+		NomeCompagniatextField.setColumns(10);
+		NomeCompagniatextField.setBounds(331, 290, 86, 20);
+		contentPane.add(NomeCompagniatextField);
+		NomeCompagniatextField.getText();
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(481, 290, 86, 20);
-		contentPane.add(textField_2);
+		SitoWebtextField = new JTextField();
+		SitoWebtextField.setColumns(10);
+		SitoWebtextField.setBounds(481, 290, 86, 20);
+		SitoWebtextField.getText();
+		contentPane.add(SitoWebtextField);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(244, 362, 86, 20);
-		contentPane.add(textField_3);
+		TrattatextField = new JTextField();
+		TrattatextField.setColumns(10);
+		TrattatextField.setBounds(244, 362, 86, 20);
+		TrattatextField.getText();
+		contentPane.add(TrattatextField);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(405, 362, 86, 20);
-		contentPane.add(textField_4);
+		FedeltàtextField = new JTextField();
+		FedeltàtextField.setColumns(10);
+		FedeltàtextField.setBounds(405, 362, 86, 20);
+		FedeltàtextField.getText();
+		contentPane.add(FedeltàtextField);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Elimina");
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -131,18 +141,27 @@ public class CompagniaGUI extends JFrame {
 		lblNewLabel_7_1.setBounds(236, 464, 275, 40);
 		contentPane.add(lblNewLabel_7_1);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(331, 515, 86, 20);
-		contentPane.add(textField_5);
+		EliminaCodIatatextField = new JTextField();
+		EliminaCodIatatextField.setColumns(10);
+		EliminaCodIatatextField.setBounds(331, 515, 86, 20);
+		EliminaCodIatatextField.getText();
+		contentPane.add(EliminaCodIatatextField);
 		
 		JButton btnNewButton_1 = new JButton("Invia");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.InserisciInCompagnia(comboBox.getSelectedItem().toString());
+			}
+		});
 		btnNewButton_1.setBounds(640, 361, 142, 42);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Invia");
 		btnNewButton_2.setBounds(640, 526, 142, 42);
 		contentPane.add(btnNewButton_2);
+		public void actionPerformed(ActionEvent arg0) {
+			controller.InserisciInCompagnia(comboBox.getSelectedItem().toString());
+		}
 		
 		JButton btnNewButton_3 = new JButton("Torna indietro ");
 		btnNewButton_3.addActionListener(new ActionListener() {
