@@ -25,7 +25,7 @@ public class BigliettoGUI extends JFrame {
 	private JTextField PostoTextField;
 	private JTextField CodTrattaTextField;
 	
-	String[] ValoriScelta = {"Seleziona tutti", "Codice Biglietto", "Codice Fiscale", "Nome", "Posto", "Tipo di biglietto",  "Codice Tratta"};
+	String[] ValoriScelta = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
 	private JTextField EliminaTextField;
 	
 	public BigliettoGUI(Controller c) {

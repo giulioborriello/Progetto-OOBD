@@ -1,8 +1,10 @@
 package GUI;
 import java.sql.Connection;
+import java.util.LinkedList;
 import java.util.List;
 
 import DAOPostgres.*;
+import Entit‡.Biglietto;
 import Entit‡.Cliente;
 import Entit‡.CodaDiImbarco;
 import Entit‡.Compagnia;
@@ -10,8 +12,6 @@ import Entit‡.Fedelt‡;
 import Entit‡.Gate;
 import Entit‡.Slot;
 import Entit‡.Tratta;
-import GUI.Men˘GUI;
-import GUI.SlotGUI;
 import RisultatiGUI.RisultatiBigliettoGUI;
 import RisultatiGUI.RisultatiClienteGUI;
 import RisultatiGUI.RisultatiCodaDiImbarcoGUI;
@@ -156,7 +156,7 @@ public class Controller {
 	
 	
 
-	public void openRisultatiGate(String valore, String ricerca) {
+	public void openRisultatiGate(String ricerca, String valore) {
 		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(conn);
 		List<Gate> list = null;
@@ -178,7 +178,7 @@ public class Controller {
 		
 	}
 	
-	public void openRisultatiTratta(String valore, String ricerca) {
+	public void openRisultatiTratta(String ricerca, String valore) {
 		
 		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(conn);
 		
@@ -214,7 +214,7 @@ public class Controller {
 		
 	}
 	
-	public void openRisultatiSlot(String valore, String ricerca) {
+	public void openRisultatiSlot(String ricerca, String valore) {
 		
 		SlotDAOPostgres slotPostgres = new SlotDAOPostgres(conn);
 		List<Slot> list = null;
@@ -227,7 +227,7 @@ public class Controller {
 		}
 	
 		else if(ricerca == "CodCoda") {
-			list.add(slotPostgres.getSlotByCodCoda(Integer.valueOf(valore)));
+			list = (List<Slot>) slotPostgres.getSlotByCodCoda(Integer.valueOf(valore));
 			
 		}
 		
@@ -241,7 +241,7 @@ public class Controller {
 				
 	}
 	
-	public void openRisultatiFedelt‡(String valore, String ricerca) {
+	public void openRisultatiFedelt‡(String ricerca, String valore) {
 		
 		Fedelt‡DAOPostgres fedelt‡Postgres = new Fedelt‡DAOPostgres(conn);
 		
@@ -268,7 +268,7 @@ public class Controller {
 		
 	}
 	
-	public void openRisultatiCompagnia(String valore, String ricerca) {
+	public void openRisultatiCompagnia(String ricerca, String valore) {
 		CompagniaDAOPostgres compagniaPostgres= new CompagniaDAOPostgres(conn);
 		List<Compagnia> list = null;
 		
@@ -289,7 +289,7 @@ public class Controller {
 		
 	}	
 		
-	public void openRisultatiCodaDiImbarco(String valore, String ricerca) {
+	public void openRisultatiCodaDiImbarco(String ricerca, String valore) {
 		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(conn);
 		List<CodaDiImbarco> list = null;
 		
@@ -302,31 +302,52 @@ public class Controller {
 		}
 		
 		else if(valore == "CodSlot") {
-			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(Integer.valueOf(valore)));
+			list = (List<CodaDiImbarco>) codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(Integer.valueOf(valore));
 		}
 	
 		else if(valore == "N gate") {
 			list = (List<CodaDiImbarco>) codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore);
 		}
+		risultatiCodaDiImbarco = new RisultatiCodaDiImbarcoGUI(list, this);
+		codaDiImbarco.setVisible(false);
+		risultatiCodaDiImbarco.setVisible(true);
 	
 	}
 	
-	public void openRisultatiCliente(String valore, String ricerca) {
+	
+	
+	
+	public void openRisultatiCliente(String ricerca, String valore) {
 		ClienteDAOPostgres clientePostgres = new ClienteDAOPostgres(conn);
 		List<Cliente> list = null;
-		if (valore == "seleziona tutti") {
+		if (valore == "Seleziona tutti") {
 			list = clientePostgres.getAllCliente();	
 		}
 		
 		if (valore == "Codice Fiscale") {
-			list = (List<Cliente>) clientePostgres.getClienteByCodFiscale(valore);	
+			list.add(clientePostgres.getClienteByCodFiscale(valore));	
 		}
+		risultatiCliente = new RisultatiClienteGUI(list, this);
+		cliente.setVisible(false);
+		risultatiCliente.setVisible(true);
 	}
 	
 	
 	
-	
-	
+	public void openRisultatiBiglietto(String ricerca, String valore) {
+		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
+		List<Biglietto> list = null;
+		
+		if (valore == "Seleziona tutti") {
+			list = biglietto.getAllBiglietto();	
+		}
+		else if(valore == "Codice Fiscale") {
+			list = biglietto.getBigliettoByCodFiscale(valore);
+		}
+		else if(valore == "Codice Tratta") {
+			list = biglietto.getBigliettoByCodTratta(valore);
+		}
+	}
 	
 	
 }
