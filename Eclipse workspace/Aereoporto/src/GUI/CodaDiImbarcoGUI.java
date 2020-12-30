@@ -21,11 +21,11 @@ public class CodaDiImbarcoGUI extends JFrame {
 	Controller controller;
 	String[] ValoriScelta = {"Seleziona tutti","CodCoda","Tipo Di Coda","N gate","CodSlot"};
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField CodCodatextField;
+	private JTextField TipoDiCodatextField;
+	private JTextField NGatetextField;
+	private JTextField CodSlottextField;
+	private JTextField EliminatextField;
 
 	/**
 	 * Launch the application.
@@ -54,11 +54,16 @@ public class CodaDiImbarcoGUI extends JFrame {
 		comboBox.setBounds(10, 78, 149, 82);
 		contentPane.add(comboBox);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(315, 107, 136, 22);
-		contentPane.add(textArea);
+		JTextArea RicercatextArea = new JTextArea();
+		RicercatextArea.setBounds(315, 107, 136, 22);
+		contentPane.add(RicercatextArea);
 		
 		JButton btnNewButton = new JButton("Invia");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.openRisultatiCodaDiImbarco(comboBox.getSelectedItem().toString());
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton.setBounds(618, 98, 142, 42);
 		contentPane.add(btnNewButton);
@@ -72,7 +77,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("CodCoda");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(206, 245, 92, 14);
+		lblNewLabel.setBounds(192, 241, 92, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblTipoDiCoda = new JLabel("Tipo di coda");
@@ -90,44 +95,54 @@ public class CodaDiImbarcoGUI extends JFrame {
 		lblNGate.setBounds(216, 315, 46, 22);
 		contentPane.add(lblNGate);
 		
-		textField = new JTextField();
-		textField.setBounds(192, 270, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		CodCodatextField = new JTextField();
+		CodCodatextField.setBounds(192, 270, 86, 20);
+		contentPane.add(CodCodatextField);
+		CodCodatextField.setColumns(10);
+		CodCodatextField.getText();
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(477, 270, 86, 20);
-		contentPane.add(textField_1);
+		TipoDiCodatextField = new JTextField();
+		TipoDiCodatextField.setColumns(10);
+		TipoDiCodatextField.setBounds(477, 270, 86, 20);
+		TipoDiCodatextField.getText();
+		contentPane.add(TipoDiCodatextField);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(192, 348, 86, 20);
-		contentPane.add(textField_2);
+		NGatetextField = new JTextField();
+		NGatetextField.setColumns(10);
+		NGatetextField.setBounds(192, 348, 86, 20);
+		NGatetextField.getText();
+		contentPane.add(NGatetextField);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(477, 348, 86, 20);
-		contentPane.add(textField_3);
+		CodSlottextField = new JTextField();
+		CodSlottextField.setColumns(10);
+		CodSlottextField.setBounds(477, 348, 86, 20);
+		CodSlottextField.getText();
+		contentPane.add(CodSlottextField);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Elimina");
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1.setForeground(Color.BLACK);
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(305, 398, 149, 42);
+		lblNewLabel_1_1_1.setBounds(107, 406, 149, 42);
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_7_1 = new JLabel("Inserisci N gate della riga da eliminare");
 		lblNewLabel_7_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_7_1.setBounds(239, 451, 275, 40);
+		lblNewLabel_7_1.setBounds(58, 451, 275, 40);
 		contentPane.add(lblNewLabel_7_1);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(337, 502, 86, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		EliminatextField = new JTextField();
+		EliminatextField.setBounds(136, 490, 86, 20);
+		contentPane.add(EliminatextField);
+		EliminatextField.setColumns(10);
+		CodSlottextField.getText();
 		
 		JButton btnNewButton_1 = new JButton("Invia");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.InserisciInCodaDiImbarco(comboBox.getSelectedItem().toString());
+			}
+		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_1.setBounds(618, 337, 142, 42);
 		contentPane.add(btnNewButton_1);
@@ -141,6 +156,15 @@ public class CodaDiImbarcoGUI extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_2.setBounds(618, 549, 142, 42);
 		contentPane.add(btnNewButton_2);
+		
+		JButton btnNewButton_1_1 = new JButton("Invia");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1_1.setBounds(107, 520, 142, 42);
+		contentPane.add(btnNewButton_1_1);
 	}
-
 }
