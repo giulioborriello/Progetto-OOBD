@@ -69,8 +69,8 @@ public class TrattaGUI extends JFrame {
 		
 		JButton btnNewButton = new JButton("Invia");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				controller.openRisultatiTratta();
+			public void actionPerformed(ActionEvent e) {
+				controller.openRisultatiTratta(comboBox.getSelectedItem().toString());
 			}
 		});
 		btnNewButton.setBounds(588, 112, 142, 42);

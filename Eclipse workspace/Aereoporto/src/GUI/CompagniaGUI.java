@@ -154,5 +154,5 @@ public class CompagniaGUI extends JFrame {
 		btnNewButton_3.setBounds(0, 514, 180, 57);
 		contentPane.add(btnNewButton_3);
 	}
-
+   
 }

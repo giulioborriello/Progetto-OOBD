@@ -19,20 +19,15 @@ public class BigliettoGUI extends JFrame {
 
 	Controller controller;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField CodBigliettoTextField;
+	private JTextField CodfiscaleTextField;
+	private JTextField NomeTextField;
+	private JTextField PostoTextField;
+	private JTextField CodTrattaTextField;
 	
 	String[] ValoriScelta = {"Seleziona tutti", "Codice Biglietto", "Codice Fiscale", "Nome", "Posto", "Tipo di biglietto",  "Codice Tratta"};
-	private JTextField textField_6;
+	private JTextField EliminaTextField;
 	
-
-	/**
-	 * Create the frame.
-	 */
 	public BigliettoGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,138 +37,150 @@ public class BigliettoGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Per:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(252, 52, 51, 33);
-		contentPane.add(lblNewLabel);
+		JLabel lblPer = new JLabel("Per:");
+		lblPer.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblPer.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPer.setBounds(269, 69, 51, 33);
+		contentPane.add(lblPer);
 		
-		JLabel lblNewLabel_1 = new JLabel("Inserimenti");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(298, 171, 119, 58);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblInserimenti = new JLabel("Inserimenti");
+		lblInserimenti.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInserimenti.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblInserimenti.setBounds(340, 127, 119, 58);
+		contentPane.add(lblInserimenti);
 		
 		JLabel lblCodtratta = new JLabel("CodBiglietto");
 		lblCodtratta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCodtratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodtratta.setBounds(10, 230, 85, 40);
+		lblCodtratta.setBounds(21, 175, 85, 40);
 		contentPane.add(lblCodtratta);
 		
 		JLabel lblCodfiscale = new JLabel("CodFiscale");
 		lblCodfiscale.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCodfiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodfiscale.setBounds(128, 230, 85, 40);
+		lblCodfiscale.setBounds(139, 175, 85, 40);
 		contentPane.add(lblCodfiscale);
 		
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNome.setBounds(234, 230, 85, 40);
+		lblNome.setBounds(245, 175, 85, 40);
 		contentPane.add(lblNome);
 		
 		JLabel lblPosto = new JLabel("Posto");
 		lblPosto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPosto.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblPosto.setBounds(345, 230, 85, 40);
+		lblPosto.setBounds(356, 175, 85, 40);
 		contentPane.add(lblPosto);
 		
-		JLabel lblTipodibiglietto = new JLabel("TipoDiBiglietto");
+		JLabel lblTipodibiglietto = new JLabel("Tipo Di Biglietto");
 		lblTipodibiglietto.setHorizontalAlignment(SwingConstants.CENTER);
 		lblTipodibiglietto.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTipodibiglietto.setBounds(440, 230, 139, 40);
+		lblTipodibiglietto.setBounds(451, 175, 139, 40);
 		contentPane.add(lblTipodibiglietto);
 		
 		JLabel lblCodtratta_5 = new JLabel("CodTratta");
 		lblCodtratta_5.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCodtratta_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodtratta_5.setBounds(603, 230, 85, 40);
+		lblCodtratta_5.setBounds(614, 175, 85, 40);
 		contentPane.add(lblCodtratta_5);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 281, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		CodBigliettoTextField = new JTextField();
+		CodBigliettoTextField.setBounds(21, 226, 86, 20);
+		contentPane.add(CodBigliettoTextField);
+		CodBigliettoTextField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(127, 281, 86, 20);
-		contentPane.add(textField_1);
+		CodfiscaleTextField = new JTextField();
+		CodfiscaleTextField.setColumns(10);
+		CodfiscaleTextField.setBounds(138, 226, 86, 20);
+		contentPane.add(CodfiscaleTextField);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(233, 281, 86, 20);
-		contentPane.add(textField_2);
+		NomeTextField = new JTextField();
+		NomeTextField.setColumns(10);
+		NomeTextField.setBounds(244, 226, 86, 20);
+		contentPane.add(NomeTextField);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(345, 281, 86, 20);
-		contentPane.add(textField_3);
+		PostoTextField = new JTextField();
+		PostoTextField.setColumns(10);
+		PostoTextField.setBounds(356, 226, 86, 20);
+		contentPane.add(PostoTextField);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(470, 281, 86, 20);
-		contentPane.add(textField_4);
+		JComboBox TipoDiBigliettoComboBox = new JComboBox(new Object[]{});
+		TipoDiBigliettoComboBox.setBounds(476, 226, 103, 22);
+		contentPane.add(TipoDiBigliettoComboBox);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(602, 281, 86, 20);
-		contentPane.add(textField_5);
+		CodTrattaTextField = new JTextField();
+		CodTrattaTextField.setColumns(10);
+		CodTrattaTextField.setBounds(613, 226, 86, 20);
+		contentPane.add(CodTrattaTextField);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Ricerca");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(316, -6, 119, 58);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel lblRicerca = new JLabel("Ricerca");
+		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRicerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblRicerca.setBounds(333, 11, 119, 58);
+		contentPane.add(lblRicerca);
 		
-		JButton btnNewButton = new JButton("Invia");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(733, 263, 85, 40);
-		contentPane.add(btnNewButton);
-		
-		JComboBox comboBox = new JComboBox(ValoriScelta);
-		comboBox.setBounds(330, 57, 103, 22);
-		contentPane.add(comboBox);
-		
-		JButton btnNewButton_1 = new JButton("Invia");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton InserisciInviaButton = new JButton("Invia");
+		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiBiglietto(comboBox.getSelectedItem().toString());
+				controller.inserisciBiglietto(CodBigliettoTextField.getText(), CodfiscaleTextField.getText(), NomeTextField.getText(), PostoTextField.getText(), 
+						TipoDiBigliettoComboBox.getSelectedItem().toString(), CodTrattaTextField.getText());
 			}
 		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(456, 48, 85, 40);
-		contentPane.add(btnNewButton_1);
+		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		InserisciInviaButton.setBounds(744, 208, 85, 40);
+		contentPane.add(InserisciInviaButton);
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("Elimina");
-		lblNewLabel_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1_1_1.setBounds(316, 308, 119, 58);
-		contentPane.add(lblNewLabel_1_1_1_1);
+		JComboBox RicercaComboBox = new JComboBox(ValoriScelta);
+		RicercaComboBox.setBounds(347, 74, 103, 22);
+		contentPane.add(RicercaComboBox);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(331, 414, 86, 20);
-		contentPane.add(textField_6);
+		JButton RicercaInviaButton = new JButton("Invia");
+		RicercaInviaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.openRisultatiBiglietto(RicercaComboBox.getSelectedItem().toString());
+			}
+		});
+		RicercaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		RicercaInviaButton.setBounds(473, 65, 85, 40);
+		contentPane.add(RicercaInviaButton);
 		
-		JButton btnNewButton_1_1 = new JButton("Invia");
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1_1.setBounds(733, 394, 85, 40);
-		contentPane.add(btnNewButton_1_1);
+		JLabel lblElimina = new JLabel("Elimina");
+		lblElimina.setHorizontalAlignment(SwingConstants.CENTER);
+		lblElimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblElimina.setBounds(341, 275, 119, 58);
+		contentPane.add(lblElimina);
 		
-		JLabel lblNewLabel_7_1 = new JLabel("Inserisci N gate della riga da eliminare");
-		lblNewLabel_7_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_7_1.setBounds(234, 363, 275, 40);
-		contentPane.add(lblNewLabel_7_1);
+		EliminaTextField = new JTextField();
+		EliminaTextField.setColumns(10);
+		EliminaTextField.setBounds(356, 381, 86, 20);
+		contentPane.add(EliminaTextField);
 		
-		JButton btnNewButton_1_1_1 = new JButton("Menu");
-		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+		JButton EliminaInviaButton = new JButton("Invia");
+		EliminaInviaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaBiglietto(EliminaTextField.getText());
+			}
+		});
+		EliminaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		EliminaInviaButton.setBounds(519, 369, 85, 40);
+		contentPane.add(EliminaInviaButton);
+		
+		JLabel lblSottoTitoloElimina = new JLabel("Inserisci N gate della riga da eliminare");
+		lblSottoTitoloElimina.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblSottoTitoloElimina.setBounds(259, 330, 275, 40);
+		contentPane.add(lblSottoTitoloElimina);
+		
+		JButton MenuButton = new JButton("Menu");
+		MenuButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.backToMenù();
 			}
 		});
-		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1_1_1.setBounds(733, 496, 85, 40);
-		contentPane.add(btnNewButton_1_1_1);
+		MenuButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		MenuButton.setBounds(733, 496, 85, 40);
+		contentPane.add(MenuButton);
+		
+		
 	}
 }

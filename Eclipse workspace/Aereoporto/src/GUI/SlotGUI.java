@@ -65,15 +65,7 @@ public class SlotGUI extends JFrame {
 		JButton btnNewButton = new JButton("Invia");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String temp = (String) comboBox.getSelectedItem(); 
-				if (temp.equals("Seleziona tutti")) {
-					SlotDAOPostgres sl = new SlotDAOPostgres(controller.conn);			
-					List<Slot> ls = sl.getAllSlot();
-					for (Slot slot: ls) {
-						System.out.println(slot.getCodSlot());
-					}
-				
-				}
+				controller.openRisultatiSlot(comboBox.getSelectedItem().toString());
 			}
 	});
 		btnNewButton.setBounds(596, 128, 142, 42);
