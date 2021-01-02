@@ -132,12 +132,12 @@ public class CompagniaGUI extends JFrame {
 		
 		
 		JButton InserisciButton = new JButton("Invia");
-//		InserisciButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText(),
-//						SitoWebtextField.getText(), TrattatextField.getText(), FedeltàtextField.getText());
-//			}
-//		});
+		InserisciButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText(),
+						SitoWebtextField.getText(), TrattatextField.getText(), FedeltàtextField.getText());
+			}
+		});
 		InserisciButton.setBounds(620, 307, 142, 42);
 		contentPane.add(InserisciButton);
 		
