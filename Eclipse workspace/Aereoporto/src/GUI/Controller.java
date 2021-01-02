@@ -429,33 +429,40 @@ public class Controller {
 	public void eliminaSlot(String CodSlot) {
 		SlotDAOPostgres slot = new SlotDAOPostgres(conn);
 		int codSlot = Integer.valueOf(CodSlot);
-		slot.deleteSlot(CodSlot);
+		slot.deleteSlot(codSlot);
 	}
 
-	public void eliminaGate(String text) {
+	public void eliminaGate(String Ngate) {
 		GateDAOPostgres gate = new	GateDAOPostgres(conn);
-		gate.
+		int nGate = Integer.valueOf(Ngate);
+		gate.deleteGate(nGate);
 		
 	}
 
-	public void eliminaCodaDiImbarco(String text) {
-		
+	public void eliminaCodaDiImbarco(String CodCoda) {
+		CodaDiImbarcoDAOPostgres CodaDiImbarco = new CodaDiImbarcoDAOPostgres(conn);
+		int codCoda = Integer.valueOf(CodCoda);
+		CodaDiImbarco.deleteCodaDiImbarco(codCoda);
 	}
 
 	public void eliminaBiglietto(String text) {
-		
+		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
 	}
 
-	public void EliminaCompagnia(String text) {
-		
+	public void EliminaCompagnia(String CodIATA) {
+		CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(conn);
+		compagnia.deleteCompagnia(CodIATA);
 	}
 
-	public void eliminaCliente(String text) {
-		
+	public void eliminaCliente(String CodFiscale) {
+		ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+		cliente.deleteCliente(CodFiscale);
 	}
 
-	public void eliminaTratta(String text) {
-		
+	public void eliminaTratta(String CodTratta) {
+		TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+		tratta.deleteTratta(CodTratta);
+
 	}
 	
 	
