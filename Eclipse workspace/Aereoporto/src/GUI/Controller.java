@@ -369,6 +369,36 @@ public class Controller {
 		tratta.insertTratta(codTratta, nPrenotazioni, tempo, sqlDate, nGate, CodIATA, destinazione, scali);
 	}
 	
+
+	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) throws ParseException{
+	  
+		ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+		cliente.insertCliente(CodFiscale, Nome, Cognome, Email);
+	}
+
+	public void inserisciCodaDiImbarco(String text, String text2, String text3, String text4) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void inserisciInCompagnia(String text, String text2, String text3, String text4, String text5) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void inserisciGate(String text, String text2, String text3, String text4) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void inserisciSlot(String text, String text2, String text3, String text4, String text5, String text6) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+	
 }
 
 

@@ -123,11 +123,11 @@ public class CodaDiImbarcoGUI extends JFrame {
 		
 		
 		JButton btnInserisci = new JButton("Invia");
-//		btnInserisci.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent arg0) {
-//				controller.inserisciCodaDiImbarco(CodCodatextField.getText(), TipoDiCodatextField.getText(), NGatetextField.getText(), CodSlottextField.getText());
-//			}
-//		});
+		btnInserisci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.inserisciCodaDiImbarco(CodCodatextField.getText(), TipoDiCodatextField.getText(), NGatetextField.getText(), CodSlottextField.getText());
+			}
+		});
 		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnInserisci.setBounds(618, 337, 142, 42);
 		contentPane.add(btnInserisci);

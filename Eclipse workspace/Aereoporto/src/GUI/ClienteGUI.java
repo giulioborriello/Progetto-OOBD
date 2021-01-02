@@ -70,12 +70,11 @@ public class ClienteGUI extends JFrame {
 		contentPane.add(lblEmail);
 		
 		JButton InserisciInviaButton = new JButton("Invia");
-	//	InserisciInviaButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				Fiscale  
-//				controller.InserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
-//			}
-		//});
+		InserisciInviaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.InserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
+			}
+		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		InserisciInviaButton.setBounds(643, 124, 85, 40);
 		contentPane.add(InserisciInviaButton);

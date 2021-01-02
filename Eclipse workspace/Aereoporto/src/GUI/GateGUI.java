@@ -120,11 +120,11 @@ public class GateGUI extends JFrame {
 		contentPane.add(textFieldTratta);
 		
 		JButton btnInserisci = new JButton("Invia");
-//		btnInserisci.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.inserisciGate(textFieldNgate.getText(), textFieldCodTratta.getText(), textFieldCodaDiImbarco.getText(), textFieldTratta.getText());
-//			}
-//		});
+		btnInserisci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.inserisciGate(textFieldNgate.getText(), textFieldCodTratta.getText(), textFieldCodaDiImbarco.getText(), textFieldTratta.getText());
+			}
+		});
 		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnInserisci.setBounds(661, 233, 85, 40);
 		contentPane.add(btnInserisci);

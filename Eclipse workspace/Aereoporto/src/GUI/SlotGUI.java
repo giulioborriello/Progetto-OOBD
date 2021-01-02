@@ -148,12 +148,12 @@ public class SlotGUI extends JFrame {
 		textFieldCodaDiImbarco.setColumns(10);
 		
 		JButton btnNewButtonInserisci = new JButton("Invia");
-//		btnNewButtonInserisci.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.inserisciSlot(textFieldCodSlot.getText(), textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
-//						textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
-//			}
-//		});
+		btnNewButtonInserisci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.inserisciSlot(textFieldCodSlot.getText(), textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
+						textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
+			}
+		});
 		btnNewButtonInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButtonInserisci.setBounds(584, 289, 142, 42);
 		contentPane.add(btnNewButtonInserisci);
