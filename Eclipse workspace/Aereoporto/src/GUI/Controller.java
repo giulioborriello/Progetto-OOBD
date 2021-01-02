@@ -426,9 +426,10 @@ public class Controller {
 		biglietto.insertBiglietto(CodFiscale, TipoDiBiglietto, CodBiglietto, CodTratta, Posto);
 	}
 
-	public void eliminaSlot(String text) {
+	public void eliminaSlot(String CodSlot) {
 		SlotDAOPostgres slot = new SlotDAOPostgres(conn);
-		slot.
+		int codSlot = Integer.valueOf(CodSlot);
+		slot.deleteSlot(CodSlot);
 	}
 
 	public void eliminaGate(String text) {
@@ -437,19 +438,23 @@ public class Controller {
 		
 	}
 
-	public void eliminaCompagnia(String text) {
-		CompagniaDAOPostgres comp = new CompagniaDAOPostgres(conn);
-		comp.
-		
-	}
-
 	public void eliminaCodaDiImbarco(String text) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	public void eliminaBiglietto(String text) {
-		// TODO Auto-generated method stub
+		
+	}
+
+	public void EliminaCompagnia(String text) {
+		
+	}
+
+	public void eliminaCliente(String text) {
+		
+	}
+
+	public void eliminaTratta(String text) {
 		
 	}
 	
