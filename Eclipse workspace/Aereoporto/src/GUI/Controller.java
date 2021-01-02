@@ -449,7 +449,7 @@ public class Controller {
 		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
 	}
 
-	public void EliminaCompagnia(String CodIATA) {
+	public void eliminaCompagnia(String CodIATA) {
 		CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(conn);
 		compagnia.deleteCompagnia(CodIATA);
 	}
@@ -463,6 +463,11 @@ public class Controller {
 		TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
 		tratta.deleteTratta(CodTratta);
 
+	}
+
+	public void eliminaFedelt‡(String CodFiscale) {
+		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(conn);
+		fedelt‡.deleteFedelt‡(CodFiscale);
 	}
 	
 	
