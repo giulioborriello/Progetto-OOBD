@@ -146,11 +146,7 @@ public class BigliettoGUI extends JFrame {
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		InserisciInviaButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.inserisciBiglietto(CodBigliettoTextField.getText(), CodfiscaleTextField.getText(),PostoTextField.getText(), 
+				controller.inserisciBiglietto(CodBigliettoTextField.getText(), CodfiscaleTextField.getText(), PostoTextField.getText(), 
 						TipoDiBigliettoComboBox.getSelectedItem().toString(), CodTrattaTextField.getText());
 			}
 		});
@@ -172,7 +168,6 @@ public class BigliettoGUI extends JFrame {
 		
 		JButton EliminaInviaButton = new JButton("Invia");
 		EliminaInviaButton.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 				controller.eliminaBiglietto(EliminaTextField.getText());
 			}

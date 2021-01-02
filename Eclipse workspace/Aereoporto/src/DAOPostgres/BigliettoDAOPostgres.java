@@ -114,7 +114,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 
 	}
 	
-	public void insertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
+	public String insertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Biglietto\"  VALUES (?, ?, ?, ?, ?); ");
@@ -127,14 +127,14 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			
 			ps.close();
 			conn.close();
+			return "Inserito Correttamente";
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getSQLState();
 		}
 		
 	}
 	
-	public void deleteBiglietto(String CodBiglietto)	{
+	public String deleteBiglietto(String CodBiglietto)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("DELETE FROM \"Biglietto\"  WHERE CodBiglietto = ?; ");
@@ -143,9 +143,10 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			
 			ps.close();
 			conn.close();
+			return "Eliminato Correttamente";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getSQLState();
 		}
 		
 	}
