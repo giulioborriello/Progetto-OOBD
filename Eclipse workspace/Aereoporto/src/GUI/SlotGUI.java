@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -35,6 +36,7 @@ public class SlotGUI extends JFrame {
 	private JTextField textFieldAggiornaIndicaCodSlot;
 	private JTextField textFieldAggiornaTempoEffettivo;
 	private JTextField textFieldElimina;
+	private JTextField textFieldTempoEffettivo;
 
 	/**
 	 * Launch the application.
@@ -74,14 +76,14 @@ public class SlotGUI extends JFrame {
 		JLabel lblRicerca = new JLabel("Ricerca");
 		lblRicerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRicerca.setBounds(321, 22, 136, 42);
+		lblRicerca.setBounds(309, 11, 136, 42);
 		contentPane.add(lblRicerca);
 		
 		JLabel lblInserisci = new JLabel("Inserimento");
 		lblInserisci.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblInserisci.setHorizontalAlignment(SwingConstants.CENTER);
 		lblInserisci.setForeground(new Color(0, 0, 0));
-		lblInserisci.setBounds(321, 145, 136, 42);
+		lblInserisci.setBounds(309, 141, 136, 42);
 		contentPane.add(lblInserisci);
 		
 		JLabel lblCodSlot = new JLabel("CodSlot");
@@ -121,7 +123,7 @@ public class SlotGUI extends JFrame {
 		lblTempoEffettivo.setBounds(541, 198, 191, 14);
 		contentPane.add(lblTempoEffettivo);
 		
-		JTextField textFieldTempoEffettivo = new JTextField();
+		textFieldTempoEffettivo = new JTextField();
 		textFieldTempoEffettivo.setBounds(584, 227, 86, 20);
 		contentPane.add(textFieldTempoEffettivo);
 		textFieldTempoEffettivo.setColumns(10);
@@ -150,8 +152,13 @@ public class SlotGUI extends JFrame {
 		JButton btnNewButtonInserisci = new JButton("Invia");
 		btnNewButtonInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.inserisciSlot(textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
-						textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
+				try {
+					controller.inserisciSlot(textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
+							textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNewButtonInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -204,17 +211,17 @@ public class SlotGUI extends JFrame {
 		lblElimina.setHorizontalAlignment(SwingConstants.CENTER);
 		lblElimina.setForeground(Color.BLACK);
 		lblElimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblElimina.setBounds(184, 525, 366, 42);
+		lblElimina.setBounds(309, 507, 136, 42);
 		contentPane.add(lblElimina);
 		
 		JLabel lblIndicaCodSlot = new JLabel("Inserisci CodSlot della riga da eliminare");
 		lblIndicaCodSlot.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblIndicaCodSlot.setBounds(235, 560, 275, 40);
+		lblIndicaCodSlot.setBounds(245, 560, 275, 40);
 		contentPane.add(lblIndicaCodSlot);
 		
 		textFieldElimina = new JTextField();
 		textFieldElimina.setColumns(10);
-		textFieldElimina.setBounds(326, 611, 86, 20);
+		textFieldElimina.setBounds(341, 611, 86, 20);
 		contentPane.add(textFieldElimina);
 		
 		
@@ -227,6 +234,16 @@ public class SlotGUI extends JFrame {
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(584, 589, 142, 42);
 		contentPane.add(btnElimina);
+		
+		JButton btnMenù = new JButton("Men\u00F9");
+		btnMenù.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.backToMenù();
+			}
+		});
+		btnMenù.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnMenù.setBounds(33, 673, 142, 42);
+		contentPane.add(btnMenù);
 		
 		JButton btnNewButton_4 = new JButton("Menu");
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));

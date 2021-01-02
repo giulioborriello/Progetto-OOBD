@@ -72,7 +72,7 @@ public class ClienteGUI extends JFrame {
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.InserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
+				controller.inserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
 			}
 		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -144,7 +144,7 @@ public class ClienteGUI extends JFrame {
 			}
 		});
 		MenuButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		MenuButton.setBounds(643, 490, 85, 40);
+		MenuButton.setBounds(40, 485, 85, 40);
 		contentPane.add(MenuButton);
 		
 		JLabel Ricercalbl = new JLabel("Ricerca");
