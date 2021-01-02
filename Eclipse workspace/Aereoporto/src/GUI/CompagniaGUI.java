@@ -24,8 +24,6 @@ public class CompagniaGUI extends JFrame {
 	private JTextField CodIATAtextField;
 	private JTextField NomeCompagniatextField;
 	private JTextField SitoWebtextField;
-	private JTextField TrattatextField;
-	private JTextField FedeltàtextField;
 	private JTextField EliminaCodIatatextField;
 
 	/**
@@ -59,6 +57,7 @@ public class CompagniaGUI extends JFrame {
 		contentPane.add(RicercaTextArea);
 		
 		JButton RicercaButton = new JButton("Invia");
+		RicercaButton.setFont(new Font("Dialog", Font.BOLD, 15));
 		RicercaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openRisultatiCompagnia(comboBox.getSelectedItem().toString(), RicercaTextArea.getText());
@@ -90,16 +89,6 @@ public class CompagniaGUI extends JFrame {
 		lblSitoWeb.setBounds(495, 226, 80, 14);
 		contentPane.add(lblSitoWeb);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("Tratta");
-		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_3_1.setBounds(270, 298, 46, 14);
-		contentPane.add(lblNewLabel_3_1);
-		
-		JLabel lblNewLabel_3_2 = new JLabel("Fedelt\u00E0");
-		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_3_2.setBounds(421, 298, 59, 14);
-		contentPane.add(lblNewLabel_3_2);
-		
 		CodIATAtextField = new JTextField();
 		CodIATAtextField.setBounds(184, 246, 86, 20);
 		contentPane.add(CodIATAtextField);
@@ -118,27 +107,16 @@ public class CompagniaGUI extends JFrame {
 		SitoWebtextField.getText();
 		contentPane.add(SitoWebtextField);
 		
-		TrattatextField = new JTextField();
-		TrattatextField.setColumns(10);
-		TrattatextField.setBounds(252, 318, 86, 20);
-		TrattatextField.getText();
-		contentPane.add(TrattatextField);
-		
-		FedeltàtextField = new JTextField();
-		FedeltàtextField.setColumns(10);
-		FedeltàtextField.setBounds(405, 323, 86, 20);
-		FedeltàtextField.getText();
-		contentPane.add(FedeltàtextField);
-		
 		
 		JButton InserisciButton = new JButton("Invia");
+		InserisciButton.setFont(new Font("Dialog", Font.BOLD, 15));
 		InserisciButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText(),
-						SitoWebtextField.getText(), TrattatextField.getText(), FedeltàtextField.getText());
+						SitoWebtextField.getText());
 			}
 		});
-		InserisciButton.setBounds(620, 307, 142, 42);
+		InserisciButton.setBounds(620, 235, 142, 42);
 		contentPane.add(InserisciButton);
 		
 		
@@ -162,16 +140,14 @@ public class CompagniaGUI extends JFrame {
 		
 		
 		JButton EliminaButton = new JButton("Invia");
-		EliminaButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
+		EliminaButton.setFont(new Font("Dialog", Font.BOLD, 15));
+//		EliminaButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				controller.eliminaCompagnia(EliminaCodIatatextField.getText());
+//			}
+//		});
 		EliminaButton.setBounds(620, 455, 142, 42);
 		contentPane.add(EliminaButton);
-
-		
-
 		
 		JButton btnNewButton_3 = new JButton("Torna indietro ");
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -179,7 +155,7 @@ public class CompagniaGUI extends JFrame {
 				controller.backToMenù();
 			}
 		});
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton_3.setFont(new Font("Dialog", Font.BOLD, 15));
 		btnNewButton_3.setBounds(0, 514, 180, 57);
 		contentPane.add(btnNewButton_3);
 	}

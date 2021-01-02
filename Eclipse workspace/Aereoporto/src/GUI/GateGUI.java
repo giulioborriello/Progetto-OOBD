@@ -24,8 +24,6 @@ public class GateGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldNgate;
 	private JTextField textFieldCodTratta;
-	private JTextField textFieldCodaDiImbarco;
-	private JTextField textFieldTratta;
 	private JTextField textFieldElimina;
 	private JTextField textFieldRicerca;
 
@@ -81,48 +79,28 @@ public class GateGUI extends JFrame {
 		
 		JLabel lblNgate = new JLabel("N gate");
 		lblNgate.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNgate.setBounds(163, 217, 65, 22);
+		lblNgate.setBounds(300, 216, 65, 22);
 		contentPane.add(lblNgate);
 		
 		JLabel lblCodtratta = new JLabel("CodTratta");
 		lblCodtratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodtratta.setBounds(269, 223, 68, 14);
+		lblCodtratta.setBounds(406, 222, 68, 14);
 		contentPane.add(lblCodtratta);
 		
-		JLabel lblCodadiimbarco = new JLabel("\t\tCodaDiImbarco");
-		lblCodadiimbarco.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodadiimbarco.setBounds(406, 221, 106, 14);
-		contentPane.add(lblCodadiimbarco);
-		
-		JLabel lblTratta = new JLabel("Tratta");
-		lblTratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTratta.setBounds(564, 221, 46, 14);
-		contentPane.add(lblTratta);
-		
 		textFieldNgate = new JTextField();
-		textFieldNgate.setBounds(142, 246, 86, 20);
+		textFieldNgate.setBounds(279, 245, 86, 20);
 		contentPane.add(textFieldNgate);
 		textFieldNgate.setColumns(10);
 		
 		textFieldCodTratta = new JTextField();
 		textFieldCodTratta.setColumns(10);
-		textFieldCodTratta.setBounds(259, 246, 86, 20);
+		textFieldCodTratta.setBounds(396, 245, 86, 20);
 		contentPane.add(textFieldCodTratta);
-		
-		textFieldCodaDiImbarco = new JTextField();
-		textFieldCodaDiImbarco.setColumns(10);
-		textFieldCodaDiImbarco.setBounds(416, 246, 86, 20);
-		contentPane.add(textFieldCodaDiImbarco);
-		
-		textFieldTratta = new JTextField();
-		textFieldTratta.setColumns(10);
-		textFieldTratta.setBounds(545, 246, 86, 20);
-		contentPane.add(textFieldTratta);
 		
 		JButton btnInserisci = new JButton("Invia");
 		btnInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.inserisciGate(textFieldNgate.getText(), textFieldCodTratta.getText(), textFieldCodaDiImbarco.getText(), textFieldTratta.getText());
+				controller.inserisciGate(textFieldNgate.getText(), textFieldCodTratta.getText());
 			}
 		});
 		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
