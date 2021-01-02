@@ -148,12 +148,12 @@ public class SlotGUI extends JFrame {
 		textFieldCodaDiImbarco.setColumns(10);
 		
 		JButton btnNewButtonInserisci = new JButton("Invia");
-		btnNewButtonInserisci.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.inserisciSlot(textFieldCodSlot.getText(), textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
-						textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
-			}
-		});
+//		btnNewButtonInserisci.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				controller.inserisciSlot(textFieldCodSlot.getText(), textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
+//						textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
+//			}
+//		});
 		btnNewButtonInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButtonInserisci.setBounds(584, 289, 142, 42);
 		contentPane.add(btnNewButtonInserisci);
@@ -190,11 +190,11 @@ public class SlotGUI extends JFrame {
 		
 		
 		JButton btnAggiorna = new JButton("Invia");
-		btnAggiorna.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.aggiornaSlot(textFieldAggiornaIndicaCodSlot.getText(), textFieldAggiornaTempoEffettivo.getText());
-			}
-		});
+//		btnAggiorna.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				controller.aggiornaSlot(textFieldAggiornaIndicaCodSlot.getText(), textFieldAggiornaTempoEffettivo.getText());
+//			}
+//		});
 		btnAggiorna.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnAggiorna.setBounds(588, 447, 142, 42);
 		contentPane.add(btnAggiorna);
@@ -219,24 +219,17 @@ public class SlotGUI extends JFrame {
 		
 		
 		JButton btnElimina = new JButton("Invia");
-		btnElimina.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.eliminaSlot(textFieldElimina.getText());
-			}
-		});
+//		btnElimina.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				controller.eliminaSlot(textFieldElimina.getText());
+//			}
+//		});
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(584, 589, 142, 42);
 		contentPane.add(btnElimina);
 		
 		JButton btnNewButton_4 = new JButton("Menu");
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				controller.backToMenù();
-			}
-		});
-		btnNewButton_4.setBounds(30, 686, 119, 42);
-		contentPane.add(btnNewButton_4);
-		
+
 	}
 }

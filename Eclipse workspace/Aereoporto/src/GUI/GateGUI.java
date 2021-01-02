@@ -60,6 +60,7 @@ public class GateGUI extends JFrame {
 		contentPane.add(textFieldRicerca);
 		textFieldRicerca.setColumns(10);
 		
+
 		JButton btnRicerca = new JButton("Invia");
 		btnRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnRicerca.addActionListener(new ActionListener() {
@@ -69,6 +70,7 @@ public class GateGUI extends JFrame {
 		});
 		btnRicerca.setBounds(660, 67, 85, 40);
 		contentPane.add(btnRicerca);
+
 		
 		JLabel lblInserisci = new JLabel("Inserimento");
 		lblInserisci.setHorizontalAlignment(SwingConstants.CENTER);
@@ -118,11 +120,11 @@ public class GateGUI extends JFrame {
 		contentPane.add(textFieldTratta);
 		
 		JButton btnInserisci = new JButton("Invia");
-		btnInserisci.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.inserisciGate(textFieldNgate.getText(), textFieldCodTratta.getText(), textFieldCodaDiImbarco.getText(), textFieldTratta.getText());
-			}
-		});
+//		btnInserisci.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				controller.inserisciGate(textFieldNgate.getText(), textFieldCodTratta.getText(), textFieldCodaDiImbarco.getText(), textFieldTratta.getText());
+//			}
+//		});
 		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnInserisci.setBounds(661, 233, 85, 40);
 		contentPane.add(btnInserisci);
@@ -156,11 +158,11 @@ public class GateGUI extends JFrame {
 		
 		
 		JButton btnElimina = new JButton("Invia");
-		btnElimina.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.eliminaGate(textFieldElimina.getText());
-			}
-		});
+//		btnElimina.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				controller.eliminaGate(textFieldElimina.getText());
+//			}
+//		});
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(660, 375, 85, 40);
 		contentPane.add(btnElimina);

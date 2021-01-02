@@ -70,11 +70,12 @@ public class ClienteGUI extends JFrame {
 		contentPane.add(lblEmail);
 		
 		JButton InserisciInviaButton = new JButton("Invia");
-		InserisciInviaButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.InserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
-			}
-		});
+	//	InserisciInviaButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				Fiscale  
+//				controller.InserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
+//			}
+		//});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		InserisciInviaButton.setBounds(643, 124, 85, 40);
 		contentPane.add(InserisciInviaButton);
@@ -128,11 +129,11 @@ public class ClienteGUI extends JFrame {
 		contentPane.add(textFieldNuovaEmail);
 		
 		JButton AggiornaInviaButton = new JButton("Invia");
-		AggiornaInviaButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.AggiornaEmail(textFieldIndicareCodiceFiscale.getText(), textFieldNuovaEmail.getText());
-			}
-		});
+//		AggiornaInviaButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				controller.AggiornaEmail(textFieldIndicareCodiceFiscale.getText(), textFieldNuovaEmail.getText());
+//			}
+//		});
 		AggiornaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		AggiornaInviaButton.setBounds(506, 419, 85, 40);
 		contentPane.add(AggiornaInviaButton);

@@ -1,5 +1,10 @@
 package GUI;
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -324,7 +329,7 @@ public class Controller {
 			list = clientePostgres.getAllCliente();	
 		}
 		
-		if (valore == "Codice Fiscale") {
+		else if (valore == "Codice Fiscale") {
 			list.add(clientePostgres.getClienteByCodFiscale(valore));	
 		}
 		risultatiCliente = new RisultatiClienteGUI(list, this);
@@ -349,6 +354,13 @@ public class Controller {
 		}
 	}
 	
+	public void inserisciTratta(String codTratta, int nPrenotazioni,String orarioDiPartenza, String data, int nGate, String CodIATA, String destinazione, String scali) throws ParseException{
+		
+		Time tempo = (Time) new SimpleDateFormat("hh:mm").parse(orarioDiPartenza);
+		Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(data);
+		TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+		tratta.insertTratta(codTratta, nPrenotazioni, tempo, date, nGate, CodIATA, destinazione, scali);
+	}
 	
 }
 

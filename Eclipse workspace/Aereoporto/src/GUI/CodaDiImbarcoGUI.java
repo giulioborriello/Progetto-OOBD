@@ -80,6 +80,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 		lblCodCoda.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblCodCoda.setBounds(265, 242, 66, 14);
 		contentPane.add(lblCodCoda);
+
 		
 		JLabel lblTipoDiCoda = new JLabel("Tipo di coda");
 		lblTipoDiCoda.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -122,11 +123,11 @@ public class CodaDiImbarcoGUI extends JFrame {
 		
 		
 		JButton btnInserisci = new JButton("Invia");
-		btnInserisci.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				controller.inserisciCodaDiImbarco(CodCodatextField.getText(), TipoDiCodatextField.getText(), NGatetextField.getText(), CodSlottextField.getText());
-			}
-		});
+//		btnInserisci.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				controller.inserisciCodaDiImbarco(CodCodatextField.getText(), TipoDiCodatextField.getText(), NGatetextField.getText(), CodSlottextField.getText());
+//			}
+//		});
 		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnInserisci.setBounds(618, 337, 142, 42);
 		contentPane.add(btnInserisci);
@@ -150,6 +151,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 		EliminatextField.setColumns(10);
 		CodSlottextField.getText();
 		
+
 		
 		
 		JButton btnMenu = new JButton("Menù");
@@ -163,11 +165,11 @@ public class CodaDiImbarcoGUI extends JFrame {
 		contentPane.add(btnMenu);
 		
 		JButton btnElimina = new JButton("Invia");
-		btnElimina.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				controller.eliminaCodaDiImbarco(EliminatextField.getText());
-			}
-		});
+//		btnElimina.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				controller.eliminaCodaDiImbarco(EliminatextField.getText());
+//			}
+//		});
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(618, 465, 142, 42);
 		contentPane.add(btnElimina);

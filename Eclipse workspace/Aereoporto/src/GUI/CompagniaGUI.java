@@ -132,12 +132,12 @@ public class CompagniaGUI extends JFrame {
 		
 		
 		JButton InserisciButton = new JButton("Invia");
-		InserisciButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText(),
-						SitoWebtextField.getText(), TrattatextField.getText(), FedeltàtextField.getText());
-			}
-		});
+//		InserisciButton.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent arg0) {
+//				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText(),
+//						SitoWebtextField.getText(), TrattatextField.getText(), FedeltàtextField.getText());
+//			}
+//		});
 		InserisciButton.setBounds(620, 307, 142, 42);
 		contentPane.add(InserisciButton);
 		
@@ -162,14 +162,16 @@ public class CompagniaGUI extends JFrame {
 		
 		
 		JButton EliminaButton = new JButton("Invia");
-		EliminaButton.setBounds(620, 455, 142, 42);
-		contentPane.add(EliminaButton);
 		EliminaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.eliminaCompagnia(EliminaCodIatatextField.getText());
+				
 			}
 		});
+		EliminaButton.setBounds(620, 455, 142, 42);
+		contentPane.add(EliminaButton);
+
 		
+
 		
 		JButton btnNewButton_3 = new JButton("Torna indietro ");
 		btnNewButton_3.addActionListener(new ActionListener() {
@@ -182,4 +184,4 @@ public class CompagniaGUI extends JFrame {
 		contentPane.add(btnNewButton_3);
 	}
    
-}
+		}

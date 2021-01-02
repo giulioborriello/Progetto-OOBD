@@ -132,7 +132,7 @@ public class Fedelt‡GUI extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Invia");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiFedelt‡(comboBox.getSelectedItem().toString());
+				controller.openRisultatiFedelt‡(comboBox.getSelectedItem().toString(), txtRicercatextfield.getText());
 			}
 		});
 		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
