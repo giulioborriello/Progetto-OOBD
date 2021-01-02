@@ -39,30 +39,30 @@ public class FedeltàGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Inserisci");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel.setBounds(363, 11, 132, 59);
-		contentPane.add(lblNewLabel);
+		JLabel lbl_Inserisci = new JLabel("Inserisci");
+		lbl_Inserisci.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lbl_Inserisci.setBounds(363, 11, 132, 59);
+		contentPane.add(lbl_Inserisci);
 		
-		JLabel lblNewLabel_1 = new JLabel("Centochilometri");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(43, 70, 146, 31);
-		contentPane.add(lblNewLabel_1);
+		JLabel lbl_ContaChilometri = new JLabel("Centochilometri");
+		lbl_ContaChilometri.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_ContaChilometri.setBounds(43, 70, 146, 31);
+		contentPane.add(lbl_ContaChilometri);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("CodiATA");
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(272, 70, 122, 31);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel lbl_CodIATA = new JLabel("CodiATA");
+		lbl_CodIATA.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_CodIATA.setBounds(272, 70, 122, 31);
+		contentPane.add(lbl_CodIATA);
 		
-		JLabel lblNewLabel_1_2 = new JLabel("CodFiscale");
-		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_2.setBounds(448, 70, 132, 31);
-		contentPane.add(lblNewLabel_1_2);
+		JLabel lbl_CodFiscale = new JLabel("CodFiscale");
+		lbl_CodFiscale.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_CodFiscale.setBounds(448, 70, 132, 31);
+		contentPane.add(lbl_CodFiscale);
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Punti");
-		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_3.setBounds(610, 70, 73, 31);
-		contentPane.add(lblNewLabel_1_3);
+		JLabel lbl_Punti = new JLabel("Punti");
+		lbl_Punti.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Punti.setBounds(610, 70, 73, 31);
+		contentPane.add(lbl_Punti);
 		
 		textFieldCentokilometri = new JTextField();
 	    textFieldCentokilometri.setBounds(53, 101, 109, 31);
@@ -84,65 +84,65 @@ public class FedeltàGUI extends JFrame {
 		txtPuntitextfield.setBounds(586, 101, 109, 31);
 		contentPane.add(txtPuntitextfield);
 		
-		JButton btnNewButton_1 = new JButton("Invia");
+		JButton Button_InviaInserisci = new JButton("Invia");
 //		btnNewButton_1.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				controller.inserisciFedeltà(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
 //			}
 //		});
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(728, 92, 85, 40);
-		contentPane.add(btnNewButton_1);
+		Button_InviaInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Button_InviaInserisci.setBounds(728, 92, 85, 40);
+		contentPane.add(Button_InviaInserisci);
 		
-		JLabel lblNewLabel_2 = new JLabel("Ricerca");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(369, 171, 73, 31);
-		contentPane.add(lblNewLabel_2);
+		JLabel lbl_Ricerca = new JLabel("Ricerca");
+		lbl_Ricerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Ricerca.setBounds(369, 171, 73, 31);
+		contentPane.add(lbl_Ricerca);
 		
-		JComboBox comboBox = new JComboBox(ValoriScelta);
-		comboBox.setBounds(197, 235, 95, 20);
-		contentPane.add(comboBox);
+		JComboBox comboBox_Ricerca = new JComboBox(ValoriScelta);
+		comboBox_Ricerca.setBounds(197, 235, 95, 20);
+		contentPane.add(comboBox_Ricerca);
 		
 		txtRicercatextfield = new JTextField();
 		txtRicercatextfield.setBounds(339, 224, 132, 43);
 		contentPane.add(txtRicercatextfield);
 		txtRicercatextfield.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Elimina");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(371, 306, 73, 50);
-		contentPane.add(lblNewLabel_3);
+		JLabel lbl_Elimina = new JLabel("Elimina");
+		lbl_Elimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Elimina.setBounds(371, 306, 73, 50);
+		contentPane.add(lbl_Elimina);
 		
 		txtEliminatextfield = new JTextField();
 		txtEliminatextfield.setColumns(10);
 		txtEliminatextfield.setBounds(339, 367, 132, 43);
 		contentPane.add(txtEliminatextfield);
 		
-		JButton btnNewButton_3 = new JButton("Men\u00F9");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton Button_BackToMenu = new JButton("Men\u00F9");
+		Button_BackToMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.backToMenù();
 			}
 		});
-		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_3.setBounds(29, 447, 101, 57);
-		contentPane.add(btnNewButton_3);
+		Button_BackToMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Button_BackToMenu.setBounds(29, 447, 101, 57);
+		contentPane.add(Button_BackToMenu);
 		
 		
 		
-		JButton btnNewButton_1_1 = new JButton("Invia");
-		btnNewButton_1_1.addActionListener(new ActionListener() {
+		JButton Button_InviaRicerca = new JButton("Invia");
+		Button_InviaRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiFedeltà(comboBox.getSelectedItem().toString(), txtRicercatextfield.getText());
+				controller.openRisultatiFedeltà(comboBox_Ricerca.getSelectedItem().toString(), txtRicercatextfield.getText());
 			}
 		});
-		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1_1.setBounds(507, 224, 85, 40);
-		contentPane.add(btnNewButton_1_1);
+		Button_InviaRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Button_InviaRicerca.setBounds(507, 224, 85, 40);
+		contentPane.add(Button_InviaRicerca);
 		
-		JButton btnNewButton_1_2 = new JButton("Invia");
-		btnNewButton_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1_2.setBounds(522, 366, 85, 40);
-		contentPane.add(btnNewButton_1_2);
+		JButton Button_InviaElimina = new JButton("Invia");
+		Button_InviaElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Button_InviaElimina.setBounds(522, 366, 85, 40);
+		contentPane.add(Button_InviaElimina);
 	}
 }
