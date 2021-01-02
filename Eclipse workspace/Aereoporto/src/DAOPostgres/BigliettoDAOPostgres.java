@@ -129,7 +129,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			conn.close();
 			return "Inserito Correttamente";
 		} catch (SQLException e) {
-			return e.getSQLState();
+			return e.getMessage();
 		}
 		
 	}

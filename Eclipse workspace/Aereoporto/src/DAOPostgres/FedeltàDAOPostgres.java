@@ -117,7 +117,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 		return ListFedelt‡;	
 	}
 	
-	public void insertFedelt‡(int CentoKilometri, String CodIATA,String CodFiscale , int Punti)	{
+	public String insertFedelt‡(int CentoKilometri, String CodIATA,String CodFiscale , int Punti)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Fedelt‡\"  VALUES (?, ?, ?, ?); ");
@@ -128,12 +128,11 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ps.execute();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			e.getMessage();
+		} return "Inserito Correttamente!";
 	}
 	
-	public void updateCentoKilometriByCodFiscaleANDCodIATA(int CentoKilometri, String CodFiscale, String CodIATA)	{
+	public String updateCentoKilometriByCodFiscaleANDCodIATA(int CentoKilometri, String CodFiscale, String CodIATA)	{
 			
 			try {
 				PreparedStatement ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"CentoKilometri\" = ? WHERE \"CodFiscale\" = ? AND \"CodIATA\" = ? ; ");
@@ -144,9 +143,8 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 				
 				ps.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+				e.getMessage();
+			} return "Aggiornato Correttamente!";
 	}
 	
 	public void updatePuntiByCentoKilometriANDCodIATA(int CentoKilometri, int Punti, String CodIATA)	{

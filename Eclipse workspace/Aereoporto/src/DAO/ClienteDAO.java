@@ -10,9 +10,9 @@ public interface ClienteDAO {
 	
 	public Cliente getClienteByCodFiscale(String CodFiscale);
 	
-	public void insertCliente(String CodFiscale, String Nome, String Cognome, String Email);
+	public String insertCliente(String CodFiscale, String Nome, String Cognome, String Email);
 	
-	public void updateEmailByCodFiscale(String Email, String CodFiscale);
+	public String updateEmailByCodFiscale(String Email, String CodFiscale);
 	
 	
 	

@@ -66,8 +66,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 
 	}
 	
-	public void insertCliente(String CodFiscale, String Nome, String Cognome, String Email)	{
-		
+	public String insertCliente(String CodFiscale, String Nome, String Cognome, String Email)	{
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Cliente\"  VALUES (?, ?, ?, ?); ");
 			ps.setString(1, CodFiscale);
@@ -79,13 +78,14 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			ps.close();
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			e.getMessage();
 		}
+		return "Inserito Correttamente";
 		
 	}
 	
-	public void updateEmailByCodFiscale(String Email, String CodFiscale)	{
+	public String updateEmailByCodFiscale(String Email, String CodFiscale)	{
 	
 		try {
 			PreparedStatement ps = conn.prepareStatement("UPDATE \"Cliente\" SET \"Email\" = ? WHERE \"CodFiscale\" = ? ; ");
@@ -97,11 +97,12 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.getMessage();
 		}
+		return "Aggiornato Correttamente!";
 	}
 	
-	public void deleteCliente(String CodFiscale) {
+	public String deleteCliente(String CodFiscale) {
 		
 		try {
 				PreparedStatement ps = conn.prepareStatement("Delete From \"Cliente\"  WHERE \"CodFiscale\" = ? ; ");
@@ -110,13 +111,12 @@ public class ClienteDAOPostgres implements ClienteDAO {
 				ps.execute();
 				conn.close();
 				ps.close();
-
 				
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			e.getMessage();
 		}
-	
+		 return "Eliminato Correttamente!";
 	}
 	
 	

@@ -79,7 +79,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 		return compagnia;
 	}
 	
-	public void insertCompagnia(String CodIATA, String Nome_compagnia, String Sito_web)	{		
+	public String insertCompagnia(String CodIATA, String Nome_compagnia, String Sito_web)	{		
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?, ?); ");
 			ps.setString(1, CodIATA);
@@ -90,12 +90,12 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			ps.close();
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.getMessage();
 		}
+		return "Inserito Correttamente!";
 	}
 	
-	public void deleteCompagnia(String CodIATA) {
+	public String deleteCompagnia(String CodIATA) {
 		
 		try {
 				PreparedStatement ps = conn.prepareStatement("Delete From \"Compagnia\"  WHERE \"CodIATA\" = ? ; ");
@@ -107,9 +107,8 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 
 				
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			e.getMessage();
+		} return "Eliminazione Completata!";
 	
 	
 	

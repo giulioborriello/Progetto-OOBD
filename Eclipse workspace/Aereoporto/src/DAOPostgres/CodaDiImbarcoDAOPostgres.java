@@ -129,7 +129,7 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 		return codaDiImbarco;
 	}
 	
-	public void insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{
+	public String insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{
 			try {
 				Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 				
@@ -143,13 +143,12 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 				ps.close();
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				e.getMessage();
 			}
-			
+			return "Inserito Correttamente!";
 	}
 	
-	public void deleteCodaDiImbarco(int CodCoda) {
+	public String deleteCodaDiImbarco(int CodCoda) {
 		
 		try {
 				PreparedStatement ps = conn.prepareStatement("Delete From \"Coda di imbarco\"  WHERE \"CodCoda\" = ? ; ");
@@ -161,10 +160,9 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 				
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	
+			e.getMessage();
+		} return "Eliminato Correttamente";
+
 	
 	
 

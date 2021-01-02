@@ -14,7 +14,7 @@ public interface CodaDiImbarcoDAO {
 	
 	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int CodSlot);
 	
-	public void insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot);
+	public String insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot);
 	
 	
 }
