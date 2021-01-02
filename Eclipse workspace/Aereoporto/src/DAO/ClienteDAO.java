@@ -14,6 +14,6 @@ public interface ClienteDAO {
 	
 	public String updateEmailByCodFiscale(String Email, String CodFiscale);
 	
-	
+	public String deleteCliente(String CodFiscale);
 	
 }

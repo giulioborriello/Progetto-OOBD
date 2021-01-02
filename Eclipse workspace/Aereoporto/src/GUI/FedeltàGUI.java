@@ -25,6 +25,7 @@ public class Fedelt‡GUI extends JFrame {
 	private JTextField txtEliminatextfield;
 
     String [] ValoriScelta = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
+    private JTextField textFieldAggiorna;
 		
 
 	/**
@@ -33,7 +34,7 @@ public class Fedelt‡GUI extends JFrame {
 	public Fedelt‡GUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 853, 554);
+		setBounds(100, 100, 853, 699);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -127,7 +128,7 @@ public class Fedelt‡GUI extends JFrame {
 			}
 		});
 		Button_BackToMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Button_BackToMenu.setBounds(29, 447, 101, 57);
+		Button_BackToMenu.setBounds(28, 592, 101, 57);
 		contentPane.add(Button_BackToMenu);
 		
 		
@@ -149,7 +150,26 @@ public class Fedelt‡GUI extends JFrame {
           }
 		});
 		Button_InviaElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Button_InviaElimina.setBounds(522, 366, 85, 40);
+		Button_InviaElimina.setBounds(507, 366, 85, 40);
 		contentPane.add(Button_InviaElimina);
+		
+		JComboBox comboBoxAggiorna = new JComboBox(new Object[]{});
+		comboBoxAggiorna.setBounds(197, 509, 95, 20);
+		contentPane.add(comboBoxAggiorna);
+		
+		textFieldAggiorna = new JTextField();
+		textFieldAggiorna.setColumns(10);
+		textFieldAggiorna.setBounds(339, 498, 132, 43);
+		contentPane.add(textFieldAggiorna);
+		
+		JLabel lblAggiorna = new JLabel("Aggiorna da fare");
+		lblAggiorna.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblAggiorna.setBounds(339, 445, 103, 31);
+		contentPane.add(lblAggiorna);
+		
+		JButton ButtonAggiorna = new JButton("Invia");
+		ButtonAggiorna.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ButtonAggiorna.setBounds(507, 498, 85, 40);
+		contentPane.add(ButtonAggiorna);
 	}
 }

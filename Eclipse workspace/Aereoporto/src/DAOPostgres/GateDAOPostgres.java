@@ -89,7 +89,7 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 	
-	public void insertGate(int Ngate, String CodTratta)	{
+	public String insertGate(int Ngate, String CodTratta)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?); ");
@@ -99,14 +99,14 @@ public class GateDAOPostgres implements GateDAO{
 			st.close();
 			conn.close();
 			
-
+			return "Inserito Correttamente";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getMessage();
 		}
 	}
 	
-	public void updateCodTrattaByNgate(String CodTratta, int Ngate)	{
+	public String updateCodTrattaByNgate(String CodTratta, int Ngate)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("UPDATE \"Gate\" SET \"CodTratta\" = ? WHERE \"Ngate\" = ? ; ");
@@ -116,27 +116,28 @@ public class GateDAOPostgres implements GateDAO{
 			st.close();
 			conn.close();
 			
+			return "Aggiornato Correttamente";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getMessage();
 		}
 	}
 	
-	public void deleteGate(int Ngate) {
+	public String deleteGate(int Ngate) {
 		
 		try {
-				PreparedStatement ps = conn.prepareStatement("Delete From \"Gate\"  WHERE \"Ngate\" = ? ; ");
+			PreparedStatement ps = conn.prepareStatement("Delete From \"Gate\"  WHERE \"Ngate\" = ? ; ");
 				
-				ps.setInt(1, Ngate);
-				ps.execute();
-				ps.close();
-				conn.close();
+			ps.setInt(1, Ngate);
+			ps.execute();
+			ps.close();
+			conn.close();
 				
 
-				
+			return "Eliminato Correttamente";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getMessage();
 		}
 	
 	

@@ -140,14 +140,16 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 				ps.setString(2, CodFiscale);
 				ps.setString(3, CodIATA);
 				ps.execute();
-				
 				ps.close();
+				conn.close();
+				
+				return "Aggiornato Correttamente!";
 			} catch (SQLException e) {
-				e.getMessage();
-			} return "Aggiornato Correttamente!";
+				return e.getMessage();
+			}
 	}
 	
-	public void updatePuntiByCentoKilometriANDCodIATA(int CentoKilometri, int Punti, String CodIATA)	{
+	public String updatePuntiByCentoKilometriANDCodIATA(int CentoKilometri, int Punti, String CodIATA)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"Punti\" = ? WHERE \"CentoKilometri\" = ? AND \"CodIATA\" = ?; ");
@@ -155,27 +157,31 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ps.setInt(2, CentoKilometri);
 			ps.setString(3, CodIATA);
 			ps.execute();
-		
+			ps.close();
+			conn.close();
+			return "Aggiornato Correttamente!";
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getMessage();
 		}
 	}
 
-	public void deleteFedelt‡(String CodFiscale) {
+	public String deleteFedelt‡(String CodFiscale) {
 		
 		try {
 				PreparedStatement ps = conn.prepareStatement("Delete From \"Fedelt‡\"  WHERE \"CodFiscale\" = ? ; ");
 				
-				ps.setString(1, CodFiscale);
-				ps.execute();
-				conn.close();
-				ps.close();
-
+			ps.setString(1, CodFiscale);
+			ps.execute();
+			ps.close();
+			conn.close();
+				
+			return "Eliminato correttamente";
 				
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getMessage();
 		}
 	
 	

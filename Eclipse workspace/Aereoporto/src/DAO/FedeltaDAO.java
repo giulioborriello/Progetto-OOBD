@@ -10,6 +10,7 @@ public interface FedeltaDAO {
 	public List<Fedelt‡> getFedelt‡ByCodIATA(String CodIATA);
 	public List<Fedelt‡> getFedelt‡ByCodFiscale(String CodFiscale);
 	public String insertFedelt‡(int CentoKilometri, String CodIATA,String CodFiscale , int Punti);
-	public void updateCentoKilometriByCodFiscaleANDCodIATA(int CentoKilometri, String CodFiscale, String CodIATA);
-	public void updatePuntiByCentoKilometriANDCodIATA(int CentoKilometri, int Punti, String CodIATA);
+	public String updateCentoKilometriByCodFiscaleANDCodIATA(int CentoKilometri, String CodFiscale, String CodIATA);
+	public String updatePuntiByCentoKilometriANDCodIATA(int CentoKilometri, int Punti, String CodIATA);
+	public String deleteFedelt‡(String CodFiscale);
 }
