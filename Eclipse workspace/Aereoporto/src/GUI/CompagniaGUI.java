@@ -124,17 +124,17 @@ public class CompagniaGUI extends JFrame {
 		lblElimina.setHorizontalAlignment(SwingConstants.CENTER);
 		lblElimina.setForeground(Color.BLACK);
 		lblElimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblElimina.setBounds(292, 362, 149, 42);
+		lblElimina.setBounds(292, 323, 149, 42);
 		contentPane.add(lblElimina);
 		
 		JLabel lblEliminaCodIATA = new JLabel("Inserisci CodIATA della riga da eliminare");
 		lblEliminaCodIATA.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEliminaCodIATA.setBounds(236, 415, 275, 40);
+		lblEliminaCodIATA.setBounds(236, 376, 275, 40);
 		contentPane.add(lblEliminaCodIATA);
 		
 		EliminaCodIatatextField = new JTextField();
 		EliminaCodIatatextField.setColumns(10);
-		EliminaCodIatatextField.setBounds(331, 466, 86, 20);
+		EliminaCodIatatextField.setBounds(331, 427, 86, 20);
 		EliminaCodIatatextField.getText();
 		contentPane.add(EliminaCodIatatextField);
 		

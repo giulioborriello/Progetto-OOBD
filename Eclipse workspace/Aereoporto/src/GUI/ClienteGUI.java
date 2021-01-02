@@ -26,6 +26,7 @@ public class ClienteGUI extends JFrame {
 	private JTextField textFieldNuovaEmail;
 	String[] valoriScelta = {"Seleziona tutti","Codice Fiscale"};
 	private JTextField textFieldRicerca;
+	private JTextField textFieldIndicaCodiceFiscale;
 
 	/**
 	 * Create the frame.
@@ -33,7 +34,7 @@ public class ClienteGUI extends JFrame {
 	public ClienteGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(100, 100, 800, 695);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -102,29 +103,29 @@ public class ClienteGUI extends JFrame {
 		JLabel AggiornaEmaillbl = new JLabel("Aggiorna Email");
 		AggiornaEmaillbl.setHorizontalAlignment(SwingConstants.CENTER);
 		AggiornaEmaillbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		AggiornaEmaillbl.setBounds(315, 329, 176, 47);
+		AggiornaEmaillbl.setBounds(320, 308, 176, 47);
 		contentPane.add(AggiornaEmaillbl);
 		
 		JLabel lblIndicareCodiceFiscale = new JLabel("Indicare Codice Fiscale");
 		lblIndicareCodiceFiscale.setHorizontalAlignment(SwingConstants.CENTER);
 		lblIndicareCodiceFiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblIndicareCodiceFiscale.setBounds(139, 387, 154, 40);
+		lblIndicareCodiceFiscale.setBounds(144, 366, 154, 40);
 		contentPane.add(lblIndicareCodiceFiscale);
 		
 		JLabel lblNuovaEmail = new JLabel("Nuova email");
 		lblNuovaEmail.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNuovaEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNuovaEmail.setBounds(360, 387, 104, 40);
+		lblNuovaEmail.setBounds(365, 366, 104, 40);
 		contentPane.add(lblNuovaEmail);
 		
 		textFieldIndicareCodiceFiscale = new JTextField();
 		textFieldIndicareCodiceFiscale.setColumns(10);
-		textFieldIndicareCodiceFiscale.setBounds(176, 431, 86, 20);
+		textFieldIndicareCodiceFiscale.setBounds(181, 410, 86, 20);
 		contentPane.add(textFieldIndicareCodiceFiscale);
 		
 		textFieldNuovaEmail = new JTextField();
 		textFieldNuovaEmail.setColumns(10);
-		textFieldNuovaEmail.setBounds(372, 431, 86, 20);
+		textFieldNuovaEmail.setBounds(377, 410, 86, 20);
 		contentPane.add(textFieldNuovaEmail);
 		
 		JButton AggiornaInviaButton = new JButton("Invia");
@@ -134,7 +135,7 @@ public class ClienteGUI extends JFrame {
 //			}
 //		});
 		AggiornaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		AggiornaInviaButton.setBounds(506, 419, 85, 40);
+		AggiornaInviaButton.setBounds(512, 398, 85, 40);
 		contentPane.add(AggiornaInviaButton);
 		
 		JButton MenuButton = new JButton("Menu");
@@ -144,22 +145,22 @@ public class ClienteGUI extends JFrame {
 			}
 		});
 		MenuButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		MenuButton.setBounds(40, 485, 85, 40);
+		MenuButton.setBounds(28, 616, 85, 40);
 		contentPane.add(MenuButton);
 		
 		JLabel Ricercalbl = new JLabel("Ricerca");
 		Ricercalbl.setHorizontalAlignment(SwingConstants.CENTER);
 		Ricercalbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ricercalbl.setBounds(303, 198, 176, 40);
+		Ricercalbl.setBounds(308, 183, 176, 40);
 		contentPane.add(Ricercalbl);
 		
 		JComboBox comboBoxRicerca = new JComboBox(valoriScelta);
-		comboBoxRicerca.setBounds(170, 265, 108, 22);
+		comboBoxRicerca.setBounds(175, 250, 108, 22);
 		contentPane.add(comboBoxRicerca);
 		
 		textFieldRicerca = new JTextField();
 		textFieldRicerca.setColumns(10);
-		textFieldRicerca.setBounds(357, 266, 86, 20);
+		textFieldRicerca.setBounds(362, 251, 86, 20);
 		contentPane.add(textFieldRicerca);
 		
 		JButton RicercaInviaButton = new JButton("Invia");
@@ -169,7 +170,33 @@ public class ClienteGUI extends JFrame {
 			}
 		});
 		RicercaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		RicercaInviaButton.setBounds(507, 254, 85, 40);
+		RicercaInviaButton.setBounds(512, 239, 85, 40);
 		contentPane.add(RicercaInviaButton);
+		
+		JLabel Eliminalbl = new JLabel("Elimina");
+		Eliminalbl.setHorizontalAlignment(SwingConstants.CENTER);
+		Eliminalbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		Eliminalbl.setBounds(345, 462, 104, 47);
+		contentPane.add(Eliminalbl);
+		
+		JLabel lblEliminaCodiceFiscale = new JLabel("Codice Fiscale");
+		lblEliminaCodiceFiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEliminaCodiceFiscale.setBounds(345, 508, 99, 14);
+		contentPane.add(lblEliminaCodiceFiscale);
+		
+		JButton EliminaButton = new JButton("Invia");
+		EliminaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaCliente(textFieldIndicaCodiceFiscale.getText());
+			}
+		});
+		EliminaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		EliminaButton.setBounds(507, 534, 85, 40);
+		contentPane.add(EliminaButton);
+		
+		textFieldIndicaCodiceFiscale = new JTextField();
+		textFieldIndicaCodiceFiscale.setColumns(10);
+		textFieldIndicaCodiceFiscale.setBounds(357, 546, 86, 20);
+		contentPane.add(textFieldIndicaCodiceFiscale);
 	}
 }
