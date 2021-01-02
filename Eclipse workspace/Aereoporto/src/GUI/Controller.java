@@ -376,23 +376,39 @@ public class Controller {
 		cliente.insertCliente(CodFiscale, Nome, Cognome, Email);
 	}
 
-	public void inserisciCodaDiImbarco(String text, String text2, String text3, String text4) {
-		// TODO Auto-generated method stub
+	public void inserisciCodaDiImbarco(String CodCoda, String Tipo_di_coda, String Ngate, String CodSlot) {
+		CodaDiImbarcoDAOPostgres codadiimbarco = new CodaDiImbarcoDAOPostgres(conn);
+		int nGate = Integer.valueOf(Ngate);
+		int codCoda = Integer.valueOf(CodCoda);
+		int codSlot = Integer.valueOf(CodSlot);
+		codadiimbarco.insertCodaDiImbarco(codCoda, Tipo_di_coda, nGate, codSlot);
 		
 	}
 
-	public void inserisciInCompagnia(String text, String text2, String text3, String text4, String text5) {
-		// TODO Auto-generated method stub
-		
+	public void inserisciInCompagnia(String CodIATA, String Nome_compagnia, String Sito_web) {
+		CompagniaDAOPostgres comp = new CompagniaDAOPostgres(conn);
+		comp.insertCompagnia(CodIATA, Nome_compagnia, Sito_web);
 	}
 
-	public void inserisciGate(String text, String text2, String text3, String text4) {
-		// TODO Auto-generated method stub
-		
+	public void inserisciGate(String Ngate, String CodTratta) {
+		GateDAOPostgres gate = new	GateDAOPostgres(conn);
+		int nGate = Integer.valueOf(Ngate);
+		gate.insertGate(nGate, CodTratta);
 	}
 
-	public void inserisciSlot(String text, String text2, String text3, String text4, String text5, String text6) {
-		// TODO Auto-generated method stub
+	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String CodCoda, String Data) throws ParseException {
+		SlotDAOPostgres slot = new SlotDAOPostgres(conn);
+		int codSlot =  Integer.valueOf(CodSlot);
+		int tempoDiImbarcoStimato =  Integer.valueOf(TempoDiImbarcoStimato);
+		int tempoDiImbarcoEffettivo =  Integer.valueOf(TempoDiImbarcoEffettivo);
+		int codCoda = Integer.valueOf(CodCoda);
+		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+		java.util.Date date = sdf1.parse(Data);
+		Date sqlDate = new java.sql.Date(date.getTime());  
+		
+		slot.insertSlot(codSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,codCoda,sqlDate);
+		
 		
 	}
 	
