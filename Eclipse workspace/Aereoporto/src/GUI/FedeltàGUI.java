@@ -113,6 +113,8 @@ public class Fedelt‡GUI extends JFrame {
 		lbl_Elimina.setBounds(371, 306, 73, 50);
 		contentPane.add(lbl_Elimina);
 		
+		
+		
 		txtEliminatextfield = new JTextField();
 		txtEliminatextfield.setColumns(10);
 		txtEliminatextfield.setBounds(339, 367, 132, 43);
@@ -141,6 +143,11 @@ public class Fedelt‡GUI extends JFrame {
 		contentPane.add(Button_InviaRicerca);
 		
 		JButton Button_InviaElimina = new JButton("Invia");
+		Button_InviaElimina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			controller.eliminaFedelt‡(txtEliminatextfield.getText());	
+			}
+		});
 		Button_InviaElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaElimina.setBounds(522, 366, 85, 40);
 		contentPane.add(Button_InviaElimina);
