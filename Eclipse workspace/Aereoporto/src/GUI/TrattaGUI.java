@@ -131,7 +131,7 @@ public class TrattaGUI extends JFrame {
 				
 				int Ngate = Integer.valueOf(textFieldNgate.getText());
 				int Nprenotazioni = Integer.valueOf(textFieldNprenotazioni.getText());
-				String Data = textFieldDataGiorno.getText() + "/" + textFieldDataMese.getText() + "/" + textFieldDataAnno.getText(); 
+				String Data = textFieldDataGiorno.getText() + "-" + textFieldDataMese.getText() + "-" + textFieldDataAnno.getText(); 
 				String Orario = textFieldOrarioDiPartenzaOra.getText() + ":" + textFieldOrarioDiPartenzaMinuto.getText();
 				try {
 					controller.inserisciTratta(textFieldCodTratta.getText(),Nprenotazioni,Orario,Data,Ngate, textFieldCodIATA.getText(),textFieldDestinazione.getText(),textFieldScali.getText());
