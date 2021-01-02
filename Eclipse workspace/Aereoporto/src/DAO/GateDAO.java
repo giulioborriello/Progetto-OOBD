@@ -8,6 +8,7 @@ public interface GateDAO {
 	public List<Gate> getAllGate();
 	public Gate getGateByNgate(int Ngate);
 	public Gate getGateByCodTratta(String CodTratta);
-	public void insertGate(int Ngate, String CodTratta);
-	public void updateCodTrattaByNgate(String CodTratta, int Ngate);
+	public String insertGate(int Ngate, String CodTratta);
+	public String updateCodTrattaByNgate(String CodTratta, int Ngate);
+	public String deleteGate(int Ngate);
 }

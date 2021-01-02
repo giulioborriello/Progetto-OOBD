@@ -373,7 +373,8 @@ public class Controller {
 	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) {
 	  
 		ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
-		cliente.insertCliente(CodFiscale, Nome, Cognome, Email);
+		String testo = cliente.insertCliente(CodFiscale, Nome, Cognome, Email);
+		openDialog(testo);
 	}
 
 	public void inserisciCodaDiImbarco(String CodCoda, String Tipo_di_coda, String Ngate, String CodSlot) {
@@ -381,19 +382,21 @@ public class Controller {
 		int nGate = Integer.valueOf(Ngate);
 		int codCoda = Integer.valueOf(CodCoda);
 		int codSlot = Integer.valueOf(CodSlot);
-		codadiimbarco.insertCodaDiImbarco(codCoda, Tipo_di_coda, nGate, codSlot);
-		
+		String testo = codadiimbarco.insertCodaDiImbarco(codCoda, Tipo_di_coda, nGate, codSlot);
+		openDialog(testo);
 	}
 
 	public void inserisciInCompagnia(String CodIATA, String Nome_compagnia, String Sito_web) {
 		CompagniaDAOPostgres comp = new CompagniaDAOPostgres(conn);
-		comp.insertCompagnia(CodIATA, Nome_compagnia, Sito_web);
+		String testo = comp.insertCompagnia(CodIATA, Nome_compagnia, Sito_web);
+		openDialog(testo);
 	}
 
 	public void inserisciGate(String Ngate, String CodTratta) {
 		GateDAOPostgres gate = new	GateDAOPostgres(conn);
 		int nGate = Integer.valueOf(Ngate);
-		gate.insertGate(nGate, CodTratta);
+		String testo = gate.insertGate(nGate, CodTratta);
+		openDialog(testo);
 	}
 
 	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String CodCoda, String Data) throws ParseException {
@@ -407,9 +410,8 @@ public class Controller {
 		java.util.Date date = sdf1.parse(Data);
 		Date sqlDate = new java.sql.Date(date.getTime());  
 		
-		slot.insertSlot(codSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,codCoda,sqlDate);
-		
-		
+		String testo = slot.insertSlot(codSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,codCoda,sqlDate);
+		openDialog(testo);
 	}
 
 	public void inserisciFedelt‡(String CentoKilometri, String CodIATA, String CodFiscale, String Punti) {
@@ -417,57 +419,67 @@ public class Controller {
 		int centoKilometri = Integer.valueOf(CentoKilometri);
 		int punti = Integer.valueOf(Punti);
 		
-		fedelt‡.insertFedelt‡(centoKilometri, CodIATA, CodFiscale, punti);
-		
+		String testo = fedelt‡.insertFedelt‡(centoKilometri, CodIATA, CodFiscale, punti);
+		openDialog(testo);
 	}
 
 	public void inserisciBiglietto(String CodFiscale, String TipoDiBiglietto, String CodBiglietto, String CodTratta, String Posto) {
 		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
-		biglietto.insertBiglietto(CodFiscale, TipoDiBiglietto, CodBiglietto, CodTratta, Posto);
+		String testo = biglietto.insertBiglietto(CodFiscale, TipoDiBiglietto, CodBiglietto, CodTratta, Posto);
+		openDialog(testo);
 	}
 
 	public void eliminaSlot(String CodSlot) {
 		SlotDAOPostgres slot = new SlotDAOPostgres(conn);
 		int codSlot = Integer.valueOf(CodSlot);
-		slot.deleteSlot(codSlot);
+		String testo = slot.deleteSlot(codSlot);
+		openDialog(testo);
 	}
 
 	public void eliminaGate(String Ngate) {
 		GateDAOPostgres gate = new	GateDAOPostgres(conn);
 		int nGate = Integer.valueOf(Ngate);
-		gate.deleteGate(nGate);
+		String testo = gate.deleteGate(nGate);
+		openDialog(testo);
 		
 	}
 
 	public void eliminaCodaDiImbarco(String CodCoda) {
 		CodaDiImbarcoDAOPostgres CodaDiImbarco = new CodaDiImbarcoDAOPostgres(conn);
 		int codCoda = Integer.valueOf(CodCoda);
-		CodaDiImbarco.deleteCodaDiImbarco(codCoda);
+		String testo = CodaDiImbarco.deleteCodaDiImbarco(codCoda);
+		openDialog(testo);
 	}
 
-	public void eliminaBiglietto(String text) {
+	public void eliminaBiglietto(String CodBiglietto) {
 		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
+		String testo = biglietto.deleteBiglietto(CodBiglietto);
+		openDialog(testo);
 	}
 
 	public void eliminaCompagnia(String CodIATA) {
 		CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(conn);
-		compagnia.deleteCompagnia(CodIATA);
+		String testo = compagnia.deleteCompagnia(CodIATA);
+		openDialog(testo);
 	}
 
 	public void eliminaCliente(String CodFiscale) {
 		ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
-		cliente.deleteCliente(CodFiscale);
+		String testo = cliente.deleteCliente(CodFiscale);
+		openDialog(testo);
 	}
 
 	public void eliminaTratta(String CodTratta) {
 		TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
-		tratta.deleteTratta(CodTratta);
+		String testo = tratta.deleteTratta(CodTratta);
+		openDialog(testo);
 
 	}
 
 	public void eliminaFedelt‡(String CodFiscale) {
 		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(conn);
-		fedelt‡.deleteFedelt‡(CodFiscale);
+		String testo = fedelt‡.deleteFedelt‡(CodFiscale);
+		openDialog(testo);
 	}
 	
 	

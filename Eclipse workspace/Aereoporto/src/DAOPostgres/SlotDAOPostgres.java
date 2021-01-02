@@ -123,7 +123,7 @@ public class SlotDAOPostgres implements SlotDAO{
 		return ListSlot;	
 	}
 	
-	public void insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, int CodCoda, Date Data)	{
+	public String insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, int CodCoda, Date Data)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
@@ -133,45 +133,48 @@ public class SlotDAOPostgres implements SlotDAO{
 			ps.setInt(4, CodCoda);
 			ps.setDate(5, Data);
 			ps.execute();
-			conn.close();
 			ps.close();
-
+			conn.close();
+			
+			return "Inserito Correttamente";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getMessage();
 		}
 		
 	}
 	
-	public void updateTempoDiImbarcoEffettivoByCodSlot(int TempoDiImbarcoEffettivo, int CodSlot)	{
+	public String updateTempoDiImbarcoEffettivoByCodSlot(int TempoDiImbarcoEffettivo, int CodSlot)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("UPDATE \"Slot\" SET \"TempoDiImbarcoEffettivo\" = ? WHERE \"CodSlot\" = ? ; ");
 			ps.setInt(1, TempoDiImbarcoEffettivo);
 			ps.setInt(2, CodSlot);
 			ps.execute();
-			conn.close();
 			ps.close();
-
+			conn.close();
+			
+			return "Aggiornato Correttamente";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getMessage();
 		}
 	}
 	
-	public void deleteSlot(int CodSlot) {
+	public String deleteSlot(int CodSlot) {
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("Delete From \"Slot\"  WHERE \"CodSlot\" = ? ; ");
 	
 			ps.setInt(1, CodSlot);
 			ps.execute();
-			conn.close();
 			ps.close();
-
+			conn.close();
+			
+			return "Eliminato Correttamente";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			return e.getMessage();
 		}
 		
 		

@@ -96,8 +96,9 @@ public class GateDAOPostgres implements GateDAO{
 			ps.setInt(1, Ngate);
 			ps.setString(2, CodTratta);
 			ps.execute();
-			conn.close();
 			st.close();
+			conn.close();
+			
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -112,8 +113,9 @@ public class GateDAOPostgres implements GateDAO{
 			ps.setString(1, CodTratta);
 			ps.setInt(2, Ngate);
 			ps.execute();
-			conn.close();
 			st.close();
+			conn.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -127,8 +129,9 @@ public class GateDAOPostgres implements GateDAO{
 				
 				ps.setInt(1, Ngate);
 				ps.execute();
-				conn.close();
 				ps.close();
+				conn.close();
+				
 
 				
 		} catch (SQLException e) {
