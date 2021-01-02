@@ -153,9 +153,9 @@ public class ClienteGUI extends JFrame {
 		Ricercalbl.setBounds(303, 198, 176, 40);
 		contentPane.add(Ricercalbl);
 		
-		JComboBox comboBox = new JComboBox(valoriScelta);
-		comboBox.setBounds(170, 265, 108, 22);
-		contentPane.add(comboBox);
+		JComboBox comboBoxRicerca = new JComboBox(valoriScelta);
+		comboBoxRicerca.setBounds(170, 265, 108, 22);
+		contentPane.add(comboBoxRicerca);
 		
 		textFieldRicerca = new JTextField();
 		textFieldRicerca.setColumns(10);
@@ -165,7 +165,7 @@ public class ClienteGUI extends JFrame {
 		JButton RicercaInviaButton = new JButton("Invia");
 		RicercaInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiCliente(comboBox.getSelectedItem().toString(), textFieldRicerca.getText());
+				controller.openRisultatiCliente(comboBoxRicerca.getSelectedItem().toString(), textFieldRicerca.getText());
 			}
 		});
 		RicercaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));

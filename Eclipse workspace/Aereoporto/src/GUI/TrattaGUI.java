@@ -45,7 +45,7 @@ public class TrattaGUI extends JFrame {
 	public TrattaGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1092, 816);
+		setBounds(100, 100, 984, 757);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -64,7 +64,7 @@ public class TrattaGUI extends JFrame {
 		contentPane.add(lbl_Ricerca);
 		
 		JComboBox comboBox_Ricerca = new JComboBox(ValoriScelta);
-		comboBox_Ricerca.setBounds(10, 82, 149, 82);
+		comboBox_Ricerca.setBounds(262, 112, 103, 22);
 		contentPane.add(comboBox_Ricerca);
 		
 		JTextArea textFieldRicerca = new JTextArea();
@@ -72,12 +72,13 @@ public class TrattaGUI extends JFrame {
 		contentPane.add(textFieldRicerca);
 		
 		JButton Button_InviaRicerca = new JButton("Invia");
+		Button_InviaRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.openRisultatiTratta(comboBox_Ricerca.getSelectedItem().toString(), textFieldRicerca.getText() );
 			}
 		});
-		Button_InviaRicerca.setBounds(888, 122, 142, 42);
+		Button_InviaRicerca.setBounds(792, 100, 142, 42);
 		contentPane.add(Button_InviaRicerca);
 		
 		JLabel lbl_Cod_Tratta = new JLabel("CodTratta");
@@ -126,6 +127,7 @@ public class TrattaGUI extends JFrame {
 		contentPane.add(lbl_Gate);
 		
 		JButton Button_InviaInserimento = new JButton("Invia");
+		Button_InviaInserimento.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaInserimento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -143,7 +145,7 @@ public class TrattaGUI extends JFrame {
 			}
 		});
 
-		Button_InviaInserimento.setBounds(839, 426, 142, 42);
+		Button_InviaInserimento.setBounds(792, 425, 142, 42);
 		contentPane.add(Button_InviaInserimento);
 		
 		textFieldCodTratta = new JTextField();
@@ -209,16 +211,23 @@ public class TrattaGUI extends JFrame {
 		contentPane.add(textFieldElimina);
 		
 		JButton Button_Elimina = new JButton("Invia");
-		Button_Elimina.setBounds(888, 585, 142, 42);
+		Button_Elimina.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Button_Elimina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaTratta(textFieldElimina.getText());
+			}
+		});
+		Button_Elimina.setBounds(792, 585, 142, 42);
 		contentPane.add(Button_Elimina);
 		
 		JButton Button_BackToMenu = new JButton("Men\u00F9");
+		Button_BackToMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_BackToMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.backToMenù();
 			}
 		});
-		Button_BackToMenu.setBounds(24, 579, 135, 39);
+		Button_BackToMenu.setBounds(27, 662, 135, 39);
 		contentPane.add(Button_BackToMenu);
 		
 		JLabel lbl_Giorno = new JLabel("Giorno");

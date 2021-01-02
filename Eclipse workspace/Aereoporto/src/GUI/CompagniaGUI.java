@@ -67,17 +67,17 @@ public class CompagniaGUI extends JFrame {
 		RicercaButton.setBounds(620, 93, 142, 42);
 		contentPane.add(RicercaButton);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Inserimento");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setForeground(Color.BLACK);
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(304, 165, 136, 42);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel lblInserisci = new JLabel("Inserimento");
+		lblInserisci.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInserisci.setForeground(Color.BLACK);
+		lblInserisci.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblInserisci.setBounds(304, 165, 136, 42);
+		contentPane.add(lblInserisci);
 		
-		JLabel lblNewLabel = new JLabel("CodIATA");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(200, 221, 80, 14);
-		contentPane.add(lblNewLabel);
+		JLabel lblCodIATA = new JLabel("CodIATA");
+		lblCodIATA.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCodIATA.setBounds(200, 221, 80, 14);
+		contentPane.add(lblCodIATA);
 		
 		JLabel lblNomeCompagnia = new JLabel("Nome Compagnia");
 		lblNomeCompagnia.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -149,15 +149,15 @@ public class CompagniaGUI extends JFrame {
 		EliminaButton.setBounds(620, 455, 142, 42);
 		contentPane.add(EliminaButton);
 		
-		JButton btnNewButton_3 = new JButton("Torna indietro ");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btnMenu = new JButton("Men\u00F9");
+		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.backToMenù();
 			}
 		});
-		btnNewButton_3.setFont(new Font("Dialog", Font.BOLD, 15));
-		btnNewButton_3.setBounds(0, 514, 180, 57);
-		contentPane.add(btnNewButton_3);
+		btnMenu.setFont(new Font("Dialog", Font.BOLD, 15));
+		btnMenu.setBounds(0, 514, 180, 57);
+		contentPane.add(btnMenu);
 	}
    
 		}
