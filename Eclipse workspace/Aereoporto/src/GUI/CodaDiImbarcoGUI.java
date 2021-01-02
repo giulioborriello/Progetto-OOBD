@@ -167,9 +167,11 @@ public class CodaDiImbarcoGUI extends JFrame {
 		JButton btnElimina = new JButton("Invia");
 		btnElimina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 				controller.eliminaCodaDiImbarco(EliminatextField.getText());
 			}
 		});
+
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(618, 465, 142, 42);
 		contentPane.add(btnElimina);

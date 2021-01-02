@@ -32,7 +32,7 @@ public class BigliettoGUI extends JFrame {
 	public BigliettoGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 900, 600);
+		setBounds(100, 100, 900, 762);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -172,10 +172,12 @@ public class BigliettoGUI extends JFrame {
 		
 		JButton EliminaInviaButton = new JButton("Invia");
 		EliminaInviaButton.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 				controller.eliminaBiglietto(EliminaTextField.getText());
 			}
 		});
+
 		EliminaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		EliminaInviaButton.setBounds(519, 369, 85, 40);
 		contentPane.add(EliminaInviaButton);

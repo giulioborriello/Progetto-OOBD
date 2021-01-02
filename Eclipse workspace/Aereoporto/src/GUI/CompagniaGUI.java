@@ -140,6 +140,11 @@ public class CompagniaGUI extends JFrame {
 		
 		
 		JButton EliminaButton = new JButton("Invia");
+		EliminaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			controller.EliminaCompagnia(EliminaCodIatatextField.getText());	
+			}
+		});
 		EliminaButton.setFont(new Font("Dialog", Font.BOLD, 15));
 		EliminaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
