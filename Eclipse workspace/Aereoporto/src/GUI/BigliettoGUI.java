@@ -144,6 +144,10 @@ public class BigliettoGUI extends JFrame {
 		
 	
 		JButton InserisciInviaButton = new JButton("Invia");
+		InserisciInviaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 //		InserisciInviaButton.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				controller.inserisciBiglietto(CodBigliettoTextField.getText(), CodfiscaleTextField.getText(), NomeTextField.getText(), PostoTextField.getText(), 

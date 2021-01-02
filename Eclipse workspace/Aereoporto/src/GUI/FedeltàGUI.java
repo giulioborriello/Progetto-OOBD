@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 public class Fedelt‡GUI extends JFrame {
 	Controller controller;
 	private JPanel contentPane;
-	private JTextField CtextField;
+	private JTextField textFieldCentokilometri;
 	private JTextField txtCodiatatextfield;
 	private JTextField txtCodfiscaletextfield;
 	private JTextField txtPuntitextfield;
@@ -41,7 +41,7 @@ public class Fedelt‡GUI extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Inserisci");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel.setBounds(317, 10, 132, 59);
+		lblNewLabel.setBounds(363, 11, 132, 59);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Centochilometri");
@@ -64,70 +64,71 @@ public class Fedelt‡GUI extends JFrame {
 		lblNewLabel_1_3.setBounds(610, 70, 73, 31);
 		contentPane.add(lblNewLabel_1_3);
 		
-		CtextField = new JTextField();
-		CtextField.setText("CentochilometriTextField");
-	    CtextField.setBounds(53, 101, 109, 31);
-		contentPane.add(CtextField);
-		CtextField.setColumns(10);
+		textFieldCentokilometri = new JTextField();
+	    textFieldCentokilometri.setBounds(53, 101, 109, 31);
+		contentPane.add(textFieldCentokilometri);
+		textFieldCentokilometri.setColumns(10);
 		
 		txtCodiatatextfield = new JTextField();
-		txtCodiatatextfield.setText("CodiATATextField");
 		txtCodiatatextfield.setColumns(10);
 		txtCodiatatextfield.setBounds(255, 101, 109, 31);
 		contentPane.add(txtCodiatatextfield);
 		
 		txtCodfiscaletextfield = new JTextField();
-		txtCodfiscaletextfield.setText("CodFiscaleTextField");
 		txtCodfiscaletextfield.setColumns(10);
 		txtCodfiscaletextfield.setBounds(439, 101, 109, 31);
 		contentPane.add(txtCodfiscaletextfield);
 		
 		txtPuntitextfield = new JTextField();
-		txtPuntitextfield.setText("PuntiTextField");
 		txtPuntitextfield.setColumns(10);
 		txtPuntitextfield.setBounds(586, 101, 109, 31);
 		contentPane.add(txtPuntitextfield);
 		
+		JButton btnNewButton_1 = new JButton("Invia");
+//		btnNewButton_1.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
+//			}
+//		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_1.setBounds(728, 92, 85, 40);
+		contentPane.add(btnNewButton_1);
+		
 		JLabel lblNewLabel_2 = new JLabel("Ricerca");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(83, 188, 94, 31);
+		lblNewLabel_2.setBounds(369, 171, 73, 31);
 		contentPane.add(lblNewLabel_2);
 		
 		JComboBox comboBox = new JComboBox(ValoriScelta);
-		comboBox.setBounds(53, 228, 119, 43);
+		comboBox.setBounds(197, 235, 95, 20);
 		contentPane.add(comboBox);
 		
 		txtRicercatextfield = new JTextField();
-		txtRicercatextfield.setText("RicercaTextfield");
-		txtRicercatextfield.setBounds(281, 228, 132, 43);
+		txtRicercatextfield.setBounds(339, 224, 132, 43);
 		contentPane.add(txtRicercatextfield);
 		txtRicercatextfield.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Elimina");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(89, 338, 73, 50);
+		lblNewLabel_3.setBounds(371, 306, 73, 50);
 		contentPane.add(lblNewLabel_3);
 		
 		txtEliminatextfield = new JTextField();
-		txtEliminatextfield.setText("EliminaTextField");
 		txtEliminatextfield.setColumns(10);
-		txtEliminatextfield.setBounds(272, 408, 132, 43);
+		txtEliminatextfield.setBounds(339, 367, 132, 43);
 		contentPane.add(txtEliminatextfield);
 		
-		JButton btnNewButton_3 = new JButton("Torna indietro ");
+		JButton btnNewButton_3 = new JButton("Men\u00F9");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.backToMen˘();
 			}
 		});
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton_3.setBounds(31, 399, 180, 57);
+		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButton_3.setBounds(29, 447, 101, 57);
 		contentPane.add(btnNewButton_3);
 		
-		JButton btnNewButton_1 = new JButton("Invia");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(728, 92, 85, 40);
-		contentPane.add(btnNewButton_1);
+		
 		
 		JButton btnNewButton_1_1 = new JButton("Invia");
 		btnNewButton_1_1.addActionListener(new ActionListener() {
@@ -136,12 +137,12 @@ public class Fedelt‡GUI extends JFrame {
 			}
 		});
 		btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1_1.setBounds(459, 228, 85, 40);
+		btnNewButton_1_1.setBounds(507, 224, 85, 40);
 		contentPane.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_2 = new JButton("Invia");
 		btnNewButton_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1_2.setBounds(459, 408, 85, 40);
+		btnNewButton_1_2.setBounds(522, 366, 85, 40);
 		contentPane.add(btnNewButton_1_2);
 	}
 }
