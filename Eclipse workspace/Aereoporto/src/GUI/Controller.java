@@ -1,6 +1,6 @@
 package GUI;
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -356,8 +356,8 @@ public class Controller {
 	
 	public void inserisciTratta(String codTratta, int nPrenotazioni,String orarioDiPartenza, String data, int nGate, String CodIATA, String destinazione, String scali) throws ParseException{
 		
-		Time tempo = (Time) new SimpleDateFormat("hh:mm").parse(orarioDiPartenza);
-		Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(data);
+		Time tempo = java.sql.Time.valueOf(orarioDiPartenza);
+		Date date = new SimpleDateFormat("dd/MM/yyyy").parse(data);
 		TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
 		tratta.insertTratta(codTratta, nPrenotazioni, tempo, date, nGate, CodIATA, destinazione, scali);
 	}
