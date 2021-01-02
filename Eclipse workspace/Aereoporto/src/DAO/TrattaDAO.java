@@ -15,5 +15,6 @@ public interface TrattaDAO {
 	public List<Tratta> getTrattaNgate(String Ngate);
 	public List<Tratta> getTrattaCodIATA(String CodIATA);
 	public List<Tratta> getTrattaDestinazione(String Destinazione);
-	public void insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, int Ngate,  String CodIATA, String Destinazione, String Scali);
+	public String insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, int Ngate,  String CodIATA, String Destinazione, String Scali);
+	public String deleteTratta(String CodTratta);
 }

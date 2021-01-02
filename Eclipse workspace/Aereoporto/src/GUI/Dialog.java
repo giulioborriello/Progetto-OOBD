@@ -15,19 +15,20 @@ public class Dialog extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	
-	public Dialog() {
+	public Dialog(String testo) {
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
 		{
-			JLabel lbLabel = new JLabel("New label");
-			lbLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lbLabel.setVerticalAlignment(SwingConstants.TOP);
-			lbLabel.setHorizontalAlignment(SwingConstants.CENTER);
-			lbLabel.setBounds(26, 31, 378, 155);
-			contentPanel.add(lbLabel);
+			JLabel lbTesto = new JLabel("New label");
+			lbTesto.setFont(new Font("Tahoma", Font.PLAIN, 15));
+			lbTesto.setVerticalAlignment(SwingConstants.TOP);
+			lbTesto.setHorizontalAlignment(SwingConstants.CENTER);
+			lbTesto.setBounds(26, 31, 378, 155);
+			lbTesto.setText(testo);
+			contentPanel.add(lbTesto);
 		}
 		{
 			JPanel buttonPane = new JPanel();

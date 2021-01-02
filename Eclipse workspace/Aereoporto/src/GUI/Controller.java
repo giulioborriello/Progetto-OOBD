@@ -51,7 +51,6 @@ public class Controller {
 	
 	
 	
-	
 	public Controller() {
 		menù = new MenùGUI(this);
 		menù.setVisible(true);
@@ -366,7 +365,8 @@ public class Controller {
 		java.util.Date date = sdf1.parse(data);
 		Date sqlDate = new java.sql.Date(date.getTime());  
 		TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
-		tratta.insertTratta(codTratta, nPrenotazioni, tempo, sqlDate, nGate, CodIATA, destinazione, scali);
+		String testo = tratta.insertTratta(codTratta, nPrenotazioni, tempo, sqlDate, nGate, CodIATA, destinazione, scali);
+		openDialog(testo);
 	}
 	
 
@@ -471,6 +471,9 @@ public class Controller {
 	}
 	
 	
+	public void openDialog(String text) {
+		Dialog dialog = new Dialog(text);
+	}
 	
 	
 	
