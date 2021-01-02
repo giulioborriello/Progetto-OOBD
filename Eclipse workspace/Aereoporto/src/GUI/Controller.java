@@ -356,7 +356,11 @@ public class Controller {
 	
 	public void inserisciTratta(String codTratta, int nPrenotazioni,String orarioDiPartenza, String data, int nGate, String CodIATA, String destinazione, String scali) throws ParseException{
 		
-		Time tempo = java.sql.Time.valueOf(orarioDiPartenza);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
+		long ms = sdf.parse(orarioDiPartenza).getTime();
+		
+		Time tempo = new Time(ms);
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
 		java.util.Date date = sdf1.parse(data);

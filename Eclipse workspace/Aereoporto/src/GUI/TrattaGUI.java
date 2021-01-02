@@ -102,27 +102,27 @@ public class TrattaGUI extends JFrame {
 		
 		JLabel lblNewLabel_2_4 = new JLabel("N gate");
 		lblNewLabel_2_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_4.setBounds(839, 301, 78, 22);
+		lblNewLabel_2_4.setBounds(51, 408, 78, 22);
 		contentPane.add(lblNewLabel_2_4);
 		
 		JLabel lblNewLabel_2_5 = new JLabel("CodIATA");
 		lblNewLabel_2_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_5.setBounds(944, 305, 70, 14);
+		lblNewLabel_2_5.setBounds(162, 412, 70, 14);
 		contentPane.add(lblNewLabel_2_5);
 		
 		JLabel lblNewLabel_2_6 = new JLabel("Destinazione");
 		lblNewLabel_2_6.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_6.setBounds(27, 412, 86, 14);
+		lblNewLabel_2_6.setBounds(279, 412, 86, 14);
 		contentPane.add(lblNewLabel_2_6);
 		
 		JLabel lblNewLabel_2_7 = new JLabel("Scali");
 		lblNewLabel_2_7.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_7.setBounds(172, 412, 46, 14);
+		lblNewLabel_2_7.setBounds(415, 412, 46, 14);
 		contentPane.add(lblNewLabel_2_7);
 		
 		JLabel lblNewLabel_2_8 = new JLabel("Gate");
 		lblNewLabel_2_8.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_8.setBounds(279, 412, 46, 14);
+		lblNewLabel_2_8.setBounds(538, 412, 46, 14);
 		contentPane.add(lblNewLabel_2_8);
 		
 		JButton btnNewButton_1 = new JButton("Invia");
@@ -143,7 +143,7 @@ public class TrattaGUI extends JFrame {
 			}
 		});
 
-		btnNewButton_1.setBounds(522, 426, 142, 42);
+		btnNewButton_1.setBounds(839, 426, 142, 42);
 		contentPane.add(btnNewButton_1);
 		
 		textFieldCodTratta = new JTextField();
@@ -168,27 +168,27 @@ public class TrattaGUI extends JFrame {
 		
 		textFieldNgate = new JTextField();
 		textFieldNgate.setColumns(10);
-		textFieldNgate.setBounds(816, 330, 86, 20);
+		textFieldNgate.setBounds(27, 435, 86, 22);
 		contentPane.add(textFieldNgate);
 		
 		textFieldCodIATA = new JTextField();
 		textFieldCodIATA.setColumns(10);
-		textFieldCodIATA.setBounds(944, 330, 86, 20);
+		textFieldCodIATA.setBounds(150, 437, 86, 20);
 		contentPane.add(textFieldCodIATA);
 		
 		textFieldDestinazione = new JTextField();
 		textFieldDestinazione.setColumns(10);
-		textFieldDestinazione.setBounds(27, 437, 86, 20);
+		textFieldDestinazione.setBounds(279, 437, 86, 20);
 		contentPane.add(textFieldDestinazione);
 		
 		textFieldScali = new JTextField();
 		textFieldScali.setColumns(10);
-		textFieldScali.setBounds(150, 437, 86, 20);
+		textFieldScali.setBounds(389, 437, 86, 20);
 		contentPane.add(textFieldScali);
 		
 		textFieldGate = new JTextField();
 		textFieldGate.setColumns(10);
-		textFieldGate.setBounds(261, 437, 86, 20);
+		textFieldGate.setBounds(516, 437, 86, 20);
 		contentPane.add(textFieldGate);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel("Elimina");
