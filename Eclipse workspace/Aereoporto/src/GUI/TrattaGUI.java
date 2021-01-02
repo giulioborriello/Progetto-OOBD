@@ -51,17 +51,17 @@ public class TrattaGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel Inserimento_Label = new JLabel("Inserimento");
-		Inserimento_Label.setHorizontalAlignment(SwingConstants.CENTER);
-		Inserimento_Label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Inserimento_Label.setBounds(433, 165, 169, 89);
-		contentPane.add(Inserimento_Label);
+		JLabel lbl_Inserimento = new JLabel("Inserimento");
+		lbl_Inserimento.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Inserimento.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Inserimento.setBounds(433, 165, 169, 89);
+		contentPane.add(lbl_Inserimento);
 		
-		JLabel Ricerca_Label = new JLabel("Ricerca");
-		Ricerca_Label.setHorizontalAlignment(SwingConstants.CENTER);
-		Ricerca_Label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Ricerca_Label.setBounds(432, 11, 136, 42);
-		contentPane.add(Ricerca_Label);
+		JLabel lbl_Ricerca = new JLabel("Ricerca");
+		lbl_Ricerca.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Ricerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Ricerca.setBounds(432, 11, 136, 42);
+		contentPane.add(lbl_Ricerca);
 		
 		JComboBox comboBox_Ricerca = new JComboBox(ValoriScelta);
 		comboBox_Ricerca.setBounds(10, 82, 149, 82);
@@ -71,62 +71,62 @@ public class TrattaGUI extends JFrame {
 		textFieldRicerca.setBounds(432, 111, 136, 22);
 		contentPane.add(textFieldRicerca);
 		
-		JButton btnNewButton = new JButton("Invia");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton Button_InviaRicerca = new JButton("Invia");
+		Button_InviaRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.openRisultatiTratta(comboBox_Ricerca.getSelectedItem().toString(), textFieldRicerca.getText() );
 			}
 		});
-		btnNewButton.setBounds(888, 122, 142, 42);
-		contentPane.add(btnNewButton);
+		Button_InviaRicerca.setBounds(888, 122, 142, 42);
+		contentPane.add(Button_InviaRicerca);
 		
-		JLabel Cod_Tratta_Label = new JLabel("CodTratta");
-		Cod_Tratta_Label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Cod_Tratta_Label.setBounds(27, 305, 86, 14);
-		contentPane.add(Cod_Tratta_Label);
+		JLabel lbl_Cod_Tratta = new JLabel("CodTratta");
+		lbl_Cod_Tratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Cod_Tratta.setBounds(27, 305, 86, 14);
+		contentPane.add(lbl_Cod_Tratta);
 		
-		JLabel N_Prenotazioni_label = new JLabel("N Prenotazioni");
-		N_Prenotazioni_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		N_Prenotazioni_label.setBounds(150, 305, 102, 14);
-		contentPane.add(N_Prenotazioni_label);
+		JLabel lbl_N_prentazioni = new JLabel("N Prenotazioni");
+		lbl_N_prentazioni.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_N_prentazioni.setBounds(150, 305, 102, 14);
+		contentPane.add(lbl_N_prentazioni);
 		
-		JLabel Orario_Partenza = new JLabel("Orario di partenza");
-		Orario_Partenza.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Orario_Partenza.setBounds(318, 269, 130, 14);
-		contentPane.add(Orario_Partenza);
+		JLabel lbl_Orario_Partenza = new JLabel("Orario di partenza");
+		lbl_Orario_Partenza.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Orario_Partenza.setBounds(318, 269, 130, 14);
+		contentPane.add(lbl_Orario_Partenza);
 		
-		JLabel Partenza_in_Data = new JLabel("Data");
-		Partenza_in_Data.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Partenza_in_Data.setBounds(618, 269, 46, 14);
-		contentPane.add(Partenza_in_Data);
+		JLabel lbl_Partenza_in_Data = new JLabel("Data");
+		lbl_Partenza_in_Data.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Partenza_in_Data.setBounds(618, 269, 46, 14);
+		contentPane.add(lbl_Partenza_in_Data);
 		
-		JLabel N_gate_Label = new JLabel("N gate");
-		N_gate_Label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		N_gate_Label.setBounds(51, 408, 78, 22);
-		contentPane.add(N_gate_Label);
+		JLabel lbl_N_Gate = new JLabel("N gate");
+		lbl_N_Gate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_N_Gate.setBounds(51, 408, 78, 22);
+		contentPane.add(lbl_N_Gate);
 		
-		JLabel CodIATA_label = new JLabel("CodIATA");
-		CodIATA_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		CodIATA_label.setBounds(162, 412, 70, 14);
-		contentPane.add(CodIATA_label);
+		JLabel lbl_CodIATA = new JLabel("CodIATA");
+		lbl_CodIATA.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_CodIATA.setBounds(162, 412, 70, 14);
+		contentPane.add(lbl_CodIATA);
 		
-		JLabel Destinazione_Label = new JLabel("Destinazione");
-		Destinazione_Label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Destinazione_Label.setBounds(279, 412, 86, 14);
-		contentPane.add(Destinazione_Label);
+		JLabel lbl_Destinazione = new JLabel("Destinazione");
+		lbl_Destinazione.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Destinazione.setBounds(279, 412, 86, 14);
+		contentPane.add(lbl_Destinazione);
 		
-		JLabel Scali_Label = new JLabel("Scali");
-		Scali_Label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Scali_Label.setBounds(415, 412, 46, 14);
-		contentPane.add(Scali_Label);
+		JLabel lbl_Scali = new JLabel("Scali");
+		lbl_Scali.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Scali.setBounds(415, 412, 46, 14);
+		contentPane.add(lbl_Scali);
 		
-		JLabel Gate_Label = new JLabel("Gate");
-		Gate_Label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Gate_Label.setBounds(538, 412, 46, 14);
-		contentPane.add(Gate_Label);
+		JLabel lbl_Gate = new JLabel("Gate");
+		lbl_Gate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Gate.setBounds(538, 412, 46, 14);
+		contentPane.add(lbl_Gate);
 		
-		JButton Invia_Button = new JButton("Invia");
-		Invia_Button.addActionListener(new ActionListener() {
+		JButton Button_InviaInserimento = new JButton("Invia");
+		Button_InviaInserimento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				int Ngate = Integer.valueOf(textFieldNgate.getText());
@@ -143,8 +143,8 @@ public class TrattaGUI extends JFrame {
 			}
 		});
 
-		Invia_Button.setBounds(839, 426, 142, 42);
-		contentPane.add(Invia_Button);
+		Button_InviaInserimento.setBounds(839, 426, 142, 42);
+		contentPane.add(Button_InviaInserimento);
 		
 		textFieldCodTratta = new JTextField();
 		textFieldCodTratta.setBounds(27, 330, 86, 20);
@@ -191,40 +191,40 @@ public class TrattaGUI extends JFrame {
 		textFieldGate.setBounds(516, 437, 86, 20);
 		contentPane.add(textFieldGate);
 		
-		JLabel Elimina_Label = new JLabel("Elimina");
-		Elimina_Label.setHorizontalAlignment(SwingConstants.CENTER);
-		Elimina_Label.setForeground(Color.BLACK);
-		Elimina_Label.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Elimina_Label.setBounds(354, 507, 366, 42);
-		contentPane.add(Elimina_Label);
+		JLabel lbl_Elimina = new JLabel("Elimina");
+		lbl_Elimina.setHorizontalAlignment(SwingConstants.CENTER);
+		lbl_Elimina.setForeground(Color.BLACK);
+		lbl_Elimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Elimina.setBounds(354, 507, 366, 42);
+		contentPane.add(lbl_Elimina);
 		
-		JLabel InserisciCodTratta_Label = new JLabel("Inserisci CodTratta della riga da eliminare");
-		InserisciCodTratta_Label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		InserisciCodTratta_Label.setBounds(389, 556, 275, 40);
-		contentPane.add(InserisciCodTratta_Label);
+		JLabel lbl_InserisciCodTratta = new JLabel("Inserisci CodTratta della riga da eliminare");
+		lbl_InserisciCodTratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_InserisciCodTratta.setBounds(389, 556, 275, 40);
+		contentPane.add(lbl_InserisciCodTratta);
 		
 		textFieldElimina = new JTextField();
 		textFieldElimina.setColumns(10);
 		textFieldElimina.setBounds(498, 607, 86, 20);
 		contentPane.add(textFieldElimina);
 		
-		JButton btnNewButton_1_1 = new JButton("Invia");
-		btnNewButton_1_1.setBounds(888, 585, 142, 42);
-		contentPane.add(btnNewButton_1_1);
+		JButton Button_Elimina = new JButton("Invia");
+		Button_Elimina.setBounds(888, 585, 142, 42);
+		contentPane.add(Button_Elimina);
 		
-		JButton BackToMenù_Button = new JButton("Men\u00F9");
-		BackToMenù_Button.addActionListener(new ActionListener() {
+		JButton Button_BackToMenu = new JButton("Men\u00F9");
+		Button_BackToMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.backToMenù();
 			}
 		});
-		BackToMenù_Button.setBounds(24, 579, 135, 39);
-		contentPane.add(BackToMenù_Button);
+		Button_BackToMenu.setBounds(24, 579, 135, 39);
+		contentPane.add(Button_BackToMenu);
 		
-		JLabel Giorno_Label = new JLabel("Giorno");
-		Giorno_Label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Giorno_Label.setBounds(522, 305, 46, 14);
-		contentPane.add(Giorno_Label);
+		JLabel lbl_Giorno = new JLabel("Giorno");
+		lbl_Giorno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Giorno.setBounds(522, 305, 46, 14);
+		contentPane.add(lbl_Giorno);
 		
 		textFieldDataMese = new JTextField();
 		textFieldDataMese.setColumns(10);
@@ -236,29 +236,29 @@ public class TrattaGUI extends JFrame {
 		textFieldDataAnno.setBounds(696, 330, 86, 20);
 		contentPane.add(textFieldDataAnno);
 		
-		JLabel Mese_label = new JLabel("Mese");
-		Mese_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Mese_label.setBounds(618, 305, 46, 14);
-		contentPane.add(Mese_label);
+		JLabel lbl_Mese = new JLabel("Mese");
+		lbl_Mese.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Mese.setBounds(618, 305, 46, 14);
+		contentPane.add(lbl_Mese);
 		
-		JLabel Anno_Label = new JLabel("Anno");
-		Anno_Label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Anno_Label.setBounds(716, 305, 62, 14);
-		contentPane.add(Anno_Label);
+		JLabel lbl_Anno = new JLabel("Anno");
+		lbl_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Anno.setBounds(716, 305, 62, 14);
+		contentPane.add(lbl_Anno);
 		
-		JLabel Ora_label = new JLabel("Ora");
-		Ora_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Ora_label.setBounds(307, 305, 46, 14);
-		contentPane.add(Ora_label);
+		JLabel lbl_Ora = new JLabel("Ora");
+		lbl_Ora.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Ora.setBounds(307, 305, 46, 14);
+		contentPane.add(lbl_Ora);
 		
 		textFieldOrarioDiPartenzaMinuto = new JTextField();
 		textFieldOrarioDiPartenzaMinuto.setColumns(10);
 		textFieldOrarioDiPartenzaMinuto.setBounds(374, 330, 86, 20);
 		contentPane.add(textFieldOrarioDiPartenzaMinuto);
 		
-		JLabel Minuto_label = new JLabel("Minuto");
-		Minuto_label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		Minuto_label.setBounds(393, 307, 46, 14);
-		contentPane.add(Minuto_label);
+		JLabel lbl_Minuto = new JLabel("Minuto");
+		lbl_Minuto.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Minuto.setBounds(393, 307, 46, 14);
+		contentPane.add(lbl_Minuto);
 	}
 }
