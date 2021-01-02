@@ -40,8 +40,8 @@ public class Fedelt‡GUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lbl_Inserisci = new JLabel("Inserisci");
-		lbl_Inserisci.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lbl_Inserisci.setBounds(363, 11, 132, 59);
+		lbl_Inserisci.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Inserisci.setBounds(357, 11, 85, 59);
 		contentPane.add(lbl_Inserisci);
 		
 		JLabel lbl_ContaChilometri = new JLabel("Centochilometri");
@@ -146,7 +146,7 @@ public class Fedelt‡GUI extends JFrame {
 		Button_InviaElimina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			controller.eliminaFedelt‡(txtEliminatextfield.getText());	
-			}
+          }
 		});
 		Button_InviaElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaElimina.setBounds(522, 366, 85, 40);
