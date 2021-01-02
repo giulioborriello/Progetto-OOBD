@@ -22,11 +22,12 @@ public class GateGUI extends JFrame {
 	Controller controller;
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField textFieldNgate;
+	private JTextField textFieldCodTratta;
+	private JTextField textFieldCodaDiImbarco;
+	private JTextField textFieldTratta;
+	private JTextField textFieldElimina;
+	private JTextField textFieldRicerca;
 
 	/**
 	 * Launch the application.
@@ -44,106 +45,124 @@ public class GateGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("Ricerca");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(322, 11, 136, 42);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblRicerca = new JLabel("Ricerca");
+		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRicerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblRicerca.setBounds(322, 11, 136, 42);
+		contentPane.add(lblRicerca);
 		
-		JComboBox comboBox = new JComboBox(ValoriScelta);
-		comboBox.setBounds(10, 72, 149, 82);
-		contentPane.add(comboBox);
+		JComboBox comboBoxRicerca = new JComboBox(ValoriScelta);
+		comboBoxRicerca.setBounds(181, 78, 94, 22);
+		contentPane.add(comboBoxRicerca);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(322, 101, 136, 22);
-		contentPane.add(textArea);
+		textFieldRicerca = new JTextField();
+		textFieldRicerca.setBounds(345, 79, 94, 20);
+		contentPane.add(textFieldRicerca);
+		textFieldRicerca.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Invia");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnRicerca = new JButton("Invia");
+		btnRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiGate(comboBox.getSelectedItem().toString());
+				controller.openRisultatiGate(comboBoxRicerca.getSelectedItem().toString(), textFieldRicerca.getText());
 			}
 		});
-		btnNewButton.setBounds(618, 92, 142, 42);
-		contentPane.add(btnNewButton);
+		btnRicerca.setBounds(660, 67, 85, 40);
+		contentPane.add(btnRicerca);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Inserimento");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setForeground(Color.BLACK);
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(322, 200, 136, 42);
-		contentPane.add(lblNewLabel_1_1);
+		JLabel lblInserisci = new JLabel("Inserimento");
+		lblInserisci.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInserisci.setForeground(Color.BLACK);
+		lblInserisci.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblInserisci.setBounds(321, 153, 136, 42);
+		contentPane.add(lblInserisci);
 		
-		JLabel lblNewLabel = new JLabel("N gate");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(153, 264, 65, 22);
-		contentPane.add(lblNewLabel);
+		JLabel lblNgate = new JLabel("N gate");
+		lblNgate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNgate.setBounds(163, 217, 65, 22);
+		contentPane.add(lblNgate);
 		
 		JLabel lblCodtratta = new JLabel("CodTratta");
 		lblCodtratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodtratta.setBounds(278, 268, 68, 14);
+		lblCodtratta.setBounds(269, 223, 68, 14);
 		contentPane.add(lblCodtratta);
 		
 		JLabel lblCodadiimbarco = new JLabel("\t\tCodaDiImbarco");
 		lblCodadiimbarco.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodadiimbarco.setBounds(407, 266, 117, 14);
+		lblCodadiimbarco.setBounds(406, 221, 106, 14);
 		contentPane.add(lblCodadiimbarco);
 		
 		JLabel lblTratta = new JLabel("Tratta");
 		lblTratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTratta.setBounds(565, 268, 46, 14);
+		lblTratta.setBounds(564, 221, 46, 14);
 		contentPane.add(lblTratta);
 		
-		textField = new JTextField();
-		textField.setBounds(143, 293, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldNgate = new JTextField();
+		textFieldNgate.setBounds(142, 246, 86, 20);
+		contentPane.add(textFieldNgate);
+		textFieldNgate.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(260, 293, 86, 20);
-		contentPane.add(textField_1);
+		textFieldCodTratta = new JTextField();
+		textFieldCodTratta.setColumns(10);
+		textFieldCodTratta.setBounds(259, 246, 86, 20);
+		contentPane.add(textFieldCodTratta);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(421, 293, 86, 20);
-		contentPane.add(textField_2);
+		textFieldCodaDiImbarco = new JTextField();
+		textFieldCodaDiImbarco.setColumns(10);
+		textFieldCodaDiImbarco.setBounds(416, 246, 86, 20);
+		contentPane.add(textFieldCodaDiImbarco);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(546, 293, 86, 20);
-		contentPane.add(textField_3);
+		textFieldTratta = new JTextField();
+		textFieldTratta.setColumns(10);
+		textFieldTratta.setBounds(545, 246, 86, 20);
+		contentPane.add(textFieldTratta);
 		
-		JButton btnNewButton_1 = new JButton("Invia");
-		btnNewButton_1.setBounds(618, 369, 142, 42);
-		contentPane.add(btnNewButton_1);
+		JButton btnInserisci = new JButton("Invia");
+		btnInserisci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.inserisciGate(textFieldNgate.getText(), textFieldCodTratta.getText(), textFieldCodaDiImbarco.getText(), textFieldTratta.getText());
+			}
+		});
+		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnInserisci.setBounds(661, 233, 85, 40);
+		contentPane.add(btnInserisci);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Elimina");
-		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1.setForeground(Color.BLACK);
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(322, 476, 149, 42);
-		contentPane.add(lblNewLabel_1_1_1);
+		JLabel lblElimina = new JLabel("Elimina");
+		lblElimina.setHorizontalAlignment(SwingConstants.CENTER);
+		lblElimina.setForeground(Color.BLACK);
+		lblElimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblElimina.setBounds(317, 311, 149, 42);
+		contentPane.add(lblElimina);
 		
-		JLabel lblNewLabel_7_1 = new JLabel("Inserisci N gate della riga da eliminare");
-		lblNewLabel_7_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_7_1.setBounds(278, 529, 275, 40);
-		contentPane.add(lblNewLabel_7_1);
+		JLabel lblEliminaNgate = new JLabel("Inserisci N gate della riga da eliminare");
+		lblEliminaNgate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEliminaNgate.setBounds(269, 346, 253, 30);
+		contentPane.add(lblEliminaNgate);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(347, 569, 86, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textFieldElimina = new JTextField();
+		textFieldElimina.setBounds(346, 387, 86, 20);
+		contentPane.add(textFieldElimina);
+		textFieldElimina.setColumns(10);
 		
-		JButton btnNewButton_3 = new JButton("Torna indietro ");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btnMenu = new JButton("Menu");
+		btnMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.backToMenù();
 			}
 		});
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton_3.setBounds(0, 529, 180, 57);
-		contentPane.add(btnNewButton_3);
+		btnMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnMenu.setBounds(0, 529, 180, 57);
+		contentPane.add(btnMenu);
+		
+		
+		JButton btnElimina = new JButton("Invia");
+		btnElimina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaGate(textFieldElimina.getText());
+			}
+		});
+		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnElimina.setBounds(660, 375, 85, 40);
+		contentPane.add(btnElimina);
 	}
-
 }

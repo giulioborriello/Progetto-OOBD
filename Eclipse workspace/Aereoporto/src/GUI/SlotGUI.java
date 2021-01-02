@@ -27,15 +27,14 @@ public class SlotGUI extends JFrame {
 	String[] ValoriScelta = {"Seleziona tutti","CodSlot","CodCoda","Data"};
 	Controller controller;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
+	private JTextField textFieldCodSlot;
+	private JTextField textFieldCodCoda;
+	private JTextField textFieldTempoStimato;
+	private JTextField textFieldData;
+	private JTextField textFieldCodaDiImbarco;
+	private JTextField textFieldAggiornaIndicaCodSlot;
+	private JTextField textFieldAggiornaTempoEffettivo;
+	private JTextField textFieldElimina;
 
 	/**
 	 * Launch the application.
@@ -54,156 +53,183 @@ public class SlotGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox(ValoriScelta);
-		comboBox.setBounds(23, 97, 149, 82);
-		contentPane.add(comboBox);
+		JComboBox comboBoxRicerca = new JComboBox(ValoriScelta);
+		comboBoxRicerca.setBounds(157, 85, 94, 22);
+		contentPane.add(comboBoxRicerca);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(321, 137, 136, 22);
-		contentPane.add(textArea);
+		JTextArea textAreaRicerca = new JTextArea();
+		textAreaRicerca.setBounds(330, 85, 136, 22);
+		contentPane.add(textAreaRicerca);
 		
-		JButton btnNewButton = new JButton("Invia");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnRicerca = new JButton("Invia");
+		btnRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.openRisultatiSlot(comboBox.getSelectedItem().toString());
+				controller.openRisultatiSlot(comboBoxRicerca.getSelectedItem().toString(), textAreaRicerca.getText());
 			}
 	});
-		btnNewButton.setBounds(596, 128, 142, 42);
-		contentPane.add(btnNewButton);
+		btnRicerca.setBounds(584, 73, 142, 42);
+		contentPane.add(btnRicerca);
 		
-		JLabel lblNewLabel = new JLabel("Ricerca");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(321, 40, 136, 42);
-		contentPane.add(lblNewLabel);
+		JLabel lblRicerca = new JLabel("Ricerca");
+		lblRicerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRicerca.setBounds(321, 22, 136, 42);
+		contentPane.add(lblRicerca);
 		
-		JLabel lblNewLabel_1 = new JLabel("Inserimento");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_1.setBounds(321, 215, 136, 42);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblInserisci = new JLabel("Inserimento");
+		lblInserisci.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblInserisci.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInserisci.setForeground(new Color(0, 0, 0));
+		lblInserisci.setBounds(321, 145, 136, 42);
+		contentPane.add(lblInserisci);
 		
-		JLabel lblNewLabel_2 = new JLabel("CodSlot");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(0, 264, 149, 22);
-		contentPane.add(lblNewLabel_2);
+		JLabel lblCodSlot = new JLabel("CodSlot");
+		lblCodSlot.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCodSlot.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCodSlot.setBounds(0, 194, 149, 22);
+		contentPane.add(lblCodSlot);
 		
-		textField = new JTextField();
-		textField.setBounds(33, 297, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldCodSlot = new JTextField();
+		textFieldCodSlot.setBounds(33, 227, 86, 20);
+		contentPane.add(textFieldCodSlot);
+		textFieldCodSlot.setColumns(10);
 		
-		JLabel lblNewLabel_2_1 = new JLabel("CodCoda");
-		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2_1.setBounds(157, 264, 149, 22);
-		contentPane.add(lblNewLabel_2_1);
+		JLabel lblCodCoda = new JLabel("CodCoda");
+		lblCodCoda.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCodCoda.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCodCoda.setBounds(157, 194, 149, 22);
+		contentPane.add(lblCodCoda);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(189, 297, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textFieldCodCoda = new JTextField();
+		textFieldCodCoda.setBounds(189, 227, 86, 20);
+		contentPane.add(textFieldCodCoda);
+		textFieldCodCoda.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("Tempo di imbarco stimato");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(316, 264, 191, 22);
-		contentPane.add(lblNewLabel_3);
+		JLabel lblTempoStimato = new JLabel("Tempo di imbarco stimato");
+		lblTempoStimato.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTempoStimato.setBounds(307, 194, 191, 22);
+		contentPane.add(lblTempoStimato);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(359, 297, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textFieldTempoStimato = new JTextField();
+		textFieldTempoStimato.setBounds(359, 227, 86, 20);
+		contentPane.add(textFieldTempoStimato);
+		textFieldTempoStimato.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("Tempo di imbarco effettivo");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_4.setBounds(541, 268, 191, 14);
-		contentPane.add(lblNewLabel_4);
+		JLabel lblTempoEffettivo = new JLabel("Tempo di imbarco effettivo");
+		lblTempoEffettivo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTempoEffettivo.setBounds(541, 198, 191, 14);
+		contentPane.add(lblTempoEffettivo);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(584, 297, 86, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		JTextField textFieldTempoEffettivo = new JTextField();
+		textFieldTempoEffettivo.setBounds(584, 227, 86, 20);
+		contentPane.add(textFieldTempoEffettivo);
+		textFieldTempoEffettivo.setColumns(10);
 		
-		JLabel lblNewLabel_5 = new JLabel("Data");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setBounds(207, 346, 46, 14);
-		contentPane.add(lblNewLabel_5);
+		JLabel lblData = new JLabel("Data");
+		lblData.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblData.setHorizontalAlignment(SwingConstants.CENTER);
+		lblData.setBounds(207, 276, 46, 14);
+		contentPane.add(lblData);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(189, 371, 86, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textFieldData = new JTextField();
+		textFieldData.setBounds(189, 301, 86, 20);
+		contentPane.add(textFieldData);
+		textFieldData.setColumns(10);
 		
-		JLabel lblNewLabel_6 = new JLabel("Coda di imbarco");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_6.setBounds(20, 344, 116, 14);
-		contentPane.add(lblNewLabel_6);
+		JLabel lblCodaDiImbarco = new JLabel("Coda di imbarco");
+		lblCodaDiImbarco.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblCodaDiImbarco.setBounds(20, 274, 116, 14);
+		contentPane.add(lblCodaDiImbarco);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(33, 371, 86, 20);
-		contentPane.add(textField_5);
-		textField_5.setColumns(10);
+		textFieldCodaDiImbarco = new JTextField();
+		textFieldCodaDiImbarco.setBounds(33, 301, 86, 20);
+		contentPane.add(textFieldCodaDiImbarco);
+		textFieldCodaDiImbarco.setColumns(10);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("Aggiorna tempo di imbarco effettivo");
-		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1.setForeground(Color.BLACK);
-		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(207, 448, 366, 42);
-		contentPane.add(lblNewLabel_1_1);
+		JButton btnNewButtonInserisci = new JButton("Invia");
+		btnNewButtonInserisci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.inserisciSlot(textFieldCodSlot.getText(), textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
+						textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
+			}
+		});
+		btnNewButtonInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnNewButtonInserisci.setBounds(584, 289, 142, 42);
+		contentPane.add(btnNewButtonInserisci);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(142, 552, 86, 20);
-		contentPane.add(textField_6);
-		textField_6.setColumns(10);
 		
-		JLabel lblNewLabel_7 = new JLabel("Inserisci CodSlot della riga da modificare");
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_7.setBounds(50, 501, 275, 40);
-		contentPane.add(lblNewLabel_7);
 		
-		JLabel lblNewLabel_8 = new JLabel("Inserisci il nuovo valore");
-		lblNewLabel_8.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_8.setBounds(335, 514, 160, 14);
-		contentPane.add(lblNewLabel_8);
 		
-		textField_7 = new JTextField();
-		textField_7.setBounds(372, 552, 86, 20);
-		contentPane.add(textField_7);
-		textField_7.setColumns(10);
+		JLabel lblAggiorna = new JLabel("Aggiorna tempo di imbarco effettivo");
+		lblAggiorna.setHorizontalAlignment(SwingConstants.CENTER);
+		lblAggiorna.setForeground(Color.BLACK);
+		lblAggiorna.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblAggiorna.setBounds(211, 366, 366, 42);
+		contentPane.add(lblAggiorna);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Elimina");
-		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1.setForeground(Color.BLACK);
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(189, 640, 366, 42);
-		contentPane.add(lblNewLabel_1_1_1);
+		JLabel lblAggiornaInidicaCodSlot = new JLabel("Inserisci CodSlot della riga da modificare");
+		lblAggiornaInidicaCodSlot.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAggiornaInidicaCodSlot.setBounds(54, 409, 275, 40);
+		contentPane.add(lblAggiornaInidicaCodSlot);
 		
-		JLabel lblNewLabel_7_1 = new JLabel("Inserisci CodSlot della riga da eliminare");
-		lblNewLabel_7_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_7_1.setBounds(240, 675, 275, 40);
-		contentPane.add(lblNewLabel_7_1);
+		JLabel lblAggiornaTempoEffettivo = new JLabel("Inserisci il nuovo valore");
+		lblAggiornaTempoEffettivo.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAggiornaTempoEffettivo.setBounds(339, 422, 160, 14);
+		contentPane.add(lblAggiornaTempoEffettivo);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(331, 726, 86, 20);
-		contentPane.add(textField_8);
+		textFieldAggiornaIndicaCodSlot = new JTextField();
+		textFieldAggiornaIndicaCodSlot.setBounds(146, 460, 86, 20);
+		contentPane.add(textFieldAggiornaIndicaCodSlot);
+		textFieldAggiornaIndicaCodSlot.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Invia");
-		btnNewButton_1.setBounds(596, 370, 142, 42);
-		contentPane.add(btnNewButton_1);
+		textFieldAggiornaTempoEffettivo = new JTextField();
+		textFieldAggiornaTempoEffettivo.setBounds(376, 460, 86, 20);
+		contentPane.add(textFieldAggiornaTempoEffettivo);
+		textFieldAggiornaTempoEffettivo.setColumns(10);
 		
-		JButton btnNewButton_2 = new JButton("Invia");
-		btnNewButton_2.setBounds(596, 541, 142, 42);
-		contentPane.add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Invia");
-		btnNewButton_3.setBounds(596, 686, 142, 42);
-		contentPane.add(btnNewButton_3);
+		JButton btnAggiorna = new JButton("Invia");
+		btnAggiorna.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.aggiornaSlot(textFieldAggiornaIndicaCodSlot.getText(), textFieldAggiornaTempoEffettivo.getText());
+			}
+		});
+		btnAggiorna.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnAggiorna.setBounds(588, 447, 142, 42);
+		contentPane.add(btnAggiorna);
 		
-		JButton btnNewButton_4 = new JButton("Indietro");
+		
+		JLabel lblElimina = new JLabel("Elimina");
+		lblElimina.setHorizontalAlignment(SwingConstants.CENTER);
+		lblElimina.setForeground(Color.BLACK);
+		lblElimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblElimina.setBounds(184, 525, 366, 42);
+		contentPane.add(lblElimina);
+		
+		JLabel lblIndicaCodSlot = new JLabel("Inserisci CodSlot della riga da eliminare");
+		lblIndicaCodSlot.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblIndicaCodSlot.setBounds(235, 560, 275, 40);
+		contentPane.add(lblIndicaCodSlot);
+		
+		textFieldElimina = new JTextField();
+		textFieldElimina.setColumns(10);
+		textFieldElimina.setBounds(326, 611, 86, 20);
+		contentPane.add(textFieldElimina);
+		
+		
+		JButton btnElimina = new JButton("Invia");
+		btnElimina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaSlot(textFieldElimina.getText());
+			}
+		});
+		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnElimina.setBounds(584, 589, 142, 42);
+		contentPane.add(btnElimina);
+		
+		JButton btnNewButton_4 = new JButton("Menu");
+		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.backToMenù();

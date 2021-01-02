@@ -51,117 +51,125 @@ public class CompagniaGUI extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JComboBox comboBox = new JComboBox(ValoriScelta);
-		comboBox.setBounds(10, 73, 149, 82);
+		comboBox.setBounds(160, 103, 109, 22);
 		contentPane.add(comboBox);
 		
 		JTextArea RicercaTextArea = new JTextArea();
 		RicercaTextArea.setBounds(317, 102, 136, 22);
 		contentPane.add(RicercaTextArea);
 		
-		JButton btnNewButton = new JButton("Invia");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton RicercaButton = new JButton("Invia");
+		RicercaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				comboBox.getSelectedItem().toString();
+				controller.openRisultatiCompagnia(comboBox.getSelectedItem().toString(), RicercaTextArea.getText());
+				
 			}
 		});
-		btnNewButton.setBounds(640, 103, 142, 42);
-		contentPane.add(btnNewButton);
+		RicercaButton.setBounds(620, 93, 142, 42);
+		contentPane.add(RicercaButton);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Inserimento");
 		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1.setForeground(Color.BLACK);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1.setBounds(317, 197, 136, 42);
+		lblNewLabel_1_1.setBounds(304, 165, 136, 42);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel = new JLabel("CodIATA");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(192, 265, 80, 14);
+		lblNewLabel.setBounds(200, 221, 80, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNomeCompagnia = new JLabel("Nome Compagnia");
 		lblNomeCompagnia.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNomeCompagnia.setBounds(317, 257, 122, 22);
+		lblNomeCompagnia.setBounds(317, 218, 122, 22);
 		contentPane.add(lblNomeCompagnia);
 		
 		JLabel lblSitoWeb = new JLabel("Sito Web");
 		lblSitoWeb.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblSitoWeb.setBounds(495, 265, 80, 14);
+		lblSitoWeb.setBounds(495, 226, 80, 14);
 		contentPane.add(lblSitoWeb);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Tratta");
 		lblNewLabel_3_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_3_1.setBounds(266, 337, 46, 14);
+		lblNewLabel_3_1.setBounds(270, 298, 46, 14);
 		contentPane.add(lblNewLabel_3_1);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("Fedelt\u00E0");
 		lblNewLabel_3_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_3_2.setBounds(421, 337, 59, 14);
+		lblNewLabel_3_2.setBounds(421, 298, 59, 14);
 		contentPane.add(lblNewLabel_3_2);
 		
 		CodIATAtextField = new JTextField();
-		CodIATAtextField.setBounds(176, 290, 86, 20);
+		CodIATAtextField.setBounds(184, 246, 86, 20);
 		contentPane.add(CodIATAtextField);
 		CodIATAtextField.setColumns(10);
 		CodIATAtextField.getText();
 		
 		NomeCompagniatextField = new JTextField();
 		NomeCompagniatextField.setColumns(10);
-		NomeCompagniatextField.setBounds(331, 290, 86, 20);
+		NomeCompagniatextField.setBounds(331, 251, 86, 20);
 		contentPane.add(NomeCompagniatextField);
 		NomeCompagniatextField.getText();
 		
 		SitoWebtextField = new JTextField();
 		SitoWebtextField.setColumns(10);
-		SitoWebtextField.setBounds(481, 290, 86, 20);
+		SitoWebtextField.setBounds(481, 251, 86, 20);
 		SitoWebtextField.getText();
 		contentPane.add(SitoWebtextField);
 		
 		TrattatextField = new JTextField();
 		TrattatextField.setColumns(10);
-		TrattatextField.setBounds(244, 362, 86, 20);
+		TrattatextField.setBounds(252, 318, 86, 20);
 		TrattatextField.getText();
 		contentPane.add(TrattatextField);
 		
 		FedeltàtextField = new JTextField();
 		FedeltàtextField.setColumns(10);
-		FedeltàtextField.setBounds(405, 362, 86, 20);
+		FedeltàtextField.setBounds(405, 323, 86, 20);
 		FedeltàtextField.getText();
 		contentPane.add(FedeltàtextField);
 		
-		JLabel lblNewLabel_1_1_1 = new JLabel("Elimina");
-		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1.setForeground(Color.BLACK);
-		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1_1_1.setBounds(304, 411, 149, 42);
-		contentPane.add(lblNewLabel_1_1_1);
 		
-		JLabel lblNewLabel_7_1 = new JLabel("Inserisci CodIATA della riga da eliminare");
-		lblNewLabel_7_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_7_1.setBounds(236, 464, 275, 40);
-		contentPane.add(lblNewLabel_7_1);
+		JButton InserisciButton = new JButton("Invia");
+		InserisciButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText(),
+						SitoWebtextField.getText(), TrattatextField.getText(), FedeltàtextField.getText());
+			}
+		});
+		InserisciButton.setBounds(620, 307, 142, 42);
+		contentPane.add(InserisciButton);
+		
+		
+		JLabel lblElimina = new JLabel("Elimina");
+		lblElimina.setHorizontalAlignment(SwingConstants.CENTER);
+		lblElimina.setForeground(Color.BLACK);
+		lblElimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblElimina.setBounds(292, 362, 149, 42);
+		contentPane.add(lblElimina);
+		
+		JLabel lblEliminaCodIATA = new JLabel("Inserisci CodIATA della riga da eliminare");
+		lblEliminaCodIATA.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEliminaCodIATA.setBounds(236, 415, 275, 40);
+		contentPane.add(lblEliminaCodIATA);
 		
 		EliminaCodIatatextField = new JTextField();
 		EliminaCodIatatextField.setColumns(10);
-		EliminaCodIatatextField.setBounds(331, 515, 86, 20);
+		EliminaCodIatatextField.setBounds(331, 466, 86, 20);
 		EliminaCodIatatextField.getText();
 		contentPane.add(EliminaCodIatatextField);
 		
-		JButton btnNewButton_1 = new JButton("Invia");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		
+		JButton EliminaButton = new JButton("Invia");
+		EliminaButton.setBounds(620, 455, 142, 42);
+		contentPane.add(EliminaButton);
+		EliminaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.InserisciInCompagnia(comboBox.getSelectedItem().toString());
+				controller.eliminaCompagnia(EliminaCodIatatextField.getText());
 			}
 		});
-		btnNewButton_1.setBounds(640, 361, 142, 42);
-		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Invia");
-		btnNewButton_2.setBounds(640, 526, 142, 42);
-		contentPane.add(btnNewButton_2);
-		public void actionPerformed(ActionEvent arg0) {
-			controller.InserisciInCompagnia(comboBox.getSelectedItem().toString());
-		}
 		
 		JButton btnNewButton_3 = new JButton("Torna indietro ");
 		btnNewButton_3.addActionListener(new ActionListener() {

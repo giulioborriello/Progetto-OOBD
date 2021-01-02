@@ -27,6 +27,7 @@ public class BigliettoGUI extends JFrame {
 	
 	String[] ValoriScelta = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
 	private JTextField EliminaTextField;
+	private JTextField textFieldRicerca;
 	
 	public BigliettoGUI(Controller c) {
 		controller = c;
@@ -37,11 +38,38 @@ public class BigliettoGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JLabel lblRicerca = new JLabel("Ricerca");
+		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRicerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblRicerca.setBounds(333, 11, 119, 58);
+		contentPane.add(lblRicerca);
+		
+		
 		JLabel lblPer = new JLabel("Per:");
 		lblPer.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblPer.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPer.setBounds(269, 69, 51, 33);
+		lblPer.setBounds(166, 64, 51, 33);
 		contentPane.add(lblPer);
+		
+		textFieldRicerca = new JTextField();
+		textFieldRicerca.setBounds(356, 74, 86, 20);
+		contentPane.add(textFieldRicerca);
+		textFieldRicerca.setColumns(10);
+		
+		JComboBox RicercaComboBox = new JComboBox(ValoriScelta);
+		RicercaComboBox.setBounds(225, 72, 103, 22);
+		contentPane.add(RicercaComboBox);
+		
+		JButton RicercaInviaButton = new JButton("Invia");
+		RicercaInviaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.openRisultatiBiglietto(RicercaComboBox.getSelectedItem().toString(), textFieldRicerca.getText());
+			}
+		});
+		RicercaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
+		RicercaInviaButton.setBounds(473, 65, 85, 40);
+		contentPane.add(RicercaInviaButton);
+		
 		
 		JLabel lblInserimenti = new JLabel("Inserimenti");
 		lblInserimenti.setHorizontalAlignment(SwingConstants.CENTER);
@@ -114,12 +142,7 @@ public class BigliettoGUI extends JFrame {
 		CodTrattaTextField.setBounds(613, 226, 86, 20);
 		contentPane.add(CodTrattaTextField);
 		
-		JLabel lblRicerca = new JLabel("Ricerca");
-		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRicerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblRicerca.setBounds(333, 11, 119, 58);
-		contentPane.add(lblRicerca);
-		
+	
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,19 +154,6 @@ public class BigliettoGUI extends JFrame {
 		InserisciInviaButton.setBounds(744, 208, 85, 40);
 		contentPane.add(InserisciInviaButton);
 		
-		JComboBox RicercaComboBox = new JComboBox(ValoriScelta);
-		RicercaComboBox.setBounds(347, 74, 103, 22);
-		contentPane.add(RicercaComboBox);
-		
-		JButton RicercaInviaButton = new JButton("Invia");
-		RicercaInviaButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiBiglietto(RicercaComboBox.getSelectedItem().toString());
-			}
-		});
-		RicercaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		RicercaInviaButton.setBounds(473, 65, 85, 40);
-		contentPane.add(RicercaInviaButton);
 		
 		JLabel lblElimina = new JLabel("Elimina");
 		lblElimina.setHorizontalAlignment(SwingConstants.CENTER);
@@ -178,8 +188,10 @@ public class BigliettoGUI extends JFrame {
 			}
 		});
 		MenuButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		MenuButton.setBounds(733, 496, 85, 40);
+		MenuButton.setBounds(21, 495, 85, 40);
 		contentPane.add(MenuButton);
+		
+		
 		
 		
 	}
