@@ -158,4 +158,29 @@ public class SlotDAOPostgres implements SlotDAO{
 			e.printStackTrace();
 		}
 	}
+	
+	public void deleteSlot(int CodSlot) {
+		
+		try {
+			PreparedStatement ps = conn.prepareStatement("Delete From \"Slot\"  WHERE \"CodSlot\" = ? ; ");
+	
+			ps.setInt(1, CodSlot);
+			ps.execute();
+			conn.close();
+			ps.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
 }

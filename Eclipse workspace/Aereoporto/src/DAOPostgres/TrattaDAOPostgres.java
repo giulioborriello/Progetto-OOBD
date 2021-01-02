@@ -193,6 +193,32 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	}
 	
 	
+	public void deleteTratta(String CodTratta) {
+		
+		try {
+				PreparedStatement ps = conn.prepareStatement("Delete From \"Tratta\"  WHERE \"CodTratta\" = ? ; ");
+				
+				ps.setString(1, CodTratta);
+				ps.execute();
+				conn.close();
+				ps.close();
+
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 //	public void VerificaFormatoCodTratta() {
 //		 try {

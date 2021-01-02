@@ -148,6 +148,25 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			}
 			
 	}
+	
+	public void deleteCodaDiImbarco(int CodCoda) {
+		
+		try {
+				PreparedStatement ps = conn.prepareStatement("Delete From \"Coda di imbarco\"  WHERE \"CodCoda\" = ? ; ");
+				
+				ps.setInt(1, CodCoda);
+				ps.execute();
+				conn.close();
+				ps.close();
+
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	
+	
 
 	
 }

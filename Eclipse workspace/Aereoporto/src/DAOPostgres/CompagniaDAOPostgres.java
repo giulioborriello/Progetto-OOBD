@@ -95,4 +95,23 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 		}
 	}
 	
+	public void deleteCompagnia(String CodIATA) {
+		
+		try {
+				PreparedStatement ps = conn.prepareStatement("Delete From \"Compagnia\"  WHERE \"CodIATA\" = ? ; ");
+				
+				ps.setString(1, CodIATA);
+				ps.execute();
+				conn.close();
+				ps.close();
+
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	
+	
+	
 }

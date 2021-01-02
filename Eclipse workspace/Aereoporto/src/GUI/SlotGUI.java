@@ -226,11 +226,11 @@ public class SlotGUI extends JFrame {
 		
 		
 		JButton btnElimina = new JButton("Invia");
-//		btnElimina.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.eliminaSlot(textFieldElimina.getText());
-//			}
-//		});
+		btnElimina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaSlot(textFieldElimina.getText());
+			}
+		});
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(584, 589, 142, 42);
 		contentPane.add(btnElimina);

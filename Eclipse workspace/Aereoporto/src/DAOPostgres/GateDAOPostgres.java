@@ -120,6 +120,24 @@ public class GateDAOPostgres implements GateDAO{
 		}
 	}
 	
+	public void deleteGate(int Ngate) {
+		
+		try {
+				PreparedStatement ps = conn.prepareStatement("Delete From \"Gate\"  WHERE \"Ngate\" = ? ; ");
+				
+				ps.setInt(1, Ngate);
+				ps.execute();
+				conn.close();
+				ps.close();
+
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
+	
+	}
+
 }
 

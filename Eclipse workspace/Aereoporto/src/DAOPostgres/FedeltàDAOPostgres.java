@@ -164,6 +164,23 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 		}
 	}
 
+	public void deleteFedelt‡(String CodFiscale) {
+		
+		try {
+				PreparedStatement ps = conn.prepareStatement("Delete From \"Fedelt‡\"  WHERE \"CodFiscale\" = ? ; ");
+				
+				ps.setString(1, CodFiscale);
+				ps.execute();
+				conn.close();
+				ps.close();
+
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	
+	
+	}
 
 }

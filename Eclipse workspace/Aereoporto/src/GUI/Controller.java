@@ -370,7 +370,7 @@ public class Controller {
 	}
 	
 
-	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) throws ParseException{
+	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) {
 	  
 		ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
 		cliente.insertCliente(CodFiscale, Nome, Cognome, Email);
@@ -411,6 +411,48 @@ public class Controller {
 		
 		
 	}
+
+	public void inserisciFedelt‡(String CentoKilometri, String CodIATA, String CodFiscale, String Punti) {
+		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(conn);
+		int centoKilometri = Integer.valueOf(CentoKilometri);
+		int punti = Integer.valueOf(Punti);
+		
+		fedelt‡.insertFedelt‡(centoKilometri, CodIATA, CodFiscale, punti);
+		
+	}
+
+	public void inserisciBiglietto(String CodFiscale, String TipoDiBiglietto, String CodBiglietto, String CodTratta, String Posto) {
+		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
+		biglietto.insertBiglietto(CodFiscale, TipoDiBiglietto, CodBiglietto, CodTratta, Posto);
+	}
+
+	public void eliminaSlot(String text) {
+		SlotDAOPostgres slot = new SlotDAOPostgres(conn);
+		slot.
+	}
+
+	public void eliminaGate(String text) {
+		GateDAOPostgres gate = new	GateDAOPostgres(conn);
+		gate.
+		
+	}
+
+	public void eliminaCompagnia(String text) {
+		CompagniaDAOPostgres comp = new CompagniaDAOPostgres(conn);
+		comp.
+		
+	}
+
+	public void eliminaCodaDiImbarco(String text) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void eliminaBiglietto(String text) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 	
 	

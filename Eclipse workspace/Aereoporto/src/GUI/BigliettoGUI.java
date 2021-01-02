@@ -148,12 +148,12 @@ public class BigliettoGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-//		InserisciInviaButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.inserisciBiglietto(CodBigliettoTextField.getText(), CodfiscaleTextField.getText(), NomeTextField.getText(), PostoTextField.getText(), 
-//						TipoDiBigliettoComboBox.getSelectedItem().toString(), CodTrattaTextField.getText());
-//			}
-//		});
+		InserisciInviaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.inserisciBiglietto(CodBigliettoTextField.getText(), CodfiscaleTextField.getText(),PostoTextField.getText(), 
+						TipoDiBigliettoComboBox.getSelectedItem().toString(), CodTrattaTextField.getText());
+			}
+		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		InserisciInviaButton.setBounds(744, 208, 85, 40);
 		contentPane.add(InserisciInviaButton);
@@ -171,11 +171,11 @@ public class BigliettoGUI extends JFrame {
 		contentPane.add(EliminaTextField);
 		
 		JButton EliminaInviaButton = new JButton("Invia");
-//		EliminaInviaButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.eliminaBiglietto(EliminaTextField.getText());
-//			}
-//		});
+		EliminaInviaButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaBiglietto(EliminaTextField.getText());
+			}
+		});
 		EliminaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		EliminaInviaButton.setBounds(519, 369, 85, 40);
 		contentPane.add(EliminaInviaButton);

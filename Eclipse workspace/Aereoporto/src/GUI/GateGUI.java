@@ -136,11 +136,11 @@ public class GateGUI extends JFrame {
 		
 		
 		JButton btnElimina = new JButton("Invia");
-//		btnElimina.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.eliminaGate(textFieldElimina.getText());
-//			}
-//		});
+		btnElimina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaGate(textFieldElimina.getText());
+			}
+		});
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(660, 375, 85, 40);
 		contentPane.add(btnElimina);

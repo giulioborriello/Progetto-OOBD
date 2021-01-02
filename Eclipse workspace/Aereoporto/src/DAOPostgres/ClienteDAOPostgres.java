@@ -101,6 +101,24 @@ public class ClienteDAOPostgres implements ClienteDAO {
 		}
 	}
 	
+	public void deleteCliente(String CodFiscale) {
+		
+		try {
+				PreparedStatement ps = conn.prepareStatement("Delete From \"Cliente\"  WHERE \"CodFiscale\" = ? ; ");
+				
+				ps.setString(1, CodFiscale);
+				ps.execute();
+				conn.close();
+				ps.close();
+
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	}
+	
 	
 	
 }
