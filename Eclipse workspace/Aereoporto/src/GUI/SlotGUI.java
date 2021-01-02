@@ -150,7 +150,7 @@ public class SlotGUI extends JFrame {
 		JButton btnNewButtonInserisci = new JButton("Invia");
 		btnNewButtonInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.inserisciSlot(textFieldCodSlot.getText(), textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
+				controller.inserisciSlot(textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
 						textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
 			}
 		});
