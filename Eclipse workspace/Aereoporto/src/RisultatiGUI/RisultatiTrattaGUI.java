@@ -46,7 +46,7 @@ DefaultListModel<String> listModel = new DefaultListModel<String>();
 			
 		}
 		
-		JList jlist = new JList((ListModel) null);
+		JList jlist = new JList(listModel);
 		jlist.setBounds(10, 11, 400, 363);
 		contentPane.add(jlist);
 		

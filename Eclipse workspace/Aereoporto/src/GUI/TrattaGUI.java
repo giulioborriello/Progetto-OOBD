@@ -125,17 +125,20 @@ public class TrattaGUI extends JFrame {
 		Button_InviaInserimento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				int Ngate = Integer.valueOf(textFieldNgate.getText());
-				int Nprenotazioni = Integer.valueOf(textFieldNprenotazioni.getText());
-				String Data = textFieldDataGiorno.getText() + "-" + textFieldDataMese.getText() + "-" + textFieldDataAnno.getText(); 
-				String Orario = textFieldOrarioDiPartenzaOra.getText() + ":" + textFieldOrarioDiPartenzaMinuto.getText();
+			
 				try {
+					int Ngate = Integer.valueOf(textFieldNgate.getText());
+					int Nprenotazioni = Integer.valueOf(textFieldNprenotazioni.getText());
+					String Data = textFieldDataGiorno.getText() + "-" + textFieldDataMese.getText() + "-" + textFieldDataAnno.getText(); 
+					String Orario = textFieldOrarioDiPartenzaOra.getText() + ":" + textFieldOrarioDiPartenzaMinuto.getText();
 					controller.inserisciTratta(textFieldCodTratta.getText(),Nprenotazioni,Orario,Data,Ngate, textFieldCodIATA.getText(),textFieldDestinazione.getText(),textFieldScali.getText());
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				} catch(NumberFormatException n) {
+					controller.openDialog("Uno o più campi vuoti o errore di formato");
+			
 				}
-
 			}
 		});
 

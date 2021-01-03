@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import DAOPostgres.*;
+import Eccezioni.CheckFormatoCodIATA;
 import Entità.Biglietto;
 import Entità.Cliente;
 import Entità.CodaDiImbarco;
@@ -393,10 +394,24 @@ public class Controller {
 	}
 
 	public void inserisciGate(String Ngate, String CodTratta) {
-		GateDAOPostgres gate = new	GateDAOPostgres(singleton);
-		int nGate = Integer.valueOf(Ngate);
-		String testo = gate.insertGate(nGate, CodTratta);
-		openDialog(testo);
+		try {
+			if (CodTratta == "") {
+				throw new  CheckFormatoCodIATA();
+			}
+			
+			
+			GateDAOPostgres gate = new	GateDAOPostgres(singleton);
+			int nGate = Integer.valueOf(Ngate);
+			String testo = gate.insertGate(nGate, CodTratta);
+			openDialog(testo);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			this.openDialog("Uno o più campi vuoti o errore di formato");
+			} 
+		catch (CheckFormatoCodIATA e) {
+			// TODO Auto-generated catch block
+			this.openDialog("CodIATA deve essere di due caratteri alfabetici");
+		}
 	}
 
 	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String CodCoda, String Data) throws ParseException {
