@@ -28,7 +28,6 @@ public class TrattaGUI extends JFrame {
 	private JTextField textFieldCodIATA;
 	private JTextField textFieldDestinazione;
 	private JTextField textFieldScali;
-	private JTextField textFieldGate;
 	private JTextField textFieldElimina;
 	private JTextField textFieldNgate;
 	private JTextField textFieldDataMese;
@@ -121,11 +120,6 @@ public class TrattaGUI extends JFrame {
 		lbl_Scali.setBounds(415, 412, 46, 14);
 		contentPane.add(lbl_Scali);
 		
-		JLabel lbl_Gate = new JLabel("Gate");
-		lbl_Gate.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Gate.setBounds(538, 412, 46, 14);
-		contentPane.add(lbl_Gate);
-		
 		JButton Button_InviaInserimento = new JButton("Invia");
 		Button_InviaInserimento.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaInserimento.addActionListener(new ActionListener() {
@@ -187,11 +181,6 @@ public class TrattaGUI extends JFrame {
 		textFieldScali.setColumns(10);
 		textFieldScali.setBounds(389, 437, 86, 20);
 		contentPane.add(textFieldScali);
-		
-		textFieldGate = new JTextField();
-		textFieldGate.setColumns(10);
-		textFieldGate.setBounds(516, 437, 86, 20);
-		contentPane.add(textFieldGate);
 		
 		JLabel lbl_Elimina = new JLabel("Elimina");
 		lbl_Elimina.setHorizontalAlignment(SwingConstants.CENTER);
