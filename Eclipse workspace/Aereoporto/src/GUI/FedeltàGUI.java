@@ -2,14 +2,9 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Check.CheckFormatoCodFiscale;
-import Check.CheckFormatoCodIATA;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -100,17 +95,8 @@ public class Fedelt‡GUI extends JFrame {
 		Button_InviaInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				if(!txtCodfiscaletextfield.getText().matches("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) {
-					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
-				}
-				if(!txtCodiatatextfield.getText().matches("")) {
-					controller.openDialog("Il codice IATA deve essere 2 carattare maiuscoli");
-				}
-				
-				
-
-				controller.inserisciFedelt‡(Integer.valueOf(textFieldCentokilometri.getText()), txtCodiatatextfield.getText(), 
-						txtCodfiscaletextfield.getText(), Integer.valueOf(txtPuntitextfield.getText()));
+				controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), 
+						txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
 					
 		}
 	});

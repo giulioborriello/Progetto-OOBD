@@ -23,7 +23,6 @@ public class CompagniaGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField CodIATAtextField;
 	private JTextField NomeCompagniatextField;
-	private JTextField SitoWebtextField;
 	private JTextField EliminaCodIatatextField;
 
 	/**
@@ -76,44 +75,32 @@ public class CompagniaGUI extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("CodIATA");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(200, 221, 80, 14);
+		lblNewLabel.setBounds(268, 229, 80, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNomeCompagnia = new JLabel("Nome Compagnia");
 		lblNomeCompagnia.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNomeCompagnia.setBounds(317, 218, 122, 22);
+		lblNomeCompagnia.setBounds(395, 224, 122, 22);
 		contentPane.add(lblNomeCompagnia);
 		
-		JLabel lblSitoWeb = new JLabel("Sito Web");
-		lblSitoWeb.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblSitoWeb.setBounds(495, 226, 80, 14);
-		contentPane.add(lblSitoWeb);
-		
 		CodIATAtextField = new JTextField();
-		CodIATAtextField.setBounds(184, 246, 86, 20);
+		CodIATAtextField.setBounds(256, 250, 86, 20);
 		contentPane.add(CodIATAtextField);
 		CodIATAtextField.setColumns(10);
 		CodIATAtextField.getText();
 		
 		NomeCompagniatextField = new JTextField();
 		NomeCompagniatextField.setColumns(10);
-		NomeCompagniatextField.setBounds(331, 251, 86, 20);
+		NomeCompagniatextField.setBounds(413, 251, 86, 20);
 		contentPane.add(NomeCompagniatextField);
 		NomeCompagniatextField.getText();
-		
-		SitoWebtextField = new JTextField();
-		SitoWebtextField.setColumns(10);
-		SitoWebtextField.setBounds(481, 251, 86, 20);
-		SitoWebtextField.getText();
-		contentPane.add(SitoWebtextField);
 		
 		
 		JButton InserisciButton = new JButton("Invia");
 		InserisciButton.setFont(new Font("Dialog", Font.BOLD, 15));
 		InserisciButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText(),
-						SitoWebtextField.getText());
+				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText());
 			}
 		});
 		InserisciButton.setBounds(620, 235, 142, 42);

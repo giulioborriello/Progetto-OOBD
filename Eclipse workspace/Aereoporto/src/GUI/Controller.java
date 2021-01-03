@@ -8,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
-import Check.CheckFormatoCodIATA;
 import DAOPostgres.*;
 import Entità.Biglietto;
 import Entità.Cliente;
@@ -47,9 +46,6 @@ public class Controller {
 	RisultatiClienteGUI risultatiCliente;
 	RisultatiBigliettoGUI risultatiBiglietto;
 	static SingletonPostgres singleton;
-	S
-	
-	
 	
 	public Controller() {
 		menù = new MenùGUI(this);
@@ -352,28 +348,69 @@ public class Controller {
 		}
 	}
 	
-	public void inserisciTratta(String codTratta, int nPrenotazioni,String orarioDiPartenza, String data, int nGate, String CodIATA, String destinazione, String scali) throws ParseException{
+	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data, String nGate, String CodIATA, String destinazione, String scali) throws ParseException{
 		
+		if(checkBlank(codTratta, nPrenotazioni, orarioDiPartenza, data, nGate, CodIATA, destinazione, scali)) {
+			return;
+		}
+		
+		if(checkCodIATA(CodIATA)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(nPrenotazioni)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(nGate)) {
+			return;
+		}
+		
+		if(checkSoloLettere(destinazione)) {
+			return;
+		}
+		
+		if(checkSoloLettere(scali)) {
+			return;
+		}
+		
+		
+		
+		
+		int intNPrenotazioni = Integer.valueOf(nPrenotazioni);
+		int ngate = Integer.valueOf(nGate);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
 		long ms = sdf.parse(orarioDiPartenza).getTime();
-		
 		Time tempo = new Time(ms);
-		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
 		java.util.Date date = sdf1.parse(data);
 		Date sqlDate = new java.sql.Date(date.getTime());  
+		
 		TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
-		String testo = tratta.insertTratta(codTratta, nPrenotazioni, tempo, sqlDate, nGate, CodIATA, destinazione, scali);
+		String testo = tratta.insertTratta(codTratta, intNPrenotazioni, tempo, sqlDate, ngate, CodIATA, destinazione, scali);
 		openDialog(testo);
 	}
 	
 
 	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) {
 		
-		if() {
-			
+		if (checkBlank(CodFiscale, Nome, Cognome, Email)) {
+			return;
 		}
+		
+		if(checkCodFiscale(CodFiscale)) {
+			return;
+		}
+		
+		if(checkEmail(Email)) {
+			return;
+		}
+		
+		if(checkSoloLettere(Nome) || checkSoloLettere(Cognome)) {
+			return;
+		}
+		
 		
 		
 		ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
@@ -381,43 +418,81 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void inserisciCodaDiImbarco(String CodCoda, String Tipo_di_coda, String Ngate, String CodSlot) {
+	public void inserisciCodaDiImbarco(String CodCoda, String TipoDiCoda, String Ngate, String CodSlot) {
+		
+		if(checkBlank(CodCoda, TipoDiCoda, Ngate, CodSlot)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(CodCoda, Ngate, CodSlot)) {
+			return;
+		}
+		
+		
 		CodaDiImbarcoDAOPostgres codadiimbarco = new CodaDiImbarcoDAOPostgres(singleton);
 		int nGate = Integer.valueOf(Ngate);
 		int codCoda = Integer.valueOf(CodCoda);
 		int codSlot = Integer.valueOf(CodSlot);
-		String testo = codadiimbarco.insertCodaDiImbarco(codCoda, Tipo_di_coda, nGate, codSlot);
+		String testo = codadiimbarco.insertCodaDiImbarco(codCoda, TipoDiCoda, nGate, codSlot);
 		openDialog(testo);
 	}
 
-	public void inserisciInCompagnia(String CodIATA, String Nome_compagnia, String Sito_web) {
+	public void inserisciInCompagnia(String CodIATA, String NomeCompagnia) {
+		
+		if(checkBlank(CodIATA, NomeCompagnia)) {
+			return;
+		}
+		
+		if(checkCodIATA(CodIATA)) {
+			return;
+		}
+		
+		if(checkSoloLettere(NomeCompagnia)) {
+			return;
+		}
+		
 		CompagniaDAOPostgres comp = new CompagniaDAOPostgres(singleton);
-		String testo = comp.insertCompagnia(CodIATA, Nome_compagnia, Sito_web);
+		String testo = comp.insertCompagnia(CodIATA, NomeCompagnia);
 		openDialog(testo);
 	}
 
 	public void inserisciGate(String Ngate, String CodTratta) {
-		try {
-			if (CodTratta == "") {
-				throw new  CheckFormatoCodIATA();
-			}
-			
-			
-			GateDAOPostgres gate = new	GateDAOPostgres(singleton);
-			int nGate = Integer.valueOf(Ngate);
-			String testo = gate.insertGate(nGate, CodTratta);
-			openDialog(testo);
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			this.openDialog("Uno o più campi vuoti o errore di formato");
-			} 
-		catch (CheckFormatoCodIATA e) {
-			// TODO Auto-generated catch block
-			this.openDialog("CodIATA deve essere di due caratteri alfabetici");
+		
+		if(checkBlank(Ngate, CodTratta)) {
+			return;
 		}
+		
+		if(checkSoloNumeri(Ngate)) {
+			return;
+		}
+		
+		if(checkCodTratta(CodTratta)) {
+			return;
+		}
+		
+		
+		
+		GateDAOPostgres gate = new	GateDAOPostgres(singleton);
+		int nGate = Integer.valueOf(Ngate);
+		String testo = gate.insertGate(nGate, CodTratta);
+		openDialog(testo);
+
+		////////////////////////
+
+			
 	}
 
-	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String CodCoda, String Data) throws ParseException {
+	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String CodCoda, String Data) {
+		
+		
+		if(checkBlank(CodSlot, TempoDiImbarcoStimato, TempoDiImbarcoEffettivo, CodCoda, Data)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(CodSlot, TempoDiImbarcoStimato, CodCoda, Data)) {
+			return;
+		}
+		
 		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
 		int codSlot =  Integer.valueOf(CodSlot);
 		int tempoDiImbarcoStimato =  Integer.valueOf(TempoDiImbarcoStimato);
@@ -425,28 +500,82 @@ public class Controller {
 		int codCoda = Integer.valueOf(CodCoda);
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
-		java.util.Date date = sdf1.parse(Data);
+		java.util.Date date = null;
+		try {      /// da  rimuovere
+			date = sdf1.parse(Data);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Date sqlDate = new java.sql.Date(date.getTime());  
 		
 		String testo = slot.insertSlot(codSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,codCoda,sqlDate);
 		openDialog(testo);
 	}
 
-	public void inserisciFedeltà(int CentoKilometri, String CodIATA, String CodFiscale, int Punti) {
+	public void inserisciFedeltà(String CentoKilometri, String CodIATA, String CodFiscale, String Punti) {
+		
+		if(checkBlank(CentoKilometri, CodIATA, CodFiscale, Punti)) {
+			return;
+		}
+		
+		if(checkCodFiscale(CodFiscale)) {
+			return;
+		}
+		
+		if(checkCodIATA(CodIATA)) {
+			return;
+		}
+		
+
+		if(checkSoloNumeri(CentoKilometri, Punti)) {
+			return;
+		}
+		
+		
+		
 		FedeltàDAOPostgres fedeltà = new FedeltàDAOPostgres(singleton);
 		int centoKilometri = Integer.valueOf(CentoKilometri);
+		int punti = Integer.valueOf(Punti);
 		
-		String testo = fedeltà.insertFedeltà(centoKilometri, CodIATA, CodFiscale, Punti);
+		String testo = fedeltà.insertFedeltà(centoKilometri, CodIATA, CodFiscale, punti);
 		openDialog(testo);
 	}
 
 	public void inserisciBiglietto(String CodFiscale, String TipoDiBiglietto, String CodBiglietto, String CodTratta, String Posto) {
+		
+		if(checkBlank(CodFiscale, TipoDiBiglietto, CodBiglietto, CodTratta, Posto)) {
+			return;
+		}
+		
+		if(checkCodFiscale(CodFiscale)) {
+			return;
+		}
+		
+		if(checkCodTratta(CodTratta)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(CodBiglietto, Posto)) {
+			return;
+		}
+		
+		
 		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(singleton);
 		String testo = biglietto.insertBiglietto(CodFiscale, TipoDiBiglietto, CodBiglietto, CodTratta, Posto);
 		openDialog(testo);
 	}
 
 	public void eliminaSlot(String CodSlot) {
+		
+		if(checkBlank(CodSlot)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(CodSlot)) {
+			return;
+		}
+		
 		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
 		int codSlot = Integer.valueOf(CodSlot);
 		String testo = slot.deleteSlot(codSlot);
@@ -454,6 +583,15 @@ public class Controller {
 	}
 
 	public void eliminaGate(String Ngate) {
+		
+		if(checkBlank(Ngate)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(Ngate)) {
+			return;
+		}
+		
 		GateDAOPostgres gate = new	GateDAOPostgres(singleton);
 		int nGate = Integer.valueOf(Ngate);
 		String testo = gate.deleteGate(nGate);
@@ -462,6 +600,15 @@ public class Controller {
 	}
 
 	public void eliminaCodaDiImbarco(String CodCoda) {
+		
+		if(checkBlank(CodCoda)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(CodCoda)) {
+			return;
+		}
+		
 		CodaDiImbarcoDAOPostgres CodaDiImbarco = new CodaDiImbarcoDAOPostgres(singleton);
 		int codCoda = Integer.valueOf(CodCoda);
 		String testo = CodaDiImbarco.deleteCodaDiImbarco(codCoda);
@@ -469,34 +616,149 @@ public class Controller {
 	}
 
 	public void eliminaBiglietto(String CodBiglietto) {
+		
+		if(checkBlank(CodBiglietto)) {
+			return;
+		}
+		
+		if(checkSoloNumeri(CodBiglietto)) {
+			return;
+		}
+		
+		
 		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(singleton);
 		String testo = biglietto.deleteBiglietto(CodBiglietto);
 		openDialog(testo);
 	}
 
 	public void eliminaCompagnia(String CodIATA) {
+		
+		if(checkBlank(CodIATA)) {
+			return;
+		}
+		if(checkCodIATA(CodIATA)) {
+			return;
+		}
+		
 		CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(singleton);
 		String testo = compagnia.deleteCompagnia(CodIATA);
 		openDialog(testo);
 	}
 
 	public void eliminaCliente(String CodFiscale) {
+		
+		if(checkBlank(CodFiscale)) {
+			return;
+		}
+		if(checkCodFiscale(CodFiscale)) {
+			return;
+		}
+		
 		ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
 		String testo = cliente.deleteCliente(CodFiscale);
 		openDialog(testo);
 	}
 
 	public void eliminaTratta(String CodTratta) {
+		
+		if(checkBlank(CodTratta)) {
+			return;
+		}
+		
 		TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 		String testo = tratta.deleteTratta(CodTratta);
 		openDialog(testo);
 
 	}
 
-	public void eliminaFedeltà(String CodFiscale) {
+	public void eliminaFedeltà(String CodFiscale) {  // aggiungere anche CodIATA
+		
+		if(checkBlank(CodFiscale)) {
+			return;
+		}
+		if(checkCodFiscale(CodFiscale)) {
+			return;
+		}
+		
 		FedeltàDAOPostgres fedeltà = new FedeltàDAOPostgres(singleton);
 		String testo = fedeltà.deleteFedeltà(CodFiscale);
 		openDialog(testo);
+	}
+	
+	
+	
+	public boolean checkBlank(String ... testi) {
+		for(String testo:testi) {
+			if(testo.isBlank()) {
+				openDialog("Uno o più campi vuoti");
+				
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean checkCodFiscale(String CF) {
+		String espressioneCF = "^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$";
+		if(!CF.matches(espressioneCF)) {
+			openDialog("Codice Fiscale non corretto!");
+
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkCodIATA(String cod) {
+		String espressioneCodIATA = "^[A-Za-z]{2}$";
+		if(!cod.matches(espressioneCodIATA)) {
+			openDialog("Il codice IATA deve essere di 2 caratteri!");
+
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkCodTratta(String cod) { 
+		String espressioneCodTratta = "^[A-Za-z]{3}[A-Za-z0-9]*$";
+		if(!cod.matches(espressioneCodTratta)) {
+			openDialog("Il codice Tratta deve essere di 3 caratteri!");
+
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkEmail(String email) {
+		String espressioneEmail = "^[A-z0-9\\.\\+_-]+@[A-z0-9\\._-]+\\.[A-z]{2,6}$";
+		if(!email.matches(espressioneEmail)) {
+			openDialog("L'email non è corretta!");
+
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkSoloLettere(String parola) {
+		String espressioneSoloLettere = "^[A-Za-z]*$";
+		if(!parola.matches(espressioneSoloLettere)) {
+			openDialog("Una o più caselle devono avere solo Lettere!");
+
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean checkSoloNumeri(String ... numeri ) {
+		String espressioneSoloNumeri = "^[0-9]*$";
+		for(String numero:numeri) {
+			if(!numero.matches(espressioneSoloNumeri)) {
+				openDialog("Una o più caselle devono avere solo Numeri!");
+
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	

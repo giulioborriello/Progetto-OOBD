@@ -25,7 +25,8 @@ public class BigliettoGUI extends JFrame {
 	private JTextField PostoTextField;
 	private JTextField CodTrattaTextField;
 	
-	String[] ValoriScelta = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
+	String[] tipiDiRicerca = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
+	String[] tipiDiBiglietti = {"Economy", "Business"};
 	private JTextField EliminaTextField;
 	private JTextField textFieldRicerca;
 	
@@ -56,7 +57,7 @@ public class BigliettoGUI extends JFrame {
 		contentPane.add(textFieldRicerca);
 		textFieldRicerca.setColumns(10);
 		
-		JComboBox RicercaComboBox = new JComboBox(ValoriScelta);
+		JComboBox RicercaComboBox = new JComboBox(tipiDiRicerca);
 		RicercaComboBox.setBounds(225, 72, 103, 22);
 		contentPane.add(RicercaComboBox);
 		
@@ -133,7 +134,7 @@ public class BigliettoGUI extends JFrame {
 		PostoTextField.setBounds(356, 226, 86, 20);
 		contentPane.add(PostoTextField);
 		
-		JComboBox TipoDiBigliettoComboBox = new JComboBox(new Object[]{});
+		JComboBox TipoDiBigliettoComboBox = new JComboBox(tipiDiBiglietti);
 		TipoDiBigliettoComboBox.setBounds(476, 226, 103, 22);
 		contentPane.add(TipoDiBigliettoComboBox);
 		
@@ -146,8 +147,8 @@ public class BigliettoGUI extends JFrame {
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.inserisciBiglietto(CodBigliettoTextField.getText(), CodfiscaleTextField.getText(), PostoTextField.getText(), 
-						TipoDiBigliettoComboBox.getSelectedItem().toString(), CodTrattaTextField.getText());
+				controller.inserisciBiglietto(CodfiscaleTextField.getText(), TipoDiBigliettoComboBox.getSelectedItem().toString(), 
+						CodBigliettoTextField.getText(), CodTrattaTextField.getText(), PostoTextField.getText());
 			}
 		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));

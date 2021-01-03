@@ -84,12 +84,11 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 		return compagnia;
 	}
 	
-	public String insertCompagnia(String CodIATA, String Nome_compagnia, String Sito_web)	{		
+	public String insertCompagnia(String CodIATA, String Nome_compagnia)	{		
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?); ");
 			ps.setString(1, CodIATA);
 			ps.setString(2, Nome_compagnia);
-			ps.setString(3, Sito_web);
 			ps.execute();
 			
 			ps.close();

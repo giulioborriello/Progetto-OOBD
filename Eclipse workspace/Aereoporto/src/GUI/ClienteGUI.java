@@ -1,15 +1,8 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Check.CheckFormatoCodFiscale;
-import Check.CheckFormatoCognome;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -162,7 +155,7 @@ public class ClienteGUI extends JFrame {
 		Ricercalbl.setBounds(308, 183, 176, 40);
 		contentPane.add(Ricercalbl);
 		
-		JComboBox comboBoxRicerca = new JComboBox(valoriScelta);
+		JComboBox<String> comboBoxRicerca = new JComboBox<String>(valoriScelta);
 		comboBoxRicerca.setBounds(175, 250, 108, 22);
 		contentPane.add(comboBoxRicerca);
 		

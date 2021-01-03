@@ -152,13 +152,9 @@ public class SlotGUI extends JFrame {
 		JButton btnNewButtonInserisci = new JButton("Invia");
 		btnNewButtonInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					controller.inserisciSlot(textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
-							textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
-				} catch (ParseException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				
+				controller.inserisciSlot(textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
+						textFieldTempoEffettivo.getText(), textFieldCodaDiImbarco.getText(), textFieldData.getText());
 			}
 		});
 		btnNewButtonInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
