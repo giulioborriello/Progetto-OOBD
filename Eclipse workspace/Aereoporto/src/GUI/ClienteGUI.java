@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Check.CheckFormatoCodFiscale;
+import Check.CheckFormatoCognome;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -17,6 +18,9 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
+
+
+
 
 public class ClienteGUI extends JFrame {
 	Controller controller;
@@ -76,13 +80,14 @@ public class ClienteGUI extends JFrame {
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CheckFormatoCodFiscale check = new CheckFormatoCodFiscale();
-				if(check.verificaFormatoCodFiscale(lblCodiceFiscale.getText()) == true){
-						controller.inserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
-				}
-				else {
+				CheckFormatoCognome checkcogn = new CheckFormatoCognome();
+				CheckFormatoCodFiscale checkcodf = new CheckFormatoCodFiscale();
+				if(checkcodf.verificaFormatoCodFiscale(lblCodiceFiscale.getText(), "a") == false){
 					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
-				}
+					}
+//				 if(checkcogn.verificaFormatoNome(lblCognome.getText()) == false) {
+//					controller.openDialog("Il cognome non rispetta il formato corretto");
+//				}
 					}
 		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));

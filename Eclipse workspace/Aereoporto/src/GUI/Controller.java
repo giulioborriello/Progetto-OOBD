@@ -34,7 +34,7 @@ public class Controller {
 	MenùGUI menù;
 	GateGUI gate;
 	TrattaGUI tratta;
-	FedeltàGUI fedeltà;
+//	FedeltàGUI fedeltà;
 	CompagniaGUI compagnia;
 	CodaDiImbarcoGUI codaDiImbarco;
 	ClienteGUI cliente;
@@ -57,7 +57,7 @@ public class Controller {
 		menù.setVisible(true);
 		slot = new SlotGUI(this);
 		tratta = new TrattaGUI(this);
-		fedeltà = new FedeltàGUI(this);
+//		fedeltà = new FedeltàGUI(this);
 		compagnia = new CompagniaGUI(this);
 		codaDiImbarco = new CodaDiImbarcoGUI(this);
 		cliente = new ClienteGUI(this);
@@ -107,7 +107,7 @@ public class Controller {
 			risultatiFedeltà.setVisible(false);
 		}
 		menù.setVisible(false);
-		fedeltà.setVisible(true);
+//		fedeltà.setVisible(true);
 	
 	}
 	
@@ -152,7 +152,7 @@ public class Controller {
 		cliente.setVisible(false);
 		codaDiImbarco.setVisible(false);
 		compagnia.setVisible(false);
-		fedeltà.setVisible(false);
+//		fedeltà.setVisible(false);
 		tratta.setVisible(false);
 		gate.setVisible(false);
 		slot.setVisible(false);
@@ -268,7 +268,7 @@ public class Controller {
 		}
 		
 		risultatiFedeltà = new RisultatiFedeltàGUI(list, this);
-		fedeltà.setVisible(false);
+//		fedeltà.setVisible(false);
 		risultatiFedeltà.setVisible(true);
 		
 	}

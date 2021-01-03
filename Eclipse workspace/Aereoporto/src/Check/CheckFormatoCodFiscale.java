@@ -1,10 +1,14 @@
 package Check;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+import java.util.regex.PatternSyntaxException ;
 
 public class CheckFormatoCodFiscale extends Exception {
-	public boolean verificaFormatoCodFiscale(String testo) {
-		if (testo.equals("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$\r\n"+ "")) {
-			return true;
+	public static boolean verificaFormatoCodFiscale(String espressione, String text){
+		espressione = "abcd";  
+		if (Pattern.matches(espressione, text))
+		    return true;
+		  else
+		    return false;
 		}
-	return false;
-	}
 }
