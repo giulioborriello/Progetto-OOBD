@@ -82,7 +82,7 @@ public class ClienteGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CheckFormatoCognome checkcogn = new CheckFormatoCognome();
 				CheckFormatoCodFiscale checkcodf = new CheckFormatoCodFiscale();
-				if(checkcodf.verificaFormatoCodFiscale(lblCodiceFiscale.getText(), "a") == false){
+				if(checkcodf.verificaFormatoCodFiscale(lblCodiceFiscale.getText()) == false){
 					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
 					}
 //				 if(checkcogn.verificaFormatoNome(lblCognome.getText()) == false) {

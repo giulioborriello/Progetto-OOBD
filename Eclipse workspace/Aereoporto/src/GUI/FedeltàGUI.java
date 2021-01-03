@@ -99,7 +99,7 @@ public class Fedelt‡GUI extends JFrame {
 		Button_InviaInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				CheckFormatoCodFiscale check = new CheckFormatoCodFiscale();
-				if(check.verificaFormatoCodFiscale(lbl_CodFiscale.getText()) == true){
+				if(check.verificaFormatoCodFiscale(txtCodfiscaletextfield.getText()) == true){
 					controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
 				}
 				else {
