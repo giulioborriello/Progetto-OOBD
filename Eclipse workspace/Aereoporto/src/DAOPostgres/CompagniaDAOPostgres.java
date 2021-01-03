@@ -30,7 +30,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Compagnia\"");
 			while(rs.next()) {
 				
-				Compagnia compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"), rs.getString("Sito web"));
+				Compagnia compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"));
 				
 				ListCompagnia.add(compagnia);
 			}
@@ -52,7 +52,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			ps.setString(1, CodIATA);
 			ResultSet rs=ps.executeQuery();
 			
-			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"), rs.getString("Sito web"));
+			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"));
 				
 			rs.close();
 			ps.close();
@@ -72,7 +72,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			ps.setString(1, Nome);
 			ResultSet rs=ps.executeQuery();
 			
-			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"), rs.getString("Sito web"));
+			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"));
 			
 			rs.close();
 			ps.close();

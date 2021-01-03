@@ -5,15 +5,13 @@ import java.util.List;
 public class Compagnia {
 	private String CodIATA;
 	private String NomeCompagnia;
-	private String SitoWeb;
 	
 	
 
-	public Compagnia(String codIATA, String nomeCompagnia, String sitoWeb) {
+	public Compagnia(String codIATA, String nomeCompagnia) {
 		super();
 		CodIATA = codIATA;
 		NomeCompagnia = nomeCompagnia;
-		SitoWeb = sitoWeb;
 	}
 
 	public String getCodIATA() {
@@ -30,14 +28,6 @@ public class Compagnia {
 
 	public void setNomeCompagnia(String nomeCompagnia) {
 		NomeCompagnia = nomeCompagnia;
-	}
-
-	public String getSitoWeb() {
-		return SitoWeb;
-	}
-
-	public void setSitoWeb(String sitoWeb) {
-		SitoWeb = sitoWeb;
 	}
 	
 }

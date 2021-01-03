@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 
 public class CodaDiImbarcoGUI extends JFrame {
 	Controller controller;
-	String[] ValoriScelta = {"Seleziona tutti","CodCoda","N gate","CodSlot"};
+	String[] ValoriScelta = {"Seleziona tutti","CodCoda","N° Gate","Codice Slot"};
 	private JPanel contentPane;
 	private JTextField CodCodatextField;
 	private JTextField TipoDiCodatextField;

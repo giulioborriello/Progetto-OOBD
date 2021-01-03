@@ -26,14 +26,7 @@ public class GateGUI extends JFrame {
 	private JTextField textFieldCodTratta;
 	private JTextField textFieldElimina;
 	private JTextField textFieldRicerca;
-
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public GateGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

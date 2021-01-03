@@ -26,7 +26,7 @@ public class BigliettoGUI extends JFrame {
 	private JTextField CodTrattaTextField;
 	
 	String[] tipiDiRicerca = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
-	String[] tipiDiBiglietti = {"Economy", "Business"};
+	String[] tipiDiBiglietti = {"Famiglia", "Diversamente Abili", "priority" , "Business Class", "Economy"};
 	private JTextField EliminaTextField;
 	private JTextField textFieldRicerca;
 	

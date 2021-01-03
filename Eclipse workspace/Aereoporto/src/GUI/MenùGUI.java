@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 
 public class MenùGUI extends JFrame {
-	Controller controller;
+	private Controller controller;
 	private JPanel contentPane;
 	
 

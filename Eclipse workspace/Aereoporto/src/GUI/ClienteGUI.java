@@ -155,10 +155,9 @@ public class ClienteGUI extends JFrame {
 		Ricercalbl.setBounds(308, 183, 176, 40);
 		contentPane.add(Ricercalbl);
 		
-		JComboBox<String> comboBoxRicerca = new JComboBox<String>(valoriScelta);
+		JComboBox comboBoxRicerca = new JComboBox(valoriScelta);
 		comboBoxRicerca.setBounds(175, 250, 108, 22);
 		contentPane.add(comboBoxRicerca);
-		
 		textFieldRicerca = new JTextField();
 		textFieldRicerca.setColumns(10);
 		textFieldRicerca.setBounds(362, 251, 86, 20);

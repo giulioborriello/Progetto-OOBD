@@ -125,15 +125,14 @@ public class SlotDAOPostgres implements SlotDAO{
 		return ListSlot;	
 	}
 	
-	public String insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, int CodCoda, Date Data)	{
+	public String insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo,Date Data)	{
 		
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?); ");
 			ps.setInt(1, CodSlot);
 			ps.setInt(2, Tempo_di_imbarco_stimato);
 			ps.setInt(3, Tempo_di_imbarco_effettivo);
-			ps.setInt(4, CodCoda);
-			ps.setDate(5, Data);
+			ps.setDate(4, Data);
 			ps.execute();
 			ps.close();
 			conn.close();
