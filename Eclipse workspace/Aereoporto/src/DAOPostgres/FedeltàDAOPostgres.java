@@ -150,7 +150,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			}
 	}
 	
-	public String updatePuntiByCentoKilometriANDCodIATA(int CentoKilometri, int Punti, String CodIATA)	{
+	public String updatePuntiByCentoKilometriANDCodIATA(int Punti, int CentoKilometri, String CodIATA)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("UPDATE \"Fedelt‡\" SET \"Punti\" = ? WHERE \"CentoKilometri\" = ? AND \"CodIATA\" = ?; ");
