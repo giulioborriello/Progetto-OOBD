@@ -80,15 +80,9 @@ public class ClienteGUI extends JFrame {
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CheckFormatoCognome checkcogn = new CheckFormatoCognome();
-				CheckFormatoCodFiscale checkcodf = new CheckFormatoCodFiscale();
-				if(checkcodf.verificaFormatoCodFiscale(lblCodiceFiscale.getText()) == false){
-					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
-					}
-//				 if(checkcogn.verificaFormatoNome(lblCognome.getText()) == false) {
-//					controller.openDialog("Il cognome non rispetta il formato corretto");
-//				}
-					}
+				controller.inserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), 
+						textFieldCognome.getText(), textFieldEmail.getText());
+			}
 		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		InserisciInviaButton.setBounds(643, 124, 85, 40);

@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Check.CheckFormatoCodFiscale;
+import Check.CheckFormatoCodIATA;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -98,13 +99,19 @@ public class Fedelt‡GUI extends JFrame {
 		JButton Button_InviaInserisci = new JButton("Invia");
 		Button_InviaInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				CheckFormatoCodFiscale check = new CheckFormatoCodFiscale();
-				if(check.verificaFormatoCodFiscale(txtCodfiscaletextfield.getText()) == true){
-					controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
-				}
-				else {
+				
+				if(!txtCodfiscaletextfield.getText().matches("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) {
 					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
 				}
+				if(!txtCodiatatextfield.getText().matches("")) {
+					controller.openDialog("Il codice IATA deve essere 2 carattare maiuscoli");
+				}
+				
+				
+
+				controller.inserisciFedelt‡(Integer.valueOf(textFieldCentokilometri.getText()), txtCodiatatextfield.getText(), 
+						txtCodfiscaletextfield.getText(), Integer.valueOf(txtPuntitextfield.getText()));
+					
 		}
 	});
 		Button_InviaInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));

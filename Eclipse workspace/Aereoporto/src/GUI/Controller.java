@@ -28,7 +28,6 @@ import RisultatiGUI.RisultatiSlotGUI;
 import RisultatiGUI.RisultatiTrattaGUI;
 
 public class Controller {
-	static Connection conn;
 	
 	SlotGUI slot;
 	MenùGUI menù;
@@ -48,7 +47,7 @@ public class Controller {
 	RisultatiClienteGUI risultatiCliente;
 	RisultatiBigliettoGUI risultatiBiglietto;
 	static SingletonPostgres singleton;
-	
+	S
 	
 	
 	
@@ -71,7 +70,6 @@ public class Controller {
 
 	Controller controller = new Controller();
 	singleton = SingletonPostgres.getInstance();
-	conn = singleton.getConnection();
 	}
 	
 	public void openSlot() {
@@ -372,7 +370,12 @@ public class Controller {
 	
 
 	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) {
-	  
+		
+		if() {
+			
+		}
+		
+		
 		ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
 		String testo = cliente.insertCliente(CodFiscale, Nome, Cognome, Email);
 		openDialog(testo);
@@ -429,12 +432,11 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void inserisciFedeltà(String CentoKilometri, String CodIATA, String CodFiscale, String Punti) {
+	public void inserisciFedeltà(int CentoKilometri, String CodIATA, String CodFiscale, int Punti) {
 		FedeltàDAOPostgres fedeltà = new FedeltàDAOPostgres(singleton);
 		int centoKilometri = Integer.valueOf(CentoKilometri);
-		int punti = Integer.valueOf(Punti);
 		
-		String testo = fedeltà.insertFedeltà(centoKilometri, CodIATA, CodFiscale, punti);
+		String testo = fedeltà.insertFedeltà(centoKilometri, CodIATA, CodFiscale, Punti);
 		openDialog(testo);
 	}
 
