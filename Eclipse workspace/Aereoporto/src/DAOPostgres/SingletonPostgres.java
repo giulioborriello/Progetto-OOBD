@@ -34,14 +34,19 @@ public class SingletonPostgres {
 		return instanza;
 	}
 	
-	public Connection getConnection() {
-		if conn.isClosed(true){
-		
-			return conn;	
-		
+	public Connection getConnection()  {
+		try {
+			if (conn.isClosed()){
+				conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/Aereoporto","postgres","abcd");
+
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-		
+		return conn;	
+
 	}
 	
 	

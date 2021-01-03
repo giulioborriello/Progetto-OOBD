@@ -14,23 +14,25 @@ import Entità.Cliente;
 
 public class BigliettoDAOPostgres implements BigliettoDAO {
 	Connection conn;
-	
+	SingletonPostgres singleton;
 	List<Biglietto> ListBiglietto = new LinkedList<Biglietto>();
 	
 	
-	public BigliettoDAOPostgres(Connection connection) {
-		conn = connection;
+	public BigliettoDAOPostgres(SingletonPostgres sp) {
+		conn = sp.getConnection();
+		singleton = sp;
 	}
 	
 	
 	public List<Biglietto> getAllBiglietto() {
+		
 		try {
 			Statement st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Biglietto\"");
 			
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				String codFiscale = rs.getString("CodFiscale");
 				String codTratta = rs.getString("CodTratta");
 				
@@ -52,6 +54,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 		}
 
 	public List<Biglietto> getBigliettoByCodFiscale(String CodFiscale){
+		
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodFiscale\" = ?");
 			ps.setString(1, CodFiscale);
@@ -59,8 +62,8 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 
 			while(rs.next()) {
 				
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				String codFiscale = rs.getString("CodFiscale");
 				String codTratta = rs.getString("CodTratta");
 				
@@ -91,8 +94,8 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				String codFiscale = rs.getString("CodFiscale");
 				String codTratta = rs.getString("CodTratta");
 				

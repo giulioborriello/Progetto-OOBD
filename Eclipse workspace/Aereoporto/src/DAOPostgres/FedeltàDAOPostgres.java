@@ -15,10 +15,11 @@ import Entit‡.Fedelt‡;
 public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	Connection conn=null;
 	List<Fedelt‡> ListFedelt‡ = new LinkedList<Fedelt‡>();
+	SingletonPostgres singleton;
 	
-	
-	public Fedelt‡DAOPostgres(Connection connection) {
-		conn=connection;
+	public Fedelt‡DAOPostgres(SingletonPostgres sp) {
+		conn = sp.getConnection();
+		singleton = sp;
 	}
 	
 	public List<Fedelt‡> getAllFedelt‡() {
@@ -50,9 +51,9 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
 				String codFiscale = rs.getString("CodFiscale");
-				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(conn);
+				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(singleton);
 				String codIATA = rs.getString("CodIATA");
 				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
 				
@@ -74,9 +75,9 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
 				String codFiscale = rs.getString("CodFiscale");
-				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(conn);
+				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(singleton);
 				String codIATA = rs.getString("CodIATA");
 				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
 				
@@ -100,9 +101,9 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			
 			while(rs.next()) {
 
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
 				String codFiscale = rs.getString("CodFiscale");
-				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(conn);
+				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(singleton);
 				String codIATA = rs.getString("CodIATA");
 				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
 				ListFedelt‡.add(fedelt‡);

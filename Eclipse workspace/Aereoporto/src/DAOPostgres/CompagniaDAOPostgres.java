@@ -15,10 +15,13 @@ import Entità.Compagnia;
 public class CompagniaDAOPostgres implements CompagniaDAO {
 	Connection conn;
 	List<Compagnia> ListCompagnia = new LinkedList<Compagnia>();
+	SingletonPostgres singleton;
+
 	
-	
-	public CompagniaDAOPostgres(Connection connection) {
-		conn = connection;
+	public CompagniaDAOPostgres(SingletonPostgres sp) {
+		conn = sp.getConnection();
+		singleton = sp;
+
 	}
 	
 	public List<Compagnia> getAllCompagnia() {

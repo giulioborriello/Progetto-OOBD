@@ -46,7 +46,7 @@ public class Controller {
 	RisultatiCodaDiImbarcoGUI risultatiCodaDiImbarco;
 	RisultatiClienteGUI risultatiCliente;
 	RisultatiBigliettoGUI risultatiBiglietto;
-	
+	static SingletonPostgres singleton;
 	
 	
 	
@@ -69,8 +69,8 @@ public class Controller {
 	public static void main(String[] args) {
 
 	Controller controller = new Controller();
-	SingletonPostgres instanza = SingletonPostgres.getInstance();
-	conn = instanza.getConnection();
+	singleton = SingletonPostgres.getInstance();
+	conn = singleton.getConnection();
 	}
 	
 	public void openSlot() {
@@ -162,7 +162,7 @@ public class Controller {
 
 	public void openRisultatiGate(String ricerca, String valore) {
 		
-		GateDAOPostgres gatePostgres = new GateDAOPostgres(conn);
+		GateDAOPostgres gatePostgres = new GateDAOPostgres(singleton);
 		List<Gate> list = null;
 		if (ricerca == "Seleziona tutti") {
 				list = gatePostgres.getAllGate();
@@ -184,7 +184,7 @@ public class Controller {
 	
 	public void openRisultatiTratta(String ricerca, String valore) {
 		
-		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(conn);
+		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(singleton);
 		
 		List<Tratta> list = null;
 		if (ricerca == "Seleziona tutti") {
@@ -220,7 +220,7 @@ public class Controller {
 	
 	public void openRisultatiSlot(String ricerca, String valore) {
 		
-		SlotDAOPostgres slotPostgres = new SlotDAOPostgres(conn);
+		SlotDAOPostgres slotPostgres = new SlotDAOPostgres(singleton);
 		List<Slot> list = null;
 		if (ricerca == "Seleziona tutti") {
 			list = slotPostgres.getAllSlot();
@@ -247,7 +247,7 @@ public class Controller {
 	
 	public void openRisultatiFedelt‡(String ricerca, String valore) {
 		
-		Fedelt‡DAOPostgres fedelt‡Postgres = new Fedelt‡DAOPostgres(conn);
+		Fedelt‡DAOPostgres fedelt‡Postgres = new Fedelt‡DAOPostgres(singleton);
 		
 		List<Fedelt‡> list = null;
 		if (ricerca == "Seleziona tutti") {
@@ -273,7 +273,7 @@ public class Controller {
 	}
 	
 	public void openRisultatiCompagnia(String ricerca, String valore) {
-		CompagniaDAOPostgres compagniaPostgres= new CompagniaDAOPostgres(conn);
+		CompagniaDAOPostgres compagniaPostgres= new CompagniaDAOPostgres(singleton);
 		List<Compagnia> list = null;
 		
 		if (valore == "Seleziona tutti") {
@@ -294,7 +294,7 @@ public class Controller {
 	}	
 		
 	public void openRisultatiCodaDiImbarco(String ricerca, String valore) {
-		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(conn);
+		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(singleton);
 		List<CodaDiImbarco> list = null;
 		
 		if (valore == "seleziona tutti") {
@@ -322,7 +322,7 @@ public class Controller {
 	
 	
 	public void openRisultatiCliente(String ricerca, String valore) {
-		ClienteDAOPostgres clientePostgres = new ClienteDAOPostgres(conn);
+		ClienteDAOPostgres clientePostgres = new ClienteDAOPostgres(singleton);
 		List<Cliente> list = null;
 		if (valore == "Seleziona tutti") {
 			list = clientePostgres.getAllCliente();	
@@ -339,7 +339,7 @@ public class Controller {
 	
 	
 	public void openRisultatiBiglietto(String ricerca, String valore) {
-		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
+		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(singleton);
 		List<Biglietto> list = null;
 		
 		if (valore == "Seleziona tutti") {
@@ -364,7 +364,7 @@ public class Controller {
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
 		java.util.Date date = sdf1.parse(data);
 		Date sqlDate = new java.sql.Date(date.getTime());  
-		TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+		TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 		String testo = tratta.insertTratta(codTratta, nPrenotazioni, tempo, sqlDate, nGate, CodIATA, destinazione, scali);
 		openDialog(testo);
 	}
@@ -372,13 +372,13 @@ public class Controller {
 
 	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) {
 	  
-		ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+		ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
 		String testo = cliente.insertCliente(CodFiscale, Nome, Cognome, Email);
 		openDialog(testo);
 	}
 
 	public void inserisciCodaDiImbarco(String CodCoda, String Tipo_di_coda, String Ngate, String CodSlot) {
-		CodaDiImbarcoDAOPostgres codadiimbarco = new CodaDiImbarcoDAOPostgres(conn);
+		CodaDiImbarcoDAOPostgres codadiimbarco = new CodaDiImbarcoDAOPostgres(singleton);
 		int nGate = Integer.valueOf(Ngate);
 		int codCoda = Integer.valueOf(CodCoda);
 		int codSlot = Integer.valueOf(CodSlot);
@@ -387,20 +387,20 @@ public class Controller {
 	}
 
 	public void inserisciInCompagnia(String CodIATA, String Nome_compagnia, String Sito_web) {
-		CompagniaDAOPostgres comp = new CompagniaDAOPostgres(conn);
+		CompagniaDAOPostgres comp = new CompagniaDAOPostgres(singleton);
 		String testo = comp.insertCompagnia(CodIATA, Nome_compagnia, Sito_web);
 		openDialog(testo);
 	}
 
 	public void inserisciGate(String Ngate, String CodTratta) {
-		GateDAOPostgres gate = new	GateDAOPostgres(conn);
+		GateDAOPostgres gate = new	GateDAOPostgres(singleton);
 		int nGate = Integer.valueOf(Ngate);
 		String testo = gate.insertGate(nGate, CodTratta);
 		openDialog(testo);
 	}
 
 	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String CodCoda, String Data) throws ParseException {
-		SlotDAOPostgres slot = new SlotDAOPostgres(conn);
+		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
 		int codSlot =  Integer.valueOf(CodSlot);
 		int tempoDiImbarcoStimato =  Integer.valueOf(TempoDiImbarcoStimato);
 		int tempoDiImbarcoEffettivo =  Integer.valueOf(TempoDiImbarcoEffettivo);
@@ -415,7 +415,7 @@ public class Controller {
 	}
 
 	public void inserisciFedelt‡(String CentoKilometri, String CodIATA, String CodFiscale, String Punti) {
-		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(conn);
+		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(singleton);
 		int centoKilometri = Integer.valueOf(CentoKilometri);
 		int punti = Integer.valueOf(Punti);
 		
@@ -424,20 +424,20 @@ public class Controller {
 	}
 
 	public void inserisciBiglietto(String CodFiscale, String TipoDiBiglietto, String CodBiglietto, String CodTratta, String Posto) {
-		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
+		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(singleton);
 		String testo = biglietto.insertBiglietto(CodFiscale, TipoDiBiglietto, CodBiglietto, CodTratta, Posto);
 		openDialog(testo);
 	}
 
 	public void eliminaSlot(String CodSlot) {
-		SlotDAOPostgres slot = new SlotDAOPostgres(conn);
+		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
 		int codSlot = Integer.valueOf(CodSlot);
 		String testo = slot.deleteSlot(codSlot);
 		openDialog(testo);
 	}
 
 	public void eliminaGate(String Ngate) {
-		GateDAOPostgres gate = new	GateDAOPostgres(conn);
+		GateDAOPostgres gate = new	GateDAOPostgres(singleton);
 		int nGate = Integer.valueOf(Ngate);
 		String testo = gate.deleteGate(nGate);
 		openDialog(testo);
@@ -445,39 +445,39 @@ public class Controller {
 	}
 
 	public void eliminaCodaDiImbarco(String CodCoda) {
-		CodaDiImbarcoDAOPostgres CodaDiImbarco = new CodaDiImbarcoDAOPostgres(conn);
+		CodaDiImbarcoDAOPostgres CodaDiImbarco = new CodaDiImbarcoDAOPostgres(singleton);
 		int codCoda = Integer.valueOf(CodCoda);
 		String testo = CodaDiImbarco.deleteCodaDiImbarco(codCoda);
 		openDialog(testo);
 	}
 
 	public void eliminaBiglietto(String CodBiglietto) {
-		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(conn);
+		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(singleton);
 		String testo = biglietto.deleteBiglietto(CodBiglietto);
 		openDialog(testo);
 	}
 
 	public void eliminaCompagnia(String CodIATA) {
-		CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(conn);
+		CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(singleton);
 		String testo = compagnia.deleteCompagnia(CodIATA);
 		openDialog(testo);
 	}
 
 	public void eliminaCliente(String CodFiscale) {
-		ClienteDAOPostgres cliente = new ClienteDAOPostgres(conn);
+		ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
 		String testo = cliente.deleteCliente(CodFiscale);
 		openDialog(testo);
 	}
 
 	public void eliminaTratta(String CodTratta) {
-		TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+		TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 		String testo = tratta.deleteTratta(CodTratta);
 		openDialog(testo);
 
 	}
 
 	public void eliminaFedelt‡(String CodFiscale) {
-		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(conn);
+		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(singleton);
 		String testo = fedelt‡.deleteFedelt‡(CodFiscale);
 		openDialog(testo);
 	}
