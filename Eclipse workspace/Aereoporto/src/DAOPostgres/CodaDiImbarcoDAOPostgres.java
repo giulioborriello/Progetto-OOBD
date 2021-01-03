@@ -15,11 +15,15 @@ import Entità.CodaDiImbarco;
 import Entità.Slot;
 
 public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
-	Connection conn;
+	Connection conn = null;
+	SingletonPostgres singleton;
+
 	List<CodaDiImbarco> ListCodaDiImbarco = new LinkedList<CodaDiImbarco>();
 
-	public CodaDiImbarcoDAOPostgres(Connection connection) {
-		conn = connection;
+	public CodaDiImbarcoDAOPostgres(SingletonPostgres sp) {
+		conn = sp.getConnection();
+		singleton = sp;
+
 	}
 	
 	public List<CodaDiImbarco> getAllCodaDiImbarco() {
@@ -28,8 +32,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Code di imbarco\"");
 			
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres(conn);
-				GateDAOPostgres gate = new GateDAOPostgres(conn);
+				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
+				GateDAOPostgres gate = new GateDAOPostgres(singleton);
 				int codCoda = rs.getInt("CodCoda");
 				int ngate = rs.getInt("Ngate");
 				
@@ -55,8 +59,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, CodCoda);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres(conn);
-				GateDAOPostgres gate = new GateDAOPostgres(conn);
+				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
+				GateDAOPostgres gate = new GateDAOPostgres(singleton);
 				int codCoda = rs.getInt("CodCoda");
 				int ngate = rs.getInt("Ngate");
 				
@@ -82,8 +86,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, Ngate);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres(conn);
-				GateDAOPostgres gate = new GateDAOPostgres(conn);
+				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
+				GateDAOPostgres gate = new GateDAOPostgres(singleton);
 				int codCoda = rs.getInt("CodCoda");
 				int ngate = rs.getInt("Ngate");
 				
@@ -111,8 +115,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setInt(1, codSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres(conn);
-				GateDAOPostgres gate = new GateDAOPostgres(conn);
+				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
+				GateDAOPostgres gate = new GateDAOPostgres(singleton);
 				int codCoda = rs.getInt("CodCoda");
 				int ngate = rs.getInt("Ngate");
 				

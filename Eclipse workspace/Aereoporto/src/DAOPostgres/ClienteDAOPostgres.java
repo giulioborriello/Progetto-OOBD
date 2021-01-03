@@ -16,9 +16,12 @@ import Entità.Cliente;
 public class ClienteDAOPostgres implements ClienteDAO {
 	Connection conn = null;
 	List<Cliente> Listcliente = new LinkedList<Cliente>();
+	SingletonPostgres singleton;
 
-	public ClienteDAOPostgres(Connection connection) {
-		conn = connection;
+	public ClienteDAOPostgres(SingletonPostgres sp) {
+		conn = sp.getConnection();
+		singleton = sp;
+
 	}
 
 	public List<Cliente> getAllCliente() {

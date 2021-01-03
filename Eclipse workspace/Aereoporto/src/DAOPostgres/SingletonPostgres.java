@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class SingletonPostgres {
-	private Connection conn;
+	private static Connection conn;
 	
 	private static SingletonPostgres instanza = null;
 	
@@ -34,8 +34,20 @@ public class SingletonPostgres {
 		return instanza;
 	}
 	
-	public Connection getConnection() {
-		return conn;
+	public Connection getConnection()  {
+		try {
+			if (conn == null || conn.isClosed()){
+				conn = DriverManager.getConnection("jdbc:postgresql://127.0.0.1:5432/Aereoporto","postgres","abcd");
+
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return conn;	
+
 	}
 	
 	

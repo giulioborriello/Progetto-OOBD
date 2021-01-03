@@ -16,17 +16,20 @@ public class GateDAOPostgres implements GateDAO{
 	PreparedStatement ps = null;
 	Statement st = null;
 	List<Gate> ListGate = new LinkedList<Gate>();
+	SingletonPostgres singleton;
+
 	
-	public GateDAOPostgres(Connection connection) {
-		conn = connection;
+	public GateDAOPostgres(SingletonPostgres sp) {
+		conn = sp.getConnection();
 	}
 	
 	public List<Gate> getAllGate() {
+	
 		try {
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Gate\"");
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				int nGate = rs.getInt("Ngate");
 				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
@@ -51,7 +54,7 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				int nGate = rs.getInt("Ngate");
 				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
@@ -74,7 +77,7 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(conn);
+				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				int nGate = rs.getInt("Ngate");
 				gate = new Gate(nGate, rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
 				
