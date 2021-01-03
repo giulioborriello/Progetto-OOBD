@@ -485,6 +485,7 @@ public class Controller {
 	
 	public void openDialog(String text) {
 		Dialog dialog = new Dialog(text);
+		dialog.setVisible(true);
 	}
 	
 	

@@ -157,7 +157,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ps.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.getMessage();
 		}	
 		return ListTratta;	
 	}
@@ -179,7 +179,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ps.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.getMessage();
 		}	
 		return ListTratta;	
 	}
@@ -204,7 +204,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		} 
 		
 		catch (SQLException e) {
-			return e.getSQLState();
+			return e.getMessage();
 		}
 	}
 
@@ -226,7 +226,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			return e.getSQLState();
+			return e.getMessage();
 		}
 	}
 	

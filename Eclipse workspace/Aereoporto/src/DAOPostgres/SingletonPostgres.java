@@ -35,7 +35,13 @@ public class SingletonPostgres {
 	}
 	
 	public Connection getConnection() {
-		return conn;
+		if conn.isClosed(true){
+		
+			return conn;	
+		
+		}
+		
+		
 	}
 	
 	
