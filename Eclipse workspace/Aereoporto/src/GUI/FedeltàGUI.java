@@ -96,7 +96,7 @@ public class Fedelt‡GUI extends JFrame {
 		contentPane.add(txtPuntitextfield);
 		
 		JButton Button_InviaInserisci = new JButton("Invia");
-		Button_InviaInserisci.addActionListener(new ActionListener()) {
+		Button_InviaInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				CheckFormatoCodFiscale check = new CheckFormatoCodFiscale();
 				if(check.verificaFormatoCodFiscale(lbl_CodFiscale.getText()) == true){
@@ -105,14 +105,8 @@ public class Fedelt‡GUI extends JFrame {
 				else {
 					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
 				}
-					} 
 		}
-	}
-//		btnNewButton_1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
-//			}
-//		});
+	});
 		Button_InviaInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaInserisci.setBounds(728, 92, 85, 40);
 		contentPane.add(Button_InviaInserisci);
@@ -144,11 +138,11 @@ public class Fedelt‡GUI extends JFrame {
 		contentPane.add(txtEliminatextfield);
 		
 		JButton Button_BackToMenu = new JButton("Men\u00F9");
-		Button_BackToMenu.addActionListener(new ActionListener()) {
+		Button_BackToMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.backToMen˘();
 			}
-		};
+		});
 		Button_BackToMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_BackToMenu.setBounds(21, 729, 101, 57);
 		contentPane.add(Button_BackToMenu);
@@ -187,10 +181,10 @@ public class Fedelt‡GUI extends JFrame {
 		
 		JButton ButtonAggiornaCentokilometri = new JButton("Invia");
 		ButtonAggiornaCentokilometri.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.aggiornaFedelt‡Centokilometri(textField_CentoKilometriAggiornaCentokilometri.getText(),  textFieldCodiceFiscale_AggiornaCentokilometri.getText(), textFieldCodIATA_AggiornaCentoChilometri_.getText());
-//			}
-//		});
+			public void actionPerformed(ActionEvent e) {
+				controller.aggiornaFedelt‡Centokilometri(textField_CentoKilometriAggiornaCentokilometri.getText(),  textFieldCodiceFiscale_AggiornaCentokilometri.getText(), textFieldCodIATA_AggiornaCentoChilometri_.getText());
+			}
+		});
 		ButtonAggiornaCentokilometri.setFont(new Font("Tahoma", Font.BOLD, 15));
 		ButtonAggiornaCentokilometri.setBounds(506, 507, 85, 40);
 		contentPane.add(ButtonAggiornaCentokilometri);
@@ -231,10 +225,10 @@ public class Fedelt‡GUI extends JFrame {
 		
 		JButton ButtonAggiornaPunti = new JButton("Invia");
 		ButtonAggiornaPunti.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.aggiornaFedelt‡Punti(textField_NuovoPunteggio.getText(), textFieldCentoChilometri_AggiornaPunti.getText(), textField_CodiceIATA_AggiornaPunti.getText());
-//			}
-//		});
+			public void actionPerformed(ActionEvent e) {
+				controller.aggiornaFedelt‡Punti(textField_NuovoPunteggio.getText(), textFieldCentoChilometri_AggiornaPunti.getText(), textField_CodiceIATA_AggiornaPunti.getText());
+			}
+		});
 		ButtonAggiornaPunti.setFont(new Font("Tahoma", Font.BOLD, 15));
 		ButtonAggiornaPunti.setBounds(508, 621, 85, 40);
 		contentPane.add(ButtonAggiornaPunti);
