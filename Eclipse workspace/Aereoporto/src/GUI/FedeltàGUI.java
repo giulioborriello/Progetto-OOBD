@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Check.CheckFormatoCodFiscale;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -86,6 +89,18 @@ public class Fedelt‡GUI extends JFrame {
 		contentPane.add(txtPuntitextfield);
 		
 		JButton Button_InviaInserisci = new JButton("Invia");
+		Button_InviaInserisci.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CheckFormatoCodFiscale check = new CheckFormatoCodFiscale();
+				if(check.verificaFormatoCodFiscale(lbl_CodFiscale.getText()) == true){
+					controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
+				}
+				else {
+					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
+				}
+					} 
+			}
+		});
 //		btnNewButton_1.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());

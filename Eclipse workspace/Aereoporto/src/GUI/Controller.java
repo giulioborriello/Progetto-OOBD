@@ -8,8 +8,8 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
+import Check.CheckFormatoCodIATA;
 import DAOPostgres.*;
-import Eccezioni.CheckFormatoCodIATA;
 import Entità.Biglietto;
 import Entità.Cliente;
 import Entità.CodaDiImbarco;

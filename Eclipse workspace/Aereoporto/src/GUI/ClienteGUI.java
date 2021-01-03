@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Check.CheckFormatoCodFiscale;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -73,8 +76,14 @@ public class ClienteGUI extends JFrame {
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.inserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
-			}
+				CheckFormatoCodFiscale check = new CheckFormatoCodFiscale();
+				if(check.verificaFormatoCodFiscale(lblCodiceFiscale.getText()) == true){
+						controller.inserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), textFieldCognome.getText(), textFieldEmail.getText());
+				}
+				else {
+					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
+				}
+					}
 		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
 		InserisciInviaButton.setBounds(643, 124, 85, 40);
