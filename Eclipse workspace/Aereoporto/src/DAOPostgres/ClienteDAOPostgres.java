@@ -15,7 +15,7 @@ import Entità.Cliente;
 
 public class ClienteDAOPostgres implements ClienteDAO {
 	Connection conn = null;
-	List<Cliente> Listcliente = new LinkedList<Cliente>();
+	List<Cliente> ListCliente = new LinkedList<Cliente>();
 	SingletonPostgres singleton;
 
 	public ClienteDAOPostgres(SingletonPostgres sp) {
@@ -32,7 +32,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			while(rs.next()) {
 				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Email"));
 				
-				Listcliente.add(cliente);
+				ListCliente.add(cliente);
 			}
 			
 			rs.close();
@@ -42,7 +42,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return Listcliente;	
+		return ListCliente;	
 	}
 	
 	public  Cliente  getClienteByCodFiscale(String CodFiscale) {

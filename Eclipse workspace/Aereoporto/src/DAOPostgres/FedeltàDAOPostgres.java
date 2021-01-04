@@ -118,7 +118,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 		return ListFedelt‡;	
 	}
 	
-	public String insertFedelt‡(int CentoKilometri, String CodIATA,String CodFiscale , int Punti)	{
+	public String insertFedelt‡(int CentoKilometri, String CodIATA, String CodFiscale , int Punti)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Fedelt‡\"  VALUES (?, ?, ?, ?); ");

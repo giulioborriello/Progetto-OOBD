@@ -22,6 +22,7 @@ public class SlotDAOPostgres implements SlotDAO{
 	List<Slot> ListSlot = new LinkedList<Slot>();
 	Connection conn;
 	SingletonPostgres singleton;
+	
 	public SlotDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
 		singleton = sp;
@@ -125,13 +126,13 @@ public class SlotDAOPostgres implements SlotDAO{
 		return ListSlot;	
 	}
 	
-	public String insertSlot(int CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo,Date Data)	{
+	public String insertSlot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo,Date Data)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?); ");
 			ps.setInt(1, CodSlot);
-			ps.setInt(2, Tempo_di_imbarco_stimato);
-			ps.setInt(3, Tempo_di_imbarco_effettivo);
+			ps.setInt(2, TempoDiImbarcoStimato);
+			ps.setInt(3, TempoDiImbarcoEffettivo);
 			ps.setDate(4, Data);
 			ps.execute();
 			ps.close();

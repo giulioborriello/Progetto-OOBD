@@ -106,13 +106,13 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 	}
 	
-	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int codSlot){
+	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int CodSlot){
 		CodaDiImbarco codaDiImbarco = null;
 		try {
 			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 			
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?");
-			ps.setInt(1, codSlot);
+			ps.setInt(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
@@ -133,13 +133,13 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 		return codaDiImbarco;
 	}
 	
-	public String insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot)	{
+	public String insertCodaDiImbarco(int CodCoda, String TipoDiCoda, int Ngate, int CodSlot)	{
 			try {
 				Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
 				
 				PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?); ");
 				ps.setInt(1, CodCoda);
-				ps.setString(2, Tipo_di_coda);
+				ps.setString(2, TipoDiCoda);
 				ps.setInt(3, Ngate);
 				ps.setInt(4, CodSlot);
 				ps.execute();

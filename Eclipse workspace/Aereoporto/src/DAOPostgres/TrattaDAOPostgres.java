@@ -95,7 +95,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return ListTratta;	
 	}
 	
-	public Tratta getTrattaNgate(int nGate){
+	public Tratta getTrattaByNgate(int nGate){
 		Tratta tratta = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
@@ -119,7 +119,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return tratta;
 	}
 	
-	public List<Tratta> getTrattaCodIATA(String CodIATA){
+	public List<Tratta> getTrattaByCodIATA(String CodIATA){
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodIATA\" = ?");
 			ps.setString(1, CodIATA);
@@ -142,7 +142,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return ListTratta;	
 	}
 	
-	public List<Tratta> getTrattaDestinazione(String Destinazione){
+	public List<Tratta> getTrattaByDestinazione(String Destinazione){
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Destinazione\" = ?");
 			ps.setString(1, Destinazione);
@@ -164,7 +164,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return ListTratta;	
 	}
 	
-	public List<Tratta> getTrattaNgate(String Ngate) {
+	public List<Tratta> getTrattaByNgate(String Ngate) {
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
 			ps.setString(1, Ngate);

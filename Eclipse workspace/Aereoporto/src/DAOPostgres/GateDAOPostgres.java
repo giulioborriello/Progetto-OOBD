@@ -31,7 +31,7 @@ public class GateDAOPostgres implements GateDAO{
 			while(rs.next()) {
 				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				int nGate = rs.getInt("Ngate");
-				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
+				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaByNgate(nGate));
 				
 				ListGate.add(gate);
 				
@@ -56,7 +56,7 @@ public class GateDAOPostgres implements GateDAO{
 			while(rs.next()) {
 				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				int nGate = rs.getInt("Ngate");
-				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
+				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaByNgate(nGate));
 				
 			}
 			conn.close();
@@ -79,7 +79,7 @@ public class GateDAOPostgres implements GateDAO{
 			while(rs.next()) {
 				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				int nGate = rs.getInt("Ngate");
-				gate = new Gate(nGate, rs.getString("CodTratta"), tratta.getTrattaNgate(nGate));
+				gate = new Gate(nGate, rs.getString("CodTratta"), tratta.getTrattaByNgate(nGate));
 				
 			}
 			conn.close();

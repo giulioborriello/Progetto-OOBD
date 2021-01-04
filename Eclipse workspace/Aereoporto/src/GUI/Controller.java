@@ -191,7 +191,7 @@ public class Controller {
 		}
 	
 		else if(ricerca == "Ngate") {
-			list = (trattaPostgres.getTrattaNgate(valore));
+			list = (trattaPostgres.getTrattaByNgate(valore));
 		}
 	
 		else if(ricerca == "Data") {
@@ -199,11 +199,11 @@ public class Controller {
 		}
 		
 		else if(ricerca == "CodIATA") {
-			list = (trattaPostgres.getTrattaCodIATA(valore));
+			list = (trattaPostgres.getTrattaByCodIATA(valore));
 		}
 		
 		else if(ricerca == "Destinazione") {
-			list = (trattaPostgres.getTrattaDestinazione(valore));
+			list = (trattaPostgres.getTrattaByDestinazione(valore));
 		}	
 		
 		
