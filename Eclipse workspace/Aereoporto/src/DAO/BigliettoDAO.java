@@ -3,7 +3,6 @@ package DAO;
 import java.util.List;
 
 import Entità.Biglietto;
-import Entità.Slot;
 
 public interface BigliettoDAO {
 	

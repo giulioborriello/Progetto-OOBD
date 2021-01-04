@@ -1,8 +1,7 @@
 package GUI;
-import java.sql.Connection;
+
 import java.sql.Date;
 import java.sql.Time;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
@@ -28,24 +27,26 @@ import RisultatiGUI.RisultatiTrattaGUI;
 
 public class Controller {
 	
-	SlotGUI slot;
-	MenùGUI menù;
-	GateGUI gate;
-	TrattaGUI tratta;
-	FedeltàGUI fedeltà;
-	CompagniaGUI compagnia;
-	CodaDiImbarcoGUI codaDiImbarco;
-	ClienteGUI cliente;
-	BigliettoGUI biglietto;
-	RisultatiSlotGUI risultatiSlot;
-	RisultatiGateGUI risultatiGate;
-	RisultatiTrattaGUI risultatiTratta;
-	RisultatiFedeltàGUI risultatiFedeltà;
-	RisultatiCompagniaGUI risultatiCompagnia;
-	RisultatiCodaDiImbarcoGUI risultatiCodaDiImbarco;
-	RisultatiClienteGUI risultatiCliente;
-	RisultatiBigliettoGUI risultatiBiglietto;
-	static SingletonPostgres singleton;
+	private SlotGUI slot;
+	private MenùGUI menù;
+	private GateGUI gate;
+	private TrattaGUI tratta;
+	private FedeltàGUI fedeltà;
+	private CompagniaGUI compagnia;
+	private CodaDiImbarcoGUI codaDiImbarco;
+	private ClienteGUI cliente;
+	private BigliettoGUI biglietto;
+	
+	private RisultatiSlotGUI risultatiSlot;
+	private RisultatiGateGUI risultatiGate;
+	private RisultatiTrattaGUI risultatiTratta;
+	private RisultatiFedeltàGUI risultatiFedeltà;
+	private RisultatiCompagniaGUI risultatiCompagnia;
+	private RisultatiCodaDiImbarcoGUI risultatiCodaDiImbarco;
+	private RisultatiClienteGUI risultatiCliente;
+	private RisultatiBigliettoGUI risultatiBiglietto;
+	
+	private static SingletonPostgres singleton;
 	
 	public Controller() {
 		menù = new MenùGUI(this);
@@ -158,7 +159,7 @@ public class Controller {
 	public void openRisultatiGate(String ricerca, String valore) {
 		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(singleton);
-		List<Gate> list = null;
+		List<Gate> list = new LinkedList<Gate>();
 		if (ricerca == "Seleziona tutti") {
 				list = gatePostgres.getAllGate();
 		}
@@ -181,7 +182,7 @@ public class Controller {
 		
 		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(singleton);
 		
-		List<Tratta> list = null;
+		List<Tratta> list = new LinkedList<Tratta>();
 		if (ricerca == "Seleziona tutti") {
 			list = trattaPostgres.getAllTratta();
 		}
@@ -216,7 +217,7 @@ public class Controller {
 	public void openRisultatiSlot(String ricerca, String valore) {
 		
 		SlotDAOPostgres slotPostgres = new SlotDAOPostgres(singleton);
-		List<Slot> list = null;
+		List<Slot> list = new LinkedList<Slot>();
 		if (ricerca == "Seleziona tutti") {
 			list = slotPostgres.getAllSlot();
 		}
@@ -226,7 +227,7 @@ public class Controller {
 		}
 	
 		else if(ricerca == "CodCoda") {
-			list = (List<Slot>) slotPostgres.getSlotByCodCoda(Integer.valueOf(valore));
+			list.add(slotPostgres.getSlotByCodCoda(Integer.valueOf(valore)));
 			
 		}
 		
@@ -269,18 +270,18 @@ public class Controller {
 	
 	public void openRisultatiCompagnia(String ricerca, String valore) {
 		CompagniaDAOPostgres compagniaPostgres= new CompagniaDAOPostgres(singleton);
-		List<Compagnia> list = null;
+		List<Compagnia> list = new LinkedList<Compagnia>();
 		
 		if (valore == "Seleziona tutti") {
 			list = compagniaPostgres.getAllCompagnia();
 		}
 		
 		else if(valore == "CodIATA") {
-			list = (List<Compagnia>) compagniaPostgres.getCompagniaByCodIATA(valore);
+			list.add(compagniaPostgres.getCompagniaByCodIATA(valore));
 		}
 		
 		else if(valore == "Nome Compagnia") {
-			list = (List<Compagnia>) compagniaPostgres.getCompagniaByNomeCompagnia(valore);
+			list.add(compagniaPostgres.getCompagniaByNomeCompagnia(valore));
 		}
 		risultatiCompagnia = new RisultatiCompagniaGUI(list, this);
 		compagnia.setVisible(false);
@@ -290,22 +291,22 @@ public class Controller {
 		
 	public void openRisultatiCodaDiImbarco(String ricerca, String valore) {
 		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(singleton);
-		List<CodaDiImbarco> list = null;
+		List<CodaDiImbarco> list = new LinkedList<CodaDiImbarco>();
 		
 		if (valore == "seleziona tutti") {
 			list = codaDiImbarcoPostgres.getAllCodaDiImbarco();	
 		}
 		
 		else if(valore == "CodCoda") {
-			list =  (List<CodaDiImbarco>) codaDiImbarcoPostgres.getCodaDiImbarcoByCodCoda(valore);
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodCoda(valore));
 		}
 		
 		else if(valore == "CodSlot") {
-			list = (List<CodaDiImbarco>) codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(Integer.valueOf(valore));
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(Integer.valueOf(valore)));
 		}
 	
 		else if(valore == "N gate") {
-			list = (List<CodaDiImbarco>) codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore);
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore));
 		}
 		risultatiCodaDiImbarco = new RisultatiCodaDiImbarcoGUI(list, this);
 		codaDiImbarco.setVisible(false);
@@ -318,7 +319,7 @@ public class Controller {
 	
 	public void openRisultatiCliente(String ricerca, String valore) {
 		ClienteDAOPostgres clientePostgres = new ClienteDAOPostgres(singleton);
-		List<Cliente> list = null;
+		List<Cliente> list = new LinkedList<Cliente>();
 		if (valore == "Seleziona tutti") {
 			list = clientePostgres.getAllCliente();	
 		}
@@ -334,18 +335,21 @@ public class Controller {
 	
 	
 	public void openRisultatiBiglietto(String ricerca, String valore) {
-		BigliettoDAOPostgres biglietto = new BigliettoDAOPostgres(singleton);
+		BigliettoDAOPostgres bigliettoPostgres = new BigliettoDAOPostgres(singleton);
 		List<Biglietto> list = null;
 		
 		if (valore == "Seleziona tutti") {
-			list = biglietto.getAllBiglietto();	
+			list = bigliettoPostgres.getAllBiglietto();	
 		}
 		else if(valore == "Codice Fiscale") {
-			list = biglietto.getBigliettoByCodFiscale(valore);
+			list = bigliettoPostgres.getBigliettoByCodFiscale(valore);
 		}
 		else if(valore == "Codice Tratta") {
-			list = biglietto.getBigliettoByCodTratta(valore);
+			list = bigliettoPostgres.getBigliettoByCodTratta(valore);
 		}
+		risultatiBiglietto = new RisultatiBigliettoGUI(list, this);
+		biglietto.setVisible(false);
+		risultatiBiglietto.setVisible(true);
 	}
 	
 	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data, String nGate, String CodIATA, String destinazione, String scali) throws ParseException{
@@ -477,8 +481,6 @@ public class Controller {
 		String testo = gate.insertGate(nGate, CodTratta);
 		openDialog(testo);
 
-		////////////////////////
-
 			
 	}
 
@@ -500,12 +502,15 @@ public class Controller {
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
 		java.util.Date date = null;
-		try {      /// da  rimuovere
+		
+		
+		try {
 			date = sdf1.parse(Data);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		Date sqlDate = new java.sql.Date(date.getTime());  
 		
 		String testo = slot.insertSlot(codSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,sqlDate);

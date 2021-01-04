@@ -1,8 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,9 +15,6 @@ public class MenùGUI extends JFrame {
 	private JPanel contentPane;
 	
 
-	/**
-	 * Create the frame.
-	 */
 	public MenùGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -29,83 +23,92 @@ public class MenùGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Menù");
 		
-		JButton btnNewButton = new JButton("Gate");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnGate = new JButton("Gate");
+		btnGate.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnGate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openGate();
 			}
 		});
-		btnNewButton.setBounds(205, 181, 124, 70);
-		contentPane.add(btnNewButton);
+		btnGate.setBounds(205, 181, 124, 70);
+		contentPane.add(btnGate);
 		
-		JButton btnNewButton_1 = new JButton("Slot");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnSlot = new JButton("Slot");
+		btnSlot.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnSlot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openSlot();
 			}
 		});
-		btnNewButton_1.setBounds(485, 181, 124, 70);
-		contentPane.add(btnNewButton_1);
+		btnSlot.setBounds(485, 181, 124, 70);
+		contentPane.add(btnSlot);
 		
-		JButton btnNewButton_2 = new JButton("Tratta");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton btnTratta = new JButton("Tratta");
+		btnTratta.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnTratta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openTratta();
 			}
 		});
-		btnNewButton_2.setBounds(205, 100, 124, 70);
-		contentPane.add(btnNewButton_2);
+		btnTratta.setBounds(205, 100, 124, 70);
+		contentPane.add(btnTratta);
 		
-		JButton btnNewButton_3 = new JButton("Fedelt\u00E0");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton btnFedeltà = new JButton("Fedelt\u00E0");
+		btnFedeltà.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnFedeltà.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openFedeltà();
 			}
 		});
-		btnNewButton_3.setBounds(205, 262, 124, 70);
-		contentPane.add(btnNewButton_3);
+		btnFedeltà.setBounds(205, 262, 124, 70);
+		contentPane.add(btnFedeltà);
 		
-		JButton btnNewButton_4 = new JButton("Compagnia");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton btnCompagnia = new JButton("Compagnia");
+		btnCompagnia.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCompagnia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openCompagnia();
 			}
 		});
-		btnNewButton_4.setBounds(485, 262, 124, 70);
-		contentPane.add(btnNewButton_4);
+		btnCompagnia.setBounds(485, 262, 124, 70);
+		contentPane.add(btnCompagnia);
 		
-		JButton btnNewButton_5 = new JButton("Coda di imbarco");
-		btnNewButton_5.addActionListener(new ActionListener() {
+		JButton btnCodaDiImbarco = new JButton("Coda di imbarco");
+		btnCodaDiImbarco.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCodaDiImbarco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openCodaDiImbarco();
 			}
 		});
-		btnNewButton_5.setBounds(205, 343, 124, 70);
-		contentPane.add(btnNewButton_5);
+		btnCodaDiImbarco.setBounds(188, 343, 158, 70);
+		contentPane.add(btnCodaDiImbarco);
 		
-		JButton btnNewButton_6 = new JButton("Biglietto");
-		btnNewButton_6.addActionListener(new ActionListener() {
+		JButton btnBiglietto = new JButton("Biglietto");
+		btnBiglietto.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnBiglietto.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openBiglietto();
 			}
 		});
-		btnNewButton_6.setBounds(485, 100, 124, 70);
-		contentPane.add(btnNewButton_6);
+		btnBiglietto.setBounds(485, 100, 124, 70);
+		contentPane.add(btnBiglietto);
 		
-		JLabel lblNewLabel = new JLabel("Scegli dove effettuare le operazioni");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel.setBounds(129, 11, 564, 80);
-		contentPane.add(lblNewLabel);
+		JLabel lblTitolo = new JLabel("Scegli dove effettuare le operazioni");
+		lblTitolo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitolo.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTitolo.setBounds(129, 11, 564, 80);
+		contentPane.add(lblTitolo);
 		
-		JButton btnNewButton_7 = new JButton("Cliente");
-		btnNewButton_7.addActionListener(new ActionListener() {
+		JButton btnCliente = new JButton("Cliente");
+		btnCliente.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.openCliente();
 			}
 		});
-		btnNewButton_7.setBounds(485, 343, 124, 70);
-		contentPane.add(btnNewButton_7);
+		btnCliente.setBounds(485, 343, 124, 70);
+		contentPane.add(btnCliente);
 	}
 }

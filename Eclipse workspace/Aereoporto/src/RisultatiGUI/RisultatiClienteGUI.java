@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 public class RisultatiClienteGUI extends JFrame {
 
 	private JPanel contentPane;
-	Controller controller;
+	private Controller controller;
 
 	public RisultatiClienteGUI(List<Cliente> list, Controller c) {
 		controller = c;
@@ -28,7 +28,7 @@ public class RisultatiClienteGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		setTitle("Risultati Cliente");
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		

@@ -1,11 +1,11 @@
 package DAOPostgres;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,15 +13,13 @@ import DAO.CompagniaDAO;
 import Entità.Compagnia;
 
 public class CompagniaDAOPostgres implements CompagniaDAO {
-	Connection conn;
-	List<Compagnia> ListCompagnia = new LinkedList<Compagnia>();
-	SingletonPostgres singleton;
+	
+	private Connection conn;
+	private List<Compagnia> ListCompagnia = new LinkedList<Compagnia>();
 
 	
 	public CompagniaDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-		singleton = sp;
-
 	}
 	
 	public List<Compagnia> getAllCompagnia() {

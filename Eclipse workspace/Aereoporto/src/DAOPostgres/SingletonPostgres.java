@@ -6,8 +6,7 @@ import java.sql.SQLException;
 
 public class SingletonPostgres {
 	private static Connection conn;
-	
-	private static SingletonPostgres instanza = null;
+	private static SingletonPostgres instanza;
 	
 	private SingletonPostgres() {
 		try {

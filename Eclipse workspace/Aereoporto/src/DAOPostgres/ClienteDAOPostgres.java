@@ -1,7 +1,6 @@
 package DAOPostgres;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,17 +9,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 import DAO.ClienteDAO;
-import Entità.Biglietto;
 import Entità.Cliente;
 
 public class ClienteDAOPostgres implements ClienteDAO {
-	Connection conn = null;
-	List<Cliente> ListCliente = new LinkedList<Cliente>();
-	SingletonPostgres singleton;
+	
+	private Connection conn;
+	private List<Cliente> ListCliente = new LinkedList<Cliente>();
 
 	public ClienteDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-		singleton = sp;
 
 	}
 

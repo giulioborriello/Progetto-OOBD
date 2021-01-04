@@ -1,6 +1,5 @@
 package Entità;
 
-import java.util.List;
 
 public class Compagnia {
 	private String CodIATA;

@@ -1,10 +1,10 @@
 package DAOPostgres;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,11 +12,9 @@ import DAO.GateDAO;
 import Entità.Gate;
 
 public class GateDAOPostgres implements GateDAO{
-	Connection conn;
-	PreparedStatement ps = null;
-	Statement st = null;
-	List<Gate> ListGate = new LinkedList<Gate>();
-	SingletonPostgres singleton;
+	private Connection conn;
+	private Statement st;
+	private List<Gate> ListGate = new LinkedList<Gate>();
 
 	
 	public GateDAOPostgres(SingletonPostgres sp) {
@@ -29,9 +27,8 @@ public class GateDAOPostgres implements GateDAO{
 			st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Gate\"");
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
-				int nGate = rs.getInt("Ngate");
-				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaByNgate(nGate));
+				
+				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
 				
 				ListGate.add(gate);
 				
@@ -42,6 +39,7 @@ public class GateDAOPostgres implements GateDAO{
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
 		return ListGate;	
 	}
@@ -54,9 +52,8 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
-				int nGate = rs.getInt("Ngate");
-				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"), tratta.getTrattaByNgate(nGate));
+				
+				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
 				
 			}
 			conn.close();
@@ -77,9 +74,8 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
-				int nGate = rs.getInt("Ngate");
-				gate = new Gate(nGate, rs.getString("CodTratta"), tratta.getTrattaByNgate(nGate));
+				
+				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
 				
 			}
 			conn.close();

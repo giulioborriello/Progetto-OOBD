@@ -1,9 +1,5 @@
 package RisultatiGUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import Entità.Slot;
 import Entità.Tratta;
 import GUI.Controller;
 
@@ -11,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
-import javax.swing.ListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -20,15 +15,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class RisultatiTrattaGUI extends JFrame {
-	Controller controller;
+	private Controller controller;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	/**
-	 * Create the frame.
-	 */
+	
 	public RisultatiTrattaGUI(List<Tratta> list, Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,8 +26,9 @@ public class RisultatiTrattaGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Risultati Tratta");
 		
-DefaultListModel<String> listModel = new DefaultListModel<String>();
+		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		for(Tratta tratta: list) {
 			String string = tratta.getCodTratta()+" "+tratta.getCodIATA()+" "+tratta.getDestinazione()+" "+tratta.getNgate()+" "+tratta.getNprenotazioni()+" "+tratta.getScali();

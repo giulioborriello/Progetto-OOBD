@@ -1,8 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,8 +15,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CodaDiImbarcoGUI extends JFrame {
-	Controller controller;
-	String[] ValoriScelta = {"Seleziona tutti","CodCoda","N° Gate","Codice Slot"};
+	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField CodCodatextField;
 	private JTextField TipoDiCodatextField;
@@ -27,15 +24,9 @@ public class CodaDiImbarcoGUI extends JFrame {
 	private JTextField CodSlottextField;
 	private JTextField EliminatextField;
 	private JLabel lblRicerca;
+	
+	private String[] tipiRicerca = {"Seleziona tutti","CodCoda","N° Gate","Codice Slot"};
 
-	/**
-	 * Launch the application.
-	 */
-
-
-	/**
-	 * Create the frame.
-	 */
 	public CodaDiImbarcoGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,6 +35,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Coda Di Imbarco");
 		
 		lblRicerca = new JLabel("Ricerca");
 		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
@@ -51,7 +43,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 		lblRicerca.setBounds(315, 11, 136, 42);
 		contentPane.add(lblRicerca);
 		
-		JComboBox comboBoxRicerca = new JComboBox(ValoriScelta);
+		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
 		comboBoxRicerca.setBounds(135, 108, 149, 22);
 		contentPane.add(comboBoxRicerca);
 		

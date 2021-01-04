@@ -5,17 +5,13 @@ public class CodaDiImbarco {
 	private String TipoDiCoda;
 	private int Ngate;
 	private int CodSlot;
-	private Slot Slot;
-	private Gate Gate;
 	
-	public CodaDiImbarco(int codCoda, String tipoDiCoda, int ngate, int codSlot, Slot slot, Gate gate) {
+	public CodaDiImbarco(int codCoda, String tipoDiCoda, int ngate, int codSlot) {
 		super();
 		CodCoda = codCoda;
 		TipoDiCoda = tipoDiCoda;
 		Ngate = ngate;
 		CodSlot = codSlot;
-		Slot = slot;
-		Gate = gate;
 	}
 
 	public int getCodCoda() {
@@ -49,23 +45,4 @@ public class CodaDiImbarco {
 	public void setCodSlot(int codSlot) {
 		CodSlot = codSlot;
 	}
-
-	public Slot getSlot() {
-		return Slot;
-	}
-
-	public void setSlot(Slot slot) {
-		Slot = slot;
-	}
-
-	public Gate getGate() {
-		return Gate;
-	}
-
-	public void setGate(Gate gate) {
-		Gate = gate;
-	}
-	
-	
-
 }

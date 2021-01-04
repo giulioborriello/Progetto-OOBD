@@ -1,8 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,20 +15,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CompagniaGUI extends JFrame {
-	String[] ValoriScelta = {"Seleziona tutti","CodIATA","Nome Compagnia",};
-	Controller controller;
+	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField CodIATAtextField;
 	private JTextField NomeCompagniatextField;
 	private JTextField EliminaCodIatatextField;
-
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
+	
+	private String[] ValoriScelta = {"Seleziona tutti","CodIATA","Nome Compagnia",};
+	
 	public CompagniaGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -40,6 +32,7 @@ public class CompagniaGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Compagnia");
 		
 		JLabel lblNewLabel_1 = new JLabel("Ricerca");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);

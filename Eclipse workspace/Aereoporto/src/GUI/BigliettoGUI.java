@@ -1,8 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,18 +14,19 @@ import java.awt.event.ActionEvent;
 
 public class BigliettoGUI extends JFrame {
 
-	Controller controller;
+	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField CodBigliettoTextField;
 	private JTextField CodfiscaleTextField;
 	private JTextField NomeTextField;
 	private JTextField PostoTextField;
 	private JTextField CodTrattaTextField;
-	
-	String[] tipiDiRicerca = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
-	String[] tipiDiBiglietti = {"Famiglia", "Diversamente Abili", "priority" , "Business Class", "Economy"};
 	private JTextField EliminaTextField;
 	private JTextField textFieldRicerca;
+	
+	private String[] tipiDiRicerca = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
+	private String[] tipiDiBiglietti = {"Famiglia", "Diversamente Abili", "priority" , "Business Class", "Economy"};
 	
 	public BigliettoGUI(Controller c) {
 		controller = c;
@@ -38,6 +36,7 @@ public class BigliettoGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Biglietto");
 		
 		JLabel lblRicerca = new JLabel("Ricerca");
 		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);

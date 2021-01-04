@@ -1,8 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -10,7 +7,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
-import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.JTextField;
@@ -18,14 +14,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class GateGUI extends JFrame {
-	String[] ValoriScelta = {"Seleziona tutti","N gate","CodTratta",};
-	Controller controller;
-
+	
+	private Controller controller;
 	private JPanel contentPane;
 	private JTextField textFieldNgate;
 	private JTextField textFieldCodTratta;
 	private JTextField textFieldElimina;
 	private JTextField textFieldRicerca;
+	private String[] ValoriScelta = {"Seleziona tutti","N gate","CodTratta",};
 	
 	public GateGUI(Controller c) {
 		controller = c;
@@ -35,6 +31,7 @@ public class GateGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Gate");
 		
 		JLabel lblRicerca = new JLabel("Ricerca");
 		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);

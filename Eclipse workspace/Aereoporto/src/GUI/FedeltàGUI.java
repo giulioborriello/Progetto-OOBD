@@ -1,7 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,7 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Fedelt‡GUI extends JFrame {
-	Controller controller;
+	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField textFieldCentokilometri;
 	private JTextField txtCodiatatextfield;
@@ -22,10 +21,6 @@ public class Fedelt‡GUI extends JFrame {
 	private JTextField txtPuntitextfield;
 	private JTextField txtRicercatextfield;
 	private JTextField txtCodFiscaleElimina;
-
-    String [] valoriRicerca = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
-    String [] valoriElimina = {"CentoKilometri","CodIATA","CodFiscale"};
-    
     private JTextField textFieldCodiceFiscale_AggiornaCentokilometri;
     private JTextField textFieldCodIATA_AggiornaCentoChilometri_;
     private JTextField textFieldCentoChilometri_AggiornaPunti;
@@ -34,10 +29,9 @@ public class Fedelt‡GUI extends JFrame {
     private JTextField textField_NuovoPunteggio;
     private JTextField textFieldCodIATA_Elimina;
 		
+    private String [] valoriRicerca = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
+    
 
-	/**
-	 * Create the frame.
-	 */
 	public Fedelt‡GUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,6 +40,7 @@ public class Fedelt‡GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Fedelt‡");
 		
 		JLabel lbl_Inserisci = new JLabel("Inserisci");
 		lbl_Inserisci.setFont(new Font("Tahoma", Font.PLAIN, 20));

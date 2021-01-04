@@ -1,13 +1,8 @@
 package GUI;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import DAOPostgres.SlotDAOPostgres;
-import Entità.Slot;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,15 +13,13 @@ import javax.swing.JTextField;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
 
 public class SlotGUI extends JFrame {
-	String[] ValoriScelta = {"Seleziona tutti","CodSlot","CodCoda","Data"};
-	Controller controller;
+	private String[] ValoriScelta = {"Seleziona tutti","CodSlot","CodCoda","Data"};
+	private Controller controller;
 	private JPanel contentPane;
 	private JTextField textFieldCodSlot;
 	private JTextField textFieldCodCoda;
@@ -36,7 +29,7 @@ public class SlotGUI extends JFrame {
 	private JTextField textFieldAggiornaTempoEffettivo;
 	private JTextField textFieldElimina;
 	private JTextField textFieldTempoEffettivo;
-
+	
 	
 	public SlotGUI(Controller c) {
 		controller = c;
@@ -46,6 +39,7 @@ public class SlotGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Slot");
 		
 		JComboBox comboBoxRicerca = new JComboBox(ValoriScelta);
 		comboBoxRicerca.setBounds(157, 85, 94, 22);

@@ -1,11 +1,11 @@
 package DAOPostgres;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,13 +13,11 @@ import DAO.FedeltaDAO;
 import Entit‡.Fedelt‡;
 
 public class Fedelt‡DAOPostgres implements FedeltaDAO {
-	Connection conn=null;
-	List<Fedelt‡> ListFedelt‡ = new LinkedList<Fedelt‡>();
-	SingletonPostgres singleton;
+	private Connection conn;
+	private List<Fedelt‡> ListFedelt‡ = new LinkedList<Fedelt‡>();
 	
 	public Fedelt‡DAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-		singleton = sp;
 	}
 	
 	public List<Fedelt‡> getAllFedelt‡() {
@@ -29,7 +27,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			
 			while(rs.next()) {
 				
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"), null, null);
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"));
 				
 				ListFedelt‡.add(fedelt‡);
 				
@@ -51,11 +49,8 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
-				String codFiscale = rs.getString("CodFiscale");
-				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(singleton);
-				String codIATA = rs.getString("CodIATA");
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
+				
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"));
 				
 				ListFedelt‡.add(fedelt‡);
 			}
@@ -75,11 +70,8 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
-				String codFiscale = rs.getString("CodFiscale");
-				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(singleton);
-				String codIATA = rs.getString("CodIATA");
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
+				
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"));
 				
 				ListFedelt‡.add(fedelt‡);
 				
@@ -101,11 +93,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			
 			while(rs.next()) {
 
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
-				String codFiscale = rs.getString("CodFiscale");
-				CompagniaDAOPostgres compagnia= new CompagniaDAOPostgres(singleton);
-				String codIATA = rs.getString("CodIATA");
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), codFiscale, rs.getInt("Punti"), cliente.getClienteByCodFiscale(codFiscale),compagnia.getCompagniaByCodIATA(codIATA) );
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"));
 				ListFedelt‡.add(fedelt‡);
 				
 			}
@@ -128,9 +116,10 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			ps.setInt(4, Punti);
 			ps.execute();
 			
+			return "Inserito Correttamente!";
 		} catch (SQLException e) {
-			e.getMessage();
-		} return "Inserito Correttamente!";
+			return e.getMessage();
+		} 
 	}
 	
 	public String updateCentoKilometriByCodFiscaleANDCodIATA(int CentoKilometri, String CodFiscale, String CodIATA)	{
@@ -171,7 +160,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	public String deleteFedelt‡(String CodFiscale) {
 		
 		try {
-				PreparedStatement ps = conn.prepareStatement("Delete From \"Fedelt‡\"  WHERE \"CodFiscale\" = ? ; ");
+			PreparedStatement ps = conn.prepareStatement("Delete From \"Fedelt‡\"  WHERE \"CodFiscale\" = ? ; ");
 				
 			ps.setString(1, CodFiscale);
 			ps.execute();

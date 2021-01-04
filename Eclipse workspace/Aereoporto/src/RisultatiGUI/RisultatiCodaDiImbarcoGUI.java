@@ -1,5 +1,5 @@
 package RisultatiGUI;
-import java.awt.BorderLayout;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,11 +13,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import Entità.CodaDiImbarco;
-import Entità.Gate;
 import GUI.Controller;
 
 public class RisultatiCodaDiImbarcoGUI extends JFrame {
-	Controller controller;
+	
+	private Controller controller;
 	private JPanel contentPane;
 
 	public RisultatiCodaDiImbarcoGUI(List<CodaDiImbarco> list, Controller c) {
@@ -28,7 +28,8 @@ public class RisultatiCodaDiImbarcoGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-				
+		setTitle("Risultati Coda Di Imbarco");		
+		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		

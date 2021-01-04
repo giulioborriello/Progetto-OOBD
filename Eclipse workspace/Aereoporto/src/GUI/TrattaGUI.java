@@ -1,6 +1,4 @@
 package GUI;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -45,6 +43,7 @@ public class TrattaGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Tratta");
 		
 		JLabel lbl_Inserimento = new JLabel("Inserimento");
 		lbl_Inserimento.setHorizontalAlignment(SwingConstants.CENTER);

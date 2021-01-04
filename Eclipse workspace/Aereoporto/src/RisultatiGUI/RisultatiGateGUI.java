@@ -1,8 +1,5 @@
 package RisultatiGUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -13,10 +10,7 @@ import Entità.Gate;
 import GUI.Controller;
 
 import javax.swing.JList;
-import javax.swing.JSeparator;
-import javax.swing.JTable;
 import javax.swing.DefaultListModel;
-import javax.swing.JDesktopPane;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -24,16 +18,9 @@ import java.awt.event.ActionEvent;
 
 public class RisultatiGateGUI extends JFrame {
 
-	Controller controller;
+	private Controller controller;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
 	public RisultatiGateGUI(List<Gate> list, Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,7 +29,8 @@ public class RisultatiGateGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-				
+		setTitle("Risultati Gate");
+		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		for(Gate gate: list) {

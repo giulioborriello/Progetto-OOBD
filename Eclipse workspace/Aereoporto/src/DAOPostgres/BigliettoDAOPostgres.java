@@ -1,6 +1,6 @@
 package DAOPostgres;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,17 +10,15 @@ import java.util.List;
 
 import DAO.BigliettoDAO;
 import Entità.Biglietto;
-import Entità.Cliente;
 
 public class BigliettoDAOPostgres implements BigliettoDAO {
-	Connection conn;
-	SingletonPostgres singleton;
-	List<Biglietto> ListBiglietto = new LinkedList<Biglietto>();
+	
+	private Connection conn;
+	private List<Biglietto> ListBiglietto = new LinkedList<Biglietto>();
 	
 	
 	public BigliettoDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-		singleton = sp;
 	}
 	
 	
@@ -31,14 +29,9 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Biglietto\"");
 			
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
-				String codFiscale = rs.getString("CodFiscale");
-				String codTratta = rs.getString("CodTratta");
 				
-				Biglietto biglietto = new Biglietto(codTratta, codFiscale, rs.getString("Nome"),
-						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"), 
-						cliente.getClienteByCodFiscale(codFiscale), tratta.getTrattaByCodTratta(codTratta));
+				Biglietto biglietto = new Biglietto(rs.getString("CodTratta"), rs.getString("CodFiscale"), 
+						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"));
 				
 				ListBiglietto.add(biglietto);
 				}
@@ -62,14 +55,9 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 
 			while(rs.next()) {
 				
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
-				String codFiscale = rs.getString("CodFiscale");
-				String codTratta = rs.getString("CodTratta");
 				
-				Biglietto biglietto = new Biglietto(codTratta, codFiscale, rs.getString("Nome"),
-						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"), 
-						cliente.getClienteByCodFiscale(codFiscale), tratta.getTrattaByCodTratta(codTratta));
+				Biglietto biglietto = new Biglietto(rs.getString("CodTratta"), rs.getString("CodFiscale"), 
+						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"));
 				
 				ListBiglietto.add(biglietto);
 				
@@ -94,14 +82,11 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			ResultSet rs=ps.executeQuery();
 
 			while(rs.next()) {
-				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
-				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
 				String codFiscale = rs.getString("CodFiscale");
 				String codTratta = rs.getString("CodTratta");
 				
-				Biglietto biglietto = new Biglietto(codTratta, codFiscale, rs.getString("Nome"),
-				rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"),  
-				cliente.getClienteByCodFiscale(codFiscale), tratta.getTrattaByCodTratta(codTratta));
+				Biglietto biglietto = new Biglietto(codTratta, codFiscale, 
+				rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"));
 				
 				ListBiglietto.add(biglietto);
 				}
@@ -149,7 +134,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			return "Eliminato Correttamente";
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			return e.getSQLState();
+			return e.getMessage();
 		}
 		
 	}

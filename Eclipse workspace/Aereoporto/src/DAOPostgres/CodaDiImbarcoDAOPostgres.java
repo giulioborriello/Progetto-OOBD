@@ -6,23 +6,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 import java.util.LinkedList;
 import java.util.List;
 
 import DAO.CodaDiImbarcoDAO;
-import Entità.Biglietto;
 import Entità.CodaDiImbarco;
-import Entità.Slot;
 
 public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
-	Connection conn = null;
-	SingletonPostgres singleton;
+	
+	private Connection conn;
 
-	List<CodaDiImbarco> ListCodaDiImbarco = new LinkedList<CodaDiImbarco>();
+	private List<CodaDiImbarco> ListCodaDiImbarco = new LinkedList<CodaDiImbarco>();
 
 	public CodaDiImbarcoDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-		singleton = sp;
 
 	}
 	
@@ -32,13 +30,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Code di imbarco\"");
 			
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
-				GateDAOPostgres gate = new GateDAOPostgres(singleton);
-				int codCoda = rs.getInt("CodCoda");
-				int ngate = rs.getInt("Ngate");
 				
-				CodaDiImbarco codaDiImbarco = new CodaDiImbarco(codCoda, rs.getString("TipoDiCoda"), ngate,
-						rs.getInt("CodSlot"), slot.getSlotByCodCoda(codCoda), gate.getGateByNgate(ngate));
+				CodaDiImbarco codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"), rs.getInt("CodSlot"));
 				
 				ListCodaDiImbarco.add(codaDiImbarco);
 			}
@@ -59,13 +52,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, CodCoda);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
-				GateDAOPostgres gate = new GateDAOPostgres(singleton);
-				int codCoda = rs.getInt("CodCoda");
-				int ngate = rs.getInt("Ngate");
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),
-						rs.getInt("CodSlot"), slot.getSlotByCodCoda(codCoda), gate.getGateByNgate(ngate));
+				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),rs.getInt("CodSlot"));
 			
 			}
 			rs.close();
@@ -86,13 +74,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setString(1, Ngate);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
-				GateDAOPostgres gate = new GateDAOPostgres(singleton);
-				int codCoda = rs.getInt("CodCoda");
-				int ngate = rs.getInt("Ngate");
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),
-						rs.getInt("CodSlot"), slot.getSlotByCodCoda(codCoda), gate.getGateByNgate(ngate));
+				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"), rs.getInt("CodSlot"));
 			
 			}
 			rs.close();
@@ -115,13 +98,8 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ps.setInt(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
-				GateDAOPostgres gate = new GateDAOPostgres(singleton);
-				int codCoda = rs.getInt("CodCoda");
-				int ngate = rs.getInt("Ngate");
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),
-						rs.getInt("CodSlot"), slot.getSlotByCodCoda(codCoda), gate.getGateByNgate(ngate));
+				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"), rs.getInt("CodSlot"));
 			}
 			rs.close();
 			ps.close();
@@ -135,8 +113,6 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	
 	public String insertCodaDiImbarco(int CodCoda, String TipoDiCoda, int Ngate, int CodSlot)	{
 			try {
-				Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-				
 				PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?); ");
 				ps.setInt(1, CodCoda);
 				ps.setString(2, TipoDiCoda);

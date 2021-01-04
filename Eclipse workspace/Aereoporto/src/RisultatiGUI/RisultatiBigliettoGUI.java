@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 public class RisultatiBigliettoGUI extends JFrame {
 
 	private JPanel contentPane;
-	Controller controller;
+	private Controller controller;
 	
 	public RisultatiBigliettoGUI(List<Biglietto> list, Controller c) {
 		controller = c;
@@ -28,14 +28,13 @@ public class RisultatiBigliettoGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		setTitle("Risultati Biglietto");
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		for(Biglietto biglietto: list) {
-			String string = biglietto.getCodBiglietto() + " " + biglietto.getCodFiscale() + " " + biglietto.getNome()
-			+ " " + biglietto.getPosto() + " " + biglietto.getTipo_Di_Biglietto() + " " 
-					+ biglietto.getCodTratta();
+			String string = biglietto.getCodBiglietto() + " " + biglietto.getCodFiscale() + " " 
+					+ biglietto.getPosto() + " " + biglietto.getTipo_Di_Biglietto() + " " + biglietto.getCodTratta();
 			listModel.addElement(string);
 			
 		}
