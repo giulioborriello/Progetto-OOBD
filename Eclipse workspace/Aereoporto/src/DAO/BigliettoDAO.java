@@ -12,7 +12,7 @@ public interface BigliettoDAO {
 
 	public List<Biglietto> getBigliettoByCodTratta(String CodTratta);
 	
-	public String insertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto);
+	public String insertBiglietto(String CodFiscale, String TipoDiBiglietto, String CodBiglietto, String CodTratta, String Posto);
 	
 	public String deleteBiglietto(String CodBiglietto);
 	

@@ -1,6 +1,7 @@
 package DAOPostgres;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,12 +14,13 @@ import DAO.TrattaDAO;
 import Entità.Tratta;
 
 public class TrattaDAOPostgres implements TrattaDAO{
-	
-	private Connection conn = null;
-	private List<Tratta> ListTratta = new LinkedList<Tratta>();
+	Connection conn = null;
+	List<Tratta> ListTratta = new LinkedList<Tratta>();
+	SingletonPostgres singleton;
 	
 	public TrattaDAOPostgres(SingletonPostgres sp) {
 	conn = sp.getConnection();
+	singleton = sp;
 	}
 	
 		
@@ -30,7 +32,8 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				while(rs.next()) {
 					
 					Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-							rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+							rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+							null, null);
 					
 					ListTratta.add(tratta);
 				}
@@ -50,9 +53,14 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);	
 			ResultSet rs=ps.executeQuery();
+			    int ngate = rs.getInt("Ngate");
+			    String codIATA = rs.getString("CodIATA");
+			    GateDAOPostgres gate = new GateDAOPostgres(singleton);
+			    CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres(singleton);
 			    
 				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), ngate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						gate.getGateByNgate(ngate), compagnia.getCompagniaByCodIATA(codIATA));
 				
 				conn.close();
 				rs.close();
@@ -71,9 +79,9 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ps.setString(1, Data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null);
 				
 				ListTratta.add(tratta);
 			}
@@ -93,13 +101,14 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
 			ps.setInt(1, nGate);
 			ResultSet rs=ps.executeQuery();
-			
-			
+			GateDAOPostgres gate = new GateDAOPostgres(singleton);
+		    CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres(singleton);
 			while(rs.next()) {
+				String codIATA = rs.getString("CodIATA");
 				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), nGate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), nGate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null);
 			}
-			
 			conn.close();
 			rs.close();
 			ps.close();
@@ -118,7 +127,8 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			
 			while(rs.next()) {
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null);
 				
 				ListTratta.add(tratta);
 			}
@@ -139,7 +149,8 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null);
 				
 				ListTratta.add(tratta);
 			}
@@ -153,14 +164,15 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return ListTratta;	
 	}
 	
-	public List<Tratta> getTrattaByNgate(String Ngate) {
+	public List<Tratta> getTrattaByNgate(String 					) {
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Ngate\" = ?");
 			ps.setString(1, Ngate);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"),
+						null, null);
 				
 				ListTratta.add(tratta);
 			}
@@ -197,6 +209,10 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			return e.getMessage();
 		}
 	}
+
+
+	
+	
 	
 	public String deleteTratta(String CodTratta) {
 		
@@ -215,4 +231,13 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			return e.getMessage();
 		}
 	}
+	
+//	public void VerificaFormatoCodTratta() {
+//		 try {
+//			st.executeUpdate("ALTER TABLE \"Tratta\" ADD CONSTRAINT Verifica_Formato_CodTratta CHECK(\"CodTratta\" ~* '^[a-zA-Z] + [a-zA-Z] + [a-zA-Z] + % +$ ')");
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//	}
 }
