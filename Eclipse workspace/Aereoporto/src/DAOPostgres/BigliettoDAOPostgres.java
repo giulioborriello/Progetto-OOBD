@@ -14,7 +14,7 @@ import Entità.Biglietto;
 public class BigliettoDAOPostgres implements BigliettoDAO {
 	
 	private Connection conn;
-	private List<Biglietto> ListBiglietto = new LinkedList<Biglietto>();
+	private List<Biglietto> listBiglietto = new LinkedList<Biglietto>();
 	
 	
 	public BigliettoDAOPostgres(SingletonPostgres sp) {
@@ -33,7 +33,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 				Biglietto biglietto = new Biglietto(rs.getString("CodTratta"), rs.getString("CodFiscale"), 
 						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"));
 				
-				ListBiglietto.add(biglietto);
+				listBiglietto.add(biglietto);
 				}
 			rs.close();
 			st.close();
@@ -43,7 +43,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}	
-			return ListBiglietto;
+			return listBiglietto;
 		}
 
 	public List<Biglietto> getBigliettoByCodFiscale(String CodFiscale){
@@ -59,7 +59,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 				Biglietto biglietto = new Biglietto(rs.getString("CodTratta"), rs.getString("CodFiscale"), 
 						rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"));
 				
-				ListBiglietto.add(biglietto);
+				listBiglietto.add(biglietto);
 				
 				}
 			
@@ -70,7 +70,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return ListBiglietto;
+		return listBiglietto;
 
 
 	}
@@ -88,7 +88,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 				Biglietto biglietto = new Biglietto(codTratta, codFiscale, 
 				rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), rs.getString("CodBiglietto"));
 				
-				ListBiglietto.add(biglietto);
+				listBiglietto.add(biglietto);
 				}
 			
 			rs.close();
@@ -98,7 +98,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return ListBiglietto;
+		return listBiglietto;
 
 	}
 	

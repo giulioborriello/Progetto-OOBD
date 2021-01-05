@@ -17,16 +17,16 @@ public class BigliettoGUI extends JFrame {
 	private Controller controller;
 	
 	private JPanel contentPane;
-	private JTextField CodBigliettoTextField;
-	private JTextField CodfiscaleTextField;
-	private JTextField NomeTextField;
-	private JTextField PostoTextField;
-	private JTextField CodTrattaTextField;
-	private JTextField EliminaTextField;
+	private JTextField codBigliettoTextField;
+	private JTextField codfiscaleTextField;
+	private JTextField nomeTextField;
+	private JTextField postoTextField;
+	private JTextField codTrattaTextField;
+	private JTextField eliminaTextField;
 	private JTextField textFieldRicerca;
 	
-	private String[] tipiDiRicerca = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
-	private String[] tipiDiBiglietti = {"Famiglia", "Diversamente Abili", "priority" , "Business Class", "Economy"};
+	private String[] tipiRicerca = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
+	private String[] tipiBiglietti = {"Famiglia", "Diversamente Abili", "priority" , "Business Class", "Economy"};
 	
 	public BigliettoGUI(Controller c) {
 		controller = c;
@@ -56,7 +56,7 @@ public class BigliettoGUI extends JFrame {
 		contentPane.add(textFieldRicerca);
 		textFieldRicerca.setColumns(10);
 		
-		JComboBox RicercaComboBox = new JComboBox(tipiDiRicerca);
+		JComboBox RicercaComboBox = new JComboBox(tipiRicerca);
 		RicercaComboBox.setBounds(225, 72, 103, 22);
 		contentPane.add(RicercaComboBox);
 		
@@ -113,41 +113,41 @@ public class BigliettoGUI extends JFrame {
 		lblCodtratta_5.setBounds(614, 175, 85, 40);
 		contentPane.add(lblCodtratta_5);
 		
-		CodBigliettoTextField = new JTextField();
-		CodBigliettoTextField.setBounds(21, 226, 86, 20);
-		contentPane.add(CodBigliettoTextField);
-		CodBigliettoTextField.setColumns(10);
+		codBigliettoTextField = new JTextField();
+		codBigliettoTextField.setBounds(21, 226, 86, 20);
+		contentPane.add(codBigliettoTextField);
+		codBigliettoTextField.setColumns(10);
 		
-		CodfiscaleTextField = new JTextField();
-		CodfiscaleTextField.setColumns(10);
-		CodfiscaleTextField.setBounds(138, 226, 86, 20);
-		contentPane.add(CodfiscaleTextField);
+		codfiscaleTextField = new JTextField();
+		codfiscaleTextField.setColumns(10);
+		codfiscaleTextField.setBounds(138, 226, 86, 20);
+		contentPane.add(codfiscaleTextField);
 		
-		NomeTextField = new JTextField();
-		NomeTextField.setColumns(10);
-		NomeTextField.setBounds(244, 226, 86, 20);
-		contentPane.add(NomeTextField);
+		nomeTextField = new JTextField();
+		nomeTextField.setColumns(10);
+		nomeTextField.setBounds(244, 226, 86, 20);
+		contentPane.add(nomeTextField);
 		
-		PostoTextField = new JTextField();
-		PostoTextField.setColumns(10);
-		PostoTextField.setBounds(356, 226, 86, 20);
-		contentPane.add(PostoTextField);
+		postoTextField = new JTextField();
+		postoTextField.setColumns(10);
+		postoTextField.setBounds(356, 226, 86, 20);
+		contentPane.add(postoTextField);
 		
-		JComboBox TipoDiBigliettoComboBox = new JComboBox(tipiDiBiglietti);
+		JComboBox TipoDiBigliettoComboBox = new JComboBox(tipiBiglietti);
 		TipoDiBigliettoComboBox.setBounds(476, 226, 103, 22);
 		contentPane.add(TipoDiBigliettoComboBox);
 		
-		CodTrattaTextField = new JTextField();
-		CodTrattaTextField.setColumns(10);
-		CodTrattaTextField.setBounds(613, 226, 86, 20);
-		contentPane.add(CodTrattaTextField);
+		codTrattaTextField = new JTextField();
+		codTrattaTextField.setColumns(10);
+		codTrattaTextField.setBounds(613, 226, 86, 20);
+		contentPane.add(codTrattaTextField);
 		
 	
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.inserisciBiglietto(CodfiscaleTextField.getText(), TipoDiBigliettoComboBox.getSelectedItem().toString(), 
-						CodBigliettoTextField.getText(), CodTrattaTextField.getText(), PostoTextField.getText());
+				controller.inserisciBiglietto(codfiscaleTextField.getText(), TipoDiBigliettoComboBox.getSelectedItem().toString(), 
+						codBigliettoTextField.getText(), codTrattaTextField.getText(), postoTextField.getText());
 			}
 		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -161,15 +161,15 @@ public class BigliettoGUI extends JFrame {
 		lblElimina.setBounds(341, 275, 119, 58);
 		contentPane.add(lblElimina);
 		
-		EliminaTextField = new JTextField();
-		EliminaTextField.setColumns(10);
-		EliminaTextField.setBounds(356, 381, 86, 20);
-		contentPane.add(EliminaTextField);
+		eliminaTextField = new JTextField();
+		eliminaTextField.setColumns(10);
+		eliminaTextField.setBounds(356, 381, 86, 20);
+		contentPane.add(eliminaTextField);
 		
 		JButton EliminaInviaButton = new JButton("Invia");
 		EliminaInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.eliminaBiglietto(EliminaTextField.getText());
+				controller.eliminaBiglietto(eliminaTextField.getText());
 			}
 		});
 

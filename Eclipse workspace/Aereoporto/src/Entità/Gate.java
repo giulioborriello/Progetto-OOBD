@@ -3,29 +3,29 @@ package Entità;
 
 public class Gate {
 
-	private int Ngate;
-	private String CodTratta;
+	private int nGate;
+	private String codTratta;
 
-	public Gate(int ngate, String codTratta) {
+	public Gate(int Ngate, String CodTratta) {
 		super();
-		Ngate = ngate;
-		CodTratta = codTratta;
+		nGate = Ngate;
+		codTratta = CodTratta;
 	}
 
 	public int getNgate() {
-		return Ngate;
+		return nGate;
 	}
 
-	public void setNgate(int ngate) {
-		Ngate = ngate;
+	public void setNgate(int Ngate) {
+		nGate = Ngate;
 	}
 
 	public String getCodTratta() {
-		return CodTratta;
+		return codTratta;
 	}
 
-	public void setCodTratta(String codTratta) {
-		CodTratta = codTratta;
+	public void setCodTratta(String CodTratta) {
+		codTratta = CodTratta;
 	}
 	
 }

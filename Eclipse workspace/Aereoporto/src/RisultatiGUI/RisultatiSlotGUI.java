@@ -16,7 +16,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class RisultatiSlotGUI extends JFrame {
+	
 	private Controller controller;
+	
 	private JPanel contentPane;
 	
 	public RisultatiSlotGUI(List<Slot> list, Controller c) {

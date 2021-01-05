@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 public class RisultatiCompagniaGUI extends JFrame {
 
 	private Controller controller;
+	
 	private JPanel contentPane;
 
 	public RisultatiCompagniaGUI(List<Compagnia> list, Controller c) {

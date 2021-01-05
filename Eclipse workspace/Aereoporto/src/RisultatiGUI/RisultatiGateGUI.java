@@ -19,6 +19,7 @@ import java.awt.event.ActionEvent;
 public class RisultatiGateGUI extends JFrame {
 
 	private Controller controller;
+	
 	private JPanel contentPane;
 
 	public RisultatiGateGUI(List<Gate> list, Controller c) {

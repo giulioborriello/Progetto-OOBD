@@ -18,6 +18,7 @@ import GUI.Controller;
 public class RisultatiCodaDiImbarcoGUI extends JFrame {
 	
 	private Controller controller;
+	
 	private JPanel contentPane;
 
 	public RisultatiCodaDiImbarcoGUI(List<CodaDiImbarco> list, Controller c) {

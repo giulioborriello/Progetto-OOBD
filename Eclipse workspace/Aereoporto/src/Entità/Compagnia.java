@@ -2,31 +2,31 @@ package Entità;
 
 
 public class Compagnia {
-	private String CodIATA;
-	private String NomeCompagnia;
+	private String codIATA;
+	private String nomeCompagnia;
 	
 	
 
-	public Compagnia(String codIATA, String nomeCompagnia) {
+	public Compagnia(String CodIATA, String NomeCompagnia) {
 		super();
-		CodIATA = codIATA;
-		NomeCompagnia = nomeCompagnia;
+		codIATA = CodIATA;
+		nomeCompagnia = NomeCompagnia;
 	}
 
 	public String getCodIATA() {
-		return CodIATA;
+		return codIATA;
 	}
 
-	public void setCodIATA(String codIATA) {
-		CodIATA = codIATA;
+	public void setCodIATA(String CodIATA) {
+		codIATA = CodIATA;
 	}
 
 	public String getNomeCompagnia() {
-		return NomeCompagnia;
+		return nomeCompagnia;
 	}
 
-	public void setNomeCompagnia(String nomeCompagnia) {
-		NomeCompagnia = nomeCompagnia;
+	public void setNomeCompagnia(String NomeCompagnia) {
+		nomeCompagnia = NomeCompagnia;
 	}
 	
 }

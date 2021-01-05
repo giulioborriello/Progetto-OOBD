@@ -15,7 +15,7 @@ import Entità.Compagnia;
 public class CompagniaDAOPostgres implements CompagniaDAO {
 	
 	private Connection conn;
-	private List<Compagnia> ListCompagnia = new LinkedList<Compagnia>();
+	private List<Compagnia> listCompagnia = new LinkedList<Compagnia>();
 
 	
 	public CompagniaDAOPostgres(SingletonPostgres sp) {
@@ -30,7 +30,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 				
 				Compagnia compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"));
 				
-				ListCompagnia.add(compagnia);
+				listCompagnia.add(compagnia);
 			}
 			rs.close();
 			st.close();
@@ -39,7 +39,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return ListCompagnia;
+		return listCompagnia;
 	}
 	
 	

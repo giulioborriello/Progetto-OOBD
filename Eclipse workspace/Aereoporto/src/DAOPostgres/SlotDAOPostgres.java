@@ -17,7 +17,7 @@ import Entità.Slot;
 
 public class SlotDAOPostgres implements SlotDAO{
 
-	private List<Slot> ListSlot = new LinkedList<Slot>();
+	private List<Slot> listSlot = new LinkedList<Slot>();
 	private Connection conn;
 	
 	public SlotDAOPostgres(SingletonPostgres sp) {
@@ -36,7 +36,7 @@ public class SlotDAOPostgres implements SlotDAO{
 				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"));
 				
-				ListSlot.add(Slot);
+				listSlot.add(Slot);
 			}
 			conn.close();
 			st.close();
@@ -46,7 +46,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			e.printStackTrace();
 		}	
 		
-		return ListSlot;
+		return listSlot;
 	}
 	
 	public Slot getSlotByCodSlot(int CodSlot) {
@@ -104,7 +104,7 @@ public class SlotDAOPostgres implements SlotDAO{
 				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"));
 				
-				ListSlot.add(Slot);
+				listSlot.add(Slot);
 			}
 			conn.close();
 			ps.close();
@@ -114,7 +114,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return ListSlot;	
+		return listSlot;	
 	}
 	
 	public String insertSlot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo,Date Data)	{

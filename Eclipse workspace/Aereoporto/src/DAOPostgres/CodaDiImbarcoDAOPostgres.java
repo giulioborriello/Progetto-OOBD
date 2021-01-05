@@ -17,7 +17,7 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	
 	private Connection conn;
 
-	private List<CodaDiImbarco> ListCodaDiImbarco = new LinkedList<CodaDiImbarco>();
+	private List<CodaDiImbarco> listCodaDiImbarco = new LinkedList<CodaDiImbarco>();
 
 	public CodaDiImbarcoDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
@@ -33,7 +33,7 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 				
 				CodaDiImbarco codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"), rs.getInt("CodSlot"));
 				
-				ListCodaDiImbarco.add(codaDiImbarco);
+				listCodaDiImbarco.add(codaDiImbarco);
 			}
 			rs.close();
 			st.close();
@@ -42,7 +42,7 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return ListCodaDiImbarco;	
+		return listCodaDiImbarco;	
 	}
 
 	public CodaDiImbarco getCodaDiImbarcoByCodCoda(String CodCoda){

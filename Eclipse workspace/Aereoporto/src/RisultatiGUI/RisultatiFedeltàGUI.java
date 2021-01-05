@@ -17,8 +17,10 @@ import java.awt.event.ActionEvent;
 
 public class RisultatiFedelt‡GUI extends JFrame {
 
-	private JPanel contentPane;
 	private Controller controller;
+	
+	private JPanel contentPane;
+	
 	
 	public RisultatiFedelt‡GUI(List<Fedelt‡> list, Controller c) {
 		controller = c;

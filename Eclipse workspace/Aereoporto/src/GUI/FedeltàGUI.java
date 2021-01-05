@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Fedelt‡GUI extends JFrame {
+	
 	private Controller controller;
 	
 	private JPanel contentPane;
@@ -29,7 +30,7 @@ public class Fedelt‡GUI extends JFrame {
     private JTextField textField_NuovoPunteggio;
     private JTextField textFieldCodIATA_Elimina;
 		
-    private String [] valoriRicerca = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
+    private String [] tipiRicerca = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
     
 
 	public Fedelt‡GUI(Controller c) {
@@ -105,7 +106,7 @@ public class Fedelt‡GUI extends JFrame {
 		lbl_Ricerca.setBounds(370, 156, 73, 31);
 		contentPane.add(lbl_Ricerca);
 		
-		JComboBox comboBox_Ricerca = new JComboBox(valoriRicerca);
+		JComboBox comboBox_Ricerca = new JComboBox(tipiRicerca);
 		comboBox_Ricerca.setBounds(194, 220, 95, 20);
 		contentPane.add(comboBox_Ricerca);
 		

@@ -16,9 +16,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class RisultatiBigliettoGUI extends JFrame {
-
-	private JPanel contentPane;
+	
 	private Controller controller;
+	
+	private JPanel contentPane;
+	
 	
 	public RisultatiBigliettoGUI(List<Biglietto> list, Controller c) {
 		controller = c;

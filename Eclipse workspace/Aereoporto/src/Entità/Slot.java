@@ -4,53 +4,53 @@ import java.sql.Date;
 
 public class Slot {
 	
-	private int CodSlot;
-	private int TempoDiImbarcoStimato;
-	private int TempoDiImbarcoEffettivo;
-	private int CodCoda;
-	private Date Data;
+	private int codSlot;
+	private int tempoDiImbarcoStimato;
+	private int tempoDiImbarcoEffettivo;
+	private int codCoda;
+	private Date data;
 	
-	public Slot(int codSlot, int tempoDiImbarcoStimato, int tempoDiImbarcoEffettivo, int codCoda, Date data) {
+	public Slot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, int CodCoda, Date Data) {
 		super();
-		CodSlot = codSlot;
-		TempoDiImbarcoStimato = tempoDiImbarcoStimato;
-		TempoDiImbarcoEffettivo = tempoDiImbarcoEffettivo;
-		CodCoda = codCoda;
-		Data = data;
+		codSlot = CodSlot;
+		tempoDiImbarcoStimato = TempoDiImbarcoStimato;
+		tempoDiImbarcoEffettivo = TempoDiImbarcoEffettivo;
+		codCoda = CodCoda;
+		data = Data;
 	}
 	
 	public int getCodSlot() {
-		return CodSlot;
+		return codSlot;
 	}
-	public void setCodSlot(int codSlot) {
-		CodSlot = codSlot;
+	public void setCodSlot(int CodSlot) {
+		codSlot = CodSlot;
 	}
 	public int getTempoDiImbarcoStimato() {
-		return TempoDiImbarcoStimato;
+		return tempoDiImbarcoStimato;
 	}
-	public void setTempoDiImbarcoStimato(int tempoDiImbarcoStimato) {
-		TempoDiImbarcoStimato = tempoDiImbarcoStimato;
+	public void setTempoDiImbarcoStimato(int TempoDiImbarcoStimato) {
+		tempoDiImbarcoStimato = TempoDiImbarcoStimato;
 	}
 	public int getTempoDiImbarcoEffettivo() {
-		return TempoDiImbarcoEffettivo;
+		return tempoDiImbarcoEffettivo;
 	}
-	public void setTempoDiImbarcoEffettivo(int tempoDiImbarcoEffettivo) {
-		TempoDiImbarcoEffettivo = tempoDiImbarcoEffettivo;
+	public void setTempoDiImbarcoEffettivo(int TempoDiImbarcoEffettivo) {
+		tempoDiImbarcoEffettivo = TempoDiImbarcoEffettivo;
 	}
 
 	public int getCodCoda() {
-		return CodCoda;
+		return codCoda;
 	}
 
-	public void setCodCoda(int codCoda) {
-		CodCoda = codCoda;
+	public void setCodCoda(int CodCoda) {
+		codCoda = CodCoda;
 	}
 
 	public Date getData() {
-		return Data;
+		return data;
 	}
 
 	public void setData(Date data) {
-		this.Data = data;
+		this.data = data;
 	}
 }
