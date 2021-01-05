@@ -1,8 +1,5 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -17,17 +14,19 @@ import java.awt.event.ActionEvent;
 
 public class BigliettoGUI extends JFrame {
 
-	Controller controller;
+	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField CodBigliettoTextField;
 	private JTextField CodfiscaleTextField;
 	private JTextField NomeTextField;
 	private JTextField PostoTextField;
 	private JTextField CodTrattaTextField;
-	
-	String[] ValoriScelta = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
 	private JTextField EliminaTextField;
 	private JTextField textFieldRicerca;
+	
+	private String[] tipiDiRicerca = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
+	private String[] tipiDiBiglietti = {"Famiglia", "Diversamente Abili", "priority" , "Business Class", "Economy"};
 	
 	public BigliettoGUI(Controller c) {
 		controller = c;
@@ -37,6 +36,7 @@ public class BigliettoGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Biglietto");
 		
 		JLabel lblRicerca = new JLabel("Ricerca");
 		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
@@ -56,7 +56,7 @@ public class BigliettoGUI extends JFrame {
 		contentPane.add(textFieldRicerca);
 		textFieldRicerca.setColumns(10);
 		
-		JComboBox RicercaComboBox = new JComboBox(ValoriScelta);
+		JComboBox RicercaComboBox = new JComboBox(tipiDiRicerca);
 		RicercaComboBox.setBounds(225, 72, 103, 22);
 		contentPane.add(RicercaComboBox);
 		
@@ -133,7 +133,7 @@ public class BigliettoGUI extends JFrame {
 		PostoTextField.setBounds(356, 226, 86, 20);
 		contentPane.add(PostoTextField);
 		
-		JComboBox TipoDiBigliettoComboBox = new JComboBox(new Object[]{});
+		JComboBox TipoDiBigliettoComboBox = new JComboBox(tipiDiBiglietti);
 		TipoDiBigliettoComboBox.setBounds(476, 226, 103, 22);
 		contentPane.add(TipoDiBigliettoComboBox);
 		
@@ -146,8 +146,8 @@ public class BigliettoGUI extends JFrame {
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.inserisciBiglietto(CodBigliettoTextField.getText(), CodfiscaleTextField.getText(), PostoTextField.getText(), 
-						TipoDiBigliettoComboBox.getSelectedItem().toString(), CodTrattaTextField.getText());
+				controller.inserisciBiglietto(CodfiscaleTextField.getText(), TipoDiBigliettoComboBox.getSelectedItem().toString(), 
+						CodBigliettoTextField.getText(), CodTrattaTextField.getText(), PostoTextField.getText());
 			}
 		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));

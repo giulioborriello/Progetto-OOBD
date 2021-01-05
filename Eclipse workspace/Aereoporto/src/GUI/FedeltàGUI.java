@@ -1,15 +1,8 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Check.CheckFormatoCodFiscale;
-import Check.CheckFormatoCodIATA;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -19,29 +12,26 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Fedelt‡GUI extends JFrame {
-	Controller controller;
+	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField textFieldCentokilometri;
 	private JTextField txtCodiatatextfield;
 	private JTextField txtCodfiscaletextfield;
 	private JTextField txtPuntitextfield;
 	private JTextField txtRicercatextfield;
-	private JTextField txtEliminatextfield;
-
-    String [] valoriRicerca = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
-    String [] valoriElimina = {"CentoKilometri","CodiATA","CodFiscale"};
-    
+	private JTextField txtCodFiscaleElimina;
     private JTextField textFieldCodiceFiscale_AggiornaCentokilometri;
     private JTextField textFieldCodIATA_AggiornaCentoChilometri_;
     private JTextField textFieldCentoChilometri_AggiornaPunti;
     private JTextField textField_CodiceIATA_AggiornaPunti;
     private JTextField textField_CentoKilometriAggiornaCentokilometri;
     private JTextField textField_NuovoPunteggio;
+    private JTextField textFieldCodIATA_Elimina;
 		
+    private String [] valoriRicerca = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
+    
 
-	/**
-	 * Create the frame.
-	 */
 	public Fedelt‡GUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,6 +40,7 @@ public class Fedelt‡GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setTitle("Fedelt‡");
 		
 		JLabel lbl_Inserisci = new JLabel("Inserisci");
 		lbl_Inserisci.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -100,17 +91,8 @@ public class Fedelt‡GUI extends JFrame {
 		Button_InviaInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				if(!txtCodfiscaletextfield.getText().matches("^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$")) {
-					controller.openDialog("Il codice fiscale non rispetta il formato corretto");
-				}
-				if(!txtCodiatatextfield.getText().matches("")) {
-					controller.openDialog("Il codice IATA deve essere 2 carattare maiuscoli");
-				}
-				
-				
-
-				controller.inserisciFedelt‡(Integer.valueOf(textFieldCentokilometri.getText()), txtCodiatatextfield.getText(), 
-						txtCodfiscaletextfield.getText(), Integer.valueOf(txtPuntitextfield.getText()));
+				controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), 
+						txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
 					
 		}
 	});
@@ -120,29 +102,29 @@ public class Fedelt‡GUI extends JFrame {
 		
 		JLabel lbl_Ricerca = new JLabel("Ricerca");
 		lbl_Ricerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lbl_Ricerca.setBounds(373, 171, 73, 31);
+		lbl_Ricerca.setBounds(370, 156, 73, 31);
 		contentPane.add(lbl_Ricerca);
 		
 		JComboBox comboBox_Ricerca = new JComboBox(valoriRicerca);
-		comboBox_Ricerca.setBounds(197, 235, 95, 20);
+		comboBox_Ricerca.setBounds(194, 220, 95, 20);
 		contentPane.add(comboBox_Ricerca);
 		
 		txtRicercatextfield = new JTextField();
-		txtRicercatextfield.setBounds(339, 224, 132, 43);
+		txtRicercatextfield.setBounds(336, 209, 132, 43);
 		contentPane.add(txtRicercatextfield);
 		txtRicercatextfield.setColumns(10);
 		
 		JLabel lbl_Elimina = new JLabel("Elimina");
 		lbl_Elimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lbl_Elimina.setBounds(373, 306, 73, 50);
+		lbl_Elimina.setBounds(369, 296, 73, 50);
 		contentPane.add(lbl_Elimina);
 		
 		
 		
-		txtEliminatextfield = new JTextField();
-		txtEliminatextfield.setColumns(10);
-		txtEliminatextfield.setBounds(339, 367, 132, 43);
-		contentPane.add(txtEliminatextfield);
+		txtCodFiscaleElimina = new JTextField();
+		txtCodFiscaleElimina.setColumns(10);
+		txtCodFiscaleElimina.setBounds(166, 376, 122, 20);
+		contentPane.add(txtCodFiscaleElimina);
 		
 		JButton Button_BackToMenu = new JButton("Men\u00F9");
 		Button_BackToMenu.addActionListener(new ActionListener() {
@@ -163,17 +145,17 @@ public class Fedelt‡GUI extends JFrame {
 			}
 		});
 		Button_InviaRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Button_InviaRicerca.setBounds(507, 224, 85, 40);
+		Button_InviaRicerca.setBounds(504, 209, 85, 40);
 		contentPane.add(Button_InviaRicerca);
 		
 		JButton Button_InviaElimina = new JButton("Invia");
 		Button_InviaElimina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			controller.eliminaFedelt‡(txtEliminatextfield.getText());	
+			controller.eliminaFedelt‡(txtCodFiscaleElimina.getText(), textFieldCodIATA_Elimina.getText());	
           }
 		});
 		Button_InviaElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Button_InviaElimina.setBounds(507, 366, 85, 40);
+		Button_InviaElimina.setBounds(503, 356, 85, 40);
 		contentPane.add(Button_InviaElimina);
 		
 		textFieldCodiceFiscale_AggiornaCentokilometri = new JTextField();
@@ -195,10 +177,6 @@ public class Fedelt‡GUI extends JFrame {
 		ButtonAggiornaCentokilometri.setFont(new Font("Tahoma", Font.BOLD, 15));
 		ButtonAggiornaCentokilometri.setBounds(506, 507, 85, 40);
 		contentPane.add(ButtonAggiornaCentokilometri);
-		
-		JComboBox comboBoxElimina = new JComboBox(valoriElimina);
-		comboBoxElimina.setBounds(197, 377, 95, 20);
-		contentPane.add(comboBoxElimina);
 		
 		textFieldCodIATA_AggiornaCentoChilometri_ = new JTextField();
 		textFieldCodIATA_AggiornaCentoChilometri_.setColumns(10);
@@ -269,5 +247,20 @@ public class Fedelt‡GUI extends JFrame {
 		textField_NuovoPunteggio.setColumns(10);
 		textField_NuovoPunteggio.setBounds(343, 644, 109, 20);
 		contentPane.add(textField_NuovoPunteggio);
+		
+		textFieldCodIATA_Elimina = new JTextField();
+		textFieldCodIATA_Elimina.setColumns(10);
+		textFieldCodIATA_Elimina.setBounds(345, 376, 122, 20);
+		contentPane.add(textFieldCodIATA_Elimina);
+		
+		JLabel lbl_CodIATA_Elimina = new JLabel("Codice IATA");
+		lbl_CodIATA_Elimina.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lbl_CodIATA_Elimina.setBounds(357, 346, 95, 31);
+		contentPane.add(lbl_CodIATA_Elimina);
+		
+		JLabel lbl_CodFiscale_Elimina = new JLabel("Codice Fiscale");
+		lbl_CodFiscale_Elimina.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lbl_CodFiscale_Elimina.setBounds(172, 347, 109, 31);
+		contentPane.add(lbl_CodFiscale_Elimina);
 	}
 }

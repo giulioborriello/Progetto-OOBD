@@ -5,18 +5,13 @@ public class Fedeltà {
 	private String CodIATA;
 	private String CodFiscale;
 	private int Punti;
-	private Cliente cliente;
-	private Compagnia compagnia;
 
-	public Fedeltà(int centoKilometri, String codIATA, String codFiscale, int punti, Cliente cliente,
-			Compagnia compagnia) {
+	public Fedeltà(int centoKilometri, String codIATA, String codFiscale, int punti) {
 		super();
 		CentoKilometri = centoKilometri;
 		CodIATA = codIATA;
 		CodFiscale = codFiscale;
 		Punti = punti;
-		this.cliente = cliente;
-		this.setCompagnia(compagnia);
 	}
 
 	public int getCentoKilometri() {
@@ -50,25 +45,4 @@ public class Fedeltà {
 	public void setPunti(int punti) {
 		Punti = punti;
 	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Compagnia getCompagnia() {
-		return compagnia;
-	}
-
-	public void setCompagnia(Compagnia compagnia) {
-		this.compagnia = compagnia;
-	}
-	
-	
-	
-	
-	
 }

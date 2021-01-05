@@ -1,15 +1,8 @@
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import Check.CheckFormatoCodFiscale;
-import Check.CheckFormatoCognome;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -23,7 +16,8 @@ import javax.swing.JComboBox;
 
 
 public class ClienteGUI extends JFrame {
-	Controller controller;
+	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField textFieldCodiceFiscale;
 	private JTextField textFieldNome;
@@ -31,13 +25,11 @@ public class ClienteGUI extends JFrame {
 	private JTextField textFieldEmail;
 	private JTextField textFieldIndicareCodiceFiscale;
 	private JTextField textFieldNuovaEmail;
-	String[] valoriScelta = {"Seleziona tutti","Codice Fiscale"};
 	private JTextField textFieldRicerca;
 	private JTextField textFieldIndicaCodiceFiscale;
-
-	/**
-	 * Create the frame.
-	 */
+	
+	private String[] tipiRicerca = {"Seleziona tutti","Codice Fiscale"};
+	
 	public ClienteGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -162,10 +154,9 @@ public class ClienteGUI extends JFrame {
 		Ricercalbl.setBounds(308, 183, 176, 40);
 		contentPane.add(Ricercalbl);
 		
-		JComboBox comboBoxRicerca = new JComboBox(valoriScelta);
+		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
 		comboBoxRicerca.setBounds(175, 250, 108, 22);
 		contentPane.add(comboBoxRicerca);
-		
 		textFieldRicerca = new JTextField();
 		textFieldRicerca.setColumns(10);
 		textFieldRicerca.setBounds(362, 251, 86, 20);

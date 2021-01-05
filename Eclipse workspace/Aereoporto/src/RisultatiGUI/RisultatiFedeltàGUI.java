@@ -1,19 +1,13 @@
 package RisultatiGUI;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import Entit‡.Compagnia;
 import Entit‡.Fedelt‡;
-import Entit‡.Gate;
 import GUI.Controller;
 
 import javax.swing.JList;
-import javax.swing.ListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
@@ -34,7 +28,7 @@ public class RisultatiFedelt‡GUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		setTitle("Risultati Fedelt‡");
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		

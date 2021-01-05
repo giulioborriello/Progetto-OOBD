@@ -9,16 +9,14 @@ public class Slot {
 	private int TempoDiImbarcoEffettivo;
 	private int CodCoda;
 	private Date Data;
-	private CodaDiImbarco CodaDiImbarco;
 	
-	public Slot(int codSlot, int tempoDiImbarcoStimato, int tempoDiImbarcoEffettivo, int codCoda, Date data, CodaDiImbarco codaDiImbarco ) {
+	public Slot(int codSlot, int tempoDiImbarcoStimato, int tempoDiImbarcoEffettivo, int codCoda, Date data) {
 		super();
 		CodSlot = codSlot;
 		TempoDiImbarcoStimato = tempoDiImbarcoStimato;
 		TempoDiImbarcoEffettivo = tempoDiImbarcoEffettivo;
 		CodCoda = codCoda;
 		Data = data;
-		CodaDiImbarco = codaDiImbarco;
 	}
 	
 	public int getCodSlot() {
@@ -53,17 +51,6 @@ public class Slot {
 	}
 
 	public void setData(Date data) {
-		Data = data;
+		this.Data = data;
 	}
-
-	public CodaDiImbarco getCodaDiImbarco() {
-		return CodaDiImbarco;
-	}
-
-	public void setCodaDiImbarco(CodaDiImbarco codaDiImbarco) {
-		CodaDiImbarco = codaDiImbarco;
-	}
-	
-	
-	
 }

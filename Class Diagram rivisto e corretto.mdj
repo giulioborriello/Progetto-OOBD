@@ -3674,23 +3674,6 @@
 										},
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2djeMrgAKde4=",
-											"_parent": {
-												"$ref": "AAAAAAF2djY+9v4Z7LQ="
-											},
-											"model": {
-												"$ref": "AAAAAAF2djeMkP/1PK8="
-											},
-											"font": "Arial;13;0",
-											"left": 381,
-											"top": 588,
-											"width": 166.8037109375,
-											"height": 13,
-											"text": "+Nome: text",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
 											"_id": "AAAAAAF2djjZvwCz63c=",
 											"_parent": {
 												"$ref": "AAAAAAF2djY+9v4Z7LQ="
@@ -3700,7 +3683,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 381,
-											"top": 603,
+											"top": 588,
 											"width": 166.8037109375,
 											"height": 13,
 											"text": "+Posto: varchar[3]",
@@ -3717,7 +3700,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 381,
-											"top": 618,
+											"top": 603,
 											"width": 166.8037109375,
 											"height": 13,
 											"text": "+Tipo di biglietto: varchar[40]",
@@ -3734,7 +3717,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 381,
-											"top": 633,
+											"top": 618,
 											"width": 166.8037109375,
 											"height": 13,
 											"text": "+CodBiglietto: varchar[6]",
@@ -3745,7 +3728,7 @@
 									"left": 376,
 									"top": 553,
 									"width": 176.8037109375,
-									"height": 98
+									"height": 83
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -3758,7 +3741,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 376,
-									"top": 651,
+									"top": 636,
 									"width": 176.8037109375,
 									"height": 10
 								},
@@ -5163,15 +5146,6 @@
 							"name": "CodFiscale",
 							"type": "varchar",
 							"multiplicity": "16"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAF2djeMkP/1PK8=",
-							"_parent": {
-								"$ref": "AAAAAAF2djY+9P4R6As="
-							},
-							"name": "Nome",
-							"type": "text"
 						},
 						{
 							"_type": "UMLAttribute",
