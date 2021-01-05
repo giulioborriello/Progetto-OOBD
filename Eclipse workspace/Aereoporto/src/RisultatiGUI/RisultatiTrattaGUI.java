@@ -15,7 +15,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class RisultatiTrattaGUI extends JFrame {
+	
 	private Controller controller;
+	
 	private JPanel contentPane;
 	
 	public RisultatiTrattaGUI(List<Tratta> list, Controller c) {

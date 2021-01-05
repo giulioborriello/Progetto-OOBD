@@ -18,8 +18,9 @@ import java.awt.Color;
 
 
 public class SlotGUI extends JFrame {
-	private String[] ValoriScelta = {"Seleziona tutti","CodSlot","CodCoda","Data"};
+	
 	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField textFieldCodSlot;
 	private JTextField textFieldCodCoda;
@@ -29,6 +30,8 @@ public class SlotGUI extends JFrame {
 	private JTextField textFieldAggiornaTempoEffettivo;
 	private JTextField textFieldElimina;
 	private JTextField textFieldTempoEffettivo;
+	
+	private String[] tipiRicerca = {"Seleziona tutti","CodSlot","CodCoda","Data"};
 	
 	
 	public SlotGUI(Controller c) {
@@ -41,7 +44,7 @@ public class SlotGUI extends JFrame {
 		contentPane.setLayout(null);
 		setTitle("Slot");
 		
-		JComboBox comboBoxRicerca = new JComboBox(ValoriScelta);
+		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
 		comboBoxRicerca.setBounds(157, 85, 94, 22);
 		contentPane.add(comboBoxRicerca);
 		

@@ -15,14 +15,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CompagniaGUI extends JFrame {
+	
 	private Controller controller;
 	
 	private JPanel contentPane;
-	private JTextField CodIATAtextField;
-	private JTextField NomeCompagniatextField;
-	private JTextField EliminaCodIatatextField;
+	private JTextField codIATAtextField;
+	private JTextField nomeCompagniatextField;
+	private JTextField eliminaCodIatatextField;
 	
-	private String[] ValoriScelta = {"Seleziona tutti","CodIATA","Nome Compagnia",};
+	private String[] tipiRicerca = {"Seleziona tutti","CodIATA","Nome Compagnia",};
 	
 	public CompagniaGUI(Controller c) {
 		controller = c;
@@ -40,7 +41,7 @@ public class CompagniaGUI extends JFrame {
 		lblNewLabel_1.setBounds(317, 11, 136, 42);
 		contentPane.add(lblNewLabel_1);
 		
-		JComboBox comboBox = new JComboBox(ValoriScelta);
+		JComboBox comboBox = new JComboBox(tipiRicerca);
 		comboBox.setBounds(160, 103, 109, 22);
 		contentPane.add(comboBox);
 		
@@ -76,24 +77,24 @@ public class CompagniaGUI extends JFrame {
 		lblNomeCompagnia.setBounds(395, 224, 122, 22);
 		contentPane.add(lblNomeCompagnia);
 		
-		CodIATAtextField = new JTextField();
-		CodIATAtextField.setBounds(256, 250, 86, 20);
-		contentPane.add(CodIATAtextField);
-		CodIATAtextField.setColumns(10);
-		CodIATAtextField.getText();
+		codIATAtextField = new JTextField();
+		codIATAtextField.setBounds(256, 250, 86, 20);
+		contentPane.add(codIATAtextField);
+		codIATAtextField.setColumns(10);
+		codIATAtextField.getText();
 		
-		NomeCompagniatextField = new JTextField();
-		NomeCompagniatextField.setColumns(10);
-		NomeCompagniatextField.setBounds(413, 251, 86, 20);
-		contentPane.add(NomeCompagniatextField);
-		NomeCompagniatextField.getText();
+		nomeCompagniatextField = new JTextField();
+		nomeCompagniatextField.setColumns(10);
+		nomeCompagniatextField.setBounds(413, 251, 86, 20);
+		contentPane.add(nomeCompagniatextField);
+		nomeCompagniatextField.getText();
 		
 		
 		JButton InserisciButton = new JButton("Invia");
 		InserisciButton.setFont(new Font("Dialog", Font.BOLD, 15));
 		InserisciButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.inserisciInCompagnia(CodIATAtextField.getText(), NomeCompagniatextField.getText());
+				controller.inserisciInCompagnia(codIATAtextField.getText(), nomeCompagniatextField.getText());
 			}
 		});
 		InserisciButton.setBounds(620, 235, 142, 42);
@@ -112,18 +113,18 @@ public class CompagniaGUI extends JFrame {
 		lblEliminaCodIATA.setBounds(236, 376, 275, 40);
 		contentPane.add(lblEliminaCodIATA);
 		
-		EliminaCodIatatextField = new JTextField();
-		EliminaCodIatatextField.setColumns(10);
-		EliminaCodIatatextField.setBounds(331, 427, 86, 20);
-		EliminaCodIatatextField.getText();
-		contentPane.add(EliminaCodIatatextField);
+		eliminaCodIatatextField = new JTextField();
+		eliminaCodIatatextField.setColumns(10);
+		eliminaCodIatatextField.setBounds(331, 427, 86, 20);
+		eliminaCodIatatextField.getText();
+		contentPane.add(eliminaCodIatatextField);
 		
 		
 		JButton EliminaButton = new JButton("Invia");
 		EliminaButton.setFont(new Font("Dialog", Font.BOLD, 15));
 		EliminaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.eliminaCompagnia(EliminaCodIatatextField.getText());
+				controller.eliminaCompagnia(eliminaCodIatatextField.getText());
 			}
 		});
 		EliminaButton.setBounds(620, 455, 142, 42);

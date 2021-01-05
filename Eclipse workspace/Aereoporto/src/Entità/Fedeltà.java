@@ -1,48 +1,48 @@
 package Entità;
 
 public class Fedeltà {
-	private int CentoKilometri;
-	private String CodIATA;
-	private String CodFiscale;
-	private int Punti;
+	private int centoKilometri;
+	private String codIATA;
+	private String codFiscale;
+	private int punti;
 
-	public Fedeltà(int centoKilometri, String codIATA, String codFiscale, int punti) {
+	public Fedeltà(int CentoKilometri, String CodIATA, String CodFiscale, int Punti) {
 		super();
-		CentoKilometri = centoKilometri;
-		CodIATA = codIATA;
-		CodFiscale = codFiscale;
-		Punti = punti;
+		centoKilometri = CentoKilometri;
+		codIATA = CodIATA;
+		codFiscale = CodFiscale;
+		punti = Punti;
 	}
 
 	public int getCentoKilometri() {
-		return CentoKilometri;
+		return centoKilometri;
 	}
 
-	public void setCentoKilometri(int centoKilometri) {
-		CentoKilometri = centoKilometri;
+	public void setCentoKilometri(int CentoKilometri) {
+		centoKilometri = CentoKilometri;
 	}
 
 	public String getCodIATA() {
-		return CodIATA;
+		return codIATA;
 	}
 
-	public void setCodIATA(String codIATA) {
-		CodIATA = codIATA;
+	public void setCodIATA(String CodIATA) {
+		codIATA = CodIATA;
 	}
 
 	public String getCodFiscale() {
-		return CodFiscale;
+		return codFiscale;
 	}
 
-	public void setCodFiscale(String codFiscale) {
-		CodFiscale = codFiscale;
+	public void setCodFiscale(String CodFiscale) {
+		codFiscale = CodFiscale;
 	}
 
 	public int getPunti() {
-		return Punti;
+		return punti;
 	}
 
-	public void setPunti(int punti) {
-		Punti = punti;
+	public void setPunti(int Punti) {
+		punti = Punti;
 	}
 }

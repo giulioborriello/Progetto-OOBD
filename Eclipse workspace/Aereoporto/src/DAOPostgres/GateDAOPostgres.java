@@ -14,7 +14,7 @@ import Entità.Gate;
 public class GateDAOPostgres implements GateDAO{
 	private Connection conn;
 	private Statement st;
-	private List<Gate> ListGate = new LinkedList<Gate>();
+	private List<Gate> listGate = new LinkedList<Gate>();
 
 	
 	public GateDAOPostgres(SingletonPostgres sp) {
@@ -30,7 +30,7 @@ public class GateDAOPostgres implements GateDAO{
 				
 				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
 				
-				ListGate.add(gate);
+				listGate.add(gate);
 				
 			}
 			conn.close();
@@ -41,7 +41,7 @@ public class GateDAOPostgres implements GateDAO{
 			e.printStackTrace();
 			
 		}
-		return ListGate;	
+		return listGate;	
 	}
 	
 	public Gate getGateByNgate(int Ngate) {

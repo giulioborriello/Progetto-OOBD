@@ -16,6 +16,7 @@ import javax.swing.JComboBox;
 
 
 public class ClienteGUI extends JFrame {
+	
 	private Controller controller;
 	
 	private JPanel contentPane;

@@ -1,48 +1,48 @@
 package Entità;
 
 public class CodaDiImbarco {
-	private int CodCoda;
-	private String TipoDiCoda;
-	private int Ngate;
-	private int CodSlot;
+	private int codCoda;
+	private String tipoDiCoda;
+	private int nGate;
+	private int codSlot;
 	
-	public CodaDiImbarco(int codCoda, String tipoDiCoda, int ngate, int codSlot) {
+	public CodaDiImbarco(int CodCoda, String TipoDiCoda, int Ngate, int CodSlot) {
 		super();
-		CodCoda = codCoda;
-		TipoDiCoda = tipoDiCoda;
-		Ngate = ngate;
-		CodSlot = codSlot;
+		codCoda = CodCoda;
+		tipoDiCoda = TipoDiCoda;
+		nGate = Ngate;
+		codSlot = CodSlot;
 	}
 
 	public int getCodCoda() {
-		return CodCoda;
+		return codCoda;
 	}
 
-	public void setCodCoda(int codCoda) {
-		CodCoda = codCoda;
+	public void setCodCoda(int CodCoda) {
+		codCoda = CodCoda;
 	}
 
 	public String getTipoDiCoda() {
-		return TipoDiCoda;
+		return tipoDiCoda;
 	}
 
-	public void setTipoDiCoda(String tipoDiCoda) {
-		TipoDiCoda = tipoDiCoda;
+	public void setTipoDiCoda(String TipoDiCoda) {
+		tipoDiCoda = TipoDiCoda;
 	}
 
 	public int getNgate() {
-		return Ngate;
+		return nGate;
 	}
 
-	public void setNgate(int ngate) {
-		Ngate = ngate;
+	public void setNgate(int Ngate) {
+		nGate = Ngate;
 	}
 
 	public int getCodSlot() {
-		return CodSlot;
+		return codSlot;
 	}
 
-	public void setCodSlot(int codSlot) {
-		CodSlot = codSlot;
+	public void setCodSlot(int CodSlot) {
+		codSlot = CodSlot;
 	}
 }

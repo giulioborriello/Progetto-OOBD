@@ -5,90 +5,90 @@ import java.sql.Time;
 
 public class Tratta {
 
-	private String CodTratta;
-	private int Nprenotazioni;
-	private Time OrarioDiPartenza;
-	private Date Data;
-	private int Ngate;
-	private String CodIATA;
-	private String Destinazione;
-	private String Scali;
+	private String codTratta;
+	private int nPrenotazioni;
+	private Time orarioDiPartenza;
+	private Date data;
+	private int nGate;
+	private String codIATA;
+	private String destinazione;
+	private String scali;
 
-	public Tratta(String codTratta, int nprenotazioni, Time orarioDiPartenza, Date data, int ngate, String codIATA, 
-			String destinazione, String scali) {
+	public Tratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, int Ngate, String CodIATA, 
+			String Destinazione, String Scali) {
 		super();
-		CodTratta = codTratta;
-		Nprenotazioni = nprenotazioni;
-		OrarioDiPartenza = orarioDiPartenza;
-		Data = data;
-		Ngate = ngate;
-		CodIATA = codIATA;
-		Destinazione = destinazione;
-		Scali = scali;
+		codTratta = CodTratta;
+		nPrenotazioni = Nprenotazioni;
+		orarioDiPartenza = OrarioDiPartenza;
+		data = Data;
+		nGate = Ngate;
+		codIATA = CodIATA;
+		destinazione = Destinazione;
+		scali = Scali;
 	}
 
 	public String getCodTratta() {
-		return CodTratta;
+		return codTratta;
 	}
 
-	public void setCodTratta(String codTratta) {
-		CodTratta = codTratta;
+	public void setCodTratta(String CodTratta) {
+		codTratta = CodTratta;
 	}
 
 	public int getNprenotazioni() {
-		return Nprenotazioni;
+		return nPrenotazioni;
 	}
 
-	public void setNprenotazioni(int nprenotazioni) {
-		Nprenotazioni = nprenotazioni;
+	public void setNprenotazioni(int Nprenotazioni) {
+		nPrenotazioni = Nprenotazioni;
 	}
 
 	public Time getOrarioDiPartenza() {
-		return OrarioDiPartenza;
+		return orarioDiPartenza;
 	}
 
-	public void setOrarioDiPartenza(Time orarioDiPartenza) {
-		OrarioDiPartenza = orarioDiPartenza;
+	public void setOrarioDiPartenza(Time OrarioDiPartenza) {
+		orarioDiPartenza = OrarioDiPartenza;
 	}
 
 	public Date getData() {
-		return Data;
+		return data;
 	}
 
-	public void setData(Date data) {
-		Data = data;
+	public void setData(Date Data) {
+		data = Data;
 	}
 
 	public int getNgate() {
-		return Ngate;
+		return nGate;
 	}
 
-	public void setNgate(int ngate) {
-		Ngate = ngate;
+	public void setNgate(int Ngate) {
+		nGate = Ngate;
 	}
 
 	public String getCodIATA() {
-		return CodIATA;
+		return codIATA;
 	}
 
-	public void setCodIATA(String codIATA) {
-		CodIATA = codIATA;
+	public void setCodIATA(String CodIATA) {
+		codIATA = CodIATA;
 	}
 
 	public String getDestinazione() {
-		return Destinazione;
+		return destinazione;
 	}
 
-	public void setDestinazione(String destinazione) {
-		Destinazione = destinazione;
+	public void setDestinazione(String Destinazione) {
+		destinazione = Destinazione;
 	}
 
 	public String getScali() {
-		return Scali;
+		return scali;
 	}
 
-	public void setScali(String scali) {
-		Scali = scali;
+	public void setScali(String Scali) {
+		scali = Scali;
 	}
 	
 }

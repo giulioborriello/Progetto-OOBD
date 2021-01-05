@@ -2,58 +2,54 @@ package Entità;
 
 
 public class Biglietto {
+	private String codTratta;
+	private String codFiscale;
+	private String posto;
+	private String tipoDiBiglietto;
+	private String codBiglietto;
 
-	
 
-	 private String CodTratta;
-	 private String CodFiscale;
-	 private String Posto;
-	 private String TipoDiBiglietto;
-	 private String CodBiglietto;
-	 
-	 
 
- public Biglietto(String codTratta, String codFiscale, String posto, String tipo_Di_Biglietto,
-			String codBiglietto) {
+	public Biglietto(String CodTratta, String CodFiscale, String Posto, String TipoDiBiglietto, String CodBiglietto) {
 		super();
-		CodTratta = codTratta;
-		CodFiscale = codFiscale;
-		Posto = posto;
-		TipoDiBiglietto = tipo_Di_Biglietto;
-		CodBiglietto = codBiglietto;
+		codTratta = CodTratta;
+		codFiscale = CodFiscale;
+		posto = Posto;
+		tipoDiBiglietto = TipoDiBiglietto;
+		codBiglietto = CodBiglietto;
 	}
- 
- 
-public String getCodTratta() {
-		return CodTratta;
+
+
+	public String getCodTratta() {
+		return codTratta;
 	}
-	public void setCodTratta(String codTratta) {
-		CodTratta = codTratta;
+	public void setCodTratta(String CodTratta) {
+		codTratta = CodTratta;
 	}
 	public String getCodFiscale() {
-		return CodFiscale;
+		return codFiscale;
 	}
-	public void setCodFiscale(String codFiscale) {
-		CodFiscale = codFiscale;
+	public void setCodFiscale(String CodFiscale) {
+		codFiscale = CodFiscale;
 	}
-	
+
 	public String getPosto() {
-		return Posto;
+		return posto;
 	}
-	public void setPosto(String posto) {
-		Posto = posto;
+	public void setPosto(String Posto) {
+		posto = Posto;
 	}
 	public String getTipo_Di_Biglietto() {
-		return TipoDiBiglietto;
+		return tipoDiBiglietto;
 	}
-	public void setTipo_Di_Biglietto(String tipo_Di_Biglietto) {
-		TipoDiBiglietto = tipo_Di_Biglietto;
+	public void setTipo_Di_Biglietto(String TipoDiBiglietto) {
+		tipoDiBiglietto = TipoDiBiglietto;
 	}
 	public String getCodBiglietto() {
-		return CodBiglietto;
+		return codBiglietto;
 	}
-	public void setCodBiglietto(String codBiglietto) {
-		CodBiglietto = codBiglietto;
+	public void setCodBiglietto(String CodBiglietto) {
+		codBiglietto = CodBiglietto;
 	}
 
 }

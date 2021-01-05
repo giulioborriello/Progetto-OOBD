@@ -14,8 +14,7 @@ import Entità.Tratta;
 
 public class TrattaDAOPostgres implements TrattaDAO{
 	Connection conn = null;
-	List<Tratta> ListTratta = new LinkedList<Tratta>();
-	SingletonPostgres singleton;
+	List<Tratta> listTratta = new LinkedList<Tratta>();
 	
 	public TrattaDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
@@ -32,7 +31,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 					Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
 							rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
 					
-					ListTratta.add(tratta);
+					listTratta.add(tratta);
 				}
 				rs.close();
 				st.close();
@@ -42,7 +41,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			return ListTratta;	
+			return listTratta;	
 		}
 		
 	public Tratta getTrattaByCodTratta(String CodTratta){
@@ -75,7 +74,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
 						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
 				
-				ListTratta.add(tratta);
+				listTratta.add(tratta);
 			}
 			rs.close();
 			ps.close();
@@ -85,7 +84,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return ListTratta;	
+		return listTratta;	
 	}
 	
 	public Tratta getTrattaByNgate(int nGate){
@@ -121,7 +120,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
 						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
 				
-				ListTratta.add(tratta);
+				listTratta.add(tratta);
 			}
 			rs.close();
 			ps.close();
@@ -131,7 +130,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		return ListTratta;	
+		return listTratta;	
 	}
 	
 	public List<Tratta> getTrattaByDestinazione(String Destinazione){
@@ -143,7 +142,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
 						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
 				
-				ListTratta.add(tratta);
+				listTratta.add(tratta);
 			}
 			rs.close();
 			ps.close();
@@ -153,7 +152,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			// TODO Auto-generated catch block
 			e.getMessage();
 		}	
-		return ListTratta;	
+		return listTratta;	
 	}
 	
 	public List<Tratta> getTrattaByNgate(String Ngate) {
@@ -165,7 +164,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
 						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
 				
-				ListTratta.add(tratta);
+				listTratta.add(tratta);
 			}
 			rs.close();
 			ps.close();
@@ -175,7 +174,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			// TODO Auto-generated catch block
 			e.getMessage();
 		}	
-		return ListTratta;	
+		return listTratta;	
 	}
 	
 	

@@ -15,14 +15,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class CodaDiImbarcoGUI extends JFrame {
+	
 	private Controller controller;
 	
 	private JPanel contentPane;
-	private JTextField CodCodatextField;
-	private JTextField TipoDiCodatextField;
-	private JTextField NGatetextField;
-	private JTextField CodSlottextField;
-	private JTextField EliminatextField;
+	private JTextField codCodatextField;
+	private JTextField tipoDiCodatextField;
+	private JTextField nGatetextField;
+	private JTextField codSlottextField;
+	private JTextField eliminatextField;
 	private JLabel lblRicerca;
 	
 	private String[] tipiRicerca = {"Seleziona tutti","CodCoda","N° Gate","Codice Slot"};
@@ -89,35 +90,35 @@ public class CodaDiImbarcoGUI extends JFrame {
 		lblNGate.setBounds(274, 315, 46, 22);
 		contentPane.add(lblNGate);
 		
-		CodCodatextField = new JTextField();
-		CodCodatextField.setBounds(250, 270, 86, 20);
-		contentPane.add(CodCodatextField);
-		CodCodatextField.setColumns(10);
-		CodCodatextField.getText();
+		codCodatextField = new JTextField();
+		codCodatextField.setBounds(250, 270, 86, 20);
+		contentPane.add(codCodatextField);
+		codCodatextField.setColumns(10);
+		codCodatextField.getText();
 		
-		TipoDiCodatextField = new JTextField();
-		TipoDiCodatextField.setColumns(10);
-		TipoDiCodatextField.setBounds(420, 271, 86, 20);
-		TipoDiCodatextField.getText();
-		contentPane.add(TipoDiCodatextField);
+		tipoDiCodatextField = new JTextField();
+		tipoDiCodatextField.setColumns(10);
+		tipoDiCodatextField.setBounds(420, 271, 86, 20);
+		tipoDiCodatextField.getText();
+		contentPane.add(tipoDiCodatextField);
 		
-		NGatetextField = new JTextField();
-		NGatetextField.setColumns(10);
-		NGatetextField.setBounds(250, 348, 86, 20);
-		NGatetextField.getText();
-		contentPane.add(NGatetextField);
+		nGatetextField = new JTextField();
+		nGatetextField.setColumns(10);
+		nGatetextField.setBounds(250, 348, 86, 20);
+		nGatetextField.getText();
+		contentPane.add(nGatetextField);
 		
-		CodSlottextField = new JTextField();
-		CodSlottextField.setColumns(10);
-		CodSlottextField.setBounds(420, 349, 86, 20);
-		CodSlottextField.getText();
-		contentPane.add(CodSlottextField);
+		codSlottextField = new JTextField();
+		codSlottextField.setColumns(10);
+		codSlottextField.setBounds(420, 349, 86, 20);
+		codSlottextField.getText();
+		contentPane.add(codSlottextField);
 		
 		
 		JButton btnInserisci = new JButton("Invia");
 		btnInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.inserisciCodaDiImbarco(CodCodatextField.getText(), TipoDiCodatextField.getText(), NGatetextField.getText(), CodSlottextField.getText());
+				controller.inserisciCodaDiImbarco(codCodatextField.getText(), tipoDiCodatextField.getText(), nGatetextField.getText(), codSlottextField.getText());
 			}
 		});
 		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -137,11 +138,11 @@ public class CodaDiImbarcoGUI extends JFrame {
 		lblEliminaNgate.setBounds(243, 445, 275, 22);
 		contentPane.add(lblEliminaNgate);
 		
-		EliminatextField = new JTextField();
-		EliminatextField.setBounds(333, 478, 86, 20);
-		contentPane.add(EliminatextField);
-		EliminatextField.setColumns(10);
-		CodSlottextField.getText();
+		eliminatextField = new JTextField();
+		eliminatextField.setBounds(333, 478, 86, 20);
+		contentPane.add(eliminatextField);
+		eliminatextField.setColumns(10);
+		codSlottextField.getText();
 		
 
 		
@@ -160,7 +161,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 		btnElimina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
-				controller.eliminaCodaDiImbarco(EliminatextField.getText());
+				controller.eliminaCodaDiImbarco(eliminatextField.getText());
 			}
 		});
 

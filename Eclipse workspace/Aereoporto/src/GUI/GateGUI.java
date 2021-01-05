@@ -16,12 +16,13 @@ import java.awt.event.ActionEvent;
 public class GateGUI extends JFrame {
 	
 	private Controller controller;
+	
 	private JPanel contentPane;
 	private JTextField textFieldNgate;
 	private JTextField textFieldCodTratta;
 	private JTextField textFieldElimina;
 	private JTextField textFieldRicerca;
-	private String[] ValoriScelta = {"Seleziona tutti","N gate","CodTratta",};
+	private String[] tipiRicerca = {"Seleziona tutti","N gate","CodTratta",};
 	
 	public GateGUI(Controller c) {
 		controller = c;
@@ -39,7 +40,7 @@ public class GateGUI extends JFrame {
 		lblRicerca.setBounds(322, 11, 136, 42);
 		contentPane.add(lblRicerca);
 		
-		JComboBox comboBoxRicerca = new JComboBox(ValoriScelta);
+		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
 		comboBoxRicerca.setBounds(181, 78, 94, 22);
 		contentPane.add(comboBoxRicerca);
 		
