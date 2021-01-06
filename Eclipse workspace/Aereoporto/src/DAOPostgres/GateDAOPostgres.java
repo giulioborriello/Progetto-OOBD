@@ -87,60 +87,6 @@ public class GateDAOPostgres implements GateDAO{
 		}
 		return gate;	
 	}
-	
-	public String insertGate(int Ngate, String CodTratta)	{
-		
-		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Compagnia\"  VALUES (?, ?); ");
-			ps.setInt(1, Ngate);
-			ps.setString(2, CodTratta);
-			ps.execute();
-			st.close();
-			conn.close();
-			
-			return "Inserito Correttamente";
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			return e.getMessage();
-		}
-	}
-	
-	public String updateCodTrattaByNgate(String CodTratta, int Ngate)	{
-		
-		try {
-			PreparedStatement ps = conn.prepareStatement("UPDATE \"Gate\" SET \"CodTratta\" = ? WHERE \"Ngate\" = ? ; ");
-			ps.setString(1, CodTratta);
-			ps.setInt(2, Ngate);
-			ps.execute();
-			st.close();
-			conn.close();
-			
-			return "Aggiornato Correttamente";
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			return e.getMessage();
-		}
-	}
-	
-	public String deleteGate(int Ngate) {
-		
-		try {
-			PreparedStatement ps = conn.prepareStatement("Delete From \"Gate\"  WHERE \"Ngate\" = ? ; ");
-				
-			ps.setInt(1, Ngate);
-			ps.execute();
-			ps.close();
-			conn.close();
-				
-
-			return "Eliminato Correttamente";
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			return e.getMessage();
-		}
-	
-	
-	}
 
 }
 

@@ -460,30 +460,6 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void inserisciGate(String Ngate, String CodTratta) {
-		
-		if(checkBlank(Ngate, CodTratta)) {
-			return;
-		}
-		
-		if(checkSoloNumeri(Ngate)) {
-			return;
-		}
-		
-		if(checkCodTratta(CodTratta)) {
-			return;
-		}
-		
-		
-		
-		GateDAOPostgres gate = new	GateDAOPostgres(singleton);
-		int nGate = Integer.valueOf(Ngate);
-		String testo = gate.insertGate(nGate, CodTratta);
-		openDialog(testo);
-
-			
-	}
-
 	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String Data) {
 		
 		
@@ -586,22 +562,6 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void eliminaGate(String Ngate) {
-		
-		if(checkBlank(Ngate)) {
-			return;
-		}
-		
-		if(checkSoloNumeri(Ngate)) {
-			return;
-		}
-		
-		GateDAOPostgres gate = new	GateDAOPostgres(singleton);
-		int nGate = Integer.valueOf(Ngate);
-		String testo = gate.deleteGate(nGate);
-		openDialog(testo);
-		
-	}
 
 	public void eliminaCodaDiImbarco(String CodCoda) {
 		
