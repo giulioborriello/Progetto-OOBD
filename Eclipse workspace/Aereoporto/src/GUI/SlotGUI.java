@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.text.ParseException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -133,8 +134,13 @@ public class SlotGUI extends JFrame {
 		btnNewButtonInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				controller.inserisciSlot(textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
-						textFieldTempoEffettivo.getText(), textFieldData.getText(), textFieldOrarioDiPartenza.getText());
+				try {
+					controller.inserisciSlot(textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
+							textFieldTempoEffettivo.getText(), textFieldData.getText(), textFieldOrarioDiPartenza.getText());
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		btnNewButtonInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));

@@ -25,7 +25,6 @@ public class Tratta {
 		codIATA = CodIATA;
 		destinazione = Destinazione;
 		scali = Scali;
-		setRitardo(Ritardo);
 	}
 
 	public String getCodTratta() {
