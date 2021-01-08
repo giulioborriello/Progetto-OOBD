@@ -444,7 +444,7 @@
 											"top": 195,
 											"width": 150.185546875,
 											"height": 13,
-											"text": "+CodSlot: int",
+											"text": "+Codslot: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -4866,7 +4866,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF2Zwx/g7fe9jc="
 							},
-							"name": "CodSlot",
+							"name": "Codslot",
 							"type": "int"
 						}
 					]

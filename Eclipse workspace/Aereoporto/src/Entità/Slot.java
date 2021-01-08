@@ -1,6 +1,7 @@
 package Entità;
 
 import java.sql.Date;
+import java.sql.Time;
 
 public class Slot {
 	
@@ -9,14 +10,16 @@ public class Slot {
 	private int tempoDiImbarcoEffettivo;
 	private int codCoda;
 	private Date data;
+	private Time orarioDiPartenza;
 	
-	public Slot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, int CodCoda, Date Data) {
+	public Slot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, int CodCoda, Date Data, Time OrarioDiPartenza) {
 		super();
 		codSlot = CodSlot;
 		tempoDiImbarcoStimato = TempoDiImbarcoStimato;
 		tempoDiImbarcoEffettivo = TempoDiImbarcoEffettivo;
 		codCoda = CodCoda;
 		data = Data;
+		setOrarioDiPartenza(OrarioDiPartenza);
 	}
 	
 	public int getCodSlot() {
@@ -52,5 +55,13 @@ public class Slot {
 
 	public void setData(Date data) {
 		this.data = data;
+	}
+
+	public Time getOrarioDiPartenza() {
+		return orarioDiPartenza;
+	}
+
+	public void setOrarioDiPartenza(Time orarioDiPartenza) {
+		this.orarioDiPartenza = orarioDiPartenza;
 	}
 }

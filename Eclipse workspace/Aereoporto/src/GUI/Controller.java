@@ -460,14 +460,14 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String Data) {
+	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String Data, String OrarioDiPartenza) throws ParseException {
 		
 		
-		if(checkBlank(CodSlot, TempoDiImbarcoStimato, TempoDiImbarcoEffettivo, Data)) {
+		if(checkBlank(CodSlot, TempoDiImbarcoStimato, TempoDiImbarcoEffettivo, Data, OrarioDiPartenza)) {
 			return;
 		}
 		
-		if(checkSoloNumeri(CodSlot, TempoDiImbarcoStimato, Data)) {
+		if(checkSoloNumeri(CodSlot, TempoDiImbarcoStimato, Data, OrarioDiPartenza)) {
 			return;
 		}
 		
@@ -479,6 +479,11 @@ public class Controller {
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
 		java.util.Date date = null;
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
+		long ms = sdf.parse(OrarioDiPartenza).getTime();
+		Time tempo = new Time(ms);
+		
+		
 		
 		try {
 			date = sdf1.parse(Data);
@@ -489,7 +494,7 @@ public class Controller {
 		
 		Date sqlDate = new java.sql.Date(date.getTime());  
 		
-		String testo = slot.insertSlot(codSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,sqlDate);
+		String testo = slot.insertSlot(codSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,sqlDate, tempo);
 		openDialog(testo);
 	}
 

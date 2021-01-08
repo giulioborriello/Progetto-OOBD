@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.sql.Time;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			while(rs.next()) {
 				
 				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"));
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), rs.getTime("OrarioDiPartenza"));
 				
 				listSlot.add(Slot);
 			}
@@ -58,7 +58,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			while(rs.next()) {
 				
 				slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"));
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), rs.getTime("OrarioDiPartenza"));
 				
 			}
 			conn.close();
@@ -81,7 +81,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			while(rs.next()) {
 				
 				slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"));
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), rs.getTime("OrarioDiPartenza"));
 				
 			}
 			conn.close();
@@ -102,7 +102,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			while(rs.next()) {
 				
 				Slot Slot = new Slot(rs.getInt("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"));
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getInt("CodCoda"), rs.getDate("Data"), rs.getTime("OrarioDiPartenza"));
 				
 				listSlot.add(Slot);
 			}
@@ -117,14 +117,15 @@ public class SlotDAOPostgres implements SlotDAO{
 		return listSlot;	
 	}
 	
-	public String insertSlot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo,Date Data)	{
+	public String insertSlot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, Date Data, Time OrarioDiPartenza)	{
 		
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
 			ps.setInt(1, CodSlot);
 			ps.setInt(2, TempoDiImbarcoStimato);
 			ps.setInt(3, TempoDiImbarcoEffettivo);
 			ps.setDate(4, Data);
+			ps.setTime(5, OrarioDiPartenza);
 			ps.execute();
 			ps.close();
 			conn.close();
@@ -173,10 +174,6 @@ public class SlotDAOPostgres implements SlotDAO{
 		
 		
 	}
-	
-	
-	
-	
 	
 	
 }

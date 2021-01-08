@@ -15,7 +15,7 @@ public class Tratta {
 	private String scali;
 
 	public Tratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, int Ngate, String CodIATA, 
-			String Destinazione, String Scali) {
+			String Destinazione, String Scali, Boolean Ritardo) {
 		super();
 		codTratta = CodTratta;
 		nPrenotazioni = Nprenotazioni;
@@ -25,6 +25,7 @@ public class Tratta {
 		codIATA = CodIATA;
 		destinazione = Destinazione;
 		scali = Scali;
+		setRitardo(Ritardo);
 	}
 
 	public String getCodTratta() {
@@ -90,5 +91,8 @@ public class Tratta {
 	public void setScali(String Scali) {
 		scali = Scali;
 	}
+
+	
+
 	
 }

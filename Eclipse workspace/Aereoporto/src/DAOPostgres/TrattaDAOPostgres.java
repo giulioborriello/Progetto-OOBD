@@ -29,7 +29,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				while(rs.next()) {
 					
 					Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-							rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+							rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"));
 					
 					listTratta.add(tratta);
 				}
@@ -52,7 +52,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ResultSet rs=ps.executeQuery();
 
 			tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-					rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+					rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"));
 			rs.close();
 			ps.close();
 			conn.close();
@@ -72,7 +72,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"));
 				
 				listTratta.add(tratta);
 			}
@@ -97,7 +97,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			while(rs.next()) {
 				
 				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), nGate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), nGate, rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"));
 			}
 			rs.close();
 			ps.close();
@@ -118,7 +118,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			
 			while(rs.next()) {
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"));
 				
 				listTratta.add(tratta);
 			}
@@ -140,7 +140,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"));
 				
 				listTratta.add(tratta);
 			}
@@ -162,7 +162,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
-						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"));
+						rs.getDate("Data"), rs.getInt("Ngate"), rs.getString("CodIATA"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"));
 				
 				listTratta.add(tratta);
 			}
@@ -180,7 +180,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	
 	public String insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, int Ngate,  String CodIATA, String Destinazione, String Scali) {
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?, ?, null)");
 			ps.setString(1, CodTratta);
 			ps.setInt(2, Nprenotazioni);
 			ps.setTime(3, OrarioDiPartenza);
