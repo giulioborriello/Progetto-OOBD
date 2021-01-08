@@ -19,12 +19,13 @@ public class GateGUI extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField textFieldRicerca;
+	private String[] SelezioneRicerca = {"Giorno","Mese","Anno"};
 	private String[] tipiRicerca = {"Seleziona tutti","N gate","CodTratta",};
 	
 	public GateGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 676, 339);
+		setBounds(100, 100, 963, 828);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -34,15 +35,15 @@ public class GateGUI extends JFrame {
 		JLabel lblRicerca = new JLabel("Ricerca");
 		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRicerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblRicerca.setBounds(240, 27, 136, 42);
+		lblRicerca.setBounds(393, 23, 136, 42);
 		contentPane.add(lblRicerca);
 		
 		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
-		comboBoxRicerca.setBounds(99, 94, 94, 22);
+		comboBoxRicerca.setBounds(252, 90, 94, 22);
 		contentPane.add(comboBoxRicerca);
 		
 		textFieldRicerca = new JTextField();
-		textFieldRicerca.setBounds(263, 95, 94, 20);
+		textFieldRicerca.setBounds(416, 91, 94, 20);
 		contentPane.add(textFieldRicerca);
 		textFieldRicerca.setColumns(10);
 		
@@ -54,7 +55,7 @@ public class GateGUI extends JFrame {
 				controller.openRisultatiGate(comboBoxRicerca.getSelectedItem().toString(), textFieldRicerca.getText());
 			}
 		});
-		btnRicerca.setBounds(467, 83, 85, 40);
+		btnRicerca.setBounds(620, 79, 85, 40);
 		contentPane.add(btnRicerca);
 		
 		JButton btnMenu = new JButton("Menu");
@@ -64,7 +65,7 @@ public class GateGUI extends JFrame {
 			}
 		});
 		btnMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnMenu.setBounds(87, 204, 105, 57);
+		btnMenu.setBounds(10, 218, 105, 57);
 		contentPane.add(btnMenu);
 	}
 }

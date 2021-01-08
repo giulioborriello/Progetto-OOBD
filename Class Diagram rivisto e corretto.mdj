@@ -202,13 +202,30 @@
 											"height": 13,
 											"text": "+Data: date",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF24qh9WeiOIAw=",
+											"_parent": {
+												"$ref": "AAAAAAF2ZwxZ7Le8+os="
+											},
+											"model": {
+												"$ref": "AAAAAAF24qh9F+iLlV0="
+											},
+											"font": "Arial;13;0",
+											"left": 45,
+											"top": 233,
+											"width": 223,
+											"height": 13,
+											"text": "+Orario di partenza: time",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 40,
 									"top": 153,
 									"width": 233,
-									"height": 83
+									"height": 98
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -221,7 +238,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 40,
-									"top": 236,
+									"top": 251,
 									"width": 233,
 									"height": 10
 								},
@@ -1798,12 +1815,12 @@
 										"$ref": "AAAAAAF2Zw6TOLjp5UA="
 									},
 									"font": "Arial;13;0",
-									"left": 321,
-									"top": 127,
+									"left": 279,
+									"top": 175,
 									"width": 14.82177734375,
 									"height": 13,
-									"alpha": -4.399899728106324,
-									"distance": 69.28924880528002,
+									"alpha": -3.43164511124468,
+									"distance": 68.15423684555495,
 									"hostEdge": {
 										"$ref": "AAAAAAF2Zw6TObjthSE="
 									},
@@ -3483,7 +3500,7 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;13;0",
-							"left": 296,
+							"left": 312,
 							"top": 168,
 							"width": 105,
 							"height": 51,
@@ -4791,6 +4808,15 @@
 							},
 							"name": "Data",
 							"type": "date"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAF24qh9F+iLlV0=",
+							"_parent": {
+								"$ref": "AAAAAAF2ZwxZ67e0j6U="
+							},
+							"name": "Orario di partenza",
+							"type": "time"
 						}
 					]
 				},

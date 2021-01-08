@@ -88,5 +88,38 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 
+	public void GetTempistiche(String Anno, String Mese, String Giorno) {
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT YEAR(public.\"B\".\"data\"), MONTH(public.\"B\".\"data\"), DAY(public.\"B\".\"data\") SUM public.\"B\".\"TempoDiImbarcoEffettivo\" "
+					+ "FROM (public.\"gate\" INNER JOIN public.\"CodaDiImbarco\" ON (public.\"gate\".\"Ngate\" = public.\"CodaDiImbarco\".Ngate)) AS aa INNER JOIN public.\"Slot\" ON (public.\"aa\".\"CodSlot\" = public.\"Slot\".CodSlot) AS B "
+					+ "WHERE YEAR(public.\"B\".\"data\") = ?,  MONTH(public.\"B\".\"data\") = ?,  DAY(public.\"B\".\"data\") "
+					+ "GROUP BY year(public.\"B\".\"data\") AND day(public.\"B\".\"data\") AND  MONTH(public.\"B\".\"data\")");
+			ps.setString(1, Anno);
+			ps.setString(1, Mese);
+			ps.setString(1, Giorno);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
+				
+			}
+			conn.close();
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return gate;	
+	}
+		
+	}
+
+
+
+
+
+
 }
 
