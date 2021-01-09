@@ -72,12 +72,6 @@ public class Controller {
 	}
 	
 	public void openSlot() {
-		if(risultatiTempisticheGateGUI != null) {
-			risultatiSlot.setVisible(false);
-			risultatiTempisticheGateGUI.setVisible(false);
-		}
-
-	
 		if(risultatiSlot != null) {
 			risultatiSlot.setVisible(false);
 		}
@@ -87,6 +81,11 @@ public class Controller {
 	}
 	
 	public void openGate() {
+		if(risultatiTempisticheGateGUI != null) {
+			risultatiSlot.setVisible(false);
+			risultatiTempisticheGateGUI.setVisible(false);
+		}
+		
 		if(risultatiGate != null) {
 			risultatiGate.setVisible(false);
 		}
