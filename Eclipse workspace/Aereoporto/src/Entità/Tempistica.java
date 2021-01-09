@@ -8,8 +8,9 @@ public class Tempistica {
 	
 	
 	
-	public Tempistica(String mese, String anno, String valore) {
+	public Tempistica(String giorno, String mese, String anno, String valore) {
 		super();
+		Giorno = giorno;
 		Mese = mese;
 		Anno = anno;
 		Valore = valore;
@@ -17,8 +18,9 @@ public class Tempistica {
 
 	
 	
-	public Tempistica(String anno, String valore) {
+	public Tempistica(String mese, String anno, String valore) {
 		super();
+		Mese = mese;
 		Anno = anno;
 		Valore = valore;
 	}

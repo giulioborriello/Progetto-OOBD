@@ -19,7 +19,7 @@ public class GateGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldRicerca;
 	private String[] tipiRicerca = {"Seleziona tutti","N gate","CodTratta",};
-	private String[] mesi = {"Gennaio", "Febbraio", "Marzo", "Aprile","Maggio","Giugno","Luglio","Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+	private String[] mesi = {"1", "2", "3", "4","5","6","7","8", "9", "10", "11", "12"};
 	private String[] anni = {"2000","2001","2002","2003","2004","2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", 
 			"2016", "2017", "2018", "2019", "2020", "2021","2022","2023","2024","2025"};
 	JButton btnMenu;
@@ -118,8 +118,13 @@ public class GateGUI extends JFrame {
 		contentPane.add(btnRicerca_1);
 		
 		JButton btnRicerca_1_1 = new JButton("Invia");
+		btnRicerca_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.ricercaTempisticaGiorni(comboBoxRicerca_1.getSelectedItem().toString(), comboBoxRicerca_2.getSelectedItem().toString());
+			}
+		});
 		btnRicerca_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_1_1.setBounds(409, 286, 71, 27);
+		btnRicerca_1_1.setBounds(404, 294, 71, 27);
 		contentPane.add(btnRicerca_1_1);
 		
 		JButton btnRicerca_1_2 = new JButton("Invia");

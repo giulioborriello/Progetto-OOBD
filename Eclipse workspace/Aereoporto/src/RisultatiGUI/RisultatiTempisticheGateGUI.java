@@ -36,8 +36,7 @@ public class RisultatiTempisticheGateGUI extends JFrame {
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		for (Tempistica valori : list) {
-			listModel.addElement(list. + " " + array[i + 1]);
-			
+			listModel.addElement(valori.getAnno() + " " + valori.getMese() + " " + valori.getGiorno() + " " + valori.getValore() );
 		}
 		
 		JList jlist = new JList(listModel);

@@ -13,18 +13,21 @@ public class Tratta {
 	private String codIATA;
 	private String destinazione;
 	private String scali;
+	private boolean ritardo;
+	
 
-	public Tratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, int Ngate, String CodIATA, 
-			String Destinazione, String Scali) {
+	public Tratta(String codTratta, int nPrenotazioni, Time orarioDiPartenza, Date data, int nGate, String codIATA,
+			String destinazione, String scali, boolean ritardo) {
 		super();
-		codTratta = CodTratta;
-		nPrenotazioni = Nprenotazioni;
-		orarioDiPartenza = OrarioDiPartenza;
-		data = Data;
-		nGate = Ngate;
-		codIATA = CodIATA;
-		destinazione = Destinazione;
-		scali = Scali;
+		this.codTratta = codTratta;
+		this.nPrenotazioni = nPrenotazioni;
+		this.orarioDiPartenza = orarioDiPartenza;
+		this.data = data;
+		this.nGate = nGate;
+		this.codIATA = codIATA;
+		this.destinazione = destinazione;
+		this.scali = scali;
+		this.ritardo = ritardo;
 	}
 
 	public String getCodTratta() {

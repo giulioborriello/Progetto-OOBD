@@ -805,11 +805,17 @@ public class Controller {
 	
 	public void ricercaTempisticaGiorni(String mese, String anno) {
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
-		List<Tempistica> list = gateDAOP.GetTempistiche(anno, mese);
+		List<Tempistica> list = gateDAOP.GetTempisticheGiorni(mese, anno);
 		risulatiTempisticheGateGUI = new RisultatiTempisticheGateGUI(list, this);
 		gate.setVisible(false);
 		risulatiTempisticheGateGUI.setVisible(true); 
 	}
+	
+	public void ricercaTempisticaMesiSettimane(String anno) {
+		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
+		//List<Tempistica> list = gateDAOP.GetTempisticheMesiSettimane(anno);
+	}
+	
 	
 	
 }

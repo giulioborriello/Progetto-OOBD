@@ -89,20 +89,20 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 
-	public List<Tempistica> GetTempisticheGiorni(String Anno, String Mese) {
+	public List<Tempistica> GetTempisticheGiorni(String mese, String anno) {
 		List<Tempistica> list = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(month from B.\"data\" ) AS monthd, extract(day from B.\"data\") AS dayd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add" 
 					+ "FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B "
 					+ "WHERE  extract(month from B.\"data\") = ? AND extract(year from B.\"data\") = ?"  
-					+ "GROUP BY yeard , dayd ,  monthd;");
-			ps.setString(1, Mese);
-			ps.setString(2, Anno);
+					+ "GROUP BY yeard , monthd,  dayd;");
+			ps.setString(1, mese);
+			ps.setString(2, anno);
 			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				Tempistica tempo = new Tempistica(rs.getString("yeard"), rs.getString("monthd"), rs.getString("add"));
+				Tempistica tempo = new Tempistica(rs.getString("yeard"), rs.getString("monthd"), rs.getString("dayd"), rs.getString("add"));
 				list.add(tempo);
 			}
 			conn.close();
@@ -113,8 +113,6 @@ public class GateDAOPostgres implements GateDAO{
 			e.printStackTrace();
 		}
 		return list;
-
-	
 	}
 		
 	
