@@ -24,7 +24,7 @@ public class RisultatiTempisticheGateGUI extends JFrame {
 	private JPanel contentPane;
 	private Controller controller;
 
-	public RisultatiTempisticheGateGUI(List<Tempistica> list, Controller c) {
+	public RisultatiTempisticheGateGUI(List<Tempistica> list, Controller c, String scelta) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 945, 484);
 		contentPane = new JPanel();
@@ -33,10 +33,11 @@ public class RisultatiTempisticheGateGUI extends JFrame {
 		controller = c;
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
-		
-		for (Tempistica valori : list) {
-			listModel.addElement(valori.getAnno() + " " + valori.getMese() + " " + valori.getGiorno() + " " + valori.getValore() );
-		}
+		if (scelta = Giorni) {
+			for (Tempistica valori : list) {
+				listModel.addElement(valori.getAnno() + " " + valori.getMese() + " " + valori.getGiorno() + " " + valori.getValore() );
+			}
+		} 
 		contentPane.setLayout(null);
 		
 		JList jlist = new JList(listModel);

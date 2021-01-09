@@ -82,7 +82,6 @@ public class Controller {
 	
 	public void openGate() {
 		if(risultatiTempisticheGateGUI != null) {
-			risultatiSlot.setVisible(false);
 			risultatiTempisticheGateGUI.setVisible(false);
 		}
 		

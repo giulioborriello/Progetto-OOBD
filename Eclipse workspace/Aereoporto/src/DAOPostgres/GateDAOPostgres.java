@@ -116,6 +116,32 @@ public class GateDAOPostgres implements GateDAO{
 		return list;
 	}
 		
+	public List<Tempistica> GetTempisticheMese(String mese) {
+		List<Tempistica> list = new LinkedList();
+		
+		try {
+			st = conn.createStatement();
+			double Mese = Double.valueOf(mese);
+			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(month from B.\"data\" ) AS monthd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B WHERE extract(year from B.\"data\") = ?  GROUP BY yeard , monthd;");
+			ps.setDouble(1, Mese);
+			
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				
+				Tempistica tempo = new Tempistica(rs.getString("yeard"), rs.getString("monthd"), rs.getString("add"));
+				list.add(tempo);
+			}
+			conn.close();
+			rs.close();
+			st.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	
 	
 	
 }
