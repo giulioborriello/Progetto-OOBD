@@ -69,6 +69,7 @@ public class Controller {
 
 	Controller controller = new Controller();
 	singleton = SingletonPostgres.getInstance();
+	
 	}
 	
 	public void openSlot() {
@@ -145,7 +146,6 @@ public class Controller {
 		}
 		menù.setVisible(false);
 		biglietto.setVisible(true);
-	
 	}
 	
 	public void backToMenù() {
