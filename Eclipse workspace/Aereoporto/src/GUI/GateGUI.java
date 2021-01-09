@@ -80,10 +80,10 @@ public class GateGUI extends JFrame {
 		lblTempistiche.setBounds(261, 217, 108, 25);
 		contentPane.add(lblTempistiche);
 		
-		JLabel lblGiorni = new JLabel("Giorni:");
+		JLabel lblGiorni = new JLabel("Giorni mese:");
 		lblGiorni.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGiorni.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblGiorni.setBounds(170, 294, 51, 19);
+		lblGiorni.setBounds(134, 298, 108, 19);
 		contentPane.add(lblGiorni);
 		
 		JLabel lblSettimane = new JLabel("Settimane:");
@@ -106,16 +106,10 @@ public class GateGUI extends JFrame {
 		comboBoxRicerca_2.setBounds(344, 299, 50, 20);
 		contentPane.add(comboBoxRicerca_2);
 		
-		JLabel lblMesi_1 = new JLabel("Mese");
-		lblMesi_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMesi_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMesi_1.setBounds(273, 338, 35, 19);
-		contentPane.add(lblMesi_1);
-		
 		JLabel lblMesi_1_1 = new JLabel("Anno");
 		lblMesi_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMesi_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMesi_1_1.setBounds(353, 336, 33, 19);
+		lblMesi_1_1.setBounds(299, 335, 33, 19);
 		contentPane.add(lblMesi_1_1);
 		
 		JButton btnRicerca_1 = new JButton("Invia");
@@ -139,12 +133,8 @@ public class GateGUI extends JFrame {
 		lblMesi_1_2.setBounds(273, 272, 35, 19);
 		contentPane.add(lblMesi_1_2);
 		
-		JComboBox comboBoxRicerca_1_1 = new JComboBox(mesi);
-		comboBoxRicerca_1_1.setBounds(252, 363, 76, 20);
-		contentPane.add(comboBoxRicerca_1_1);
-		
 		JComboBox comboBoxRicerca_2_1 = new JComboBox(anni);
-		comboBoxRicerca_2_1.setBounds(346, 363, 50, 20);
+		comboBoxRicerca_2_1.setBounds(289, 365, 50, 20);
 		contentPane.add(comboBoxRicerca_2_1);
 		
 		JLabel lblMesi_1_1_1 = new JLabel("Anno");

@@ -15,6 +15,7 @@ import Entit‡.Compagnia;
 import Entit‡.Fedelt‡;
 import Entit‡.Gate;
 import Entit‡.Slot;
+import Entit‡.Tempistica;
 import Entit‡.Tratta;
 import RisultatiGUI.RisultatiBigliettoGUI;
 import RisultatiGUI.RisultatiClienteGUI;
@@ -23,6 +24,7 @@ import RisultatiGUI.RisultatiCompagniaGUI;
 import RisultatiGUI.RisultatiFedelt‡GUI;
 import RisultatiGUI.RisultatiGateGUI;
 import RisultatiGUI.RisultatiSlotGUI;
+import RisultatiGUI.RisultatiTempisticheGateGUI;
 import RisultatiGUI.RisultatiTrattaGUI;
 
 public class Controller {
@@ -45,7 +47,7 @@ public class Controller {
 	private RisultatiCodaDiImbarcoGUI risultatiCodaDiImbarco;
 	private RisultatiClienteGUI risultatiCliente;
 	private RisultatiBigliettoGUI risultatiBiglietto;
-	
+	private RisultatiTempisticheGateGUI risulatiTempisticheGateGUI; 
 	private static SingletonPostgres singleton;
 	
 	public Controller() {
@@ -800,6 +802,15 @@ public class Controller {
 		Dialog dialog = new Dialog(text);
 		dialog.setVisible(true);
 	}
+	
+	public void ricercaTempisticaGiorni(String mese, String anno) {
+		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
+		List<Tempistica> list = gateDAOP.GetTempistiche(anno, mese);
+		risulatiTempisticheGateGUI = new RisultatiTempisticheGateGUI(list, this);
+		gate.setVisible(false);
+		risulatiTempisticheGateGUI.setVisible(true); 
+	}
+	
 	
 }
 

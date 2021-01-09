@@ -10,6 +10,7 @@ import java.util.List;
 
 import DAO.GateDAO;
 import Entità.Gate;
+import Entità.Tempistica;
 
 public class GateDAOPostgres implements GateDAO{
 	private Connection conn;
@@ -88,21 +89,21 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 
-	public void GetTempistiche(String Anno, String Mese, String Giorno) {
+	public List<Tempistica> GetTempisticheGiorni(String Anno, String Mese) {
+		List<Tempistica> list = null;
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT YEAR(public.\"B\".\"data\"), MONTH(public.\"B\".\"data\"), DAY(public.\"B\".\"data\") SUM public.\"B\".\"TempoDiImbarcoEffettivo\" "
-					+ "FROM (public.\"gate\" INNER JOIN public.\"CodaDiImbarco\" ON (public.\"gate\".\"Ngate\" = public.\"CodaDiImbarco\".Ngate)) AS aa INNER JOIN public.\"Slot\" ON (public.\"aa\".\"CodSlot\" = public.\"Slot\".CodSlot) AS B "
-					+ "WHERE YEAR(public.\"B\".\"data\") = ?,  MONTH(public.\"B\".\"data\") = ?,  DAY(public.\"B\".\"data\") "
-					+ "GROUP BY year(public.\"B\".\"data\") AND day(public.\"B\".\"data\") AND  MONTH(public.\"B\".\"data\")");
-			ps.setString(1, Anno);
+			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(month from B.\"data\" ) AS monthd, extract(day from B.\"data\") AS dayd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add" 
+					+ "FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B "
+					+ "WHERE  extract(month from B.\"data\") = ? AND extract(year from B.\"data\") = ?"  
+					+ "GROUP BY yeard , dayd ,  monthd;");
 			ps.setString(1, Mese);
-			ps.setString(1, Giorno);
-			ResultSet rs=ps.executeQuery();
+			ps.setString(2, Anno);
 			
+			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
-				
+				Tempistica tempo = new Tempistica(rs.getString("yeard"), rs.getString("monthd"), rs.getString("add"));
+				list.add(tempo);
 			}
 			conn.close();
 			rs.close();
@@ -111,15 +112,19 @@ public class GateDAOPostgres implements GateDAO{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return gate;	
+		return list;
+
+	
 	}
 		
-	}
-
-
-
-
-
-
+	
+	
 }
+
+
+
+
+
+
+
 

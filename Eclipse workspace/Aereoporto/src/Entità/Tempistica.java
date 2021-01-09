@@ -1,23 +1,54 @@
 package Entità;
 
 public class Tempistica {
-	private String GiornoMeseAnno;
+	private String Giorno;
+	private String Mese;
+	private String Anno;
 	private String Valore;
 	
-	public Tempistica(String giornoMeseAnno, String valore) {
+	
+	
+	public Tempistica(String mese, String anno, String valore) {
 		super();
-		GiornoMeseAnno = giornoMeseAnno;
+		Mese = mese;
+		Anno = anno;
 		Valore = valore;
 	}
+
 	
-	public String getGiornoMeseAnno() {
-		return GiornoMeseAnno;
+	
+	public Tempistica(String anno, String valore) {
+		super();
+		Anno = anno;
+		Valore = valore;
 	}
-	
-	public void setGiornoMeseAnno(String giornoMeseAnno) {
-		GiornoMeseAnno = giornoMeseAnno;
+
+
+
+	public String getGiorno() {
+		return Giorno;
 	}
-	
+
+	public void setGiorno(String giorno) {
+		Giorno = giorno;
+	}
+
+	public String getMese() {
+		return Mese;
+	}
+
+	public void setMese(String mese) {
+		Mese = mese;
+	}
+
+	public String getAnno() {
+		return Anno;
+	}
+
+	public void setAnno(String anno) {
+		Anno = anno;
+	}
+
 	public String getValore() {
 		return Valore;
 	}
