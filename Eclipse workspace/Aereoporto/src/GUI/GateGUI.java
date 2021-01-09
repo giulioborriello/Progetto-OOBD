@@ -58,7 +58,7 @@ public class GateGUI extends JFrame {
 				controller.openRisultatiGate(comboBoxRicerca.getSelectedItem().toString(), textFieldRicerca.getText());
 			}
 		});
-		btnRicerca.setBounds(498, 105, 85, 40);
+		btnRicerca.setBounds(408, 107, 85, 40);
 		contentPane.add(btnRicerca);
 		
 		JButton btnMenu = new JButton("Menu");
@@ -109,12 +109,21 @@ public class GateGUI extends JFrame {
 		JLabel lblMesi_1_1 = new JLabel("Anno");
 		lblMesi_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMesi_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMesi_1_1.setBounds(299, 335, 33, 19);
+		lblMesi_1_1.setBounds(275, 337, 33, 19);
 		contentPane.add(lblMesi_1_1);
 		
+		JComboBox MesiAnnoComboBox = new JComboBox(anni);
+		MesiAnnoComboBox.setBounds(265, 431, 50, 20);
+		contentPane.add(MesiAnnoComboBox);
+		
 		JButton btnRicerca_1 = new JButton("Invia");
+		btnRicerca_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.ricercaTempisticaMesi(MesiAnnoComboBox.getSelectedItem().toString());
+			}
+		});
 		btnRicerca_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_1.setBounds(409, 426, 71, 27);
+		btnRicerca_1.setBounds(404, 426, 71, 27);
 		contentPane.add(btnRicerca_1);
 		
 		JButton btnRicerca_1_1 = new JButton("Invia");
@@ -127,9 +136,19 @@ public class GateGUI extends JFrame {
 		btnRicerca_1_1.setBounds(404, 294, 71, 27);
 		contentPane.add(btnRicerca_1_1);
 		
+		
+		JComboBox comboBoxRicerca_2_1 = new JComboBox(anni);
+		comboBoxRicerca_2_1.setBounds(265, 367, 50, 20);
+		contentPane.add(comboBoxRicerca_2_1);
+		
 		JButton btnRicerca_1_2 = new JButton("Invia");
+		btnRicerca_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.ricercaTempisticaSettimane(comboBoxRicerca_2_1.getSelectedItem().toString());
+			}
+		});
 		btnRicerca_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_1_2.setBounds(409, 360, 71, 27);
+		btnRicerca_1_2.setBounds(404, 360, 71, 27);
 		contentPane.add(btnRicerca_1_2);
 		
 		JLabel lblMesi_1_2 = new JLabel("Mese");
@@ -138,9 +157,7 @@ public class GateGUI extends JFrame {
 		lblMesi_1_2.setBounds(273, 272, 35, 19);
 		contentPane.add(lblMesi_1_2);
 		
-		JComboBox comboBoxRicerca_2_1 = new JComboBox(anni);
-		comboBoxRicerca_2_1.setBounds(289, 365, 50, 20);
-		contentPane.add(comboBoxRicerca_2_1);
+		
 		
 		JLabel lblMesi_1_1_1 = new JLabel("Anno");
 		lblMesi_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -154,8 +171,6 @@ public class GateGUI extends JFrame {
 		lblMesi_1_1_1_1.setBounds(274, 404, 33, 19);
 		contentPane.add(lblMesi_1_1_1_1);
 		
-		JComboBox MesiAnnoComboBox = new JComboBox(anni);
-		MesiAnnoComboBox.setBounds(265, 431, 50, 20);
-		contentPane.add(MesiAnnoComboBox);
+		
 	}
 }

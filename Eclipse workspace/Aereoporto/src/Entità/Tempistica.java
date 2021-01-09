@@ -2,24 +2,17 @@ package Entità;
 
 public class Tempistica {
 	private String Giorno;
+	private String Settimana;
 	private String Mese;
 	private String Anno;
 	private String Valore;
 	
 	
 	
-	public Tempistica(String giorno, String mese, String anno, String valore) {
+	public Tempistica( String anno, String mese, String settimana, String giorno, String valore) {
 		super();
 		Giorno = giorno;
-		Mese = mese;
-		Anno = anno;
-		Valore = valore;
-	}
-
-	
-	
-	public Tempistica(String mese, String anno, String valore) {
-		super();
+		Settimana = settimana;
 		Mese = mese;
 		Anno = anno;
 		Valore = valore;
@@ -57,6 +50,18 @@ public class Tempistica {
 	
 	public void setValore(String valore) {
 		Valore = valore;
+	}
+
+
+
+	public String getSettimana() {
+		return Settimana;
+	}
+
+
+
+	public void setSettimana(String settimana) {
+		Settimana = settimana;
 	}
 	
 }

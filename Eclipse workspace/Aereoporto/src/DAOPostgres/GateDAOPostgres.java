@@ -90,7 +90,7 @@ public class GateDAOPostgres implements GateDAO{
 	}
 
 	public List<Tempistica> GetTempisticheGiorni(String mese, String anno) {
-		List<Tempistica> list = new LinkedList();
+		List<Tempistica> list = new LinkedList<Tempistica>();
 		
 		try {
 			st = conn.createStatement();
@@ -103,12 +103,13 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				Tempistica tempo = new Tempistica(rs.getString("yeard"), rs.getString("monthd"), rs.getString("dayd"), rs.getString("add"));
+				Tempistica tempo = new Tempistica(rs.getString("yeard"), rs.getString("monthd"), null,  rs.getString("dayd"), rs.getString("add"));
 				list.add(tempo);
 			}
-			conn.close();
 			rs.close();
 			st.close();
+			conn.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -116,24 +117,27 @@ public class GateDAOPostgres implements GateDAO{
 		return list;
 	}
 		
-	public List<Tempistica> GetTempisticheMese(String mese) {
-		List<Tempistica> list = new LinkedList();
+	public List<Tempistica> GetTempisticheMesi(String anno) {
+		List<Tempistica> list = new LinkedList<Tempistica>();
 		
 		try {
 			st = conn.createStatement();
-			double Mese = Double.valueOf(mese);
-			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(month from B.\"data\" ) AS monthd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B WHERE extract(year from B.\"data\") = ?  GROUP BY yeard , monthd;");
-			ps.setDouble(1, Mese);
+			double Anno = Double.valueOf(anno);
+			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(month from B.\"data\" ) AS monthd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add "
+					+ "FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B "
+					+ "WHERE extract(year from B.\"data\") = ?  "
+					+ "GROUP BY yeard , monthd;");
+			ps.setDouble(1, Anno);
 			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				Tempistica tempo = new Tempistica(rs.getString("yeard"), rs.getString("monthd"), rs.getString("add"));
+				Tempistica tempo = new Tempistica(rs.getString("yeard"), rs.getString("monthd"),null, null, rs.getString("add"));
 				list.add(tempo);
 			}
-			conn.close();
 			rs.close();
 			st.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -142,7 +146,33 @@ public class GateDAOPostgres implements GateDAO{
 	}
 	
 	
-	
+	public List<Tempistica> GetTempisticheSettimane(String anno) {
+		List<Tempistica> list = new LinkedList<Tempistica>();
+		
+		try {
+			st = conn.createStatement();
+			double Anno = Double.valueOf(anno);
+			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(week from B.\"data\" ) AS weekd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add "
+					+ "FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B "
+					+ "WHERE extract(year from B.\"data\") = ?  "
+					+ "GROUP BY yeard , weekd;");
+			ps.setDouble(1, Anno);
+			
+			ResultSet rs=ps.executeQuery();
+			while(rs.next()) {
+				
+				Tempistica tempo = new Tempistica(rs.getString("yeard"), null, rs.getString("weekd"), null, rs.getString("add"));
+				list.add(tempo);
+			}
+			rs.close();
+			st.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
+	}
 	
 }
 

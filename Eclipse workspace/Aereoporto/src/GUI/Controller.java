@@ -358,6 +358,12 @@ public class Controller {
 		risultatiBiglietto.setVisible(true);
 	}
 	
+	public void openRisultatiTempisticheGateGUI(List<Tempistica> list, String scelta) { 
+		risultatiTempisticheGateGUI = new RisultatiTempisticheGateGUI(list, this, scelta); 
+		gate.setVisible(false); 
+		risultatiTempisticheGateGUI.setVisible(true); 
+	}
+	
 	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data, String nGate, String CodIATA, String destinazione, String scali) throws ParseException{
 		
 		if(checkBlank(codTratta, nPrenotazioni, orarioDiPartenza, data, nGate, CodIATA, destinazione, scali)) {
@@ -810,17 +816,20 @@ public class Controller {
 	public void ricercaTempisticaGiorni(String mese, String anno) {
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
 		List<Tempistica> list = gateDAOP.GetTempisticheGiorni(mese, anno);
-		risultatiTempisticheGateGUI = new RisultatiTempisticheGateGUI(list, this);
-		gate.setVisible(false);
-		risultatiTempisticheGateGUI.setVisible(true); 
+		this.openRisultatiTempisticheGateGUI(list, "Giorni");
 	}
 	
-	public void ricercaTempisticaMesiSettimane(String anno) {
+	public void ricercaTempisticaMesi(String anno) {
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
-		//List<Tempistica> list = gateDAOP.GetTempisticheMesiSettimane(anno);
+		List<Tempistica> list = gateDAOP.GetTempisticheMesi(anno);
+		this.openRisultatiTempisticheGateGUI(list, "Mesi");
 	}
 	
-	
+	public void ricercaTempisticaSettimane(String anno) {
+		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
+		List<Tempistica> list = gateDAOP.GetTempisticheSettimane(anno);
+		this.openRisultatiTempisticheGateGUI(list, "Settimane");
+	}
 	
 }
 
