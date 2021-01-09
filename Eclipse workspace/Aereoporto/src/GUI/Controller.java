@@ -47,7 +47,7 @@ public class Controller {
 	private RisultatiCodaDiImbarcoGUI risultatiCodaDiImbarco;
 	private RisultatiClienteGUI risultatiCliente;
 	private RisultatiBigliettoGUI risultatiBiglietto;
-	private RisultatiTempisticheGateGUI risulatiTempisticheGateGUI; 
+	private RisultatiTempisticheGateGUI risultatiTempisticheGateGUI; 
 	private static SingletonPostgres singleton;
 	
 	public Controller() {
@@ -72,6 +72,12 @@ public class Controller {
 	}
 	
 	public void openSlot() {
+		if(risultatiTempisticheGateGUI != null) {
+			risultatiSlot.setVisible(false);
+			risultatiTempisticheGateGUI.setVisible(false);
+		}
+
+	
 		if(risultatiSlot != null) {
 			risultatiSlot.setVisible(false);
 		}
@@ -86,7 +92,7 @@ public class Controller {
 		}
 		menù.setVisible(false);
 		gate.setVisible(true);
-		 
+		
 	
 	}
 	
@@ -806,9 +812,9 @@ public class Controller {
 	public void ricercaTempisticaGiorni(String mese, String anno) {
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
 		List<Tempistica> list = gateDAOP.GetTempisticheGiorni(mese, anno);
-		risulatiTempisticheGateGUI = new RisultatiTempisticheGateGUI(list, this);
+		risultatiTempisticheGateGUI = new RisultatiTempisticheGateGUI(list, this);
 		gate.setVisible(false);
-		risulatiTempisticheGateGUI.setVisible(true); 
+		risultatiTempisticheGateGUI.setVisible(true); 
 	}
 	
 	public void ricercaTempisticaMesiSettimane(String anno) {
