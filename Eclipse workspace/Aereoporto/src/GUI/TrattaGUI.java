@@ -3,6 +3,9 @@ package GUI;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import ControllerPackage.Controller;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -35,7 +38,7 @@ public class TrattaGUI extends JFrame {
 			"41","42","43","44","45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"};
 	private String[] giorni = {"1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 			"21","22","23","24","25", "26", "27", "28", "29", "30", "31"};
-	private String[] mesi = {"Gennaio", "Febbraio", "Marzo", "Aprile","Maggio","Giugno","Luglio","Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"};
+	private String[] mesi = {"1", "2", "3", "4","5","6","7","8", "9", "10", "11", "12"};
 	private String[] anni = {"2000","2001","2002","2003","2004","2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", 
 			"2016", "2017", "2018", "2019", "2020", "2021","2022","2023","2024","2025"};
 	

@@ -4,8 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import ControllerPackage.Controller;
 import Entità.Cliente;
-import GUI.Controller;
 
 import javax.swing.JList;
 import javax.swing.DefaultListModel;

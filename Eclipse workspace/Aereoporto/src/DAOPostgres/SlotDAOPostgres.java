@@ -49,11 +49,11 @@ public class SlotDAOPostgres implements SlotDAO{
 		return listSlot;
 	}
 	
-	public Slot getSlotByCodSlot(int CodSlot) {
+	public Slot getSlotByCodSlot(String CodSlot) {
 		Slot slot = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
-			ps.setInt(1, CodSlot);
+			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
@@ -117,11 +117,11 @@ public class SlotDAOPostgres implements SlotDAO{
 		return listSlot;	
 	}
 	
-	public String insertSlot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, Date Data, Time OrarioDiPartenza)	{
+	public String insertSlot(String CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, Date Data, Time OrarioDiPartenza)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
-			ps.setInt(1, CodSlot);
+			ps.setString(1, CodSlot);
 			ps.setInt(2, TempoDiImbarcoStimato);
 			ps.setInt(3, TempoDiImbarcoEffettivo);
 			ps.setDate(4, Data);
@@ -138,12 +138,12 @@ public class SlotDAOPostgres implements SlotDAO{
 		
 	}
 	
-	public String updateTempoDiImbarcoEffettivoByCodSlot(int TempoDiImbarcoEffettivo, int CodSlot)	{
+	public String updateTempoDiImbarcoEffettivoByCodSlot(int TempoDiImbarcoEffettivo, String CodSlot)	{
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("UPDATE \"Slot\" SET \"TempoDiImbarcoEffettivo\" = ? WHERE \"CodSlot\" = ? ; ");
 			ps.setInt(1, TempoDiImbarcoEffettivo);
-			ps.setInt(2, CodSlot);
+			ps.setString(2, CodSlot);
 			ps.execute();
 			ps.close();
 			conn.close();
@@ -155,12 +155,12 @@ public class SlotDAOPostgres implements SlotDAO{
 		}
 	}
 	
-	public String deleteSlot(int CodSlot) {
+	public String deleteSlot(String CodSlot) {
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("Delete From \"Slot\"  WHERE \"CodSlot\" = ? ; ");
 	
-			ps.setInt(1, CodSlot);
+			ps.setString(1, CodSlot);
 			ps.execute();
 			ps.close();
 			conn.close();

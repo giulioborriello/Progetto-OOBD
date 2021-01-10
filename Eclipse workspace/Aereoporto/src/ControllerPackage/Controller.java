@@ -1,4 +1,4 @@
-package GUI;
+package ControllerPackage;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -17,6 +17,16 @@ import Entit‡.Gate;
 import Entit‡.Slot;
 import Entit‡.Tempistica;
 import Entit‡.Tratta;
+import GUI.BigliettoGUI;
+import GUI.ClienteGUI;
+import GUI.CodaDiImbarcoGUI;
+import GUI.CompagniaGUI;
+import GUI.Dialog;
+import GUI.Fedelt‡GUI;
+import GUI.GateGUI;
+import GUI.Men˘GUI;
+import GUI.SlotGUI;
+import GUI.TrattaGUI;
 import RisultatiGUI.RisultatiBigliettoGUI;
 import RisultatiGUI.RisultatiClienteGUI;
 import RisultatiGUI.RisultatiCodaDiImbarcoGUI;
@@ -477,12 +487,16 @@ public class Controller {
 			return;
 		}
 		
-		if(checkSoloNumeri(CodSlot, TempoDiImbarcoStimato, Data, OrarioDiPartenza)) {
+		if(checkSoloNumeri(TempoDiImbarcoStimato, Data, OrarioDiPartenza)) {
 			return;
 		}
 		
+		if(checkSoloLettere(CodSlot)) {
+			return;
+		}
+		
+		
 		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
-		int codSlot =  Integer.valueOf(CodSlot);
 		int tempoDiImbarcoStimato =  Integer.valueOf(TempoDiImbarcoStimato);
 		int tempoDiImbarcoEffettivo =  Integer.valueOf(TempoDiImbarcoEffettivo);
 		
@@ -504,7 +518,7 @@ public class Controller {
 		
 		Date sqlDate = new java.sql.Date(date.getTime());  
 		
-		String testo = slot.insertSlot(codSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,sqlDate, tempo);
+		String testo = slot.insertSlot(CodSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,sqlDate, tempo);
 		openDialog(testo);
 	}
 
@@ -523,17 +537,18 @@ public class Controller {
 		}
 		
 
-		if(checkSoloNumeri(CentoKilometri, Punti)) {
+		if(checkSoloNumeri(Punti)) {
 			return;
 		}
 		
-		
+		if(checkCentoKilometri(CentoKilometri)){
+			return;
+		}
 		
 		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(singleton);
-		int centoKilometri = Integer.valueOf(CentoKilometri);
 		int punti = Integer.valueOf(Punti);
 		
-		String testo = fedelt‡.insertFedelt‡(centoKilometri, CodIATA, CodFiscale, punti);
+		String testo = fedelt‡.insertFedelt‡(CentoKilometri, CodIATA, CodFiscale, punti);
 		openDialog(testo);
 	}
 
@@ -572,8 +587,7 @@ public class Controller {
 		}
 		
 		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
-		int codSlot = Integer.valueOf(CodSlot);
-		String testo = slot.deleteSlot(codSlot);
+		String testo = slot.deleteSlot(CodSlot);
 		openDialog(testo);
 	}
 
@@ -687,10 +701,9 @@ public class Controller {
 		
 		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(singleton);
 		
-		int centoKilometri = Integer.valueOf(CentoKilometri);
 		
 		
-		String testo = fedelt‡.updateCentoKilometriByCodFiscaleANDCodIATA(centoKilometri, CodFiscale, CodIATA);
+		String testo = fedelt‡.updateCentoKilometriByCodFiscaleANDCodIATA(CentoKilometri, CodFiscale, CodIATA);
 		openDialog(testo);
 		
 		
@@ -709,10 +722,9 @@ public class Controller {
 		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(singleton);
 		
 		int punti = Integer.valueOf(Punti);
-		int centoKilometri = Integer.valueOf(CentoKilometri);
 		
 		
-		String testo = fedelt‡.updatePuntiByCentoKilometriANDCodIATA(punti, centoKilometri, CodIATA);
+		String testo = fedelt‡.updatePuntiByCentoKilometriANDCodIATA(CentoKilometri, punti, CodIATA);
 		openDialog(testo);
 	}
 
@@ -724,10 +736,9 @@ public class Controller {
 		
 		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
 		
-		int codSlot = Integer.valueOf(IndicaCodSlot);
 		int tempoEffettivo = Integer.valueOf(AggiornaTempoEffettivo);
 		
-		String testo = slot.updateTempoDiImbarcoEffettivoByCodSlot(codSlot, tempoEffettivo);
+		String testo = slot.updateTempoDiImbarcoEffettivoByCodSlot(tempoEffettivo, IndicaCodSlot);
 		openDialog(testo);
 	}
 	
@@ -802,6 +813,18 @@ public class Controller {
 			}
 		}
 		
+		return false;
+		
+		
+	}
+	
+	public boolean checkCentoKilometri (String parola) {
+		String espressioneSoloLettere = "^[A-Za-z]*$";
+		if(!parola.matches(espressioneSoloLettere)) {
+			openDialog("Una o pi˘ caselle devono avere solo Lettere!");
+
+			return true;
+		}
 		return false;
 	}
 	

@@ -28,4 +28,6 @@ public class Gate {
 		codTratta = CodTratta;
 	}
 	
+	
+	
 }

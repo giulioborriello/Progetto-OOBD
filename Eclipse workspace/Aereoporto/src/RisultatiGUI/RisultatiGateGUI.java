@@ -6,8 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import ControllerPackage.Controller;
 import Entità.Gate;
-import GUI.Controller;
 
 import javax.swing.JList;
 import javax.swing.DefaultListModel;

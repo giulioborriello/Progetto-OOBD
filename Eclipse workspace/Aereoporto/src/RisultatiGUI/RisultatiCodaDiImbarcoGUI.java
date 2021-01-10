@@ -12,8 +12,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import ControllerPackage.Controller;
 import Entità.CodaDiImbarco;
-import GUI.Controller;
 
 public class RisultatiCodaDiImbarcoGUI extends JFrame {
 	
@@ -44,7 +44,7 @@ public class RisultatiCodaDiImbarcoGUI extends JFrame {
 		
 		JList jlist = new JList(listModel);
  	    jlist.setLocation(62, 49);
- 	    jlist.setSize(400, 363);
+ 	    jlist.setSize(772, 363);
  	    contentPane.add(jlist);
  	    
  	    JButton btnNewButton_3 = new JButton("Torna indietro ");

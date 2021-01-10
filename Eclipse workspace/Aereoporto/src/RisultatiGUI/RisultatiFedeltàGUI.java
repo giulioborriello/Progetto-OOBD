@@ -4,8 +4,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import ControllerPackage.Controller;
 import Entit‡.Fedelt‡;
-import GUI.Controller;
 
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
@@ -41,7 +41,7 @@ public class RisultatiFedelt‡GUI extends JFrame {
 		}
 		
 		JList jlist = new JList(listModel);
-		jlist.setBounds(10, 11, 400, 363);
+		jlist.setBounds(10, 11, 673, 363);
 		contentPane.add(jlist);
 		
 		JButton btnNewButton_3 = new JButton("Torna indietro ");

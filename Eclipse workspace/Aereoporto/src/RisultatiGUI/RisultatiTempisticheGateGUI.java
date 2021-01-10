@@ -12,9 +12,8 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-
+import ControllerPackage.Controller;
 import Entità.Tempistica;
-import GUI.Controller;
 
 public class RisultatiTempisticheGateGUI extends JFrame {
 

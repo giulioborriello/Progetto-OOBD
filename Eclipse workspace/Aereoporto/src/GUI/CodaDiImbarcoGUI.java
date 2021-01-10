@@ -3,6 +3,9 @@ package GUI;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import ControllerPackage.Controller;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -20,13 +23,13 @@ public class CodaDiImbarcoGUI extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField codCodatextField;
-	private JTextField tipoDiCodatextField;
 	private JTextField nGatetextField;
 	private JTextField codSlottextField;
 	private JTextField eliminatextField;
 	private JLabel lblRicerca;
 	
 	private String[] tipiRicerca = {"Seleziona tutti","CodCoda","N° Gate","Codice Slot"};
+	private String[] tipiDiCoda = {"Business Class","Priority","Family","Diversamente abili"};
 
 	public CodaDiImbarcoGUI(Controller c) {
 		controller = c;
@@ -96,12 +99,6 @@ public class CodaDiImbarcoGUI extends JFrame {
 		codCodatextField.setColumns(10);
 		codCodatextField.getText();
 		
-		tipoDiCodatextField = new JTextField();
-		tipoDiCodatextField.setColumns(10);
-		tipoDiCodatextField.setBounds(420, 271, 86, 20);
-		tipoDiCodatextField.getText();
-		contentPane.add(tipoDiCodatextField);
-		
 		nGatetextField = new JTextField();
 		nGatetextField.setColumns(10);
 		nGatetextField.setBounds(250, 348, 86, 20);
@@ -114,11 +111,14 @@ public class CodaDiImbarcoGUI extends JFrame {
 		codSlottextField.getText();
 		contentPane.add(codSlottextField);
 		
+		JComboBox comboBoxTipiDiCoda = new JComboBox(tipiDiCoda);
+		comboBoxTipiDiCoda.setBounds(385, 269, 149, 22);
+		contentPane.add(comboBoxTipiDiCoda);
 		
 		JButton btnInserisci = new JButton("Invia");
 		btnInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.inserisciCodaDiImbarco(codCodatextField.getText(), tipoDiCodatextField.getText(), nGatetextField.getText(), codSlottextField.getText());
+				controller.inserisciCodaDiImbarco(codCodatextField.getText(), comboBoxTipiDiCoda.getSelectedItem().toString(), nGatetextField.getText(), codSlottextField.getText());
 			}
 		});
 		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -168,5 +168,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(618, 465, 142, 42);
 		contentPane.add(btnElimina);
+		
+		
 	}
 }

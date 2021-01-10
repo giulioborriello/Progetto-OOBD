@@ -14,6 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import ControllerPackage.Controller;
+
 public class GateGUI extends JFrame {
 	private Controller controller;
 	private JPanel contentPane;
@@ -80,11 +82,11 @@ public class GateGUI extends JFrame {
 		lblTempistiche.setBounds(261, 217, 108, 25);
 		contentPane.add(lblTempistiche);
 		
-		JLabel lblGiorni = new JLabel("Giorni mese:");
-		lblGiorni.setHorizontalAlignment(SwingConstants.CENTER);
-		lblGiorni.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblGiorni.setBounds(134, 298, 108, 19);
-		contentPane.add(lblGiorni);
+		JLabel lblGiorniMese = new JLabel("Giorni mese:");
+		lblGiorniMese.setHorizontalAlignment(SwingConstants.CENTER);
+		lblGiorniMese.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblGiorniMese.setBounds(134, 298, 108, 19);
+		contentPane.add(lblGiorniMese);
 		
 		JLabel lblSettimane = new JLabel("Settimane:");
 		lblSettimane.setHorizontalAlignment(SwingConstants.CENTER);
@@ -98,78 +100,78 @@ public class GateGUI extends JFrame {
 		lblMesi.setBounds(175, 426, 40, 19);
 		contentPane.add(lblMesi);
 		
-		JComboBox comboBoxRicerca_1 = new JComboBox(mesi);
-		comboBoxRicerca_1.setBounds(252, 299, 76, 20);
-		contentPane.add(comboBoxRicerca_1);
+		JComboBox comboBoxRicerca_GiorniMeseMesi = new JComboBox(mesi);
+		comboBoxRicerca_GiorniMeseMesi.setBounds(252, 299, 76, 20);
+		contentPane.add(comboBoxRicerca_GiorniMeseMesi);
 		
-		JComboBox comboBoxRicerca_2 = new JComboBox(anni);
-		comboBoxRicerca_2.setBounds(344, 299, 50, 20);
-		contentPane.add(comboBoxRicerca_2);
+		JComboBox comboBoxRicerca_GiorniMeseAnno = new JComboBox(anni);
+		comboBoxRicerca_GiorniMeseAnno.setBounds(344, 299, 50, 20);
+		contentPane.add(comboBoxRicerca_GiorniMeseAnno);
 		
-		JLabel lblMesi_1_1 = new JLabel("Anno");
-		lblMesi_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMesi_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMesi_1_1.setBounds(275, 337, 33, 19);
-		contentPane.add(lblMesi_1_1);
+		JLabel lblRicercaSettimane_Anno = new JLabel("Anno");
+		lblRicercaSettimane_Anno.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRicercaSettimane_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblRicercaSettimane_Anno.setBounds(275, 337, 33, 19);
+		contentPane.add(lblRicercaSettimane_Anno);
 		
-		JComboBox MesiAnnoComboBox = new JComboBox(anni);
-		MesiAnnoComboBox.setBounds(265, 431, 50, 20);
-		contentPane.add(MesiAnnoComboBox);
+		JComboBox comboBoxRicerca_Anno = new JComboBox(anni);
+		comboBoxRicerca_Anno.setBounds(265, 431, 50, 20);
+		contentPane.add(comboBoxRicerca_Anno);
 		
-		JButton btnRicerca_1 = new JButton("Invia");
-		btnRicerca_1.addActionListener(new ActionListener() {
+		JButton btnRicerca_Mesi = new JButton("Invia");
+		btnRicerca_Mesi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.ricercaTempisticaMesi(MesiAnnoComboBox.getSelectedItem().toString());
+				controller.ricercaTempisticaMesi(comboBoxRicerca_Anno.getSelectedItem().toString());
 			}
 		});
-		btnRicerca_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_1.setBounds(404, 426, 71, 27);
-		contentPane.add(btnRicerca_1);
+		btnRicerca_Mesi.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnRicerca_Mesi.setBounds(404, 426, 71, 27);
+		contentPane.add(btnRicerca_Mesi);
 		
-		JButton btnRicerca_1_1 = new JButton("Invia");
-		btnRicerca_1_1.addActionListener(new ActionListener() {
+		JButton btnRicerca_GiorniMese = new JButton("Invia");
+		btnRicerca_GiorniMese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.ricercaTempisticaGiorni(comboBoxRicerca_1.getSelectedItem().toString(), comboBoxRicerca_2.getSelectedItem().toString());
+				controller.ricercaTempisticaGiorni(comboBoxRicerca_GiorniMeseMesi.getSelectedItem().toString(), comboBoxRicerca_GiorniMeseAnno.getSelectedItem().toString());
 			}
 		});
-		btnRicerca_1_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_1_1.setBounds(404, 294, 71, 27);
-		contentPane.add(btnRicerca_1_1);
+		btnRicerca_GiorniMese.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnRicerca_GiorniMese.setBounds(404, 294, 71, 27);
+		contentPane.add(btnRicerca_GiorniMese);
 		
 		
-		JComboBox comboBoxRicerca_2_1 = new JComboBox(anni);
-		comboBoxRicerca_2_1.setBounds(265, 367, 50, 20);
-		contentPane.add(comboBoxRicerca_2_1);
+		JComboBox comboBoxRicerca_Settimane = new JComboBox(anni);
+		comboBoxRicerca_Settimane.setBounds(265, 367, 50, 20);
+		contentPane.add(comboBoxRicerca_Settimane);
 		
-		JButton btnRicerca_1_2 = new JButton("Invia");
-		btnRicerca_1_2.addActionListener(new ActionListener() {
+		JButton btnRicerca_Settimane = new JButton("Invia");
+		btnRicerca_Settimane.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.ricercaTempisticaSettimane(comboBoxRicerca_2_1.getSelectedItem().toString());
+				controller.ricercaTempisticaSettimane(comboBoxRicerca_Settimane.getSelectedItem().toString());
 			}
 		});
-		btnRicerca_1_2.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_1_2.setBounds(404, 360, 71, 27);
-		contentPane.add(btnRicerca_1_2);
+		btnRicerca_Settimane.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnRicerca_Settimane.setBounds(404, 360, 71, 27);
+		contentPane.add(btnRicerca_Settimane);
 		
-		JLabel lblMesi_1_2 = new JLabel("Mese");
-		lblMesi_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMesi_1_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMesi_1_2.setBounds(273, 272, 35, 19);
-		contentPane.add(lblMesi_1_2);
+		JLabel lblRicercaGiorniMese_Mese = new JLabel("Mese");
+		lblRicercaGiorniMese_Mese.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRicercaGiorniMese_Mese.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblRicercaGiorniMese_Mese.setBounds(273, 272, 35, 19);
+		contentPane.add(lblRicercaGiorniMese_Mese);
 		
 		
 		
-		JLabel lblMesi_1_1_1 = new JLabel("Anno");
-		lblMesi_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMesi_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMesi_1_1_1.setBounds(353, 268, 33, 19);
-		contentPane.add(lblMesi_1_1_1);
+		JLabel lblRicercaGiorniMese_Anno = new JLabel("Anno");
+		lblRicercaGiorniMese_Anno.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRicercaGiorniMese_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblRicercaGiorniMese_Anno.setBounds(353, 268, 33, 19);
+		contentPane.add(lblRicercaGiorniMese_Anno);
 		
-		JLabel lblMesi_1_1_1_1 = new JLabel("Anno");
-		lblMesi_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMesi_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMesi_1_1_1_1.setBounds(274, 404, 33, 19);
-		contentPane.add(lblMesi_1_1_1_1);
+		JLabel lblRicercaMesi_Anno = new JLabel("Anno");
+		lblRicercaMesi_Anno.setHorizontalAlignment(SwingConstants.CENTER);
+		lblRicercaMesi_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblRicercaMesi_Anno.setBounds(274, 404, 33, 19);
+		contentPane.add(lblRicercaMesi_Anno);
 		
 		
 	}

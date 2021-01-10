@@ -18,7 +18,7 @@ public class Dialog extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	
 	public Dialog(String testo) {
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 1250, 510);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -28,7 +28,7 @@ public class Dialog extends JDialog {
 			lbTesto.setFont(new Font("Tahoma", Font.PLAIN, 15));
 			lbTesto.setVerticalAlignment(SwingConstants.TOP);
 			lbTesto.setHorizontalAlignment(SwingConstants.CENTER);
-			lbTesto.setBounds(26, 31, 378, 155);
+			lbTesto.setBounds(26, 31, 1198, 396);
 			lbTesto.setText(testo);
 			contentPanel.add(lbTesto);
 		}
