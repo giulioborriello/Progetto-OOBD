@@ -61,7 +61,6 @@ public class Controller {
 		cliente = new ClienteGUI(this);
 		biglietto = new BigliettoGUI(this);
 		gate = new GateGUI(this);
-		
 		 
 	}
 	
@@ -69,7 +68,6 @@ public class Controller {
 
 	Controller controller = new Controller();
 	singleton = SingletonPostgres.getInstance();
-	
 	}
 	
 	public void openSlot() {

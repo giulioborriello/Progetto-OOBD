@@ -16,7 +16,6 @@ public class MenùGUI extends JFrame {
 	
 	private JPanel contentPane;
 	
-
 	public MenùGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
