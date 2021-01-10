@@ -181,7 +181,7 @@ public class ClienteGUI extends JFrame {
 		
 		JLabel lblEliminaCodiceFiscale = new JLabel("Codice Fiscale");
 		lblEliminaCodiceFiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEliminaCodiceFiscale.setBounds(345, 508, 99, 14);
+		lblEliminaCodiceFiscale.setBounds(353, 510, 99, 14);
 		contentPane.add(lblEliminaCodiceFiscale);
 		
 		JButton EliminaButton = new JButton("Invia");
