@@ -34,9 +34,15 @@ public class RisultatiBigliettoGUI extends JFrame {
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
+		
+		String titoli = "Codice Biglietto" + " " + "Posto" + " " + "Tipo" + " " + "Tratta" + " " + "Cliente";
+		listModel.addElement(titoli);
+		
 		for(Biglietto biglietto: list) {
-			String string = biglietto.getCodBiglietto() + " " + biglietto.getCodFiscale() + " " 
-					+ biglietto.getPosto() + " " + biglietto.getTipo_Di_Biglietto() + " " + biglietto.getCodTratta();
+			String string = biglietto.getCodBiglietto() + " "  
+					+ biglietto.getPosto() + " " + biglietto.getTipoDiBiglietto() + " " + 
+					biglietto.getTratta().getCodTratta() + " " +
+					biglietto.getCliente().getCodFiscale();
 			listModel.addElement(string);
 			
 		}

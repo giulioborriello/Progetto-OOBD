@@ -35,9 +35,8 @@ public class RisultatiGateGUI extends JFrame {
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		for(Gate gate: list) {
-			String[] astring = {String.valueOf(gate.getNgate()), gate.getCodTratta()};
+			String[] astring = {String.valueOf(gate.getCodGate()), gate.getTratta().getCodTratta()};
 			listModel.addElement(astring[0] + " " + astring[1]);
-			
 		}
 		
 		JList jlist = new JList(listModel);

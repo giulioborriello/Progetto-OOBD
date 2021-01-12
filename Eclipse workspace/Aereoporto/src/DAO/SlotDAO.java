@@ -8,7 +8,6 @@ import Entità.Slot;
 
 public interface SlotDAO {
 
-	public List<Slot> getAllSlot();
 	public Slot getSlotByCodSlot(String CodSlot);
 	public Slot getSlotByCodCoda(int CodCoda);
 	public List<Slot> getSlotByData(String Data);

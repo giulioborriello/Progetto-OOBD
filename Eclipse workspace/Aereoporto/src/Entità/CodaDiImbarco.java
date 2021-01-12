@@ -1,24 +1,24 @@
 package Entità;
 
 public class CodaDiImbarco {
-	private int codCoda;
+	private String codCoda;
 	private String tipoDiCoda;
-	private int nGate;
-	private int codSlot;
-	
-	public CodaDiImbarco(int CodCoda, String TipoDiCoda, int Ngate, int CodSlot) {
+	private Gate gate;
+	private Slot slot;
+
+	public CodaDiImbarco(String codCoda, String tipoDiCoda, Gate gate, Slot slot) {
 		super();
-		codCoda = CodCoda;
-		tipoDiCoda = TipoDiCoda;
-		nGate = Ngate;
-		codSlot = CodSlot;
+		this.codCoda = codCoda;
+		this.tipoDiCoda = tipoDiCoda;
+		this.gate = gate;
+		this.slot = slot;
 	}
 
-	public int getCodCoda() {
+	public String getCodCoda() {
 		return codCoda;
 	}
 
-	public void setCodCoda(int CodCoda) {
+	public void setCodCoda(String CodCoda) {
 		codCoda = CodCoda;
 	}
 
@@ -30,19 +30,19 @@ public class CodaDiImbarco {
 		tipoDiCoda = TipoDiCoda;
 	}
 
-	public int getNgate() {
-		return nGate;
+	public Gate getGate() {
+		return gate;
 	}
 
-	public void setNgate(int Ngate) {
-		nGate = Ngate;
+	public void setGate(Gate gate) {
+		this.gate = gate;
 	}
 
-	public int getCodSlot() {
-		return codSlot;
+	public Slot getSlot() {
+		return slot;
 	}
 
-	public void setCodSlot(int CodSlot) {
-		codSlot = CodSlot;
+	public void setSlot(Slot slot) {
+		this.slot = slot;
 	}
 }

@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.LinkedList;
-import java.util.List;
 
 import DAO.ClienteDAO;
 import Entità.Cliente;
@@ -14,33 +11,12 @@ import Entità.Cliente;
 public class ClienteDAOPostgres implements ClienteDAO {
 	
 	private Connection conn;
-	private List<Cliente> ListCliente = new LinkedList<Cliente>();
 
 	public ClienteDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
 
 	}
 
-	public List<Cliente> getAllCliente() {
-		try {
-			
-			Statement st = conn.createStatement();
-			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Cliente\"");
-			while(rs.next()) {
-				Cliente cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"), rs.getString("Email"));
-				
-				ListCliente.add(cliente);
-			}
-			
-			rs.close();
-			st.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return ListCliente;	
-	}
 	
 	public  Cliente  getClienteByCodFiscale(String CodFiscale) {
 		Cliente cliente = null;
@@ -109,7 +85,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 	public String deleteCliente(String CodFiscale) {
 		
 		try {
-				PreparedStatement ps = conn.prepareStatement("Delete From \"Cliente\"  WHERE \"CodFiscale\" = ? ; ");
+			PreparedStatement ps = conn.prepareStatement("Delete From \"Cliente\"  WHERE \"CodFiscale\" = ? ; ");
 				
 			ps.setString(1, CodFiscale);
 			ps.execute();

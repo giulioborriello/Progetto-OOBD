@@ -1,41 +1,26 @@
 package Entità;
 
 public class Fedeltà {
-	private int centoKilometri;
-	private String codIATA;
-	private String codFiscale;
+	private String centoKilometri;
 	private int punti;
+	private Compagnia Compagnia;
+	private Cliente Cliente;
 
-	public Fedeltà(int CentoKilometri, String CodIATA, String CodFiscale, int Punti) {
+	
+	public Fedeltà(String centoKilometri, int punti, Compagnia Compagnia, Cliente Cliente) {
 		super();
-		centoKilometri = CentoKilometri;
-		codIATA = CodIATA;
-		codFiscale = CodFiscale;
-		punti = Punti;
+		this.centoKilometri = centoKilometri;
+		this.punti = punti;
+		this.Compagnia = Compagnia;
+		this.Cliente = Cliente;
 	}
 
-	public int getCentoKilometri() {
+	public String getCentoKilometri() {
 		return centoKilometri;
 	}
 
-	public void setCentoKilometri(int CentoKilometri) {
+	public void setCentoKilometri(String CentoKilometri) {
 		centoKilometri = CentoKilometri;
-	}
-
-	public String getCodIATA() {
-		return codIATA;
-	}
-
-	public void setCodIATA(String CodIATA) {
-		codIATA = CodIATA;
-	}
-
-	public String getCodFiscale() {
-		return codFiscale;
-	}
-
-	public void setCodFiscale(String CodFiscale) {
-		codFiscale = CodFiscale;
 	}
 
 	public int getPunti() {
@@ -44,5 +29,23 @@ public class Fedeltà {
 
 	public void setPunti(int Punti) {
 		punti = Punti;
+	}
+
+	public void setCodIATA(Compagnia codIATA) {
+		this.Compagnia = codIATA;
+	}
+
+	public void setCodFiscale(Cliente codFiscale) {
+		this.Cliente = codFiscale;
+	}
+
+
+	public Compagnia getCompagnia() {
+		return Compagnia;
+	}
+
+
+	public Cliente getCliente() {
+		return Cliente;
 	}
 }

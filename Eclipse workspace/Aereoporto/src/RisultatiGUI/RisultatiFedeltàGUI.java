@@ -35,7 +35,7 @@ public class RisultatiFedelt‡GUI extends JFrame {
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		for(Fedelt‡ fedelt‡: list) {
-			String string = fedelt‡.getCodFiscale() + " " + fedelt‡.getCodIATA() + " " + fedelt‡.getCentoKilometri() + " " + fedelt‡.getPunti();
+			String string = fedelt‡.getCliente() + " " + fedelt‡.getCompagnia() + " " + fedelt‡.getCentoKilometri() + " " + fedelt‡.getPunti();
 			listModel.addElement(string);
 			
 		}

@@ -34,7 +34,7 @@ public class RisultatiCompagniaGUI extends JFrame {
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
 		for(Compagnia compagnia: list) {
-			String string = compagnia.getCodIATA() + " " + compagnia.getNomeCompagnia();
+			String string = compagnia.getCodIATA() + " " + compagnia.getNomeCompagnia() + " ";
 			listModel.addElement(string);
 			
 		}

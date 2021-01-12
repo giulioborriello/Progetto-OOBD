@@ -197,10 +197,7 @@ public class Controller {
 		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(singleton);
 		
 		List<Tratta> list = new LinkedList<Tratta>();
-		if (ricerca == "Seleziona tutti") {
-			list = trattaPostgres.getAllTratta();
-		}
-		else if(ricerca == "CodTratta") {
+		if(ricerca == "CodTratta") {
 			list.add(trattaPostgres.getTrattaByCodTratta(valore));
 		
 		}
@@ -232,12 +229,9 @@ public class Controller {
 		
 		SlotDAOPostgres slotPostgres = new SlotDAOPostgres(singleton);
 		List<Slot> list = new LinkedList<Slot>();
-		if (ricerca == "Seleziona tutti") {
-			list = slotPostgres.getAllSlot();
-		}
 		
-		else if(ricerca == "CodSlot") {
-			list = slotPostgres.getAllSlot();
+		if(ricerca == "CodSlot") {
+			list.add(slotPostgres.getSlotByCodSlot("CodSlot"));
 		}
 	
 		else if(ricerca == "CodCoda") {
@@ -260,11 +254,8 @@ public class Controller {
 		Fedelt‡DAOPostgres fedelt‡Postgres = new Fedelt‡DAOPostgres(singleton);
 		
 		List<Fedelt‡> list = null;
-		if (ricerca == "Seleziona tutti") {
-			list = fedelt‡Postgres.getAllFedelt‡();
-		}
 		
-		else if(ricerca == "CentoKilometri") {
+		if(ricerca == "CentoKilometri") {
 			list = fedelt‡Postgres.getFedelt‡ByCentoKilometri(valore);
 		}
 		
@@ -307,11 +298,8 @@ public class Controller {
 		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(singleton);
 		List<CodaDiImbarco> list = new LinkedList<CodaDiImbarco>();
 		
-		if (valore == "seleziona tutti") {
-			list = codaDiImbarcoPostgres.getAllCodaDiImbarco();	
-		}
 		
-		else if(valore == "CodCoda") {
+		if(valore == "CodCoda") {
 			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodCoda(valore));
 		}
 		
@@ -334,11 +322,8 @@ public class Controller {
 	public void openRisultatiCliente(String ricerca, String valore) {
 		ClienteDAOPostgres clientePostgres = new ClienteDAOPostgres(singleton);
 		List<Cliente> list = new LinkedList<Cliente>();
-		if (valore == "Seleziona tutti") {
-			list = clientePostgres.getAllCliente();	
-		}
 		
-		else if (valore == "Codice Fiscale") {
+		if (valore == "Codice Fiscale") {
 			list.add(clientePostgres.getClienteByCodFiscale(valore));	
 		}
 		risultatiCliente = new RisultatiClienteGUI(list, this);
@@ -352,10 +337,7 @@ public class Controller {
 		BigliettoDAOPostgres bigliettoPostgres = new BigliettoDAOPostgres(singleton);
 		List<Biglietto> list = null;
 		
-		if (valore == "Seleziona tutti") {
-			list = bigliettoPostgres.getAllBiglietto();	
-		}
-		else if(valore == "Codice Fiscale") {
+		if(valore == "Codice Fiscale") {
 			list = bigliettoPostgres.getBigliettoByCodFiscale(valore);
 		}
 		else if(valore == "Codice Tratta") {

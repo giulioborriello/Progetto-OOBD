@@ -1,5 +1,6 @@
 package DAOPostgres;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,46 +16,24 @@ import Entità.Tempistica;
 public class GateDAOPostgres implements GateDAO{
 	private Connection conn;
 	private Statement st;
-	private List<Gate> listGate = new LinkedList<Gate>();
-
+	private TrattaDAOPostgres tratta;
 	
 	public GateDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
+		tratta = new TrattaDAOPostgres(sp);
 	}
 	
-	public List<Gate> getAllGate() {
 	
-		try {
-			st = conn.createStatement();
-			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Gate\"");
-			while(rs.next()) {
-				
-				Gate gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
-				
-				listGate.add(gate);
-				
-			}
-			conn.close();
-			rs.close();
-			st.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-		}
-		return listGate;	
-	}
-	
-	public Gate getGateByNgate(int Ngate) {
+	public Gate getGateByCodGate(String CodGate) {
 		Gate gate = null;
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Gate\" WHERE \"Ngate\" = ?");
-			ps.setInt(1, Ngate);
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Gate\" WHERE \"CodGate\" = ?");
+			ps.setString(1, CodGate);
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
 				
-				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
+				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta("CodTratta"), rs.getDate("Data"));
 				
 			}
 			conn.close();
@@ -67,16 +46,18 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 	
-	public Gate getGateByCodTratta(String CodTratta) {
+	public Gate getGateByCodTratta(String codTratta, Date data) {
 		Gate gate = null;
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"CodTratta\" = ?");
-			ps.setString(1, CodTratta);
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"CodTratta\" = ?"
+					+ "AND \"Data\" = ?");
+			ps.setString(1, codTratta);
+			ps.setDate(2, data);
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
 				
-				gate = new Gate(rs.getInt("Ngate"), rs.getString("CodTratta"));
+				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta("CodTratta"), rs.getDate("Data"));
 				
 			}
 			conn.close();

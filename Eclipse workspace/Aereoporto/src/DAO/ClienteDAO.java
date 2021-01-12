@@ -6,7 +6,6 @@ import Entità.Cliente;
 
 public interface ClienteDAO {
 
-	public List<Cliente> getAllCliente();
 	
 	public Cliente getClienteByCodFiscale(String CodFiscale);
 	

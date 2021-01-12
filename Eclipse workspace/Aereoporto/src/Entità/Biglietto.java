@@ -2,36 +2,48 @@ package Entità;
 
 
 public class Biglietto {
-	private String codTratta;
-	private String codFiscale;
+	private Tratta tratta;
+	private Cliente cliente;
 	private String posto;
 	private String tipoDiBiglietto;
 	private String codBiglietto;
 
+	
 
-
-	public Biglietto(String CodTratta, String CodFiscale, String Posto, String TipoDiBiglietto, String CodBiglietto) {
+	public Biglietto(String posto, String tipoDiBiglietto, String codBiglietto, Tratta tratta, Cliente cliente) {
 		super();
-		codTratta = CodTratta;
-		codFiscale = CodFiscale;
-		posto = Posto;
-		tipoDiBiglietto = TipoDiBiglietto;
-		codBiglietto = CodBiglietto;
+		this.tratta = tratta;
+		this.cliente = cliente;
+		this.posto = posto;
+		this.tipoDiBiglietto = tipoDiBiglietto;
+		this.codBiglietto = codBiglietto;
+	}
+	
+	
+
+	public Tratta getTratta() {
+		return tratta;
 	}
 
 
-	public String getCodTratta() {
-		return codTratta;
+
+	public void setTratta(Tratta tratta) {
+		this.tratta = tratta;
 	}
-	public void setCodTratta(String CodTratta) {
-		codTratta = CodTratta;
+
+
+
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public String getCodFiscale() {
-		return codFiscale;
+
+
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
-	public void setCodFiscale(String CodFiscale) {
-		codFiscale = CodFiscale;
-	}
+
+
 
 	public String getPosto() {
 		return posto;
@@ -39,10 +51,10 @@ public class Biglietto {
 	public void setPosto(String Posto) {
 		posto = Posto;
 	}
-	public String getTipo_Di_Biglietto() {
+	public String getTipoDiBiglietto() {
 		return tipoDiBiglietto;
 	}
-	public void setTipo_Di_Biglietto(String TipoDiBiglietto) {
+	public void setTipoDiBiglietto(String TipoDiBiglietto) {
 		tipoDiBiglietto = TipoDiBiglietto;
 	}
 	public String getCodBiglietto() {

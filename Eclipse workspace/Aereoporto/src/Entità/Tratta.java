@@ -9,25 +9,25 @@ public class Tratta {
 	private int nPrenotazioni;
 	private Time orarioDiPartenza;
 	private Date data;
-	private int nGate;
-	private String codIATA;
 	private String destinazione;
 	private String scali;
 	private boolean ritardo;
+	private Compagnia compagnia;
+	private Gate gate;
 	
 
-	public Tratta(String codTratta, int nPrenotazioni, Time orarioDiPartenza, Date data, int nGate, String codIATA,
-			String destinazione, String scali, boolean ritardo) {
+	public Tratta(String codTratta, int nPrenotazioni, Time orarioDiPartenza, Date data, String destinazione,
+			String scali, boolean ritardo, Compagnia compagnia, Gate gate) {
 		super();
 		this.codTratta = codTratta;
 		this.nPrenotazioni = nPrenotazioni;
 		this.orarioDiPartenza = orarioDiPartenza;
 		this.data = data;
-		this.nGate = nGate;
-		this.codIATA = codIATA;
 		this.destinazione = destinazione;
 		this.scali = scali;
 		this.ritardo = ritardo;
+		this.setCompagnia(compagnia);
+		this.setGate(gate);
 	}
 
 	public String getCodTratta() {
@@ -62,22 +62,6 @@ public class Tratta {
 		data = Data;
 	}
 
-	public int getNgate() {
-		return nGate;
-	}
-
-	public void setNgate(int Ngate) {
-		nGate = Ngate;
-	}
-
-	public String getCodIATA() {
-		return codIATA;
-	}
-
-	public void setCodIATA(String CodIATA) {
-		codIATA = CodIATA;
-	}
-
 	public String getDestinazione() {
 		return destinazione;
 	}
@@ -92,6 +76,30 @@ public class Tratta {
 
 	public void setScali(String Scali) {
 		scali = Scali;
+	}
+
+	public boolean isRitardo() {
+		return ritardo;
+	}
+
+	public void setRitardo(boolean ritardo) {
+		this.ritardo = ritardo;
+	}
+
+	public Compagnia getCompagnia() {
+		return compagnia;
+	}
+
+	public void setCompagnia(Compagnia compagnia) {
+		this.compagnia = compagnia;
+	}
+
+	public Gate getGate() {
+		return gate;
+	}
+
+	public void setGate(Gate gate) {
+		this.gate = gate;
 	}
 
 	

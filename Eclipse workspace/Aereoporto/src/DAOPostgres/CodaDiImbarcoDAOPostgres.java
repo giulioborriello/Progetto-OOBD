@@ -1,49 +1,26 @@
 package DAOPostgres;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
-import java.util.LinkedList;
-import java.util.List;
-
 import DAO.CodaDiImbarcoDAO;
 import Entità.CodaDiImbarco;
 
 public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	
 	private Connection conn;
-
-	private List<CodaDiImbarco> listCodaDiImbarco = new LinkedList<CodaDiImbarco>();
-
+	private GateDAOPostgres gate;
+	private SlotDAOPostgres slot;
+	
+	
 	public CodaDiImbarcoDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-
+		gate = new GateDAOPostgres(sp);
+		slot = new SlotDAOPostgres(sp);
 	}
 	
-	public List<CodaDiImbarco> getAllCodaDiImbarco() {
-		try {
-			Statement st = conn.createStatement();
-			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Code di imbarco\"");
-			
-			while(rs.next()) {
-				
-				CodaDiImbarco codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"), rs.getInt("CodSlot"));
-				
-				listCodaDiImbarco.add(codaDiImbarco);
-			}
-			rs.close();
-			st.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return listCodaDiImbarco;	
-	}
 
 	public CodaDiImbarco getCodaDiImbarcoByCodCoda(String CodCoda){
 		CodaDiImbarco codaDiImbarco = null;
@@ -53,7 +30,9 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"),rs.getInt("CodSlot"));
+				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("TipoDiCoda"), 
+						gate.getGateByCodGate(rs.getString("CodGate")),
+						slot.getSlotByCodSlot(rs.getString("CodSlot")));
 			
 			}
 			rs.close();
@@ -67,15 +46,19 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 	}
 	
-	public CodaDiImbarco getCodaDiImbarcoByNgate(String Ngate){
+	public CodaDiImbarco getCodaDiImbarcoByNgate(String Ngate, Date data){
 		CodaDiImbarco codaDiImbarco = null;
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"Ngate\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"Ngate\" = ?"
+					+ "AND \"Data\" = ?");
 			ps.setString(1, Ngate);
+			ps.setDate(2, data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"), rs.getInt("CodSlot"));
+				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("TipoDiCoda"), 
+						gate.getGateByCodGate(rs.getString("CodGate")),
+						slot.getSlotByCodSlot(rs.getString("CodSlot")));
 			
 			}
 			rs.close();
@@ -89,17 +72,19 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 	}
 	
-	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int CodSlot){
+	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int CodSlot, Date data){
 		CodaDiImbarco codaDiImbarco = null;
 		try {
-			Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Aereoporto", "postgres", "abcd");
-			
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?"
+					+ "AND \"Data\" = ?");
 			ps.setInt(1, CodSlot);
+			ps.setDate(2, data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getInt("CodCoda"), rs.getString("TipoDiCoda"), rs.getInt("Ngate"), rs.getInt("CodSlot"));
+				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("TipoDiCoda"), 
+						gate.getGateByCodGate(rs.getString("CodGate")),
+						slot.getSlotByCodSlot(rs.getString("CodSlot")));
 			}
 			rs.close();
 			ps.close();

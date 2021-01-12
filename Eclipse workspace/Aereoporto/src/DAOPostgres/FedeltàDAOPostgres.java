@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,31 +14,11 @@ import Entit‡.Fedelt‡;
 public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	private Connection conn;
 	private List<Fedelt‡> listFedelt‡ = new LinkedList<Fedelt‡>();
+	SingletonPostgres singleton;
 	
 	public Fedelt‡DAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-	}
-	
-	public List<Fedelt‡> getAllFedelt‡() {
-		try {
-			Statement st = conn.createStatement();
-			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Fedelt‡\"");
-			
-			while(rs.next()) {
-				
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"));
-				
-				listFedelt‡.add(fedelt‡);
-				
-			}
-			st.close();
-			rs.close();
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return listFedelt‡;	
+		singleton = sp; 
 	}
 	
 	public List<Fedelt‡> getFedelt‡ByCentoKilometri(String Centokilometri) {
@@ -50,7 +29,13 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			
 			while(rs.next()) {
 				
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"));
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
+				CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres(singleton);
+				
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getString("CentoKilometri"), rs.getInt("Punti"), 
+						compagnia.getCompagniaByCodIATA(rs.getString("CodIATA")), 
+								cliente.getClienteByCodFiscale(rs.getString("CodFiscale")))
+						;
 				
 				listFedelt‡.add(fedelt‡);
 			}
@@ -71,7 +56,12 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			
 			while(rs.next()) {
 				
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"));
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
+				CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres(singleton);
+				
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getString("CentoKilometri"), rs.getInt("Punti"), 
+						compagnia.getCompagniaByCodIATA(rs.getString("CodIATA")), 
+						cliente.getClienteByCodFiscale(rs.getString("CodFiscale")));
 				
 				listFedelt‡.add(fedelt‡);
 				
@@ -93,7 +83,12 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			
 			while(rs.next()) {
 
-				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getInt("CentoKilometri"), rs.getString("CodIATA"), rs.getString("CodFiscale"), rs.getInt("Punti"));
+				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
+				CompagniaDAOPostgres compagnia = new CompagniaDAOPostgres(singleton);
+				
+				Fedelt‡ fedelt‡ = new Fedelt‡(rs.getString("CentoKilometri"), rs.getInt("Punti"), 
+						compagnia.getCompagniaByCodIATA(rs.getString("CodIATA")), 
+						cliente.getClienteByCodFiscale(rs.getString("CodFiscale")));
 				listFedelt‡.add(fedelt‡);
 				
 			}

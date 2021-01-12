@@ -6,8 +6,6 @@ import Entità.Biglietto;
 
 public interface BigliettoDAO {
 	
-	public List<Biglietto> getAllBiglietto();
-	
 	public List<Biglietto> getBigliettoByCodFiscale(String CodFiscale);
 
 	public List<Biglietto> getBigliettoByCodTratta(String CodTratta);

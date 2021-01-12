@@ -5,27 +5,27 @@ import java.sql.Time;
 
 public class Slot {
 	
-	private int codSlot;
+	private String codSlot;
 	private int tempoDiImbarcoStimato;
 	private int tempoDiImbarcoEffettivo;
-	private int codCoda;
 	private Date data;
 	private Time orarioDiPartenza;
+	private CodaDiImbarco coda;
 	
-	public Slot(int CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, int CodCoda, Date Data, Time OrarioDiPartenza) {
+	public Slot(String codSlot, int tempoDiImbarcoStimato, int tempoDiImbarcoEffettivo, Date data, Time orarioDiPartenza,
+			CodaDiImbarco coda) {
 		super();
-		codSlot = CodSlot;
-		tempoDiImbarcoStimato = TempoDiImbarcoStimato;
-		tempoDiImbarcoEffettivo = TempoDiImbarcoEffettivo;
-		codCoda = CodCoda;
-		data = Data;
-		setOrarioDiPartenza(OrarioDiPartenza);
+		this.codSlot = codSlot;
+		this.tempoDiImbarcoStimato = tempoDiImbarcoStimato;
+		this.tempoDiImbarcoEffettivo = tempoDiImbarcoEffettivo;
+		this.data = data;
+		this.orarioDiPartenza = orarioDiPartenza;
+		this.setCoda(coda);
 	}
-	
-	public int getCodSlot() {
+	public String getCodSlot() {
 		return codSlot;
 	}
-	public void setCodSlot(int CodSlot) {
+	public void setCodSlot(String CodSlot) {
 		codSlot = CodSlot;
 	}
 	public int getTempoDiImbarcoStimato() {
@@ -39,14 +39,6 @@ public class Slot {
 	}
 	public void setTempoDiImbarcoEffettivo(int TempoDiImbarcoEffettivo) {
 		tempoDiImbarcoEffettivo = TempoDiImbarcoEffettivo;
-	}
-
-	public int getCodCoda() {
-		return codCoda;
-	}
-
-	public void setCodCoda(int CodCoda) {
-		codCoda = CodCoda;
 	}
 
 	public Date getData() {
@@ -63,5 +55,11 @@ public class Slot {
 
 	public void setOrarioDiPartenza(Time orarioDiPartenza) {
 		this.orarioDiPartenza = orarioDiPartenza;
+	}
+	public CodaDiImbarco getCoda() {
+		return coda;
+	}
+	public void setCoda(CodaDiImbarco coda) {
+		this.coda = coda;
 	}
 }

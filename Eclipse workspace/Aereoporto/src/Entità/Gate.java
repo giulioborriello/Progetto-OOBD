@@ -1,31 +1,62 @@
 package Entità;
 
+import java.sql.Date;
 
 public class Gate {
 
-	private int nGate;
-	private String codTratta;
+	private String CodGate;
+	private String nGate;
+	private Tratta tratta;
+	private Date data;
+	
+	
 
-	public Gate(int Ngate, String CodTratta) {
+	public Gate( String codGate, String nGate, Tratta tratta, Date data) {
 		super();
-		nGate = Ngate;
-		codTratta = CodTratta;
+		setCodGate(codGate);
+		this.setnGate(nGate);
+		this.tratta = tratta;
+		this.data = data;
 	}
 
-	public int getNgate() {
+	public Tratta getTratta() {
+		return tratta;
+	}
+
+	public void setTratta(Tratta Tratta) {
+		tratta = Tratta;
+	}
+
+	public Date getData() {
+		return data;
+	}
+
+	public void setData(Date data) {
+		this.data = data;
+	}
+
+
+
+	public String getCodGate() {
+		return CodGate;
+	}
+
+
+
+	public void setCodGate(String codGate) {
+		CodGate = codGate;
+	}
+
+
+
+	public String getnGate() {
 		return nGate;
 	}
 
-	public void setNgate(int Ngate) {
-		nGate = Ngate;
-	}
 
-	public String getCodTratta() {
-		return codTratta;
-	}
 
-	public void setCodTratta(String CodTratta) {
-		codTratta = CodTratta;
+	public void setnGate(String nGate) {
+		this.nGate = nGate;
 	}
 	
 	
