@@ -46,13 +46,13 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 	
-	public Gate getGateByCodTratta(String codTratta, Date data) {
+	public Gate getGateByCodTratta(String codTratta, String data) {
 		Gate gate = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"CodTratta\" = ?"
 					+ "AND \"Data\" = ?");
 			ps.setString(1, codTratta);
-			ps.setDate(2, data);
+			ps.setString(2, data);
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {

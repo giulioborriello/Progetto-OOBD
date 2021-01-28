@@ -170,20 +170,15 @@ public class Controller {
 	
 	
 
-	public void openRisultatiGate(String ricerca, String valore) {
+	public void openRisultatiGate(String ricerca, String valore, String data) {
 		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(singleton);
 		List<Gate> list = new LinkedList<Gate>();
-		if (ricerca == "Seleziona tutti") {
-				list = gatePostgres.getAllGate();
+		if(ricerca == "N gate") {
+			list.add(gatePostgres.getGateByCodGate(valore));
 		}
-		else if(ricerca == "N gate") {
-			list.add(gatePostgres.getGateByNgate(Integer.valueOf(valore)));
-			
-		}
-		
 		else if(ricerca == "CodTratta") {
-			list.add(gatePostgres.getGateByCodTratta(valore));
+			list.add(gatePostgres.getGateByCodTratta(valore, data));
 		}
 		
 		risultatiGate = new RisultatiGateGUI(list, this);
@@ -192,30 +187,24 @@ public class Controller {
 		
 	}
 	
-	public void openRisultatiTratta(String ricerca, String valore) {
+	public void openRisultatiTratta(String ricerca, String valore, String data) {
 		
 		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(singleton);
 		
 		List<Tratta> list = new LinkedList<Tratta>();
 		if(ricerca == "CodTratta") {
 			list.add(trattaPostgres.getTrattaByCodTratta(valore));
-		
 		}
-	
-		else if(ricerca == "Ngate") {
-			list = (trattaPostgres.getTrattaByNgate(valore));
-		}
-	
 		else if(ricerca == "Data") {
-			list = (trattaPostgres.getTrattaByData(valore));
+			list = (trattaPostgres.getTrattaByData(data));
 		}
 		
 		else if(ricerca == "CodIATA") {
-			list = (trattaPostgres.getTrattaByCodIATA(valore));
+			list = (trattaPostgres.getTrattaByCodIATA(valore, data));
 		}
 		
 		else if(ricerca == "Destinazione") {
-			list = (trattaPostgres.getTrattaByDestinazione(valore));
+			list = (trattaPostgres.getTrattaByDestinazione(valore, data));
 		}	
 		
 		
@@ -294,7 +283,7 @@ public class Controller {
 		
 	}	
 		
-	public void openRisultatiCodaDiImbarco(String ricerca, String valore) {
+	public void openRisultatiCodaDiImbarco(String ricerca, String valore, String data) {
 		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(singleton);
 		List<CodaDiImbarco> list = new LinkedList<CodaDiImbarco>();
 		
@@ -304,11 +293,11 @@ public class Controller {
 		}
 		
 		else if(valore == "CodSlot") {
-			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(Integer.valueOf(valore)));
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(Integer.valueOf(valore), data));
 		}
 	
 		else if(valore == "N gate") {
-			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore));
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore, data));
 		}
 		risultatiCodaDiImbarco = new RisultatiCodaDiImbarcoGUI(list, this);
 		codaDiImbarco.setVisible(false);
@@ -833,6 +822,8 @@ public class Controller {
 		List<Tempistica> list = gateDAOP.GetTempisticheSettimane(anno);
 		this.openRisultatiTempisticheGateGUI(list, "Settimane");
 	}
+	
+	
 	
 }
 

@@ -77,12 +77,12 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return listTratta;	
 	}
 	
-	public List<Tratta> getTrattaByCodIATA(String CodIATA, Date data){
+	public List<Tratta> getTrattaByCodIATA(String CodIATA, String data){
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodIATA\" = ?"
 					+ "AND \"Data\" = ?");
 			ps.setString(1, CodIATA);
-			ps.setDate(2, data);
+			ps.setString(2, data);
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
@@ -104,12 +104,12 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return listTratta;	
 	}
 	
-	public List<Tratta> getTrattaByDestinazione(String destinazione, Date data){
+	public List<Tratta> getTrattaByDestinazione(String destinazione, String data){
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Destinazione\" = ? "
 					+ "AND \"Data\" = ?");
 			ps.setString(1, destinazione);
-			ps.setDate(2, data);
+			ps.setString(2, data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 

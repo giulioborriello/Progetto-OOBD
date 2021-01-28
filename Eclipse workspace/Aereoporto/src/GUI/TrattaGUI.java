@@ -65,18 +65,19 @@ public class TrattaGUI extends JFrame {
 		contentPane.add(lbl_Ricerca);
 		
 		JComboBox comboBox_Ricerca = new JComboBox(tipiDiRicerca);
-		comboBox_Ricerca.setBounds(262, 112, 103, 22);
+		comboBox_Ricerca.setBounds(121, 108, 103, 22);
 		contentPane.add(comboBox_Ricerca);
 		
 		JTextArea textFieldRicerca = new JTextArea();
-		textFieldRicerca.setBounds(432, 111, 136, 22);
+		textFieldRicerca.setBounds(102, 140, 136, 22);
 		contentPane.add(textFieldRicerca);
 		
 		JButton Button_InviaRicerca = new JButton("Invia");
 		Button_InviaRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiTratta(comboBox_Ricerca.getSelectedItem().toString(), textFieldRicerca.getText() );
+				
+				//controller.openRisultatiTratta(comboBox_Ricerca.getSelectedItem().toString(), textFieldRicerca.getText(), );
 			}
 		});
 		Button_InviaRicerca.setBounds(792, 100, 142, 42);
@@ -99,7 +100,7 @@ public class TrattaGUI extends JFrame {
 		
 		JLabel lbl_Data = new JLabel("Data");
 		lbl_Data.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Data.setBounds(565, 270, 46, 14);
+		lbl_Data.setBounds(565, 270, 35, 14);
 		contentPane.add(lbl_Data);
 		
 		JLabel lbl_N_Gate = new JLabel("N gate");
@@ -136,7 +137,7 @@ public class TrattaGUI extends JFrame {
 		contentPane.add(comboBox_Giorno);
 		
 		JComboBox comboBox_Mese = new JComboBox(mesi);
-		comboBox_Mese.setBounds(537, 330, 103, 22);
+		comboBox_Mese.setBounds(531, 330, 103, 22);
 		contentPane.add(comboBox_Mese);
 		
 		JComboBox comboBox_Anno = new JComboBox(anni);
@@ -240,7 +241,7 @@ public class TrattaGUI extends JFrame {
 		
 		JLabel lbl_Mese = new JLabel("Mese");
 		lbl_Mese.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Mese.setBounds(571, 306, 35, 14);
+		lbl_Mese.setBounds(565, 306, 35, 14);
 		contentPane.add(lbl_Mese);
 		
 		JLabel lbl_Anno = new JLabel("Anno");
@@ -257,6 +258,38 @@ public class TrattaGUI extends JFrame {
 		lbl_Minuto.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lbl_Minuto.setBounds(289, 305, 46, 14);
 		contentPane.add(lbl_Minuto);
+		
+		JLabel lbl_Data_1 = new JLabel("Data");
+		lbl_Data_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Data_1.setBounds(486, 73, 35, 14);
+		contentPane.add(lbl_Data_1);
+		
+		JLabel lbl_Giorno_1 = new JLabel("Giorno");
+		lbl_Giorno_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Giorno_1.setBounds(355, 107, 46, 14);
+		contentPane.add(lbl_Giorno_1);
+		
+		JComboBox comboBox_Giorno_1 = new JComboBox(giorni);
+		comboBox_Giorno_1.setBounds(327, 131, 103, 22);
+		contentPane.add(comboBox_Giorno_1);
+		
+		JComboBox comboBox_Mese_1 = new JComboBox(mesi);
+		comboBox_Mese_1.setBounds(452, 133, 103, 22);
+		contentPane.add(comboBox_Mese_1);
+		
+		JLabel lbl_Mese_1 = new JLabel("Mese");
+		lbl_Mese_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Mese_1.setBounds(486, 109, 35, 14);
+		contentPane.add(lbl_Mese_1);
+		
+		JLabel lbl_Anno_1 = new JLabel("Anno");
+		lbl_Anno_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Anno_1.setBounds(606, 109, 35, 14);
+		contentPane.add(lbl_Anno_1);
+		
+		JComboBox comboBox_Anno_1 = new JComboBox(anni);
+		comboBox_Anno_1.setBounds(572, 133, 103, 22);
+		contentPane.add(comboBox_Anno_1);
 		
 		
 	}

@@ -30,7 +30,13 @@ public class CodaDiImbarcoGUI extends JFrame {
 	
 	private String[] tipiRicerca = {"Seleziona tutti","CodCoda","N° Gate","Codice Slot"};
 	private String[] tipiDiCoda = {"Business Class","Priority","Family","Diversamente abili"};
-
+	
+	private String[] giorni = {"1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+			"21","22","23","24","25", "26", "27", "28", "29", "30", "31"};
+	private String[] mesi = {"1", "2", "3", "4","5","6","7","8", "9", "10", "11", "12"};
+	private String[] anni = {"2000","2001","2002","2003","2004","2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", 
+			"2016", "2017", "2018", "2019", "2020", "2021","2022","2023","2024","2025"};
+	
 	public CodaDiImbarcoGUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,17 +54,54 @@ public class CodaDiImbarcoGUI extends JFrame {
 		contentPane.add(lblRicerca);
 		
 		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
-		comboBoxRicerca.setBounds(135, 108, 149, 22);
+		comboBoxRicerca.setBounds(38, 78, 149, 22);
 		contentPane.add(comboBoxRicerca);
 		
 		JTextArea RicercatextArea = new JTextArea();
-		RicercatextArea.setBounds(315, 107, 136, 22);
+		RicercatextArea.setBounds(44, 111, 136, 22);
 		contentPane.add(RicercatextArea);
+		
+		JLabel lbl_Data = new JLabel("Data");
+		lbl_Data.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Data.setBounds(368, 51, 35, 14);
+		contentPane.add(lbl_Data);
+		
+		JLabel lbl_Giorno = new JLabel("Giorno");
+		lbl_Giorno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Giorno.setBounds(237, 79, 46, 14);
+		contentPane.add(lbl_Giorno);
+		
+		JComboBox comboBox_Giorno = new JComboBox(giorni);
+		comboBox_Giorno.setBounds(209, 109, 103, 22);
+		contentPane.add(comboBox_Giorno);
+		
+		JLabel lbl_Mese = new JLabel("Mese");
+		lbl_Mese.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Mese.setBounds(368, 81, 35, 14);
+		contentPane.add(lbl_Mese);
+		
+		JComboBox comboBox_Mese = new JComboBox(mesi);
+		comboBox_Mese.setBounds(334, 111, 103, 22);
+		contentPane.add(comboBox_Mese);
+		
+		JLabel lbl_Anno = new JLabel("Anno");
+		lbl_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Anno.setBounds(488, 81, 35, 14);
+		contentPane.add(lbl_Anno);
+		
+		JComboBox comboBox_Anno = new JComboBox(anni);
+		comboBox_Anno.setBounds(454, 111, 103, 22);
+		contentPane.add(comboBox_Anno);
+		
 		
 		JButton btnRicerca = new JButton("Invia");
 		btnRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.openRisultatiCodaDiImbarco(comboBoxRicerca.getSelectedItem().toString(), RicercatextArea.getText());
+				
+				String data = comboBox_Giorno.getSelectedItem().toString() + "-" + comboBox_Mese.getSelectedItem().toString() + "-" + comboBox_Anno.getSelectedItem().toString(); 
+				
+				
+				controller.openRisultatiCodaDiImbarco(comboBoxRicerca.getSelectedItem().toString(), RicercatextArea.getText(), data);
 			}
 		});
 		btnRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -144,8 +187,6 @@ public class CodaDiImbarcoGUI extends JFrame {
 		eliminatextField.setColumns(10);
 		codSlottextField.getText();
 		
-
-		
 		
 		JButton btnMenu = new JButton("Menù");
 		btnMenu.addActionListener(new ActionListener() {
@@ -168,6 +209,8 @@ public class CodaDiImbarcoGUI extends JFrame {
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(618, 465, 142, 42);
 		contentPane.add(btnElimina);
+		
+		
 		
 		
 	}

@@ -20,7 +20,9 @@ public class GateGUI extends JFrame {
 	private Controller controller;
 	private JPanel contentPane;
 	private JTextField textFieldRicerca;
-	private String[] tipiRicerca = {"Seleziona tutti","N gate","CodTratta",};
+	private String[] tipiRicerca = {"N gate","CodTratta",};
+	private String[] giorni = {"1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+			"21","22","23","24","25", "26", "27", "28", "29", "30", "31"};
 	private String[] mesi = {"1", "2", "3", "4","5","6","7","8", "9", "10", "11", "12"};
 	private String[] anni = {"2000","2001","2002","2003","2004","2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", 
 			"2016", "2017", "2018", "2019", "2020", "2021","2022","2023","2024","2025"};
@@ -40,27 +42,63 @@ public class GateGUI extends JFrame {
 		JLabel lblRicerca = new JLabel("Ricerca");
 		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRicerca.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblRicerca.setBounds(259, 51, 136, 42);
+		lblRicerca.setBounds(252, 11, 136, 42);
 		contentPane.add(lblRicerca);
 		
 		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
-		comboBoxRicerca.setBounds(130, 116, 94, 22);
+		comboBoxRicerca.setBounds(19, 96, 94, 22);
 		contentPane.add(comboBoxRicerca);
 		
 		textFieldRicerca = new JTextField();
-		textFieldRicerca.setBounds(282, 119, 94, 20);
+		textFieldRicerca.setBounds(19, 129, 94, 20);
 		contentPane.add(textFieldRicerca);
 		textFieldRicerca.setColumns(10);
 		
-
+		JLabel lbl_Data = new JLabel("Data");
+		lbl_Data.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Data.setBounds(298, 65, 35, 14);
+		contentPane.add(lbl_Data);
+		
+		JLabel lbl_Mese = new JLabel("Mese");
+		lbl_Mese.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Mese.setBounds(298, 101, 35, 14);
+		contentPane.add(lbl_Mese);
+		
+		JLabel lbl_Giorno = new JLabel("Giorno");
+		lbl_Giorno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Giorno.setBounds(167, 99, 46, 14);
+		contentPane.add(lbl_Giorno);
+		
+		JComboBox comboBox_Giorno = new JComboBox(giorni);
+		comboBox_Giorno.setBounds(139, 123, 103, 22);
+		contentPane.add(comboBox_Giorno);
+		
+		JComboBox comboBox_Mese = new JComboBox(mesi);
+		comboBox_Mese.setBounds(264, 125, 103, 22);
+		contentPane.add(comboBox_Mese);
+		
+		JComboBox comboBox_Anno = new JComboBox(anni);
+		comboBox_Anno.setBounds(384, 125, 103, 22);
+		contentPane.add(comboBox_Anno);
+		
+		JLabel lbl_Anno = new JLabel("Anno");
+		lbl_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Anno.setBounds(418, 101, 35, 14);
+		contentPane.add(lbl_Anno);
+		
+		
 		JButton btnRicerca = new JButton("Invia");
 		btnRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.openRisultatiGate(comboBoxRicerca.getSelectedItem().toString(), textFieldRicerca.getText());
+				
+				String data = comboBox_Giorno.getSelectedItem().toString() + "-" + comboBox_Mese.getSelectedItem().toString() + "-" + comboBox_Anno.getSelectedItem().toString(); 
+				
+				
+				controller.openRisultatiGate(comboBoxRicerca.getSelectedItem().toString(), textFieldRicerca.getText(), data);
 			}
 		});
-		btnRicerca.setBounds(408, 107, 85, 40);
+		btnRicerca.setBounds(512, 107, 85, 40);
 		contentPane.add(btnRicerca);
 		
 		JButton btnMenu = new JButton("Menu");
@@ -172,6 +210,8 @@ public class GateGUI extends JFrame {
 		lblRicercaMesi_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblRicercaMesi_Anno.setBounds(274, 404, 33, 19);
 		contentPane.add(lblRicercaMesi_Anno);
+		
+		
 		
 		
 	}

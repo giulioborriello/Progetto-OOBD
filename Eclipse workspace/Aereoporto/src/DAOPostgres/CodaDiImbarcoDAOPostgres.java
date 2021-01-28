@@ -1,7 +1,6 @@
 package DAOPostgres;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -46,13 +45,13 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 	}
 	
-	public CodaDiImbarco getCodaDiImbarcoByNgate(String Ngate, Date data){
+	public CodaDiImbarco getCodaDiImbarcoByNgate(String Ngate, String data){
 		CodaDiImbarco codaDiImbarco = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"Ngate\" = ?"
 					+ "AND \"Data\" = ?");
 			ps.setString(1, Ngate);
-			ps.setDate(2, data);
+			ps.setString(2, data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
@@ -72,13 +71,13 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 	}
 	
-	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int CodSlot, Date data){
+	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int CodSlot, String data){
 		CodaDiImbarco codaDiImbarco = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?"
 					+ "AND \"Data\" = ?");
 			ps.setInt(1, CodSlot);
-			ps.setDate(2, data);
+			ps.setString(2, data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
