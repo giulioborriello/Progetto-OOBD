@@ -28,7 +28,7 @@ public class RisultatiTempisticheGateGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		setResizable(false);
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		if (scelta.equals("Giorni")) {

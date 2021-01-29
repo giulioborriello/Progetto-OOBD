@@ -31,6 +31,7 @@ public class RisultatiClienteGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Risultati Cliente");
+		setResizable(false);
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		

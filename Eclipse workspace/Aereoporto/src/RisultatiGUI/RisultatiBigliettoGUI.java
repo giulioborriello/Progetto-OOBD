@@ -31,6 +31,7 @@ public class RisultatiBigliettoGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Risultati Biglietto");
+		setResizable(false);
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		

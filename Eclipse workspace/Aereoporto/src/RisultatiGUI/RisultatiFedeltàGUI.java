@@ -31,6 +31,7 @@ public class RisultatiFedelt‡GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Risultati Fedelt‡");
+		setResizable(false);
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		

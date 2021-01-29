@@ -31,6 +31,7 @@ public class BigliettoGUI extends JFrame {
 	private String[] tipiBiglietti = {"Famiglia", "Diversamente Abili", "priority" , "Business Class", "Economy"};
 	
 	public BigliettoGUI(Controller c) {
+		setResizable(false);
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 900, 762);

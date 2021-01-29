@@ -38,6 +38,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 			"2016", "2017", "2018", "2019", "2020", "2021","2022","2023","2024","2025"};
 	
 	public CodaDiImbarcoGUI(Controller c) {
+		setResizable(false);
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 816, 641);

@@ -39,7 +39,7 @@ public class GateGUI extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
+		setResizable(false);
 		setTitle("Gate");
 		
 		JLabel lblRicerca = new JLabel("Ricerca");

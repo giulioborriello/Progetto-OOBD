@@ -20,6 +20,7 @@ public class MenùGUI extends JFrame {
 	private JPanel contentPane;
 	
 	public MenùGUI(Controller c) {
+		setResizable(false);
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 700);

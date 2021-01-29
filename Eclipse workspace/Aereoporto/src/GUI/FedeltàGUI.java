@@ -45,6 +45,7 @@ public class Fedelt‡GUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Fedelt‡");
+		setResizable(false);
 		
 		JLabel lbl_Inserisci = new JLabel("Inserisci");
 		lbl_Inserisci.setFont(new Font("Tahoma", Font.PLAIN, 20));

@@ -31,6 +31,7 @@ public class RisultatiGateGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Risultati Gate");
+		setResizable(false);
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		

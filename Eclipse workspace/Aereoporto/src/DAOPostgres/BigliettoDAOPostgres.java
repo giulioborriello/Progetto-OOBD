@@ -49,7 +49,6 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			ps.close();
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 		return listBiglietto;

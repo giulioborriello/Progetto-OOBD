@@ -47,6 +47,7 @@ public class SlotGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Slot");
+		setResizable(false);
 		
 		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
 		comboBoxRicerca.setBounds(157, 85, 94, 22);

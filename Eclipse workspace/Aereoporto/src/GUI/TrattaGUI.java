@@ -50,6 +50,7 @@ public class TrattaGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setTitle("Tratta");
+		setResizable(false);
 		
 		JLabel lbl_Inserimento = new JLabel("Inserimento");
 		lbl_Inserimento.setHorizontalAlignment(SwingConstants.CENTER);

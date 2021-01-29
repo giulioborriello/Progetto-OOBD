@@ -35,6 +35,7 @@ public class ClienteGUI extends JFrame {
 	private String[] tipiRicerca = {"Seleziona tutti","Codice Fiscale"};
 	
 	public ClienteGUI(Controller c) {
+		setResizable(false);
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 800, 695);

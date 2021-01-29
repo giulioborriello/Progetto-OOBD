@@ -29,6 +29,7 @@ public class CompagniaGUI extends JFrame {
 	private String[] tipiRicerca = {"Seleziona tutti","CodIATA","Nome Compagnia",};
 	
 	public CompagniaGUI(Controller c) {
+		setResizable(false);
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 808, 618);
