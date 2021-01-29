@@ -97,7 +97,7 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	
 	public String insertCodaDiImbarco(int CodCoda, String TipoDiCoda, int Ngate, int CodSlot)	{
 			try {
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?); ");
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?, null); ");
 				ps.setInt(1, CodCoda);
 				ps.setString(2, TipoDiCoda);
 				ps.setInt(3, Ngate);

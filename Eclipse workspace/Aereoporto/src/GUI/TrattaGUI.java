@@ -29,7 +29,6 @@ public class TrattaGUI extends JFrame {
 	private JTextField textFieldDestinazione;
 	private JTextField textFieldScali;
 	private JTextField textFieldElimina;
-	private JTextField textFieldNgate;
 	
 	
 	private String[] tipiDiRicerca = {"Seleziona tutti","CodTratta","Ngate","Data","CodIATA","Destinazione" };
@@ -72,57 +71,6 @@ public class TrattaGUI extends JFrame {
 		textFieldRicerca.setBounds(102, 140, 136, 22);
 		contentPane.add(textFieldRicerca);
 		
-		JButton Button_InviaRicerca = new JButton("Invia");
-		Button_InviaRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Button_InviaRicerca.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//controller.openRisultatiTratta(comboBox_Ricerca.getSelectedItem().toString(), textFieldRicerca.getText(), );
-			}
-		});
-		Button_InviaRicerca.setBounds(792, 100, 142, 42);
-		contentPane.add(Button_InviaRicerca);
-		
-		JLabel lbl_Cod_Tratta = new JLabel("CodTratta");
-		lbl_Cod_Tratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Cod_Tratta.setBounds(36, 305, 68, 14);
-		contentPane.add(lbl_Cod_Tratta);
-		
-		JLabel lbl_N_prentazioni = new JLabel("N Prenotazioni");
-		lbl_N_prentazioni.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_N_prentazioni.setBounds(25, 416, 102, 14);
-		contentPane.add(lbl_N_prentazioni);
-		
-		JLabel lbl_Orario_Partenza = new JLabel("Orario di partenza");
-		lbl_Orario_Partenza.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Orario_Partenza.setBounds(198, 271, 116, 14);
-		contentPane.add(lbl_Orario_Partenza);
-		
-		JLabel lbl_Data = new JLabel("Data");
-		lbl_Data.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Data.setBounds(565, 270, 35, 14);
-		contentPane.add(lbl_Data);
-		
-		JLabel lbl_N_Gate = new JLabel("N gate");
-		lbl_N_Gate.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_N_Gate.setBounds(169, 410, 78, 22);
-		contentPane.add(lbl_N_Gate);
-		
-		JLabel lbl_CodIATA = new JLabel("CodIATA");
-		lbl_CodIATA.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_CodIATA.setBounds(280, 414, 70, 14);
-		contentPane.add(lbl_CodIATA);
-		
-		JLabel lbl_Destinazione = new JLabel("Destinazione");
-		lbl_Destinazione.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Destinazione.setBounds(397, 414, 86, 14);
-		contentPane.add(lbl_Destinazione);
-		
-		JLabel lbl_Scali = new JLabel("Scali");
-		lbl_Scali.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Scali.setBounds(533, 414, 46, 14);
-		contentPane.add(lbl_Scali);
-		
 		
 		JComboBox comboBox_Ora = new JComboBox(oreOMinuti);
 		comboBox_Ora.setBounds(148, 327, 103, 22);
@@ -144,6 +92,57 @@ public class TrattaGUI extends JFrame {
 		comboBox_Anno.setBounds(651, 330, 103, 22);
 		contentPane.add(comboBox_Anno);
 		
+		
+		JButton Button_InviaRicerca = new JButton("Invia");
+		Button_InviaRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
+		Button_InviaRicerca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String Data = comboBox_Giorno.getSelectedItem().toString() + "-" + comboBox_Mese.getSelectedItem().toString() + "-" + comboBox_Anno.getSelectedItem().toString(); 
+				
+				controller.openRisultatiTratta(comboBox_Ricerca.getSelectedItem().toString(), textFieldRicerca.getText(), Data);
+			}
+		});
+		Button_InviaRicerca.setBounds(792, 100, 142, 42);
+		contentPane.add(Button_InviaRicerca);
+		
+		JLabel lbl_Cod_Tratta = new JLabel("CodTratta");
+		lbl_Cod_Tratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Cod_Tratta.setBounds(36, 305, 68, 14);
+		contentPane.add(lbl_Cod_Tratta);
+		
+		JLabel lbl_N_prentazioni = new JLabel("N Prenotazioni");
+		lbl_N_prentazioni.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_N_prentazioni.setBounds(132, 414, 92, 14);
+		contentPane.add(lbl_N_prentazioni);
+		
+		JLabel lbl_Orario_Partenza = new JLabel("Orario di partenza");
+		lbl_Orario_Partenza.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Orario_Partenza.setBounds(198, 271, 116, 14);
+		contentPane.add(lbl_Orario_Partenza);
+		
+		JLabel lbl_Data = new JLabel("Data");
+		lbl_Data.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Data.setBounds(565, 270, 35, 14);
+		contentPane.add(lbl_Data);
+		
+		JLabel lbl_CodIATA = new JLabel("CodIATA");
+		lbl_CodIATA.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_CodIATA.setBounds(280, 414, 70, 14);
+		contentPane.add(lbl_CodIATA);
+		
+		JLabel lbl_Destinazione = new JLabel("Destinazione");
+		lbl_Destinazione.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Destinazione.setBounds(397, 414, 86, 14);
+		contentPane.add(lbl_Destinazione);
+		
+		JLabel lbl_Scali = new JLabel("Scali");
+		lbl_Scali.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lbl_Scali.setBounds(533, 414, 46, 14);
+		contentPane.add(lbl_Scali);
+		
+		
+		
+		
 		JButton Button_InviaInserimento = new JButton("Invia");
 		Button_InviaInserimento.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaInserimento.addActionListener(new ActionListener() {
@@ -154,7 +153,7 @@ public class TrattaGUI extends JFrame {
 				String Orario = comboBox_Ora.getSelectedItem().toString() + ":" + comboBox_Minuto.getSelectedItem().toString();
 				
 				try {
-					controller.inserisciTratta(textFieldCodTratta.getText(),textFieldNprenotazioni.getText(),Orario,Data,textFieldNgate.getText(), 
+					controller.inserisciTratta(textFieldCodTratta.getText(),textFieldNprenotazioni.getText(),Orario,Data, 
 							textFieldCodIATA.getText(),textFieldDestinazione.getText(), textFieldScali.getText());
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
@@ -174,13 +173,8 @@ public class TrattaGUI extends JFrame {
 		
 		textFieldNprenotazioni = new JTextField();
 		textFieldNprenotazioni.setColumns(10);
-		textFieldNprenotazioni.setBounds(25, 441, 86, 20);
+		textFieldNprenotazioni.setBounds(138, 441, 86, 20);
 		contentPane.add(textFieldNprenotazioni);
-		
-		textFieldNgate = new JTextField();
-		textFieldNgate.setColumns(10);
-		textFieldNgate.setBounds(145, 437, 86, 22);
-		contentPane.add(textFieldNgate);
 		
 		textFieldCodIATA = new JTextField();
 		textFieldCodIATA.setColumns(10);

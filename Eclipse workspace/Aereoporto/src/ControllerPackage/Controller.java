@@ -343,9 +343,9 @@ public class Controller {
 		risultatiTempisticheGateGUI.setVisible(true); 
 	}
 	
-	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data, String nGate, String CodIATA, String destinazione, String scali) throws ParseException{
+	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data,String CodIATA, String destinazione, String scali) throws ParseException{
 		
-		if(checkBlank(codTratta, nPrenotazioni, orarioDiPartenza, data, nGate, CodIATA, destinazione, scali)) {
+		if(checkBlank(codTratta, nPrenotazioni, orarioDiPartenza, data, CodIATA, destinazione, scali)) {
 			return;
 		}
 		
@@ -354,10 +354,6 @@ public class Controller {
 		}
 		
 		if(checkSoloNumeri(nPrenotazioni)) {
-			return;
-		}
-		
-		if(checkSoloNumeri(nGate)) {
 			return;
 		}
 		
@@ -373,7 +369,6 @@ public class Controller {
 		
 		
 		int intNPrenotazioni = Integer.valueOf(nPrenotazioni);
-		int ngate = Integer.valueOf(nGate);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
 		long ms = sdf.parse(orarioDiPartenza).getTime();
@@ -383,7 +378,7 @@ public class Controller {
 		Date sqlDate = new java.sql.Date(date.getTime());  
 		
 		TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
-		String testo = tratta.insertTratta(codTratta, intNPrenotazioni, tempo, sqlDate, ngate, CodIATA, destinazione, scali);
+		String testo = tratta.insertTratta(codTratta, intNPrenotazioni, tempo, sqlDate,CodIATA, destinazione, scali);
 		openDialog(testo);
 	}
 	
@@ -413,22 +408,22 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void inserisciCodaDiImbarco(String CodCoda, String TipoDiCoda, String Ngate, String CodSlot) {
+	public void inserisciCodaDiImbarco(String CodCoda, String TipoDiCoda, String CodGate, String CodSlot) {
 		
-		if(checkBlank(CodCoda, TipoDiCoda, Ngate, CodSlot)) {
+		if(checkBlank(CodCoda, TipoDiCoda, CodGate, CodSlot)) {
 			return;
 		}
 		
-		if(checkSoloNumeri(CodCoda, Ngate, CodSlot)) {
+		if(checkSoloNumeri(CodCoda, CodGate, CodSlot)) {
 			return;
 		}
 		
 		
 		CodaDiImbarcoDAOPostgres codadiimbarco = new CodaDiImbarcoDAOPostgres(singleton);
-		int nGate = Integer.valueOf(Ngate);
+		int codGate = Integer.valueOf(CodGate);
 		int codCoda = Integer.valueOf(CodCoda);
 		int codSlot = Integer.valueOf(CodSlot);
-		String testo = codadiimbarco.insertCodaDiImbarco(codCoda, TipoDiCoda, nGate, codSlot);
+		String testo = codadiimbarco.insertCodaDiImbarco(codCoda, TipoDiCoda, codGate, codSlot);
 		openDialog(testo);
 	}
 

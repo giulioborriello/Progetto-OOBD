@@ -22,7 +22,6 @@ public class BigliettoGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField codBigliettoTextField;
 	private JTextField codfiscaleTextField;
-	private JTextField nomeTextField;
 	private JTextField postoTextField;
 	private JTextField codTrattaTextField;
 	private JTextField eliminaTextField;
@@ -83,20 +82,14 @@ public class BigliettoGUI extends JFrame {
 		JLabel lblCodtratta = new JLabel("CodBiglietto");
 		lblCodtratta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCodtratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodtratta.setBounds(21, 175, 85, 40);
+		lblCodtratta.setBounds(115, 179, 85, 40);
 		contentPane.add(lblCodtratta);
 		
 		JLabel lblCodfiscale = new JLabel("CodFiscale");
 		lblCodfiscale.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCodfiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodfiscale.setBounds(139, 175, 85, 40);
+		lblCodfiscale.setBounds(233, 179, 85, 40);
 		contentPane.add(lblCodfiscale);
-		
-		JLabel lblNome = new JLabel("Nome");
-		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNome.setBounds(245, 175, 85, 40);
-		contentPane.add(lblNome);
 		
 		JLabel lblPosto = new JLabel("Posto");
 		lblPosto.setHorizontalAlignment(SwingConstants.CENTER);
@@ -117,19 +110,14 @@ public class BigliettoGUI extends JFrame {
 		contentPane.add(lblCodtratta_5);
 		
 		codBigliettoTextField = new JTextField();
-		codBigliettoTextField.setBounds(21, 226, 86, 20);
+		codBigliettoTextField.setBounds(115, 230, 86, 20);
 		contentPane.add(codBigliettoTextField);
 		codBigliettoTextField.setColumns(10);
 		
 		codfiscaleTextField = new JTextField();
 		codfiscaleTextField.setColumns(10);
-		codfiscaleTextField.setBounds(138, 226, 86, 20);
+		codfiscaleTextField.setBounds(232, 230, 86, 20);
 		contentPane.add(codfiscaleTextField);
-		
-		nomeTextField = new JTextField();
-		nomeTextField.setColumns(10);
-		nomeTextField.setBounds(244, 226, 86, 20);
-		contentPane.add(nomeTextField);
 		
 		postoTextField = new JTextField();
 		postoTextField.setColumns(10);
