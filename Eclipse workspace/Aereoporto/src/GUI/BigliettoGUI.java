@@ -27,7 +27,7 @@ public class BigliettoGUI extends JFrame {
 	private JTextField eliminaTextField;
 	private JTextField textFieldRicerca;
 	
-	private String[] tipiRicerca = {"Seleziona tutti", "Codice Fiscale", "Codice Tratta"};
+	private String[] tipiRicerca = {"Codice Fiscale", "Codice Tratta"};
 	private String[] tipiBiglietti = {"Famiglia", "Diversamente Abili", "priority" , "Business Class", "Economy"};
 	
 	public BigliettoGUI(Controller c) {
@@ -154,7 +154,7 @@ public class BigliettoGUI extends JFrame {
 		
 		eliminaTextField = new JTextField();
 		eliminaTextField.setColumns(10);
-		eliminaTextField.setBounds(356, 381, 86, 20);
+		eliminaTextField.setBounds(357, 381, 86, 20);
 		contentPane.add(eliminaTextField);
 		
 		JButton EliminaInviaButton = new JButton("Invia");
@@ -168,9 +168,9 @@ public class BigliettoGUI extends JFrame {
 		EliminaInviaButton.setBounds(519, 369, 85, 40);
 		contentPane.add(EliminaInviaButton);
 		
-		JLabel lblSottoTitoloElimina = new JLabel("Inserisci N gate della riga da eliminare");
+		JLabel lblSottoTitoloElimina = new JLabel("Inserisci Codice Biglietto da eliminare");
 		lblSottoTitoloElimina.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblSottoTitoloElimina.setBounds(259, 330, 275, 40);
+		lblSottoTitoloElimina.setBounds(281, 330, 243, 28);
 		contentPane.add(lblSottoTitoloElimina);
 		
 		JButton MenuButton = new JButton("Menu");
