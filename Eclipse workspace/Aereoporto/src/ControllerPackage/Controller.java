@@ -649,6 +649,19 @@ public class Controller {
 	}
 	
 	
+	public void inserisciGate(String CodGate, String Ngate, String CodTratta) {
+		if(checkBlank(CodGate, Ngate, CodTratta)) {
+			return;
+		}
+
+		if(checkCodTratta(CodTratta)) {
+			return;
+		}
+
+		GateDAOPostgres gate = new GateDAOPostgres(singleton);
+		String testo = gate.insertGate(CodGate, Ngate, CodTratta);
+		openDialog(testo);
+		}
 	
 	
 
