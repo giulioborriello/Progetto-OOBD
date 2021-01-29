@@ -26,13 +26,16 @@ public class GateGUI extends JFrame {
 	private String[] mesi = {"1", "2", "3", "4","5","6","7","8", "9", "10", "11", "12"};
 	private String[] anni = {"2000","2001","2002","2003","2004","2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", 
 			"2016", "2017", "2018", "2019", "2020", "2021","2022","2023","2024","2025"};
+	private String[] Ngate = {"1", "2", "3", "4", "5"};
+	
 	JButton btnMenu;
+	private JTextField CodGateInserimentoTextField;
+	private JTextField CodTrattaInserimentoTextField;
 	
 	public GateGUI(Controller c) {
 		controller = c;	
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 676, 339);
-		setBounds(100, 100, 676, 689);
+		setBounds(100, 100, 742, 893);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -109,8 +112,7 @@ public class GateGUI extends JFrame {
 		});
 		
 		btnMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnMenu.setBounds(87, 204, 105, 57);
-		btnMenu.setBounds(35, 560, 105, 57);
+		btnMenu.setBounds(19, 786, 105, 57);
 		contentPane.add(btnMenu);
 		contentPane.setLayout(null);
 		
@@ -210,6 +212,55 @@ public class GateGUI extends JFrame {
 		lblRicercaMesi_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblRicercaMesi_Anno.setBounds(274, 404, 33, 19);
 		contentPane.add(lblRicercaMesi_Anno);
+		
+		JLabel lblTempistiche_1 = new JLabel("Inserimento");
+		lblTempistiche_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTempistiche_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTempistiche_1.setBounds(259, 496, 108, 25);
+		contentPane.add(lblTempistiche_1);
+		
+		JLabel lblTempistiche_1_1 = new JLabel("CodGate");
+		lblTempistiche_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTempistiche_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTempistiche_1_1.setBounds(119, 540, 108, 25);
+		contentPane.add(lblTempistiche_1_1);
+		
+		CodGateInserimentoTextField = new JTextField();
+		CodGateInserimentoTextField.setColumns(10);
+		CodGateInserimentoTextField.setBounds(119, 576, 94, 20);
+		contentPane.add(CodGateInserimentoTextField);
+		
+		JComboBox comboBoxNgateInserimento = new JComboBox(Ngate);
+		comboBoxNgateInserimento.setBounds(273, 575, 94, 22);
+		contentPane.add(comboBoxNgateInserimento);
+		
+		JLabel lblTempistiche_1_1_1 = new JLabel("NGate");
+		lblTempistiche_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTempistiche_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTempistiche_1_1_1.setBounds(264, 540, 108, 25);
+		contentPane.add(lblTempistiche_1_1_1);
+		
+		JLabel lblTempistiche_1_1_1_1 = new JLabel("CodTratta");
+		lblTempistiche_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTempistiche_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTempistiche_1_1_1_1.setBounds(418, 540, 108, 25);
+		contentPane.add(lblTempistiche_1_1_1_1);
+		
+		CodTrattaInserimentoTextField = new JTextField();
+		CodTrattaInserimentoTextField.setColumns(10);
+		CodTrattaInserimentoTextField.setBounds(428, 576, 94, 20);
+		contentPane.add(CodTrattaInserimentoTextField);
+		
+		JButton btnRicerca_1 = new JButton("Invia");
+		btnRicerca_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.inserisciGate(CodGateInserimentoTextField.getText(), comboBoxNgateInserimento.getSelectedItem().toString(), CodTrattaInserimentoTextField.getText());
+
+			}
+		});
+		btnRicerca_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnRicerca_1.setBounds(631, 690, 85, 40);
+		contentPane.add(btnRicerca_1);
 		
 		
 		

@@ -20,7 +20,7 @@ public class GateDAOPostgres implements GateDAO{
 	
 	public GateDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-		tratta = new TrattaDAOPostgres(sp);
+//		tratta = new TrattaDAOPostgres(sp);
 	}
 	
 	
@@ -77,7 +77,7 @@ public class GateDAOPostgres implements GateDAO{
 			st = conn.createStatement();
 			double Mese = Double.valueOf(mese);
 			double Anno = Double.valueOf(anno);
-			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(month from B.\"data\" ) AS monthd, extract(day from B.\"data\") AS dayd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B WHERE  extract(month from B.\"data\") = ? AND extract(year from B.\"data\") = ?  GROUP BY yeard , monthd,  dayd;");
+			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"Data\") AS yeard , extract(month from B.\"Data\" ) AS monthd, extract(day from B.\"Data\") AS dayd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add FROM ((public.\"Gate\" NATURAL JOIN public.\"Coda di imbarco\" ) AS AA NATURAL JOIN public.\"Slot\" ) AS B WHERE  extract(month from B.\"Data\") = ? AND extract(year from B.\"Data\") = ?  GROUP BY yeard , monthd,  dayd;");
 			ps.setDouble(1, Mese);
 			ps.setDouble(2, Anno);
 			
@@ -104,9 +104,9 @@ public class GateDAOPostgres implements GateDAO{
 		try {
 			st = conn.createStatement();
 			double Anno = Double.valueOf(anno);
-			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(month from B.\"data\" ) AS monthd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add "
-					+ "FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B "
-					+ "WHERE extract(year from B.\"data\") = ?  "
+			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"Data\") AS yeard , extract(month from B.\"Data\" ) AS monthd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add "
+					+ "FROM ((public.\"Gate\" NATURAL JOIN public.\"Coda di imbarco\") AS AA NATURAL JOIN public.\"Slot\") AS B "
+					+ "WHERE extract(year from B.\"Data\") = ?  "
 					+ "GROUP BY yeard , monthd;");
 			ps.setDouble(1, Anno);
 			
@@ -133,9 +133,9 @@ public class GateDAOPostgres implements GateDAO{
 		try {
 			st = conn.createStatement();
 			double Anno = Double.valueOf(anno);
-			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"data\") AS yeard , extract(week from B.\"data\" ) AS weekd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add "
-					+ "FROM ((public.\"Gate\" INNER JOIN public.\"Coda di imbarco\" ON (public.\"Gate\".\"Ngate\" = public.\"Coda di imbarco\".\"Ngate\")) AS AA INNER JOIN public.\"Slot\" ON (AA.\"Codslot\" = public.\"Slot\".\"CodSlot\")) AS B "
-					+ "WHERE extract(year from B.\"data\") = ?  "
+			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"Data\") AS yeard , extract(week from B.\"Data\" ) AS weekd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add "
+					+ "FROM ((public.\"Gate\" NATURAL JOIN public.\"Coda di imbarco\" ) AS AA NATURAL JOIN public.\"Slot\") AS B "
+					+ "WHERE extract(year from B.\"Data\") = ?  "
 					+ "GROUP BY yeard , weekd;");
 			ps.setDouble(1, Anno);
 			
@@ -155,7 +155,26 @@ public class GateDAOPostgres implements GateDAO{
 		return list;
 	}
 	
+	public String insertGate(String CodGate, String Ngate, String CodTratta)	{
+		
+		try {
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Gate\"  VALUES (?, ?, null, ?); ");
+			ps.setString(1, CodGate);
+			ps.setString(2, Ngate);
+			ps.setString(3, CodTratta);
+			ps.execute();
+			
+			ps.close();
+			conn.close();
+			return "Inserito Correttamente";
+		} catch (SQLException e) {
+			return e.getMessage();
+		}
+		
+	}
 }
+	
+
 
 
 
