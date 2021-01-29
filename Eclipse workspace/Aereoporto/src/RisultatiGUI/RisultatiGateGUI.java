@@ -35,9 +35,12 @@ public class RisultatiGateGUI extends JFrame {
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
+		String titoli = "Codice Gate " + "N° Gate " + "Codice Tratta Corrispondente " + "Data ";
+		listModel.addElement(titoli);
+		
 		for(Gate gate: list) {
-			String[] astring = {String.valueOf(gate.getCodGate()), gate.getTratta().getCodTratta()};
-			listModel.addElement(astring[0] + " " + astring[1]);
+			String string = gate.getCodGate() + " " + gate.getnGate() + " " + gate.getTratta().getCodTratta() + " " + gate.getData();
+			listModel.addElement(string);
 		}
 		
 		JList jlist = new JList(listModel);

@@ -35,6 +35,10 @@ public class RisultatiTrattaGUI extends JFrame {
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
+		String titoli = "Codice Tratta " + "Destinazione " + "N° Prenotazioni " + "Scali";
+		listModel.addElement(titoli);
+		
+		
 		for(Tratta tratta: list) {
 			String string = tratta.getCodTratta()+" "+tratta.getDestinazione()+" "+
 		tratta.getNprenotazioni()+" "+tratta.getScali();

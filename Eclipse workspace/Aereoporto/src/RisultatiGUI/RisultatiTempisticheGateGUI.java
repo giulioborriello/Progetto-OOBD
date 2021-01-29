@@ -32,16 +32,24 @@ public class RisultatiTempisticheGateGUI extends JFrame {
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		if (scelta.equals("Giorni")) {
+			
+			String titoli = "Anno " + "Mese " + "Giorno "+ "Tempistica ";
+			listModel.addElement(titoli);
 			for (Tempistica valori : list) {
 				listModel.addElement(valori.getAnno() + " " + valori.getMese() + " " + valori.getGiorno() + " " + valori.getValore() );
 			}
 		} 
 		else if(scelta.equals("Settimane")) {
+			
+			String titoli = "Anno " + "Settimana " + "Tempistica ";
+			listModel.addElement(titoli);
 			for (Tempistica valori : list) {
 				listModel.addElement(valori.getAnno() + " " + valori.getSettimana() + " " + valori.getValore() );
 			}
 		}
 		else if(scelta.equals("Mesi")) {
+			String titoli = "Anno " + "Mese " + "Tempistica ";
+			listModel.addElement(titoli);
 			for (Tempistica valori : list) {
 				listModel.addElement(valori.getAnno() + " " + valori.getMese() + " " + valori.getValore() );
 			}

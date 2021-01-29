@@ -34,9 +34,12 @@ public class RisultatiFedelt‡GUI extends JFrame {
 		setResizable(false);
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		String titoli = "Codice Fiscale " + "Codice IATA" + "Codice CentoKilometri " + "Punti ";
+		listModel.addElement(titoli);
+		
 		
 		for(Fedelt‡ fedelt‡: list) {
-			String string = fedelt‡.getCliente() + " " + fedelt‡.getCompagnia() + " " + fedelt‡.getCentoKilometri() + " " + fedelt‡.getPunti();
+			String string = fedelt‡.getCliente().getCodFiscale() + " " + fedelt‡.getCompagnia().getCodIATA() + " " + fedelt‡.getCentoKilometri() + " " + fedelt‡.getPunti();
 			listModel.addElement(string);
 			
 		}

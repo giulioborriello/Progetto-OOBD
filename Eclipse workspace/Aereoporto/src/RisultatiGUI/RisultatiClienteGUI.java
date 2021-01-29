@@ -34,6 +34,9 @@ public class RisultatiClienteGUI extends JFrame {
 		setResizable(false);
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		String titoli = "Codice Fiscale " + "Nome " + "Cognome "+ "Email ";
+		listModel.addElement(titoli);
+		
 		
 		for(Cliente cliente: list) {
 			String string = cliente.getCodFiscale() + cliente.getNome() + " " + cliente.getCognome() + " " + cliente.getEmail();

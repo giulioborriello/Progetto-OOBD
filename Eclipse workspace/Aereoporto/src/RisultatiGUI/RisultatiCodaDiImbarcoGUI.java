@@ -33,7 +33,8 @@ public class RisultatiCodaDiImbarcoGUI extends JFrame {
 		setResizable(false);
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
-		
+		String titoli = "Codice Coda " + "Tipo Di Coda " + "Codice Gate "+ "CodSlot ";
+		listModel.addElement(titoli);
 		
 		
 		for(CodaDiImbarco coda: list) {
