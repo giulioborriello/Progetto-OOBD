@@ -31,6 +31,8 @@ public class GateGUI extends JFrame {
 	JButton btnMenu;
 	private JTextField CodGateInserimentoTextField;
 	private JTextField CodTrattaInserimentoTextField;
+	private JComboBox comboBoxNgateInserimento;
+	private JTextField textFieldCodGate;
 	
 	public GateGUI(Controller c) {
 		controller = c;	
@@ -213,54 +215,83 @@ public class GateGUI extends JFrame {
 		lblRicercaMesi_Anno.setBounds(274, 404, 33, 19);
 		contentPane.add(lblRicercaMesi_Anno);
 		
-		JLabel lblTempistiche_1 = new JLabel("Inserimento");
-		lblTempistiche_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTempistiche_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTempistiche_1.setBounds(259, 496, 108, 25);
-		contentPane.add(lblTempistiche_1);
+		JLabel lblInserimento = new JLabel("Inserimento");
+		lblInserimento.setHorizontalAlignment(SwingConstants.CENTER);
+		lblInserimento.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblInserimento.setBounds(259, 496, 108, 25);
+		contentPane.add(lblInserimento);
 		
-		JLabel lblTempistiche_1_1 = new JLabel("CodGate");
-		lblTempistiche_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTempistiche_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTempistiche_1_1.setBounds(119, 540, 108, 25);
-		contentPane.add(lblTempistiche_1_1);
+		JLabel lblCodGate = new JLabel("CodGate");
+		lblCodGate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCodGate.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCodGate.setBounds(119, 540, 108, 25);
+		contentPane.add(lblCodGate);
 		
 		CodGateInserimentoTextField = new JTextField();
 		CodGateInserimentoTextField.setColumns(10);
-		CodGateInserimentoTextField.setBounds(119, 576, 94, 20);
+		CodGateInserimentoTextField.setBounds(126, 576, 94, 20);
 		contentPane.add(CodGateInserimentoTextField);
 		
-		JComboBox comboBoxNgateInserimento = new JComboBox(Ngate);
+		comboBoxNgateInserimento = new JComboBox(Ngate);
 		comboBoxNgateInserimento.setBounds(273, 575, 94, 22);
 		contentPane.add(comboBoxNgateInserimento);
 		
-		JLabel lblTempistiche_1_1_1 = new JLabel("NGate");
-		lblTempistiche_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTempistiche_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTempistiche_1_1_1.setBounds(264, 540, 108, 25);
-		contentPane.add(lblTempistiche_1_1_1);
+		JLabel lblnGate = new JLabel("NGate");
+		lblnGate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblnGate.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblnGate.setBounds(264, 540, 108, 25);
+		contentPane.add(lblnGate);
 		
-		JLabel lblTempistiche_1_1_1_1 = new JLabel("CodTratta");
-		lblTempistiche_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTempistiche_1_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTempistiche_1_1_1_1.setBounds(418, 540, 108, 25);
-		contentPane.add(lblTempistiche_1_1_1_1);
+		JLabel lblCodTratta = new JLabel("CodTratta");
+		lblCodTratta.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCodTratta.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCodTratta.setBounds(418, 540, 108, 25);
+		contentPane.add(lblCodTratta);
 		
 		CodTrattaInserimentoTextField = new JTextField();
 		CodTrattaInserimentoTextField.setColumns(10);
 		CodTrattaInserimentoTextField.setBounds(428, 576, 94, 20);
 		contentPane.add(CodTrattaInserimentoTextField);
 		
-		JButton btnRicerca_1 = new JButton("Invia");
-		btnRicerca_1.addActionListener(new ActionListener() {
+		JButton btnInserisci = new JButton("Invia");
+		btnInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.inserisciGate(CodGateInserimentoTextField.getText(), comboBoxNgateInserimento.getSelectedItem().toString(), CodTrattaInserimentoTextField.getText());
 
 			}
 		});
-		btnRicerca_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_1.setBounds(631, 690, 85, 40);
-		contentPane.add(btnRicerca_1);
+		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnInserisci.setBounds(585, 564, 85, 40);
+		contentPane.add(btnInserisci);
+		
+		JLabel lblElimina = new JLabel("Elimina");
+		lblElimina.setHorizontalAlignment(SwingConstants.CENTER);
+		lblElimina.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblElimina.setBounds(264, 618, 108, 25);
+		contentPane.add(lblElimina);
+		
+		JLabel lblCodGate_Elimina = new JLabel("CodGate");
+		lblCodGate_Elimina.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCodGate_Elimina.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCodGate_Elimina.setBounds(264, 654, 108, 25);
+		contentPane.add(lblCodGate_Elimina);
+		
+		textFieldCodGate = new JTextField();
+		textFieldCodGate.setColumns(10);
+		textFieldCodGate.setBounds(271, 690, 94, 20);
+		contentPane.add(textFieldCodGate);
+		
+		
+		JButton btnElimina = new JButton("Invia");
+		btnElimina.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.eliminaGate(textFieldCodGate.getText());
+			}
+		});
+		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
+		btnElimina.setBounds(585, 674, 85, 40);
+		contentPane.add(btnElimina);
+		
 		
 		
 		

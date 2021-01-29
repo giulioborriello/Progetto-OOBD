@@ -224,7 +224,7 @@ public class Controller {
 		}
 	
 		else if(ricerca == "CodCoda") {
-			list.add(slotPostgres.getSlotByCodCoda(Integer.valueOf(valore)));
+			list.add(slotPostgres.getSlotByCodCoda(valore));
 			
 		}
 		
@@ -293,7 +293,7 @@ public class Controller {
 		}
 		
 		else if(valore == "CodSlot") {
-			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(Integer.valueOf(valore), data));
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(valore, data));
 		}
 	
 		else if(valore == "N gate") {
@@ -420,10 +420,7 @@ public class Controller {
 		
 		
 		CodaDiImbarcoDAOPostgres codadiimbarco = new CodaDiImbarcoDAOPostgres(singleton);
-		int codGate = Integer.valueOf(CodGate);
-		int codCoda = Integer.valueOf(CodCoda);
-		int codSlot = Integer.valueOf(CodSlot);
-		String testo = codadiimbarco.insertCodaDiImbarco(codCoda, TipoDiCoda, codGate, codSlot);
+		String testo = codadiimbarco.insertCodaDiImbarco(CodCoda, TipoDiCoda, CodGate, CodSlot);
 		openDialog(testo);
 	}
 
@@ -569,8 +566,7 @@ public class Controller {
 		}
 		
 		CodaDiImbarcoDAOPostgres CodaDiImbarco = new CodaDiImbarcoDAOPostgres(singleton);
-		int codCoda = Integer.valueOf(CodCoda);
-		String testo = CodaDiImbarco.deleteCodaDiImbarco(codCoda);
+		String testo = CodaDiImbarco.deleteCodaDiImbarco(CodCoda);
 		openDialog(testo);
 	}
 
@@ -645,6 +641,16 @@ public class Controller {
 		
 		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(singleton);
 		String testo = fedelt‡.deleteFedelt‡(CodFiscale);
+		openDialog(testo);
+	}
+	
+	public void eliminaGate(String CodGate) {
+		if(checkBlank(CodGate)) {
+			return;
+		}
+		
+		GateDAOPostgres gate = new GateDAOPostgres(singleton);
+		String testo = gate.deleteGate(CodGate);
 		openDialog(testo);
 	}
 	
@@ -830,9 +836,7 @@ public class Controller {
 		List<Tempistica> list = gateDAOP.GetTempisticheSettimane(anno);
 		this.openRisultatiTempisticheGateGUI(list, "Settimane");
 	}
-	
-	
-	
+
 }
 
 

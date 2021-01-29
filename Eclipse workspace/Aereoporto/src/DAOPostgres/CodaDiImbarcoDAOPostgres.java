@@ -71,12 +71,12 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 	}
 	
-	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int CodSlot, String data){
+	public CodaDiImbarco getCodaDiImbarcoByCodSlot(String CodSlot, String data){
 		CodaDiImbarco codaDiImbarco = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?"
 					+ "AND \"Data\" = ?");
-			ps.setInt(1, CodSlot);
+			ps.setString(1, CodSlot);
 			ps.setString(2, data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
@@ -95,13 +95,13 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 		return codaDiImbarco;
 	}
 	
-	public String insertCodaDiImbarco(int CodCoda, String TipoDiCoda, int Ngate, int CodSlot)	{
+	public String insertCodaDiImbarco(String CodCoda, String TipoDiCoda, String Ngate, String CodSlot)	{
 			try {
 				PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?, null); ");
-				ps.setInt(1, CodCoda);
+				ps.setString(1, CodCoda);
 				ps.setString(2, TipoDiCoda);
-				ps.setInt(3, Ngate);
-				ps.setInt(4, CodSlot);
+				ps.setString(3, Ngate);
+				ps.setString(4, CodSlot);
 				ps.execute();
 				
 				ps.close();
@@ -113,12 +113,12 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			
 	}
 	
-	public String deleteCodaDiImbarco(int CodCoda) {
+	public String deleteCodaDiImbarco(String CodCoda) {
 		
 		try {
 			PreparedStatement ps = conn.prepareStatement("Delete From \"Coda di imbarco\"  WHERE \"CodCoda\" = ? ; ");
 				
-			ps.setInt(1, CodCoda);
+			ps.setString(1, CodCoda);
 			ps.execute();
 			ps.close();
 			conn.close();

@@ -50,11 +50,11 @@ public class SlotDAOPostgres implements SlotDAO{
 		return slot;
 	}
 	
-	public Slot getSlotByCodCoda(int codCoda) {
+	public Slot getSlotByCodCoda(String codCoda) {
 		Slot slot = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodCoda\" = ?");
-			ps.setInt(1, codCoda);
+			ps.setString(1, codCoda);
 			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {

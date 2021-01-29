@@ -172,6 +172,24 @@ public class GateDAOPostgres implements GateDAO{
 		}
 		
 	}
+
+
+	public String deleteGate(String CodGate) {
+		try {
+			PreparedStatement ps = conn.prepareStatement("Delete From \"Gate\"  WHERE \"CodGate\" = ? ; ");
+				
+			ps.setString(1, CodGate);
+			ps.execute();
+			ps.close();
+			conn.close();
+				
+			return "Eliminato correttamente";
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			return e.getMessage();
+		}
+	}
 }
 	
 

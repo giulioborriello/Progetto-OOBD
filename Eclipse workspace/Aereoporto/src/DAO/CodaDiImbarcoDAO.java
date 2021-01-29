@@ -10,10 +10,10 @@ public interface CodaDiImbarcoDAO {
 	
 	public CodaDiImbarco getCodaDiImbarcoByNgate(String Ngate, String data);
 	
-	public CodaDiImbarco getCodaDiImbarcoByCodSlot(int CodSlot, String data);
+	public CodaDiImbarco getCodaDiImbarcoByCodSlot(String CodSlot, String data);
 	
-	public String insertCodaDiImbarco(int CodCoda, String Tipo_di_coda, int Ngate, int CodSlot);
+	public String insertCodaDiImbarco(String CodCoda, String Tipo_di_coda, String Ngate, String CodSlot);
 	
-	public String deleteCodaDiImbarco(int CodCoda);
+	public String deleteCodaDiImbarco(String CodCoda);
 	
 }
