@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>3</zoom_level>
+  <zoom_level>8</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>174</x>
-      <y>39</y>
-      <w>12</w>
-      <h>336</h>
+      <x>152</x>
+      <y>104</y>
+      <w>32</w>
+      <h>896</h>
     </coordinates>
     <panel_attributes>
 </panel_attributes>
@@ -16,10 +16,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>123</x>
-      <y>33</y>
-      <w>12</w>
-      <h>1092</h>
+      <x>16</x>
+      <y>88</y>
+      <w>32</w>
+      <h>2912</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -27,10 +27,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>369</y>
-      <w>489</w>
-      <h>9</h>
+      <x>176</x>
+      <y>984</y>
+      <w>1304</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;1610.0;10.0</additional_attributes>
@@ -38,10 +38,10 @@
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>360</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>960</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>instanza:SingletonPostgres
 style=wordwrap</panel_attributes>
@@ -50,10 +50,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>354</y>
-      <w>489</w>
-      <h>9</h>
+      <x>176</x>
+      <y>944</y>
+      <w>1304</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>1610.0;10.0;10.0;10.0</additional_attributes>
@@ -61,45 +61,22 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>339</y>
-      <w>42</w>
-      <h>18</h>
+      <x>184</x>
+      <y>904</y>
+      <w>112</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>singleton = SingletonPostgres.getInstance();
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>324</y>
-      <w>432</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1420.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
-      <x>198</x>
-      <y>321</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>186</x>
-      <y>312</y>
-      <w>42</w>
-      <h>9</h>
+      <x>184</x>
+      <y>832</y>
+      <w>112</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>NewGateGUI(this)
 style=wordwrap</panel_attributes>
@@ -108,10 +85,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>315</y>
-      <w>432</w>
-      <h>9</h>
+      <x>176</x>
+      <y>840</y>
+      <w>1152</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>1420.0;10.0;10.0;10.0</additional_attributes>
@@ -119,33 +96,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>198</x>
-      <y>294</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>297</y>
-      <w>387</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1270.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>186</x>
-      <y>285</y>
-      <w>45</w>
-      <h>12</h>
+      <x>184</x>
+      <y>760</y>
+      <w>120</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>newBigliettoGUI(this)
 style=wordwrap</panel_attributes>
@@ -154,44 +108,21 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>288</y>
-      <w>387</w>
-      <h>9</h>
+      <x>176</x>
+      <y>768</y>
+      <w>1032</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>1270.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>267</y>
-      <w>336</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1100.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
-      <x>198</x>
-      <y>264</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>186</x>
-      <y>252</y>
-      <w>45</w>
-      <h>12</h>
+      <x>184</x>
+      <y>672</y>
+      <w>120</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>newClienteGUI(this)
 style=wordwrap</panel_attributes>
@@ -200,10 +131,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>258</y>
-      <w>336</w>
-      <h>9</h>
+      <x>176</x>
+      <y>688</y>
+      <w>896</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>1100.0;10.0;10.0;10.0</additional_attributes>
@@ -211,33 +142,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>198</x>
-      <y>234</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>237</y>
-      <w>276</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;900.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>186</x>
-      <y>219</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>584</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>newCodaDiImbarcoGUI(this)
 style=wordwrap</panel_attributes>
@@ -246,44 +154,21 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>228</y>
-      <w>276</w>
-      <h>9</h>
+      <x>176</x>
+      <y>608</y>
+      <w>736</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>900.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>210</y>
-      <w>234</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;760.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
-      <x>201</x>
-      <y>207</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>186</x>
-      <y>192</y>
-      <w>42</w>
-      <h>18</h>
+      <x>184</x>
+      <y>512</y>
+      <w>112</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>newCompagniaGUI(this)
 style=wordwrap</panel_attributes>
@@ -292,44 +177,21 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>201</y>
-      <w>234</w>
-      <h>9</h>
+      <x>176</x>
+      <y>536</y>
+      <w>624</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>760.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>195</x>
-      <y>180</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>183</y>
-      <w>192</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;620.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>174</y>
-      <w>192</w>
-      <h>9</h>
+      <x>176</x>
+      <y>464</y>
+      <w>512</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>620.0;10.0;10.0;10.0</additional_attributes>
@@ -337,79 +199,33 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>171</y>
-      <w>42</w>
-      <h>9</h>
+      <x>184</x>
+      <y>456</y>
+      <w>112</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>newFedeltaGUI(this)</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>159</y>
-      <w>147</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;470.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
-      <x>195</x>
-      <y>156</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>186</x>
-      <y>147</y>
-      <w>42</w>
-      <h>9</h>
+      <x>184</x>
+      <y>392</y>
+      <w>112</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>newTrattaGUI(this)
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>195</x>
-      <y>135</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>138</y>
-      <w>108</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;340.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>129</y>
-      <w>108</w>
-      <h>9</h>
+      <x>176</x>
+      <y>344</y>
+      <w>288</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>340.0;10.0;10.0;10.0</additional_attributes>
@@ -417,45 +233,22 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>126</y>
-      <w>42</w>
-      <h>9</h>
+      <x>184</x>
+      <y>336</y>
+      <w>112</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>newSlotGUI(this)
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>114</y>
-      <w>60</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>207</x>
-      <y>111</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>237</x>
-      <y>78</y>
-      <w>12</w>
-      <h>417</h>
+      <x>320</x>
+      <y>208</y>
+      <w>32</w>
+      <h>1112</h>
     </coordinates>
     <panel_attributes>
 </panel_attributes>
@@ -464,45 +257,22 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>192</x>
-      <y>102</y>
-      <w>48</w>
-      <h>9</h>
+      <x>200</x>
+      <y>272</y>
+      <w>128</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>menù.setVisible(true)
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>207</x>
-      <y>90</y>
-      <w>24</w>
-      <h>6</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>93</y>
-      <w>60</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>84</y>
-      <w>60</w>
-      <h>9</h>
+      <x>176</x>
+      <y>224</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
@@ -510,10 +280,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>192</x>
-      <y>81</y>
-      <w>42</w>
-      <h>9</h>
+      <x>200</x>
+      <y>216</y>
+      <w>112</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>newMenuGUI(this)
 style=wordwrap</panel_attributes>
@@ -522,10 +292,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>60</y>
-      <w>24</w>
-      <h>9</h>
+      <x>184</x>
+      <y>160</y>
+      <w>64</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Controller
 style=wordwrap</panel_attributes>
@@ -534,10 +304,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>204</x>
-      <y>48</y>
-      <w>9</w>
-      <h>27</h>
+      <x>232</x>
+      <y>128</y>
+      <w>24</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=
@@ -548,10 +318,10 @@ m2=
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>42</y>
-      <w>36</w>
-      <h>9</h>
+      <x>184</x>
+      <y>112</y>
+      <w>96</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>New Controller()
 style=wordwrap</panel_attributes>
@@ -560,10 +330,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>66</y>
-      <w>30</w>
-      <h>9</h>
+      <x>176</x>
+      <y>176</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
@@ -571,10 +341,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>177</x>
-      <y>15</y>
-      <w>9</w>
-      <h>30</h>
+      <x>160</x>
+      <y>40</y>
+      <w>24</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
@@ -582,10 +352,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>165</x>
-      <y>6</y>
-      <w>30</w>
-      <h>12</h>
+      <x>128</x>
+      <y>16</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>controller:
 Controller</panel_attributes>
@@ -594,10 +364,10 @@ Controller</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>117</x>
-      <y>3</y>
-      <w>21</w>
-      <h>33</h>
+      <x>0</x>
+      <y>8</y>
+      <w>56</w>
+      <h>88</h>
     </coordinates>
     <panel_attributes>User</panel_attributes>
     <additional_attributes/>
@@ -605,10 +375,10 @@ Controller</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>228</x>
-      <y>6</y>
-      <w>30</w>
-      <h>9</h>
+      <x>296</x>
+      <y>16</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>menù:MenùGui
 </panel_attributes>
@@ -617,10 +387,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>240</x>
-      <y>12</y>
-      <w>9</w>
-      <h>72</h>
+      <x>328</x>
+      <y>32</y>
+      <w>24</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;220.0;10.0;10.0</additional_attributes>
@@ -628,10 +398,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>273</x>
-      <y>12</y>
-      <w>18</w>
-      <h>1122</h>
+      <x>416</x>
+      <y>32</y>
+      <w>48</w>
+      <h>2992</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;3720.0;40.0;10.0</additional_attributes>
@@ -639,10 +409,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
-      <y>15</y>
-      <w>15</w>
-      <h>1122</h>
+      <x>528</x>
+      <y>40</y>
+      <w>40</w>
+      <h>2992</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;3720.0;30.0;10.0</additional_attributes>
@@ -650,10 +420,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>12</y>
-      <w>15</w>
-      <h>1119</h>
+      <x>648</x>
+      <y>32</y>
+      <w>40</w>
+      <h>2984</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;3710.0;30.0;10.0</additional_attributes>
@@ -661,10 +431,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>405</x>
-      <y>12</y>
-      <w>12</w>
-      <h>1119</h>
+      <x>768</x>
+      <y>32</y>
+      <w>32</w>
+      <h>2984</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;3710.0;20.0;10.0</additional_attributes>
@@ -672,10 +442,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>453</x>
-      <y>12</y>
-      <w>12</w>
-      <h>1125</h>
+      <x>896</x>
+      <y>32</y>
+      <w>32</w>
+      <h>3000</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>20.0;3730.0;10.0;10.0</additional_attributes>
@@ -683,10 +453,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>510</x>
-      <y>15</y>
-      <w>9</w>
-      <h>498</h>
+      <x>1048</x>
+      <y>40</y>
+      <w>24</w>
+      <h>1328</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;1640.0;10.0;10.0</additional_attributes>
@@ -694,10 +464,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>606</x>
-      <y>12</y>
-      <w>15</w>
-      <h>1125</h>
+      <x>1304</x>
+      <y>32</y>
+      <w>40</w>
+      <h>3000</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>30.0;3730.0;10.0;10.0</additional_attributes>
@@ -705,10 +475,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>663</x>
-      <y>12</y>
-      <w>15</w>
-      <h>1119</h>
+      <x>1456</x>
+      <y>32</y>
+      <w>40</w>
+      <h>2984</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>30.0;3710.0;10.0;10.0</additional_attributes>
@@ -716,10 +486,10 @@ Controller</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>45</y>
-      <w>48</w>
-      <h>9</h>
+      <x>40</x>
+      <y>120</y>
+      <w>128</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
     <additional_attributes>140.0;10.0;10.0;10.0;40.0;10.0</additional_attributes>
@@ -727,10 +497,10 @@ Controller</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>144</x>
-      <y>42</y>
-      <w>30</w>
-      <h>9</h>
+      <x>72</x>
+      <y>112</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Main()
 style=wordwrap</panel_attributes>
@@ -739,10 +509,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>45</y>
-      <w>30</w>
-      <h>12</h>
+      <x>176</x>
+      <y>120</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=
@@ -753,10 +523,10 @@ m2=
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>270</x>
-      <y>6</y>
-      <w>30</w>
-      <h>9</h>
+      <x>408</x>
+      <y>16</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>slot:SlotGUI</panel_attributes>
     <additional_attributes/>
@@ -764,10 +534,10 @@ m2=
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>309</x>
-      <y>6</y>
-      <w>30</w>
-      <h>9</h>
+      <x>512</x>
+      <y>16</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>tratta:TrattaGUI</panel_attributes>
     <additional_attributes/>
@@ -775,10 +545,10 @@ m2=
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>354</x>
-      <y>3</y>
-      <w>30</w>
-      <h>12</h>
+      <x>632</x>
+      <y>8</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>fedeltà:
 FedeltaGUI</panel_attributes>
@@ -787,10 +557,10 @@ FedeltaGUI</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>396</x>
-      <y>3</y>
-      <w>30</w>
-      <h>12</h>
+      <x>744</x>
+      <y>8</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>compagnia:
 CompagniaGUI</panel_attributes>
@@ -799,10 +569,10 @@ CompagniaGUI</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>438</x>
-      <y>3</y>
-      <w>39</w>
-      <h>12</h>
+      <x>856</x>
+      <y>8</y>
+      <w>104</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>codaDiImbarco: 
 CodaDiImbarcoGUI</panel_attributes>
@@ -811,10 +581,10 @@ CodaDiImbarcoGUI</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>498</x>
-      <y>3</y>
-      <w>30</w>
-      <h>12</h>
+      <x>1016</x>
+      <y>8</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>Cliente:
 ClienteGUI</panel_attributes>
@@ -823,10 +593,10 @@ ClienteGUI</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>552</x>
-      <y>3</y>
-      <w>30</w>
-      <h>12</h>
+      <x>1160</x>
+      <y>8</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>Biglietto:
 BigliettoGUI</panel_attributes>
@@ -835,10 +605,10 @@ BigliettoGUI</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>594</x>
-      <y>3</y>
-      <w>30</w>
-      <h>12</h>
+      <x>1272</x>
+      <y>8</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>Gate:
 GateGUI</panel_attributes>
@@ -847,10 +617,10 @@ GateGUI</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>642</x>
+      <x>1400</x>
       <y>0</y>
-      <w>48</w>
-      <h>15</h>
+      <w>128</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>singleton:
 SingletonPostgres</panel_attributes>
@@ -859,10 +629,10 @@ SingletonPostgres</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>135</x>
-      <y>384</y>
-      <w>45</w>
-      <h>9</h>
+      <x>48</x>
+      <y>1024</y>
+      <w>120</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Clicca bottone Gate
 style=wordwrap</panel_attributes>
@@ -871,10 +641,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>387</y>
-      <w>111</w>
-      <h>9</h>
+      <x>40</x>
+      <y>1032</y>
+      <w>296</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>350.0;10.0;10.0;10.0</additional_attributes>
@@ -882,10 +652,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>177</x>
-      <y>372</y>
-      <w>9</w>
-      <h>36</h>
+      <x>160</x>
+      <y>992</y>
+      <w>24</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
@@ -893,10 +663,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>174</x>
-      <y>402</y>
-      <w>12</w>
-      <h>129</h>
+      <x>152</x>
+      <y>1072</y>
+      <w>32</w>
+      <h>344</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -904,10 +674,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>405</y>
-      <w>60</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1080</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
@@ -915,10 +685,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>192</x>
-      <y>402</y>
-      <w>45</w>
-      <h>9</h>
+      <x>200</x>
+      <y>1072</y>
+      <w>120</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>controller.openGate
 style=wordwrap</panel_attributes>
@@ -927,10 +697,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>417</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>1112</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>if(risultatiCliente != null)
 style=wordwrap</panel_attributes>
@@ -939,10 +709,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>432</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>1152</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>risultatiCliente.setVisible(false)
 style=wordwrap</panel_attributes>
@@ -951,10 +721,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>159</x>
-      <y>417</y>
-      <w>69</w>
-      <h>45</h>
+      <x>112</x>
+      <y>1112</y>
+      <w>184</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>OPT</panel_attributes>
     <additional_attributes/>
@@ -962,10 +732,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>468</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>1248</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>menù.setVisible(false)
 style=wordwrap</panel_attributes>
@@ -974,32 +744,21 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>477</y>
-      <w>60</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1272</y>
+      <w>160</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>483</y>
-      <w>60</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>507</y>
-      <w>51</w>
-      <h>9</h>
+      <x>184</x>
+      <y>1352</y>
+      <w>136</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>cliente.setVisible(true)
 style=wordwrap</panel_attributes>
@@ -1008,56 +767,21 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>513</y>
-      <w>330</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1368</y>
+      <w>880</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>1080.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>519</y>
-      <w>330</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1080.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>189</x>
-      <y>516</y>
-      <w>15</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>189</x>
-      <y>480</y>
-      <w>15</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>507</x>
-      <y>507</y>
-      <w>12</w>
-      <h>129</h>
+      <x>1040</x>
+      <y>1352</y>
+      <w>32</w>
+      <h>344</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1065,10 +789,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>540</y>
-      <w>381</w>
-      <h>9</h>
+      <x>40</x>
+      <y>1440</y>
+      <w>1016</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>1250.0;10.0;10.0;10.0</additional_attributes>
@@ -1076,10 +800,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>135</x>
-      <y>537</y>
-      <w>117</w>
-      <h>9</h>
+      <x>48</x>
+      <y>1432</y>
+      <w>312</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Immette codice fiscale "textFieldIndicaCodiceFiscale"
 style=wordwrap</panel_attributes>
@@ -1088,10 +812,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>555</y>
-      <w>381</w>
-      <h>9</h>
+      <x>40</x>
+      <y>1480</y>
+      <w>1016</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>1250.0;10.0;10.0;10.0</additional_attributes>
@@ -1099,10 +823,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>135</x>
-      <y>552</y>
-      <w>117</w>
-      <h>9</h>
+      <x>48</x>
+      <y>1472</y>
+      <w>312</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Clicca "EliminaButton"
 style=wordwrap</panel_attributes>
@@ -1111,56 +835,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>546</y>
-      <w>381</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1250.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>132</x>
-      <y>561</y>
-      <w>381</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1250.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>141</x>
-      <y>543</y>
-      <w>15</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>141</x>
-      <y>558</y>
-      <w>15</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>177</x>
-      <y>528</y>
-      <w>9</w>
-      <h>51</h>
+      <x>160</x>
+      <y>1408</y>
+      <w>24</w>
+      <h>136</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
@@ -1168,10 +846,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>174</x>
-      <y>573</y>
-      <w>12</w>
-      <h>174</h>
+      <x>152</x>
+      <y>1528</y>
+      <w>32</w>
+      <h>464</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1179,10 +857,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>576</y>
-      <w>330</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1536</y>
+      <w>880</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;1080.0;10.0</additional_attributes>
@@ -1190,45 +868,22 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>192</x>
-      <y>567</y>
-      <w>93</w>
-      <h>15</h>
+      <x>200</x>
+      <y>1512</y>
+      <w>248</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>controller.eliminaCliente(textFieldIndicaCodiceFiscale.getText());
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>582</y>
-      <w>330</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>1080.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
-      <x>192</x>
-      <y>579</y>
-      <w>15</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>186</x>
-      <y>609</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>1624</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>return;
 style=wordwrap</panel_attributes>
@@ -1237,10 +892,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>594</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>1584</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>if(checkBlank(CodFiscale))
 style=wordwrap</panel_attributes>
@@ -1249,10 +904,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>159</x>
-      <y>594</y>
-      <w>69</w>
-      <h>42</h>
+      <x>112</x>
+      <y>1584</y>
+      <w>184</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>OPT</panel_attributes>
     <additional_attributes/>
@@ -1260,10 +915,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>666</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>1776</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>return;
 style=wordwrap</panel_attributes>
@@ -1272,10 +927,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>651</y>
-      <w>42</w>
-      <h>12</h>
+      <x>184</x>
+      <y>1736</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>if(checkCodFiscale(CodFiscale))
 style=wordwrap</panel_attributes>
@@ -1284,10 +939,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>159</x>
-      <y>651</y>
-      <w>69</w>
-      <h>42</h>
+      <x>112</x>
+      <y>1736</y>
+      <w>184</w>
+      <h>112</h>
     </coordinates>
     <panel_attributes>OPT</panel_attributes>
     <additional_attributes/>
@@ -1295,10 +950,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>426</y>
-      <w>552</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1136</y>
+      <w>1472</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>1820.0;10.0;10.0;10.0</additional_attributes>
@@ -1306,10 +961,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>705</x>
+      <x>1568</x>
       <y>0</y>
-      <w>48</w>
-      <h>15</h>
+      <w>128</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>risultatiCliente:
 RisultatiClienteGUI</panel_attributes>
@@ -1318,10 +973,10 @@ RisultatiClienteGUI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>726</x>
-      <y>12</y>
-      <w>9</w>
-      <h>1119</h>
+      <x>1624</x>
+      <y>32</y>
+      <w>24</w>
+      <h>2984</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;3710.0;10.0;10.0</additional_attributes>
@@ -1329,10 +984,10 @@ RisultatiClienteGUI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>441</y>
-      <w>552</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1176</y>
+      <w>1472</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;1820.0;10.0</additional_attributes>
@@ -1340,10 +995,10 @@ RisultatiClienteGUI</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>609</y>
-      <w>30</w>
-      <h>12</h>
+      <x>176</x>
+      <y>1624</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=
@@ -1354,10 +1009,10 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>204</x>
-      <y>612</y>
-      <w>9</w>
-      <h>27</h>
+      <x>232</x>
+      <y>1632</y>
+      <w>24</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=
@@ -1368,10 +1023,10 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>630</y>
-      <w>30</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1680</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
@@ -1379,10 +1034,10 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>204</x>
-      <y>669</y>
-      <w>9</w>
-      <h>27</h>
+      <x>232</x>
+      <y>1784</y>
+      <w>24</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=
@@ -1393,10 +1048,10 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>666</y>
-      <w>30</w>
-      <h>12</h>
+      <x>176</x>
+      <y>1776</y>
+      <w>80</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=
@@ -1407,10 +1062,10 @@ m2=
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>687</y>
-      <w>30</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1832</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
@@ -1418,10 +1073,10 @@ m2=
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>765</x>
+      <x>1728</x>
       <y>0</y>
-      <w>48</w>
-      <h>15</h>
+      <w>128</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>cliente:
 ClienteDAOPostgres</panel_attributes>
@@ -1430,10 +1085,10 @@ ClienteDAOPostgres</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>786</x>
-      <y>12</y>
-      <w>9</w>
-      <h>696</h>
+      <x>1784</x>
+      <y>32</y>
+      <w>24</w>
+      <h>1856</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;2300.0;10.0;10.0</additional_attributes>
@@ -1441,10 +1096,10 @@ ClienteDAOPostgres</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>708</y>
-      <w>606</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1888</y>
+      <w>1616</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>2000.0;10.0;10.0;10.0</additional_attributes>
@@ -1452,10 +1107,10 @@ ClienteDAOPostgres</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>783</x>
-      <y>702</y>
-      <w>12</w>
-      <h>213</h>
+      <x>1776</x>
+      <y>1872</y>
+      <w>32</w>
+      <h>568</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1463,10 +1118,10 @@ ClienteDAOPostgres</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>714</y>
-      <w>606</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1904</y>
+      <w>1616</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;2000.0;10.0</additional_attributes>
@@ -1474,10 +1129,10 @@ ClienteDAOPostgres</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>705</y>
-      <w>99</w>
-      <h>9</h>
+      <x>184</x>
+      <y>1880</y>
+      <w>264</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>cliente = new ClienteDAOPostgres(singleton);
 style=wordwrap</panel_attributes>
@@ -1486,10 +1141,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>192</x>
-      <y>711</y>
-      <w>99</w>
-      <h>9</h>
+      <x>200</x>
+      <y>1896</y>
+      <w>264</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>ClienteDAOPostgres
 style=wordwrap</panel_attributes>
@@ -1498,10 +1153,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>726</y>
-      <w>99</w>
-      <h>9</h>
+      <x>184</x>
+      <y>1936</y>
+      <w>264</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>String testo = cliente.deleteCliente(CodFiscale);
 style=wordwrap</panel_attributes>
@@ -1510,10 +1165,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>729</y>
-      <w>606</w>
-      <h>9</h>
+      <x>176</x>
+      <y>1944</y>
+      <w>1616</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>2000.0;10.0;10.0;10.0</additional_attributes>
@@ -1521,10 +1176,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>873</y>
-      <w>606</w>
-      <h>9</h>
+      <x>176</x>
+      <y>2328</y>
+      <w>1616</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;2000.0;10.0</additional_attributes>
@@ -1532,10 +1187,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>753</y>
-      <w>51</w>
-      <h>24</h>
+      <x>1800</x>
+      <y>2008</y>
+      <w>136</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;150.0;60.0;150.0;10.0;10.0;10.0</additional_attributes>
@@ -1543,10 +1198,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>795</x>
-      <y>732</y>
-      <w>66</w>
-      <h>24</h>
+      <x>1808</x>
+      <y>1952</y>
+      <w>176</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>PreparedStatement ps = conn.prepareStatement
 ("Delete From \"Cliente\"  
@@ -1557,10 +1212,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>801</x>
-      <y>765</y>
-      <w>18</w>
-      <h>12</h>
+      <x>1824</x>
+      <y>2040</y>
+      <w>48</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>void
 style=wordwrap</panel_attributes>
@@ -1569,10 +1224,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>786</y>
-      <w>51</w>
-      <h>24</h>
+      <x>1800</x>
+      <y>2096</y>
+      <w>136</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;150.0;60.0;150.0;10.0;10.0;10.0</additional_attributes>
@@ -1580,10 +1235,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>792</x>
-      <y>816</y>
-      <w>51</w>
-      <h>24</h>
+      <x>1800</x>
+      <y>2176</y>
+      <w>136</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;150.0;60.0;150.0;10.0;10.0;10.0</additional_attributes>
@@ -1591,10 +1246,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>801</x>
-      <y>798</y>
-      <w>18</w>
-      <h>12</h>
+      <x>1824</x>
+      <y>2128</y>
+      <w>48</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>void
 style=wordwrap</panel_attributes>
@@ -1603,10 +1258,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>801</x>
-      <y>828</y>
-      <w>18</w>
-      <h>12</h>
+      <x>1824</x>
+      <y>2208</y>
+      <w>48</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>void
 style=wordwrap</panel_attributes>
@@ -1615,10 +1270,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>798</x>
-      <y>777</y>
-      <w>42</w>
-      <h>12</h>
+      <x>1816</x>
+      <y>2072</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>ps.setString(1, CodFiscale);
 style=wordwrap</panel_attributes>
@@ -1627,10 +1282,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>798</x>
-      <y>813</y>
-      <w>33</w>
-      <h>12</h>
+      <x>1816</x>
+      <y>2168</y>
+      <w>88</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>ps.execute();
 style=wordwrap</panel_attributes>
@@ -1639,10 +1294,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>192</x>
-      <y>867</y>
-      <w>69</w>
-      <h>12</h>
+      <x>200</x>
+      <y>2312</y>
+      <w>184</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>return "Eliminato Correttamente!";
 style=wordwrap</panel_attributes>
@@ -1651,10 +1306,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>732</x>
-      <y>846</y>
-      <w>135</w>
-      <h>75</h>
+      <x>1640</x>
+      <y>2256</y>
+      <w>360</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>ALT
 --
@@ -1672,10 +1327,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>903</y>
-      <w>606</w>
-      <h>9</h>
+      <x>176</x>
+      <y>2408</y>
+      <w>1616</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;.</panel_attributes>
     <additional_attributes>10.0;10.0;2000.0;10.0</additional_attributes>
@@ -1683,10 +1338,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>735</x>
-      <y>864</y>
-      <w>42</w>
-      <h>12</h>
+      <x>1648</x>
+      <y>2304</y>
+      <w>112</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>return "Eliminato Correttamente!"
 style=wordwrap</panel_attributes>
@@ -1695,10 +1350,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>735</x>
-      <y>894</y>
-      <w>39</w>
-      <h>12</h>
+      <x>1648</x>
+      <y>2384</y>
+      <w>104</w>
+      <h>32</h>
     </coordinates>
     <panel_attributes>return e.getMessage();
 style=wordwrap</panel_attributes>
@@ -1707,10 +1362,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>192</x>
-      <y>897</y>
-      <w>51</w>
-      <h>9</h>
+      <x>200</x>
+      <y>2392</y>
+      <w>136</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>return e.getMessage();
 style=wordwrap</panel_attributes>
@@ -1719,10 +1374,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>177</x>
-      <y>744</y>
-      <w>9</w>
-      <h>123</h>
+      <x>160</x>
+      <y>1984</y>
+      <w>24</w>
+      <h>328</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;390.0;10.0;10.0</additional_attributes>
@@ -1730,10 +1385,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>174</x>
-      <y>861</y>
-      <w>12</w>
-      <h>159</h>
+      <x>152</x>
+      <y>2296</y>
+      <w>32</w>
+      <h>424</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1741,10 +1396,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>186</x>
-      <y>927</y>
-      <w>51</w>
-      <h>9</h>
+      <x>184</x>
+      <y>2472</y>
+      <w>136</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>openDialog(testo);
 style=wordwrap</panel_attributes>
@@ -1753,10 +1408,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>930</y>
-      <w>51</w>
-      <h>24</h>
+      <x>176</x>
+      <y>2480</y>
+      <w>136</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;150.0;60.0;150.0;10.0;10.0;10.0</additional_attributes>
@@ -1764,10 +1419,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>873</x>
-      <y>3</y>
-      <w>30</w>
-      <h>9</h>
+      <x>2016</x>
+      <y>8</y>
+      <w>80</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>dialog:Dialog</panel_attributes>
     <additional_attributes/>
@@ -1775,10 +1430,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>564</x>
-      <y>12</y>
-      <w>9</w>
-      <h>1122</h>
+      <x>1192</x>
+      <y>32</y>
+      <w>24</w>
+      <h>2992</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;3720.0;10.0;10.0</additional_attributes>
@@ -1786,10 +1441,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>885</x>
-      <y>9</y>
-      <w>9</w>
-      <h>954</h>
+      <x>2048</x>
+      <y>24</y>
+      <w>24</w>
+      <h>2544</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;3160.0;10.0;10.0</additional_attributes>
@@ -1797,10 +1452,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>963</y>
-      <w>705</w>
-      <h>9</h>
+      <x>176</x>
+      <y>2568</y>
+      <w>1880</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>2330.0;10.0;10.0;10.0</additional_attributes>
@@ -1808,33 +1463,22 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>189</x>
-      <y>957</y>
-      <w>69</w>
-      <h>9</h>
+      <x>192</x>
+      <y>2552</y>
+      <w>184</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>Dialog dialog = new Dialog(text);
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>975</y>
-      <w>705</w>
-      <h>12</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;2330.0;20.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>882</x>
-      <y>957</y>
-      <w>12</w>
-      <h>174</h>
+      <x>2040</x>
+      <y>2552</y>
+      <w>32</w>
+      <h>464</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1843,21 +1487,9 @@ style=wordwrap</panel_attributes>
     <id>Text</id>
     <coordinates>
       <x>192</x>
-      <y>972</y>
-      <w>69</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>189</x>
-      <y>984</y>
-      <w>69</w>
-      <h>9</h>
+      <y>2624</y>
+      <w>184</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>dialog.setVisible(true);
 style=wordwrap</panel_attributes>
@@ -1866,44 +1498,21 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>183</x>
-      <y>1002</y>
-      <w>705</w>
-      <h>12</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;2330.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>183</x>
-      <y>990</y>
-      <w>705</w>
-      <h>9</h>
+      <x>176</x>
+      <y>2640</y>
+      <w>1880</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>2330.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>192</x>
-      <y>999</y>
-      <w>69</w>
-      <h>9</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>132</x>
-      <y>1047</y>
-      <w>753</w>
-      <h>9</h>
+      <x>40</x>
+      <y>2792</y>
+      <w>2008</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>2490.0;10.0;10.0;10.0</additional_attributes>
@@ -1911,10 +1520,10 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>138</x>
-      <y>1041</y>
-      <w>69</w>
-      <h>9</h>
+      <x>56</x>
+      <y>2776</y>
+      <w>184</w>
+      <h>24</h>
     </coordinates>
     <panel_attributes>L'utente chiude il programma
 style=wordwrap</panel_attributes>
