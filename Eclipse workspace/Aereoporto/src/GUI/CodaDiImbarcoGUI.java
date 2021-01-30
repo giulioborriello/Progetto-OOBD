@@ -1,3 +1,4 @@
+
 package GUI;
 
 import javax.swing.JFrame;
@@ -28,7 +29,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 	private JTextField eliminatextField;
 	private JLabel lblRicerca;
 	
-	private String[] tipiRicerca = {"Seleziona tutti","CodCoda","N° Gate","Codice Slot"};
+	private String[] tipiRicerca = {"CodCoda","N° Gate","Codice Slot"};
 	private String[] tipiDiCoda = {"Business Class","Priority","Family","Diversamente abili"};
 	
 	private String[] giorni = {"1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",

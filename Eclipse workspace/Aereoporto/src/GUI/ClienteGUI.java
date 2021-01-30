@@ -32,7 +32,7 @@ public class ClienteGUI extends JFrame {
 	private JTextField textFieldRicerca;
 	private JTextField textFieldIndicaCodiceFiscale;
 	
-	private String[] tipiRicerca = {"Seleziona tutti","Codice Fiscale"};
+	private String[] tipiRicerca = {"Codice Fiscale"};
 	
 	public ClienteGUI(Controller c) {
 		setResizable(false);

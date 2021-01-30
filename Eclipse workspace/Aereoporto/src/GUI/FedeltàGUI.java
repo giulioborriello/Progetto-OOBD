@@ -269,29 +269,29 @@ public class Fedelt‡GUI extends JFrame {
 		lbl_CodFiscale_Elimina.setBounds(172, 347, 109, 31);
 		contentPane.add(lbl_CodFiscale_Elimina);
 		
-		JLabel lbl_Ricerca_1 = new JLabel("Ricerca tratte in ritardo");
-		lbl_Ricerca_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lbl_Ricerca_1.setBounds(302, 703, 222, 31);
-		contentPane.add(lbl_Ricerca_1);
+		JLabel lbl_Ricerca_Ritardi = new JLabel("Ricerca tratte in ritardo");
+		lbl_Ricerca_Ritardi.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Ricerca_Ritardi.setBounds(302, 703, 222, 31);
+		contentPane.add(lbl_Ricerca_Ritardi);
 		
-		JLabel lbl_CentoChilometri_AggiornaPunti_1 = new JLabel("Centochilometri");
-		lbl_CentoChilometri_AggiornaPunti_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lbl_CentoChilometri_AggiornaPunti_1.setBounds(336, 745, 122, 31);
-		contentPane.add(lbl_CentoChilometri_AggiornaPunti_1);
+		JLabel lbl_CentoChilometri_RicercaRitardi = new JLabel("Centochilometri");
+		lbl_CentoChilometri_RicercaRitardi.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lbl_CentoChilometri_RicercaRitardi.setBounds(336, 745, 122, 31);
+		contentPane.add(lbl_CentoChilometri_RicercaRitardi);
 		
 		RicercaRitardiCentochilometriTextField = new JTextField();
 		RicercaRitardiCentochilometriTextField.setColumns(10);
 		RicercaRitardiCentochilometriTextField.setBounds(343, 787, 109, 20);
 		contentPane.add(RicercaRitardiCentochilometriTextField);
 		
-		JButton ButtonAggiornaPunti_1 = new JButton("Invia");
-		ButtonAggiornaPunti_1.addActionListener(new ActionListener() {
+		JButton ButtonRicercaRitardo = new JButton("Invia");
+		ButtonRicercaRitardo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controller.ricercaRitardi(RicercaRitardiCentochilometriTextField.getText());
 			}
 		});
-		ButtonAggiornaPunti_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		ButtonAggiornaPunti_1.setBounds(508, 767, 85, 40);
-		contentPane.add(ButtonAggiornaPunti_1);
+		ButtonRicercaRitardo.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ButtonRicercaRitardo.setBounds(508, 767, 85, 40);
+		contentPane.add(ButtonRicercaRitardo);
 	}
 }
