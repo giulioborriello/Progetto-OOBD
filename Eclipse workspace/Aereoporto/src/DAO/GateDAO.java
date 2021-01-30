@@ -10,7 +10,9 @@ public interface GateDAO {
 	
 	public Gate getGateByCodGate(String CodGate);
 	public Gate getGateByCodTratta(String CodTratta, String data);
-	public List<Tempistica> GetTempisticheGiorni(String mese, String anno);
-	public List<Tempistica> GetTempisticheMesi(String anno);
-	public List<Tempistica> GetTempisticheSettimane(String anno);
+	public List<Tempistica> getTempisticheGiorni(String mese, String anno);
+	public List<Tempistica> getTempisticheMesi(String anno);
+	public List<Tempistica> getTempisticheSettimane(String anno);
+	public String insertGate(String CodGate, String Ngate, String CodTratta);
+	public String deleteGate(String CodGate);
 }

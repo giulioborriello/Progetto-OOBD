@@ -824,19 +824,19 @@ public class Controller {
 	
 	public void ricercaTempisticaGiorni(String mese, String anno) {
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
-		List<Tempistica> list = gateDAOP.GetTempisticheGiorni(mese, anno);
+		List<Tempistica> list = gateDAOP.getTempisticheGiorni(mese, anno);
 		this.openRisultatiTempisticheGateGUI(list, "Giorni");
 	}
 	
 	public void ricercaTempisticaMesi(String anno) {
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
-		List<Tempistica> list = gateDAOP.GetTempisticheMesi(anno);
+		List<Tempistica> list = gateDAOP.getTempisticheMesi(anno);
 		this.openRisultatiTempisticheGateGUI(list, "Mesi");
 	}
 	
 	public void ricercaTempisticaSettimane(String anno) {
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
-		List<Tempistica> list = gateDAOP.GetTempisticheSettimane(anno);
+		List<Tempistica> list = gateDAOP.getTempisticheSettimane(anno);
 		this.openRisultatiTempisticheGateGUI(list, "Settimane");
 	}
 

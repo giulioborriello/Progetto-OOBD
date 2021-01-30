@@ -20,7 +20,6 @@ public class GateDAOPostgres implements GateDAO{
 	
 	public GateDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
-//		tratta = new TrattaDAOPostgres(sp);
 	}
 	
 	
@@ -70,7 +69,7 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 
-	public List<Tempistica> GetTempisticheGiorni(String mese, String anno) {
+	public List<Tempistica> getTempisticheGiorni(String mese, String anno) {
 		List<Tempistica> list = new LinkedList<Tempistica>();
 		
 		try {
@@ -98,7 +97,7 @@ public class GateDAOPostgres implements GateDAO{
 		return list;
 	}
 		
-	public List<Tempistica> GetTempisticheMesi(String anno) {
+	public List<Tempistica> getTempisticheMesi(String anno) {
 		List<Tempistica> list = new LinkedList<Tempistica>();
 		
 		try {
@@ -127,7 +126,7 @@ public class GateDAOPostgres implements GateDAO{
 	}
 	
 	
-	public List<Tempistica> GetTempisticheSettimane(String anno) {
+	public List<Tempistica> getTempisticheSettimane(String anno) {
 		List<Tempistica> list = new LinkedList<Tempistica>();
 		
 		try {
