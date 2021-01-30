@@ -101,6 +101,27 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 		return listFedelt‡;	
 	}
 	
+	public int GetRitardi(String CentoKilometri) {
+		long numeroRitardi = 0;
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT  COUNT(\"CodTratta\") FROM public.\"Fedelt‡\" NATURAL JOIN public.\"Compagnia\" NATURAL JOIN  public.\"Tratta\"  WHERE \"CentoKilometri\" = ? AND \"Ritardo\" = true ; ");
+			ps.setString(1, CentoKilometri);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			numeroRitardi = rs.getLong("COUNT");
+			rs.close();
+			conn.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return (int)(numeroRitardi);
+
+	}
+		
+	
+	
+	
 	public String insertFedelt‡(String CentoKilometri, String CodIATA, String CodFiscale , int Punti)	{
 		
 		try {

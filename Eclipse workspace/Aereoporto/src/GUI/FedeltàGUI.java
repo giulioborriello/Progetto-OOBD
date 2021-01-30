@@ -34,12 +34,13 @@ public class Fedelt‡GUI extends JFrame {
     private JTextField textFieldCodIATA_Elimina;
 		
     private String [] tipiRicerca = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
+    private JTextField RicercaRitardiCentochilometriTextField;
     
 
 	public Fedelt‡GUI(Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 853, 864);
+		setBounds(100, 100, 853, 944);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -138,7 +139,7 @@ public class Fedelt‡GUI extends JFrame {
 			}
 		});
 		Button_BackToMenu.setFont(new Font("Tahoma", Font.BOLD, 15));
-		Button_BackToMenu.setBounds(21, 729, 101, 57);
+		Button_BackToMenu.setBounds(22, 833, 101, 57);
 		contentPane.add(Button_BackToMenu);
 		
 		
@@ -267,5 +268,30 @@ public class Fedelt‡GUI extends JFrame {
 		lbl_CodFiscale_Elimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lbl_CodFiscale_Elimina.setBounds(172, 347, 109, 31);
 		contentPane.add(lbl_CodFiscale_Elimina);
+		
+		JLabel lbl_Ricerca_1 = new JLabel("Ricerca tratte in ritardo");
+		lbl_Ricerca_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lbl_Ricerca_1.setBounds(302, 703, 222, 31);
+		contentPane.add(lbl_Ricerca_1);
+		
+		JLabel lbl_CentoChilometri_AggiornaPunti_1 = new JLabel("Centochilometri");
+		lbl_CentoChilometri_AggiornaPunti_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lbl_CentoChilometri_AggiornaPunti_1.setBounds(336, 745, 122, 31);
+		contentPane.add(lbl_CentoChilometri_AggiornaPunti_1);
+		
+		RicercaRitardiCentochilometriTextField = new JTextField();
+		RicercaRitardiCentochilometriTextField.setColumns(10);
+		RicercaRitardiCentochilometriTextField.setBounds(343, 787, 109, 20);
+		contentPane.add(RicercaRitardiCentochilometriTextField);
+		
+		JButton ButtonAggiornaPunti_1 = new JButton("Invia");
+		ButtonAggiornaPunti_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controller.ricercaRitardi(RicercaRitardiCentochilometriTextField.getText());
+			}
+		});
+		ButtonAggiornaPunti_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		ButtonAggiornaPunti_1.setBounds(508, 767, 85, 40);
+		contentPane.add(ButtonAggiornaPunti_1);
 	}
 }

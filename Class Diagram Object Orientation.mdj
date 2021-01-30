@@ -15649,7 +15649,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 11528,
-											"top": 6488,
+											"top": 6472,
 											"height": 13
 										},
 										{
@@ -15660,7 +15660,7 @@
 											},
 											"font": "Arial;13;1",
 											"left": 5253,
-											"top": 3351,
+											"top": 3343,
 											"width": 505.39404296875,
 											"height": 13,
 											"text": "ClienteDAOPostgres"
@@ -15674,7 +15674,7 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 11528,
-											"top": 6488,
+											"top": 6472,
 											"width": 117.74267578125,
 											"height": 13,
 											"text": "(from DAOPostgres)"
@@ -15688,14 +15688,14 @@
 											"visible": false,
 											"font": "Arial;13;0",
 											"left": 11528,
-											"top": 6488,
+											"top": 6472,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 5248,
-									"top": 3344,
+									"top": 3336,
 									"width": 515.39404296875,
 									"height": 25,
 									"stereotypeLabel": {
@@ -15732,52 +15732,18 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5253,
-											"top": 3374,
+											"top": 3366,
 											"width": 505.39404296875,
 											"height": 13,
-											"text": "+conn: Connection",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2zRU9U6/OK4g=",
-											"_parent": {
-												"$ref": "AAAAAAF2zRCYUa83n0o="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zRU9QK/Ljgk="
-											},
-											"font": "Arial;13;0",
-											"left": 5253,
-											"top": 3389,
-											"width": 505.39404296875,
-											"height": 13,
-											"text": "+singleton: SingletonPostgres",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2zRWBoq/VWww=",
-											"_parent": {
-												"$ref": "AAAAAAF2zRCYUa83n0o="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zRWBgq/SJUY="
-											},
-											"font": "Arial;13;0",
-											"left": 5253,
-											"top": 3404,
-											"width": 505.39404296875,
-											"height": 13,
-											"text": "+ListCliente: List<Cliente>",
+											"text": "-conn: Connection",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 5248,
-									"top": 3369,
+									"top": 3361,
 									"width": 515.39404296875,
-									"height": 53
+									"height": 23
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -15800,7 +15766,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5253,
-											"top": 3427,
+											"top": 3389,
 											"width": 505.39404296875,
 											"height": 13,
 											"text": "+ClienteDAOPostgres(sp: SingletonDAOPostgres)",
@@ -15817,7 +15783,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5253,
-											"top": 3442,
+											"top": 3404,
 											"width": 505.39404296875,
 											"height": 13,
 											"text": "+getAllCliente(): List<Cliente>",
@@ -15834,7 +15800,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5253,
-											"top": 3457,
+											"top": 3419,
 											"width": 505.39404296875,
 											"height": 13,
 											"text": "+getClienteByCodFiscale(CodFiscale: String): Cliente",
@@ -15851,7 +15817,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5253,
-											"top": 3472,
+											"top": 3434,
 											"width": 505.39404296875,
 											"height": 13,
 											"text": "+InsertCliente(CodFiscale: String, Nome: String, Cognome: String, Email: String): String",
@@ -15868,7 +15834,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5253,
-											"top": 3487,
+											"top": 3449,
 											"width": 505.39404296875,
 											"height": 13,
 											"text": "+deleteCliente()",
@@ -15885,7 +15851,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5253,
-											"top": 3502,
+											"top": 3464,
 											"width": 505.39404296875,
 											"height": 13,
 											"text": "+updateEmailByCodFiscale()",
@@ -15894,7 +15860,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 5248,
-									"top": 3422,
+									"top": 3384,
 									"width": 515.39404296875,
 									"height": 98
 								},
@@ -15910,7 +15876,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 6464,
-									"top": 3272,
+									"top": 3264,
 									"width": 10,
 									"height": 10
 								},
@@ -15926,7 +15892,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 6464,
-									"top": 3272,
+									"top": 3264,
 									"width": 10,
 									"height": 10
 								}
@@ -15937,7 +15903,7 @@
 							"font": "Arial;13;0",
 							"containerChangeable": true,
 							"left": 5248,
-							"top": 3344,
+							"top": 3336,
 							"width": 515.39404296875,
 							"height": 265,
 							"nameCompartment": {
@@ -16071,24 +16037,41 @@
 											"top": 3390,
 											"width": 505.6669921875,
 											"height": 13,
-											"text": "+conn: Connection",
+											"text": "-conn: Connection",
 											"horizontalAlignment": 0
 										},
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2zTA6arIj/Vk=",
+											"_id": "AAAAAAF3TykhOZeTOZg=",
 											"_parent": {
 												"$ref": "AAAAAAF2zSIK/LGaCCA="
 											},
 											"model": {
-												"$ref": "AAAAAAF2zTA6VrIgy24="
+												"$ref": "AAAAAAF3TykgspeQtCo="
 											},
 											"font": "Arial;13;0",
 											"left": 5797,
 											"top": 3405,
 											"width": 505.6669921875,
 											"height": 13,
-											"text": "+singleton: SingletonDAOPostgres",
+											"text": "-gate: GateDAOPostgres",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3Tym83JebcbY=",
+											"_parent": {
+												"$ref": "AAAAAAF2zSIK/LGaCCA="
+											},
+											"model": {
+												"$ref": "AAAAAAF3Tym8dJeY8uM="
+											},
+											"font": "Arial;13;0",
+											"left": 5797,
+											"top": 3420,
+											"width": 505.6669921875,
+											"height": 13,
+											"text": "-slot: SlotDAOPostgres",
 											"horizontalAlignment": 0
 										}
 									],
@@ -16096,7 +16079,7 @@
 									"left": 5792,
 									"top": 3385,
 									"width": 515.6669921875,
-									"height": 38
+									"height": 53
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -16119,27 +16102,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5797,
-											"top": 3428,
-											"width": 505.6669921875,
-											"height": 13,
-											"text": "+CodaDiImbarcoDAOPostgres(sp: SingletonPostgres)",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAF2zST3jLHMsXE=",
-											"_parent": {
-												"$ref": "AAAAAAF2zSIK/LGb64c="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zST3d7HJ7sM="
-											},
-											"font": "Arial;13;0",
-											"left": 5797,
 											"top": 3443,
 											"width": 505.6669921875,
 											"height": 13,
-											"text": "+getAllCodaDiImbarco(): List<CodaDiImbarco>",
+											"text": "+CodaDiImbarcoDAOPostgres(sp: SingletonPostgres)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16173,7 +16139,7 @@
 											"top": 3473,
 											"width": 505.6669921875,
 											"height": 13,
-											"text": "+getCodaDiImbarcoByNgate(Ngate: String): CodaDiimbarco",
+											"text": "+getCodaDiImbarcoByNgate(Ngate: String, data: String): CodaDiimbarco",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16190,7 +16156,7 @@
 											"top": 3488,
 											"width": 505.6669921875,
 											"height": 13,
-											"text": "+getCodaDiImbarcoByCodSlot(CodSlot: int): CodaDiImbarco",
+											"text": "+getCodaDiImbarcoByCodSlot(CodSlot: int, data: Srting): CodaDiImbarco",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16230,9 +16196,9 @@
 									],
 									"font": "Arial;13;0",
 									"left": 5792,
-									"top": 3423,
+									"top": 3438,
 									"width": 515.6669921875,
-									"height": 113
+									"height": 98
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -16407,7 +16373,7 @@
 											"top": 3670,
 											"width": 679.30078125,
 											"height": 13,
-											"text": "+conn: Connection",
+											"text": "-conn: Connection",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16424,7 +16390,7 @@
 											"top": 3685,
 											"width": 679.30078125,
 											"height": 13,
-											"text": "+singleton: SingletonDAOPostgres",
+											"text": "-singleton: SingletonDAOPostgres",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16441,7 +16407,7 @@
 											"top": 3700,
 											"width": 679.30078125,
 											"height": 13,
-											"text": "+ListBiglietto: List<Biglietto>",
+											"text": "-ListBiglietto: List<Biglietto>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -16743,7 +16709,7 @@
 											"top": 4006,
 											"width": 659.76904296875,
 											"height": 13,
-											"text": "+conn: Connection",
+											"text": "-conn: Connection",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16760,24 +16726,7 @@
 											"top": 4021,
 											"width": 659.76904296875,
 											"height": 13,
-											"text": "+ListFedeltà: List<Fedeltà>",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2zVT7L7Q8eug=",
-											"_parent": {
-												"$ref": "AAAAAAF2zUjZjLOEpHc="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zVT7FLQ5k+o="
-											},
-											"font": "Arial;13;0",
-											"left": 5261,
-											"top": 4036,
-											"width": 659.76904296875,
-											"height": 13,
-											"text": "+singleton: SingletonDAOPostgres",
+											"text": "-ListFedeltà: List<Fedeltà>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -16785,7 +16734,7 @@
 									"left": 5256,
 									"top": 4001,
 									"width": 669.76904296875,
-									"height": 53
+									"height": 38
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -16808,27 +16757,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5261,
-											"top": 4059,
+											"top": 4044,
 											"width": 659.76904296875,
 											"height": 13,
 											"text": "+FedeltàDAOPostgres(sp: SingletonPostgres)",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAF2zUl05rOs7s4=",
-											"_parent": {
-												"$ref": "AAAAAAF2zUjZjLOFFCM="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zUl0pLOp6tI="
-											},
-											"font": "Arial;13;0",
-											"left": 5261,
-											"top": 4074,
-											"width": 659.76904296875,
-											"height": 13,
-											"text": "+getAllFedeltà(): List<Fedeltà>",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16842,7 +16774,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5261,
-											"top": 4089,
+											"top": 4059,
 											"width": 659.76904296875,
 											"height": 13,
 											"text": "+getFedeltàByCentoKilometri(Centokilometri: String): List<Fedeltà>",
@@ -16859,7 +16791,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5261,
-											"top": 4104,
+											"top": 4074,
 											"width": 659.76904296875,
 											"height": 13,
 											"text": "+getFedeltàByCodIATA(CodIATA: String): List<Fedeltà>",
@@ -16876,7 +16808,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5261,
-											"top": 4119,
+											"top": 4089,
 											"width": 659.76904296875,
 											"height": 13,
 											"text": "+getFedeltàByCodFiscale(CodFiscale: String): List<Fedeltà>",
@@ -16893,10 +16825,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5261,
-											"top": 4134,
+											"top": 4104,
 											"width": 659.76904296875,
 											"height": 13,
-											"text": "+insertFedeltà(CentoKilomentri: int, CodIATA: String, CodFiscale: String, Punti: int): String",
+											"text": "+insertFedeltà(CentoKilomentri: String, CodIATA: String, CodFiscale: String, Punti: int): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16910,7 +16842,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5261,
-											"top": 4149,
+											"top": 4119,
 											"width": 659.76904296875,
 											"height": 13,
 											"text": "+updateCentoKilometriByCodFiscaleANDCodIATA(CentoKilometri: int, CodFiscale: String, CodIATA: String): String",
@@ -16927,10 +16859,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5261,
-											"top": 4164,
+											"top": 4134,
 											"width": 659.76904296875,
 											"height": 13,
-											"text": "+updatePuntiByCentoKilometriANDCodIATA(Punti: int, CentoKilometr: int, CodIATA: String): String",
+											"text": "+updatePuntiByCentoKilometriANDCodIATA(Punti: int, CentoKilometr: String, CodIATA: String): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16944,16 +16876,33 @@
 											},
 											"font": "Arial;13;0",
 											"left": 5261,
-											"top": 4179,
+											"top": 4149,
 											"width": 659.76904296875,
 											"height": 13,
 											"text": "+deleteFedeltà(CodFiscale: String): String",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF3TzROSpe/pk4=",
+											"_parent": {
+												"$ref": "AAAAAAF2zUjZjLOFFCM="
+											},
+											"model": {
+												"$ref": "AAAAAAF3TzRNx5e8Amc="
+											},
+											"font": "Arial;13;0",
+											"left": 5261,
+											"top": 4164,
+											"width": 659.76904296875,
+											"height": 13,
+											"text": "+GetRitardi(CentoKilometri: String): int",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 5256,
-									"top": 4054,
+									"top": 4039,
 									"width": 669.76904296875,
 									"height": 143
 								},
@@ -17449,7 +17398,7 @@
 											"top": 4022,
 											"width": 397.2744140625,
 											"height": 13,
-											"text": "+conn: Connection",
+											"text": "-conn: Connection",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17466,24 +17415,7 @@
 											"top": 4037,
 											"width": 397.2744140625,
 											"height": 13,
-											"text": "+ListCompagnia: List<Compagnia>",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2zUMkkrMwV1A=",
-											"_parent": {
-												"$ref": "AAAAAAF2zUHwv7L3vDQ="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zUMkerMtNCI="
-											},
-											"font": "Arial;13;0",
-											"left": 6005,
-											"top": 4052,
-											"width": 397.2744140625,
-											"height": 13,
-											"text": "+singleton: SingletonPostgres",
+											"text": "-ListCompagnia: List<Compagnia>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -17491,7 +17423,7 @@
 									"left": 6000,
 									"top": 4017,
 									"width": 407.2744140625,
-									"height": 53
+									"height": 38
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -17514,7 +17446,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6005,
-											"top": 4075,
+											"top": 4060,
 											"width": 397.2744140625,
 											"height": 13,
 											"text": "+CompagniaDAOPostgres(sp: SingletonPostgres)",
@@ -17531,7 +17463,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6005,
-											"top": 4090,
+											"top": 4075,
 											"width": 397.2744140625,
 											"height": 13,
 											"text": "+getAllcompagnia(): List<Compagnia>",
@@ -17548,7 +17480,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6005,
-											"top": 4105,
+											"top": 4090,
 											"width": 397.2744140625,
 											"height": 13,
 											"text": "+getCompagniaByCodIATA(CodIATA: String): Compagnia",
@@ -17565,7 +17497,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6005,
-											"top": 4120,
+											"top": 4105,
 											"width": 397.2744140625,
 											"height": 13,
 											"text": "+getCompagniaByNomeCompagnia(Nome: String): Compagnia",
@@ -17582,7 +17514,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6005,
-											"top": 4135,
+											"top": 4120,
 											"width": 397.2744140625,
 											"height": 13,
 											"text": "+insertCompagnia(CodIATA: String, NomeCompagnia: String): String",
@@ -17599,7 +17531,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6005,
-											"top": 4150,
+											"top": 4135,
 											"width": 397.2744140625,
 											"height": 13,
 											"text": "+deleteCompagnia(CodIATA: String): String",
@@ -17608,7 +17540,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 6000,
-									"top": 4070,
+									"top": 4055,
 									"width": 407.2744140625,
 									"height": 98
 								},
@@ -17711,7 +17643,7 @@
 											"font": "Arial;13;1",
 											"left": 6469,
 											"top": 3359,
-											"width": 365.74560546875,
+											"width": 399.4453125,
 											"height": 13,
 											"text": "GateDAOPostgres"
 										},
@@ -17746,7 +17678,7 @@
 									"font": "Arial;13;0",
 									"left": 6464,
 									"top": 3352,
-									"width": 375.74560546875,
+									"width": 409.4453125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2zVVuo7REIeQ="
@@ -17783,26 +17715,9 @@
 											"font": "Arial;13;0",
 											"left": 6469,
 											"top": 3382,
-											"width": 365.74560546875,
+											"width": 399.4453125,
 											"height": 13,
-											"text": "+conn: Connection",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2zVa0JrR22Jo=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVVuo7RIG3Q="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zVaz1LRz+V4="
-											},
-											"font": "Arial;13;0",
-											"left": 6469,
-											"top": 3397,
-											"width": 365.74560546875,
-											"height": 13,
-											"text": "+ps: PreparedStatement",
+											"text": "-conn: Connection",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17816,52 +17731,35 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6469,
+											"top": 3397,
+											"width": 399.4453125,
+											"height": 13,
+											"text": "-st: Statement",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3TzY5+ZfTOog=",
+											"_parent": {
+												"$ref": "AAAAAAF2zVVuo7RIG3Q="
+											},
+											"model": {
+												"$ref": "AAAAAAF3TzY5eJfQ6D0="
+											},
+											"font": "Arial;13;0",
+											"left": 6469,
 											"top": 3412,
-											"width": 365.74560546875,
+											"width": 399.4453125,
 											"height": 13,
-											"text": "+st: Statement",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2zVce+7SETL8=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVVuo7RIG3Q="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zVce37SBOLs="
-											},
-											"font": "Arial;13;0",
-											"left": 6469,
-											"top": 3427,
-											"width": 365.74560546875,
-											"height": 13,
-											"text": "+ListGate: List<Gate>",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF2zVd9MLSLHyU=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVVuo7RIG3Q="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zVd9E7SIQKo="
-											},
-											"font": "Arial;13;0",
-											"left": 6469,
-											"top": 3442,
-											"width": 365.74560546875,
-											"height": 13,
-											"text": "+singleton: SingletonPostgres",
+											"text": "-tratta: TrattaDAOPostgres",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 6464,
 									"top": 3377,
-									"width": 375.74560546875,
-									"height": 83
+									"width": 409.4453125,
+									"height": 53
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -17884,44 +17782,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6469,
-											"top": 3465,
-											"width": 365.74560546875,
+											"top": 3435,
+											"width": 399.4453125,
 											"height": 13,
 											"text": "+GateDAOPostgres(sp: SingletonPostgres)",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAF2zVhAnrSczLs=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVVuo7RJHy4="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zVhAgbSZ8VE="
-											},
-											"font": "Arial;13;0",
-											"left": 6469,
-											"top": 3480,
-											"width": 365.74560546875,
-											"height": 13,
-											"text": "+getAllGate(): List<Gate>",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAF2zViKTLSmkzc=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVVuo7RJHy4="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zViKELSjF54="
-											},
-											"font": "Arial;13;0",
-											"left": 6469,
-											"top": 3495,
-											"width": 365.74560546875,
-											"height": 13,
-											"text": "+getGateByNgate(Ngate: int): Gate",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17935,10 +17799,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6469,
-											"top": 3510,
-											"width": 365.74560546875,
+											"top": 3450,
+											"width": 399.4453125,
 											"height": 13,
-											"text": "+getGateByCodTratta(CodTratta: String): Gate",
+											"text": "+getGateByCodTratta(CodTratta: String, data: String): Gate",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17952,27 +17816,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6469,
-											"top": 3525,
-											"width": 365.74560546875,
+											"top": 3465,
+											"width": 399.4453125,
 											"height": 13,
-											"text": "+insertGate(Ngate: int, CodTratta: String): String",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
-											"_id": "AAAAAAF2zVor97TQu5s=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVVuo7RJHy4="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zVor27TNrAg="
-											},
-											"font": "Arial;13;0",
-											"left": 6469,
-											"top": 3540,
-											"width": 365.74560546875,
-											"height": 13,
-											"text": "+updateCodTrattaByNgate(CodTratta: String, Ngate: int): String",
+											"text": "+insertGate(Ngate: String, CodTratta: String, CodGate: String): String",
 											"horizontalAlignment": 0
 										},
 										{
@@ -17986,18 +17833,86 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6469,
-											"top": 3555,
-											"width": 365.74560546875,
+											"top": 3480,
+											"width": 399.4453125,
 											"height": 13,
-											"text": "+deleteGate(Ngate: int): String",
+											"text": "+deleteGate(CodGate : String): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF3TzfGhZfmVNU=",
+											"_parent": {
+												"$ref": "AAAAAAF2zVVuo7RJHy4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3TzfGDZfjK9A="
+											},
+											"font": "Arial;13;0",
+											"left": 6469,
+											"top": 3495,
+											"width": 399.4453125,
+											"height": 13,
+											"text": "+getGateByCodGate(CodGate: String): Gate",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF3TzvHDJf/Qw8=",
+											"_parent": {
+												"$ref": "AAAAAAF2zVVuo7RJHy4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3TzvGk5f8iKY="
+											},
+											"font": "Arial;13;0",
+											"left": 6469,
+											"top": 3510,
+											"width": 399.4453125,
+											"height": 13,
+											"text": "+GetTempisticheGiorni(mese: String, anno: Strng): List<Tempistica>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF3Tz3w55gN5Fs=",
+											"_parent": {
+												"$ref": "AAAAAAF2zVVuo7RJHy4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3Tz3wepgKt40="
+											},
+											"font": "Arial;13;0",
+											"left": 6469,
+											"top": 3525,
+											"width": 399.4453125,
+											"height": 13,
+											"text": "+GetTempisticheMesii(anno: Strng): List<Tempistica>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAF3Tz613pgZupQ=",
+											"_parent": {
+												"$ref": "AAAAAAF2zVVuo7RJHy4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3Tz61a5gWfns="
+											},
+											"font": "Arial;13;0",
+											"left": 6469,
+											"top": 3540,
+											"width": 399.4453125,
+											"height": 13,
+											"text": "+GetTempisticheSettimanei(anno: Strng): List<Tempistica>",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 6464,
-									"top": 3460,
-									"width": 375.74560546875,
-									"height": 113
+									"top": 3430,
+									"width": 409.4453125,
+									"height": 128
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -18039,7 +17954,7 @@
 							"containerChangeable": true,
 							"left": 6464,
 							"top": 3352,
-							"width": 375.74560546875,
+							"width": 409.4453125,
 							"height": 241,
 							"nameCompartment": {
 								"$ref": "AAAAAAF2zVVuo7RD/pc="
@@ -18245,23 +18160,6 @@
 										},
 										{
 											"_type": "UMLOperationView",
-											"_id": "AAAAAAF2zWOxq7WR7a4=",
-											"_parent": {
-												"$ref": "AAAAAAF2zWGE9rVRykg="
-											},
-											"model": {
-												"$ref": "AAAAAAF2zWOxbbWOn3Y="
-											},
-											"font": "Arial;13;0",
-											"left": 6509,
-											"top": 3738,
-											"width": 550.67822265625,
-											"height": 13,
-											"text": "+getAllSlot(): List<Slot>",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLOperationView",
 											"_id": "AAAAAAF2zWTVtbWmYgo=",
 											"_parent": {
 												"$ref": "AAAAAAF2zWGE9rVRykg="
@@ -18271,10 +18169,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6509,
-											"top": 3753,
+											"top": 3738,
 											"width": 550.67822265625,
 											"height": 13,
-											"text": "+getSlotByCodSlot(CodSlot: int): Slot",
+											"text": "+getSlotByCodSlot(CodSlot: iString): Slot",
 											"horizontalAlignment": 0
 										},
 										{
@@ -18288,10 +18186,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6509,
-											"top": 3768,
+											"top": 3753,
 											"width": 550.67822265625,
 											"height": 13,
-											"text": "+getSlotByCodCoda(codCoda: int): Slot",
+											"text": "+getSlotByCodCoda(codCoda: String): Slot",
 											"horizontalAlignment": 0
 										},
 										{
@@ -18305,7 +18203,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6509,
-											"top": 3783,
+											"top": 3768,
 											"width": 550.67822265625,
 											"height": 13,
 											"text": "+getSlotByData(Data: String): List<Slot>",
@@ -18322,7 +18220,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6509,
-											"top": 3798,
+											"top": 3783,
 											"width": 550.67822265625,
 											"height": 13,
 											"text": "+insertSlot(CodSlot: int, TempoDiImbarcoStimato: int, TempoDiImbarcoEffettivo: int, Data: Date)",
@@ -18339,7 +18237,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6509,
-											"top": 3813,
+											"top": 3798,
 											"width": 550.67822265625,
 											"height": 13,
 											"text": "+updateTempoDiImbarcoEffettivoByCodSlot(TempoDiImbarcoEffettivo: int, CodSlot: int): String",
@@ -18356,7 +18254,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 6509,
-											"top": 3828,
+											"top": 3813,
 											"width": 550.67822265625,
 											"height": 13,
 											"text": "+deleteSlot(CodSlot: int): String",
@@ -18367,7 +18265,7 @@
 									"left": 6504,
 									"top": 3718,
 									"width": 560.67822265625,
-									"height": 128
+									"height": 113
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -19131,7 +19029,7 @@
 											"top": 3237,
 											"width": 351,
 											"height": 13,
-											"text": "+instanza: SingletonPostgres = null",
+											"text": "+instanza: SingletonPostgres",
 											"horizontalAlignment": 0
 										}
 									],
@@ -28629,25 +28527,8 @@
 										"$ref": "AAAAAAF2zRCYT68vF7E="
 									},
 									"name": "conn",
+									"visibility": "private",
 									"type": "Connection"
-								},
-								{
-									"_type": "UMLAttribute",
-									"_id": "AAAAAAF2zRU9QK/Ljgk=",
-									"_parent": {
-										"$ref": "AAAAAAF2zRCYT68vF7E="
-									},
-									"name": "singleton",
-									"type": "SingletonPostgres"
-								},
-								{
-									"_type": "UMLAttribute",
-									"_id": "AAAAAAF2zRWBgq/SJUY=",
-									"_parent": {
-										"$ref": "AAAAAAF2zRCYT68vF7E="
-									},
-									"name": "ListCliente",
-									"type": "List<Cliente>"
 								}
 							],
 							"operations": [
@@ -28805,16 +28686,32 @@
 										"$ref": "AAAAAAF2zSIK+7GSlFo="
 									},
 									"name": "conn",
+									"visibility": "private",
 									"type": "Connection"
 								},
 								{
 									"_type": "UMLAttribute",
-									"_id": "AAAAAAF2zTA6VrIgy24=",
+									"_id": "AAAAAAF3TykgspeQtCo=",
 									"_parent": {
 										"$ref": "AAAAAAF2zSIK+7GSlFo="
 									},
-									"name": "singleton",
-									"type": "SingletonDAOPostgres"
+									"name": "gate",
+									"visibility": "private",
+									"type": {
+										"$ref": "AAAAAAF2zVVuorRAn1w="
+									}
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3Tym8dJeY8uM=",
+									"_parent": {
+										"$ref": "AAAAAAF2zSIK+7GSlFo="
+									},
+									"name": "slot",
+									"visibility": "private",
+									"type": {
+										"$ref": "AAAAAAF2zWGE9bVIwKk="
+									}
 								}
 							],
 							"operations": [
@@ -28834,25 +28731,6 @@
 											},
 											"name": "sp",
 											"type": "SingletonPostgres"
-										}
-									]
-								},
-								{
-									"_type": "UMLOperation",
-									"_id": "AAAAAAF2zST3d7HJ7sM=",
-									"_parent": {
-										"$ref": "AAAAAAF2zSIK+7GSlFo="
-									},
-									"name": "getAllCodaDiImbarco",
-									"parameters": [
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zSWxgbHQhYU=",
-											"_parent": {
-												"$ref": "AAAAAAF2zST3d7HJ7sM="
-											},
-											"type": "List<CodaDiImbarco>",
-											"direction": "return"
 										}
 									]
 								},
@@ -28909,6 +28787,15 @@
 											},
 											"type": "CodaDiimbarco",
 											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3TyuN4Jem2AI=",
+											"_parent": {
+												"$ref": "AAAAAAF2zSd1Z7HfpH4="
+											},
+											"name": "data",
+											"type": "String"
 										}
 									]
 								},
@@ -28935,8 +28822,19 @@
 											"_parent": {
 												"$ref": "AAAAAAF2zSgG0LHqiGE="
 											},
-											"type": "CodaDiImbarco",
+											"type": {
+												"$ref": "AAAAAAF2zexpny6oO6M="
+											},
 											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3TyxXqJepqFs=",
+											"_parent": {
+												"$ref": "AAAAAAF2zSgG0LHqiGE="
+											},
+											"name": "data",
+											"type": "Srting"
 										}
 									]
 								},
@@ -29040,6 +28938,7 @@
 										"$ref": "AAAAAAF2zR5YKbEk5bI="
 									},
 									"name": "conn",
+									"visibility": "private",
 									"type": "Connection"
 								},
 								{
@@ -29049,6 +28948,7 @@
 										"$ref": "AAAAAAF2zR5YKbEk5bI="
 									},
 									"name": "singleton",
+									"visibility": "private",
 									"type": "SingletonDAOPostgres"
 								},
 								{
@@ -29058,6 +28958,7 @@
 										"$ref": "AAAAAAF2zR5YKbEk5bI="
 									},
 									"name": "ListBiglietto",
+									"visibility": "private",
 									"type": "List<Biglietto>"
 								}
 							],
@@ -29265,6 +29166,7 @@
 										"$ref": "AAAAAAF2zUjZi7N839k="
 									},
 									"name": "conn",
+									"visibility": "private",
 									"type": "Connection"
 								},
 								{
@@ -29274,16 +29176,8 @@
 										"$ref": "AAAAAAF2zUjZi7N839k="
 									},
 									"name": "ListFedeltà",
+									"visibility": "private",
 									"type": "List<Fedeltà>"
-								},
-								{
-									"_type": "UMLAttribute",
-									"_id": "AAAAAAF2zVT7FLQ5k+o=",
-									"_parent": {
-										"$ref": "AAAAAAF2zUjZi7N839k="
-									},
-									"name": "singleton",
-									"type": "SingletonDAOPostgres"
 								}
 							],
 							"operations": [
@@ -29303,25 +29197,6 @@
 											},
 											"name": "sp",
 											"type": "SingletonPostgres"
-										}
-									]
-								},
-								{
-									"_type": "UMLOperation",
-									"_id": "AAAAAAF2zUl0pLOp6tI=",
-									"_parent": {
-										"$ref": "AAAAAAF2zUjZi7N839k="
-									},
-									"name": "getAllFedeltà",
-									"parameters": [
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zUnLZbOwE4k=",
-											"_parent": {
-												"$ref": "AAAAAAF2zUl0pLOp6tI="
-											},
-											"type": "List<Fedeltà>",
-											"direction": "return"
 										}
 									]
 								},
@@ -29424,7 +29299,7 @@
 												"$ref": "AAAAAAF2zUykiLPh5+I="
 											},
 											"name": "CentoKilomentri",
-											"type": "int"
+											"type": "String"
 										},
 										{
 											"_type": "UMLParameter",
@@ -29534,7 +29409,7 @@
 												"$ref": "AAAAAAF2zVGhebQL2NQ="
 											},
 											"name": "CentoKilometr",
-											"type": "int"
+											"type": "String"
 										},
 										{
 											"_type": "UMLParameter",
@@ -29580,6 +29455,34 @@
 												"$ref": "AAAAAAF2zVNPmLQcPP8="
 											},
 											"type": "String",
+											"direction": "return"
+										}
+									]
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAF3TzRNx5e8Amc=",
+									"_parent": {
+										"$ref": "AAAAAAF2zUjZi7N839k="
+									},
+									"name": "GetRitardi",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3TzTY5pfDlCM=",
+											"_parent": {
+												"$ref": "AAAAAAF3TzRNx5e8Amc="
+											},
+											"name": "CentoKilometri",
+											"type": "String"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3TzTY55fENsM=",
+											"_parent": {
+												"$ref": "AAAAAAF3TzRNx5e8Amc="
+											},
+											"type": "int",
 											"direction": "return"
 										}
 									]
@@ -29808,6 +29711,7 @@
 										"$ref": "AAAAAAF2zUHwvrLvZOI="
 									},
 									"name": "conn",
+									"visibility": "private",
 									"type": "Connection"
 								},
 								{
@@ -29817,16 +29721,8 @@
 										"$ref": "AAAAAAF2zUHwvrLvZOI="
 									},
 									"name": "ListCompagnia",
+									"visibility": "private",
 									"type": "List<Compagnia>"
-								},
-								{
-									"_type": "UMLAttribute",
-									"_id": "AAAAAAF2zUMkerMtNCI=",
-									"_parent": {
-										"$ref": "AAAAAAF2zUHwvrLvZOI="
-									},
-									"name": "singleton",
-									"type": "SingletonPostgres"
 								}
 							],
 							"operations": [
@@ -30006,16 +29902,8 @@
 										"$ref": "AAAAAAF2zVVuorRAn1w="
 									},
 									"name": "conn",
+									"visibility": "private",
 									"type": "Connection"
-								},
-								{
-									"_type": "UMLAttribute",
-									"_id": "AAAAAAF2zVaz1LRz+V4=",
-									"_parent": {
-										"$ref": "AAAAAAF2zVVuorRAn1w="
-									},
-									"name": "ps",
-									"type": "PreparedStatement"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -30024,25 +29912,20 @@
 										"$ref": "AAAAAAF2zVVuorRAn1w="
 									},
 									"name": "st",
+									"visibility": "private",
 									"type": "Statement"
 								},
 								{
 									"_type": "UMLAttribute",
-									"_id": "AAAAAAF2zVce37SBOLs=",
+									"_id": "AAAAAAF3TzY5eJfQ6D0=",
 									"_parent": {
 										"$ref": "AAAAAAF2zVVuorRAn1w="
 									},
-									"name": "ListGate",
-									"type": "List<Gate>"
-								},
-								{
-									"_type": "UMLAttribute",
-									"_id": "AAAAAAF2zVd9E7SIQKo=",
-									"_parent": {
-										"$ref": "AAAAAAF2zVVuorRAn1w="
-									},
-									"name": "singleton",
-									"type": "SingletonPostgres"
+									"name": "tratta",
+									"visibility": "private",
+									"type": {
+										"$ref": "AAAAAAF2zWmozrX3wfk="
+									}
 								}
 							],
 							"operations": [
@@ -30062,53 +29945,6 @@
 											},
 											"name": "sp",
 											"type": "SingletonPostgres"
-										}
-									]
-								},
-								{
-									"_type": "UMLOperation",
-									"_id": "AAAAAAF2zVhAgbSZ8VE=",
-									"_parent": {
-										"$ref": "AAAAAAF2zVVuorRAn1w="
-									},
-									"name": "getAllGate",
-									"parameters": [
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zVh+Q7ShyQ8=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVhAgbSZ8VE="
-											},
-											"type": "List<Gate>",
-											"direction": "return"
-										}
-									]
-								},
-								{
-									"_type": "UMLOperation",
-									"_id": "AAAAAAF2zViKELSjF54=",
-									"_parent": {
-										"$ref": "AAAAAAF2zVVuorRAn1w="
-									},
-									"name": "getGateByNgate",
-									"parameters": [
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zVjMCrSrkgk=",
-											"_parent": {
-												"$ref": "AAAAAAF2zViKELSjF54="
-											},
-											"name": "Ngate",
-											"type": "int"
-										},
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zVj4NLSvQmk=",
-											"_parent": {
-												"$ref": "AAAAAAF2zViKELSjF54="
-											},
-											"type": "Gate",
-											"direction": "return"
 										}
 									]
 								},
@@ -30135,8 +29971,19 @@
 											"_parent": {
 												"$ref": "AAAAAAF2zVj41bSxTwc="
 											},
-											"type": "Gate",
+											"type": {
+												"$ref": "AAAAAAF2zgsetjC6ng8="
+											},
 											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3TzkJb5fvPus=",
+											"_parent": {
+												"$ref": "AAAAAAF2zVj41bSxTwc="
+											},
+											"name": "data",
+											"type": "String"
 										}
 									]
 								},
@@ -30155,7 +30002,7 @@
 												"$ref": "AAAAAAF2zVmPLrS+n9U="
 											},
 											"name": "Ngate",
-											"type": "int"
+											"type": "String"
 										},
 										{
 											"_type": "UMLParameter",
@@ -30174,43 +30021,15 @@
 											},
 											"type": "String",
 											"direction": "return"
-										}
-									]
-								},
-								{
-									"_type": "UMLOperation",
-									"_id": "AAAAAAF2zVor27TNrAg=",
-									"_parent": {
-										"$ref": "AAAAAAF2zVVuorRAn1w="
-									},
-									"name": "updateCodTrattaByNgate",
-									"parameters": [
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zVp9R7TV0ug=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVor27TNrAg="
-											},
-											"type": "String",
-											"direction": "return"
 										},
 										{
 											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zVrmC7TYq44=",
+											"_id": "AAAAAAF3TznmH5fznFY=",
 											"_parent": {
-												"$ref": "AAAAAAF2zVor27TNrAg="
+												"$ref": "AAAAAAF2zVmPLrS+n9U="
 											},
-											"name": "CodTratta",
+											"name": "CodGate",
 											"type": "String"
-										},
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zVrmC7TZu9A=",
-											"_parent": {
-												"$ref": "AAAAAAF2zVor27TNrAg="
-											},
-											"name": "Ngate",
-											"type": "int"
 										}
 									]
 								},
@@ -30228,8 +30047,8 @@
 											"_parent": {
 												"$ref": "AAAAAAF2zVsuQrTdjVo="
 											},
-											"name": "Ngate",
-											"type": "int"
+											"name": "CodGate ",
+											"type": "String"
 										},
 										{
 											"_type": "UMLParameter",
@@ -30237,7 +30056,130 @@
 											"_parent": {
 												"$ref": "AAAAAAF2zVsuQrTdjVo="
 											},
-											"type": "String",
+											"type": "void",
+											"direction": "return"
+										}
+									]
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAF3TzfGDZfjK9A=",
+									"_parent": {
+										"$ref": "AAAAAAF2zVVuorRAn1w="
+									},
+									"name": "getGateByCodGate",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3Tzh8RpfqQ4Q=",
+											"_parent": {
+												"$ref": "AAAAAAF3TzfGDZfjK9A="
+											},
+											"name": "CodGate",
+											"type": "String"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3Tzh8R5fr51w=",
+											"_parent": {
+												"$ref": "AAAAAAF3TzfGDZfjK9A="
+											},
+											"type": {
+												"$ref": "AAAAAAF2zgsetjC6ng8="
+											},
+											"direction": "return"
+										}
+									]
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAF3TzvGk5f8iKY=",
+									"_parent": {
+										"$ref": "AAAAAAF2zVVuorRAn1w="
+									},
+									"name": "GetTempisticheGiorni",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3TzyCf5gDvYo=",
+											"_parent": {
+												"$ref": "AAAAAAF3TzvGk5f8iKY="
+											},
+											"name": "mese",
+											"type": "String"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3TzyCgZgEZ3c=",
+											"_parent": {
+												"$ref": "AAAAAAF3TzvGk5f8iKY="
+											},
+											"name": "anno",
+											"type": "Strng"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3Tz2O1JgI3e4=",
+											"_parent": {
+												"$ref": "AAAAAAF3TzvGk5f8iKY="
+											},
+											"type": "List<Tempistica>",
+											"direction": "return"
+										}
+									]
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAF3Tz3wepgKt40=",
+									"_parent": {
+										"$ref": "AAAAAAF2zVVuorRAn1w="
+									},
+									"name": "GetTempisticheMesii",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3Tz54bZgRaCA=",
+											"_parent": {
+												"$ref": "AAAAAAF3Tz3wepgKt40="
+											},
+											"name": "anno",
+											"type": "Strng"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3Tz54b5gSnaU=",
+											"_parent": {
+												"$ref": "AAAAAAF3Tz3wepgKt40="
+											},
+											"type": "List<Tempistica>",
+											"direction": "return"
+										}
+									]
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAF3Tz61a5gWfns=",
+									"_parent": {
+										"$ref": "AAAAAAF2zVVuorRAn1w="
+									},
+									"name": "GetTempisticheSettimanei",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3T0B5tJgfiG4=",
+											"_parent": {
+												"$ref": "AAAAAAF3Tz61a5gWfns="
+											},
+											"name": "anno",
+											"type": "Strng"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAF3T0B5tpggS74=",
+											"_parent": {
+												"$ref": "AAAAAAF3Tz61a5gWfns="
+											},
+											"type": "List<Tempistica>",
 											"direction": "return"
 										}
 									]
@@ -30306,25 +30248,6 @@
 								},
 								{
 									"_type": "UMLOperation",
-									"_id": "AAAAAAF2zWOxbbWOn3Y=",
-									"_parent": {
-										"$ref": "AAAAAAF2zWGE9bVIwKk="
-									},
-									"name": "getAllSlot",
-									"parameters": [
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zWQpmLWWpRQ=",
-											"_parent": {
-												"$ref": "AAAAAAF2zWOxbbWOn3Y="
-											},
-											"type": "List<Slot>",
-											"direction": "return"
-										}
-									]
-								},
-								{
-									"_type": "UMLOperation",
 									"_id": "AAAAAAF2zWTVeLWj2B8=",
 									"_parent": {
 										"$ref": "AAAAAAF2zWGE9bVIwKk="
@@ -30337,7 +30260,9 @@
 											"_parent": {
 												"$ref": "AAAAAAF2zWTVeLWj2B8="
 											},
-											"type": "Slot",
+											"type": {
+												"$ref": "AAAAAAF2zg9g1jEx8+I="
+											},
 											"direction": "return"
 										},
 										{
@@ -30347,7 +30272,7 @@
 												"$ref": "AAAAAAF2zWTVeLWj2B8="
 											},
 											"name": "CodSlot",
-											"type": "int"
+											"type": "iString"
 										}
 									]
 								},
@@ -30366,7 +30291,7 @@
 												"$ref": "AAAAAAF2zWWrPrWw0ew="
 											},
 											"name": "codCoda",
-											"type": "int"
+											"type": "String"
 										},
 										{
 											"_type": "UMLParameter",
@@ -30374,7 +30299,9 @@
 											"_parent": {
 												"$ref": "AAAAAAF2zWWrPrWw0ew="
 											},
-											"type": "Slot",
+											"type": {
+												"$ref": "AAAAAAF2zg9g1jEx8+I="
+											},
 											"direction": "return"
 										}
 									]
@@ -30913,8 +30840,7 @@
 								"$ref": "AAAAAAF2zVv5tbTz2VU="
 							},
 							"name": "instanza",
-							"type": "SingletonPostgres",
-							"defaultValue": "null"
+							"type": "SingletonPostgres"
 						}
 					],
 					"operations": [

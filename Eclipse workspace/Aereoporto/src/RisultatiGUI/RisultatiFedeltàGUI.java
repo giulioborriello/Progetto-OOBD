@@ -14,6 +14,8 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 public class RisultatiFedelt‡GUI extends JFrame {
 
@@ -57,6 +59,46 @@ public class RisultatiFedelt‡GUI extends JFrame {
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnNewButton_3.setBounds(10, 385, 180, 57);
 		contentPane.add(btnNewButton_3);
+	}
+	
+	/**
+	 * @wbp.parser.constructor
+	 */
+	public RisultatiFedelt‡GUI(int NumeroRitardi, Controller c) {
+		controller = c;
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 709, 544);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		setTitle("Risultati Fedelt‡");
+		
+		
+	
+		
+		
+		
+		JButton btnTornaIndietro = new JButton("Torna indietro ");
+		btnTornaIndietro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controller.openFedelt‡();
+			}
+		});
+		btnTornaIndietro.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnTornaIndietro.setBounds(10, 385, 180, 57);
+		contentPane.add(btnTornaIndietro);
+		
+		JLabel lblValore = new JLabel("New label");
+		lblValore.setFont(new Font("Tahoma", Font.PLAIN, 21));
+		lblValore.setHorizontalAlignment(SwingConstants.CENTER);
+		lblValore.setBounds(116, 63, 418, 265);
+		contentPane.add(lblValore);
+		lblValore.setText(String.valueOf(NumeroRitardi));
+		
+		JLabel lblTitolo = new JLabel("NumeroRitardi");
+		lblTitolo.setBounds(288, 11, 135, 57);
+		contentPane.add(lblTitolo);
 	}
 
 }

@@ -256,6 +256,8 @@ public class Controller {
 			list = fedelt‡Postgres.getFedelt‡ByCodFiscale(valore);
 		}
 		
+		
+		
 		risultatiFedelt‡ = new RisultatiFedelt‡GUI(list, this);
 		fedelt‡.setVisible(false);
 		risultatiFedelt‡.setVisible(true);
@@ -266,15 +268,15 @@ public class Controller {
 		CompagniaDAOPostgres compagniaPostgres= new CompagniaDAOPostgres(singleton);
 		List<Compagnia> list = new LinkedList<Compagnia>();
 		
-		if (valore == "Seleziona tutti") {
+		if (ricerca == "Seleziona tutti") {
 			list = compagniaPostgres.getAllCompagnia();
 		}
 		
-		else if(valore == "CodIATA") {
+		else if(ricerca == "CodIATA") {
 			list.add(compagniaPostgres.getCompagniaByCodIATA(valore));
 		}
 		
-		else if(valore == "Nome Compagnia") {
+		else if(ricerca == "Nome Compagnia") {
 			list.add(compagniaPostgres.getCompagniaByNomeCompagnia(valore));
 		}
 		risultatiCompagnia = new RisultatiCompagniaGUI(list, this);
@@ -288,15 +290,16 @@ public class Controller {
 		List<CodaDiImbarco> list = new LinkedList<CodaDiImbarco>();
 		
 		
-		if(valore == "CodCoda") {
+		if(ricerca == "CodCoda") {
 			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodCoda(valore));
 		}
 		
-		else if(valore == "CodSlot") {
+
+		else if(ricerca == "CodSlot") {
 			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(valore, data));
 		}
 	
-		else if(valore == "N gate") {
+		else if(ricerca == "N gate") {
 			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore, data));
 		}
 		risultatiCodaDiImbarco = new RisultatiCodaDiImbarcoGUI(list, this);
@@ -312,7 +315,7 @@ public class Controller {
 		ClienteDAOPostgres clientePostgres = new ClienteDAOPostgres(singleton);
 		List<Cliente> list = new LinkedList<Cliente>();
 		
-		if (valore == "Codice Fiscale") {
+		if (ricerca == "Codice Fiscale") {
 			list.add(clientePostgres.getClienteByCodFiscale(valore));	
 		}
 		risultatiCliente = new RisultatiClienteGUI(list, this);
@@ -326,10 +329,10 @@ public class Controller {
 		BigliettoDAOPostgres bigliettoPostgres = new BigliettoDAOPostgres(singleton);
 		List<Biglietto> list = null;
 		
-		if(valore == "Codice Fiscale") {
+		if(ricerca == "Codice Fiscale") {
 			list = bigliettoPostgres.getBigliettoByCodFiscale(valore);
 		}
-		else if(valore == "Codice Tratta") {
+		else if(ricerca == ("Codice Tratta") ) {
 			list = bigliettoPostgres.getBigliettoByCodTratta(valore);
 		}
 		risultatiBiglietto = new RisultatiBigliettoGUI(list, this);
@@ -836,6 +839,16 @@ public class Controller {
 		List<Tempistica> list = gateDAOP.GetTempisticheSettimane(anno);
 		this.openRisultatiTempisticheGateGUI(list, "Settimane");
 	}
+
+	
+	public void ricercaRitardi(String CentoKilometri) {
+		Fedelt‡DAOPostgres fedelt‡DAOP = new Fedelt‡DAOPostgres(singleton);
+		int NumeroRitardi = fedelt‡DAOP.GetRitardi(CentoKilometri);
+		risultatiFedelt‡ = new RisultatiFedelt‡GUI(NumeroRitardi, this);
+		fedelt‡.setVisible(false);
+		risultatiFedelt‡.setVisible(true);
+	}
+	
 
 }
 
