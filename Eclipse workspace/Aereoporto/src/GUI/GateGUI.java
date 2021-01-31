@@ -32,7 +32,7 @@ public class GateGUI extends JFrame {
 	private JTextField CodGateInserimentoTextField;
 	private JTextField CodTrattaInserimentoTextField;
 	private JComboBox comboBoxNgateInserimento;
-	private JTextField textFieldCodGate;
+	private JTextField textFieldCodGateElimina;
 	
 	public GateGUI(Controller c) {
 		controller = c;	
@@ -136,11 +136,11 @@ public class GateGUI extends JFrame {
 		lblSettimane.setBounds(153, 364, 81, 19);
 		contentPane.add(lblSettimane);
 		
-		JLabel lblMesi = new JLabel("Mesi:");
-		lblMesi.setHorizontalAlignment(SwingConstants.CENTER);
-		lblMesi.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblMesi.setBounds(175, 426, 40, 19);
-		contentPane.add(lblMesi);
+		JLabel lblMesi_Tempistiche = new JLabel("Mesi:");
+		lblMesi_Tempistiche.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMesi_Tempistiche.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMesi_Tempistiche.setBounds(175, 426, 40, 19);
+		contentPane.add(lblMesi_Tempistiche);
 		
 		JComboBox comboBoxRicerca_GiorniMeseMesi = new JComboBox(mesi);
 		comboBoxRicerca_GiorniMeseMesi.setBounds(252, 299, 76, 20);
@@ -221,11 +221,11 @@ public class GateGUI extends JFrame {
 		lblInserimento.setBounds(259, 496, 108, 25);
 		contentPane.add(lblInserimento);
 		
-		JLabel lblCodGate = new JLabel("CodGate");
-		lblCodGate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblCodGate.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblCodGate.setBounds(119, 540, 108, 25);
-		contentPane.add(lblCodGate);
+		JLabel lblCodGateInserimento = new JLabel("CodGate");
+		lblCodGateInserimento.setHorizontalAlignment(SwingConstants.CENTER);
+		lblCodGateInserimento.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCodGateInserimento.setBounds(119, 540, 108, 25);
+		contentPane.add(lblCodGateInserimento);
 		
 		CodGateInserimentoTextField = new JTextField();
 		CodGateInserimentoTextField.setColumns(10);
@@ -276,16 +276,16 @@ public class GateGUI extends JFrame {
 		lblCodGate_Elimina.setBounds(264, 654, 108, 25);
 		contentPane.add(lblCodGate_Elimina);
 		
-		textFieldCodGate = new JTextField();
-		textFieldCodGate.setColumns(10);
-		textFieldCodGate.setBounds(271, 690, 94, 20);
-		contentPane.add(textFieldCodGate);
+		textFieldCodGateElimina = new JTextField();
+		textFieldCodGateElimina.setColumns(10);
+		textFieldCodGateElimina.setBounds(271, 690, 94, 20);
+		contentPane.add(textFieldCodGateElimina);
 		
 		
 		JButton btnElimina = new JButton("Invia");
 		btnElimina.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.eliminaGate(textFieldCodGate.getText());
+				controller.eliminaGate(textFieldCodGateElimina.getText());
 			}
 		});
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));

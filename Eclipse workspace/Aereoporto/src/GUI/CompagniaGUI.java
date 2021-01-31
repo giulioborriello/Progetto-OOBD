@@ -45,9 +45,9 @@ public class CompagniaGUI extends JFrame {
 		lblNewLabel_1.setBounds(317, 11, 136, 42);
 		contentPane.add(lblNewLabel_1);
 		
-		JComboBox comboBox = new JComboBox(tipiRicerca);
-		comboBox.setBounds(160, 103, 109, 22);
-		contentPane.add(comboBox);
+		JComboBox comboBoxTipiRicerca = new JComboBox(tipiRicerca);
+		comboBoxTipiRicerca.setBounds(160, 103, 109, 22);
+		contentPane.add(comboBoxTipiRicerca);
 		
 		JTextArea RicercaTextArea = new JTextArea();
 		RicercaTextArea.setBounds(317, 102, 136, 22);
@@ -57,7 +57,7 @@ public class CompagniaGUI extends JFrame {
 		RicercaButton.setFont(new Font("Dialog", Font.BOLD, 15));
 		RicercaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.openRisultatiCompagnia(comboBox.getSelectedItem().toString(), RicercaTextArea.getText());
+				controller.openRisultatiCompagnia(comboBoxTipiRicerca.getSelectedItem().toString(), RicercaTextArea.getText());
 				
 			}
 		});

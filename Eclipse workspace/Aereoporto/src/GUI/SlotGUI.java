@@ -1,3 +1,4 @@
+
 package GUI;
 
 import javax.swing.JFrame;
@@ -160,10 +161,10 @@ public class SlotGUI extends JFrame {
 		lblAggiorna.setBounds(194, 366, 366, 42);
 		contentPane.add(lblAggiorna);
 		
-		JLabel lblAggiornaInidicaCodSlot = new JLabel("Inserisci CodSlot della riga da modificare");
-		lblAggiornaInidicaCodSlot.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblAggiornaInidicaCodSlot.setBounds(54, 409, 275, 40);
-		contentPane.add(lblAggiornaInidicaCodSlot);
+		JLabel lblAggiornaIndicaCodSlot = new JLabel("Inserisci CodSlot della riga da modificare");
+		lblAggiornaIndicaCodSlot.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAggiornaIndicaCodSlot.setBounds(54, 409, 275, 40);
+		contentPane.add(lblAggiornaIndicaCodSlot);
 		
 		JLabel lblAggiornaTempoEffettivo = new JLabel("Inserisci il nuovo valore");
 		lblAggiornaTempoEffettivo.setFont(new Font("Tahoma", Font.PLAIN, 15));
