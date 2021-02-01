@@ -12,6 +12,7 @@ import java.util.List;
 import DAO.GateDAO;
 import Entità.Gate;
 import Entità.Tempistica;
+import Entità.Tratta;
 
 public class GateDAOPostgres implements GateDAO{
 	private Connection conn;
@@ -20,8 +21,31 @@ public class GateDAOPostgres implements GateDAO{
 	
 	public GateDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
+		tratta = new TrattaDAOPostgres(sp);
 	}
 	
+	
+	public List<Gate> getGateByNGate(String NGate) {
+		List<Gate> gates = new LinkedList<Gate>();
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Gate\" WHERE \"Ngate\" = ?");
+			ps.setString(1, NGate);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				Gate gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta(rs.getString("CodTratta")), rs.getDate("Data"));
+				gates.add(gate);
+			}
+			conn.close();
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return gates;	
+	}
 	
 	public Gate getGateByCodGate(String CodGate) {
 		Gate gate = null;
@@ -32,12 +56,12 @@ public class GateDAOPostgres implements GateDAO{
 			
 			while(rs.next()) {
 				
-				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta("CodTratta"), rs.getDate("Data"));
+				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta(rs.getString("CodTratta")), rs.getDate("Data"));
 				
 			}
 			conn.close();
 			rs.close();
-			st.close();
+			ps.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -45,18 +69,40 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 	
-	public Gate getGateByCodTratta(String codTratta, String data) {
+	public Gate getGateByCodGate(String CodGate, Tratta tratta) {
+		Gate gate = null;
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Gate\" WHERE \"CodGate\" = ?");
+			ps.setString(1, CodGate);
+			ResultSet rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				
+				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta, rs.getDate("Data"));
+				
+			}
+			conn.close();
+			rs.close();
+			ps.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return gate;	
+	}
+	
+	public Gate getGateByCodTratta(String codTratta, Date data) {
 		Gate gate = null;
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Fedeltà\" WHERE \"CodTratta\" = ?"
 					+ "AND \"Data\" = ?");
 			ps.setString(1, codTratta);
-			ps.setString(2, data);
+			ps.setDate(2, data);
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
 				
-				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta("CodTratta"), rs.getDate("Data"));
+				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta(rs.getString("CodTratta")), rs.getDate("Data"));
 				
 			}
 			conn.close();
@@ -159,8 +205,9 @@ public class GateDAOPostgres implements GateDAO{
 		try {
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Gate\"  VALUES (?, ?, null, ?); ");
 			ps.setString(1, CodGate);
-			ps.setString(2, Ngate);
-			ps.setString(3, CodTratta);
+			ps.setString(2, CodTratta);
+			ps.setString(3, Ngate);
+
 			ps.execute();
 			
 			ps.close();

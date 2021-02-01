@@ -97,7 +97,7 @@ public class GateGUI extends JFrame {
 		btnRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				String data = comboBox_Giorno.getSelectedItem().toString() + "-" + comboBox_Mese.getSelectedItem().toString() + "-" + comboBox_Anno.getSelectedItem().toString(); 
+				String data = comboBox_Giorno.getSelectedItem().toString() + "/" + comboBox_Mese.getSelectedItem().toString() + "/" + comboBox_Anno.getSelectedItem().toString(); 
 				
 				
 				controller.openRisultatiGate(comboBoxRicerca.getSelectedItem().toString(), textFieldRicerca.getText(), data);

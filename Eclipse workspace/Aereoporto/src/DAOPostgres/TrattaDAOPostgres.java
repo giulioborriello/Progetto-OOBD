@@ -9,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import DAO.TrattaDAO;
+import Entità.Compagnia;
+import Entità.Gate;
 import Entità.Tratta;
 
 public class TrattaDAOPostgres implements TrattaDAO{
@@ -23,8 +25,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	public TrattaDAOPostgres(SingletonPostgres sp) {
 		conn = sp.getConnection();
 		singleton = sp;
-		compagnia = new CompagniaDAOPostgres(singleton);
-		gate = new GateDAOPostgres(singleton);
+		
 	}
 	
 		
@@ -36,11 +37,15 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);	
 			ResultSet rs=ps.executeQuery();
+			rs.next();
 			
-			tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
+			compagnia = new CompagniaDAOPostgres(singleton);
+			Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
+			System.out.println("peni");
+			tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 					rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
-					compagnia.getCompagniaByCodIATA(rs.getString(CodTratta)),
-					gate.getGateByCodGate(rs.getString("nGate")));
+					codIATA,
+					null);
 			rs.close();
 			ps.close();
 			conn.close();
@@ -53,19 +58,29 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		
 	}
 	
-	public List<Tratta> getTrattaByData(String Data){
+	public List<Tratta> getTrattaByData(Date Data){
 		try {
-			
+			System.out.println(Data);
 			listTratta = new LinkedList<Tratta>();
 			
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Data\" = ?");
-			ps.setString(1, Data);
+			ps.setDate(1, Data);
 			ResultSet rs=ps.executeQuery();
+			
+		
+			
 			while(rs.next()) {
-				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
+				 
+				compagnia = new CompagniaDAOPostgres(singleton);
+				Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
+				gate = new GateDAOPostgres(singleton);
+				Tratta tratta = null;
+				Gate codGate = gate.getGateByCodGate(rs.getString("CodGate"), tratta);
+				
+				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"),rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
-						compagnia.getCompagniaByCodIATA(rs.getString("CodTratta")),
-						gate.getGateByCodGate(rs.getString("nGate")));
+						codIATA,
+						codGate);
 				
 				listTratta.add(tratta);
 			}
@@ -80,7 +95,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return listTratta;	
 	}
 	
-	public List<Tratta> getTrattaByNgate(String Ngate, String data) {
+	public List<Tratta> getTrattaByCodGate(String Ngate, String data) {
 		PreparedStatement ps;
 		try {
 			
@@ -94,10 +109,17 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
+				
+				compagnia = new CompagniaDAOPostgres(singleton);
+				Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
+				Tratta tratta = null;
+				gate = new GateDAOPostgres(singleton);
+				Gate codGate = gate.getGateByCodGate(rs.getString("CodGate"), tratta);
+				
+				 tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
-						compagnia.getCompagniaByCodIATA(rs.getString("CodTratta")),
-						gate.getGateByCodGate(rs.getString("nGate")));
+						codIATA,
+						codGate);
 				
 				listTratta.add(tratta);
 			}
@@ -116,21 +138,28 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	}
 	
 	
-	public List<Tratta> getTrattaByCodIATA(String CodIATA, String data){
+	public List<Tratta> getTrattaByCodIATA(String CodIATA, Date data){
 		try {
 			listTratta = new LinkedList<Tratta>();
 			
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodIATA\" = ?"
 					+ "AND \"Data\" = ?");
 			ps.setString(1, CodIATA);
-			ps.setString(2, data);
+			ps.setDate(2, data);
 			ResultSet rs=ps.executeQuery();
 			
 			while(rs.next()) {
-				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
+				
+				compagnia = new CompagniaDAOPostgres(singleton);
+				Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
+				Tratta tratta = null;
+				gate = new GateDAOPostgres(singleton);
+				Gate codGate = gate.getGateByCodGate(rs.getString("CodGate"), tratta);
+				
+				 tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
-						compagnia.getCompagniaByCodIATA(rs.getString("CodTratta")),
-						gate.getGateByCodGate(rs.getString("nGate")));
+						codIATA,
+						codGate);
 				
 				listTratta.add(tratta);
 			}
@@ -145,7 +174,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return listTratta;	
 	}
 	
-	public List<Tratta> getTrattaByDestinazione(String destinazione, String data){
+	public List<Tratta> getTrattaByDestinazione(String destinazione, Date data){
 		try {
 			
 			listTratta = new LinkedList<Tratta>();
@@ -153,13 +182,20 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Destinazione\" = ? "
 					+ "AND \"Data\" = ?");
 			ps.setString(1, destinazione);
-			ps.setString(2, data);
+			ps.setDate(2, data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
-				Tratta tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("Orario di partenza"), 
+				
+				compagnia = new CompagniaDAOPostgres(singleton);
+				Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
+				Tratta tratta = null;
+				gate = new GateDAOPostgres(singleton);
+				Gate codGate = gate.getGateByCodGate(rs.getString("CodGate"), tratta);
+				
+				 tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), rs.getString("destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
-						compagnia.getCompagniaByCodIATA(rs.getString("CodTratta")),
-						gate.getGateByCodGate(rs.getString("nGate")));
+						codIATA,
+						codGate);
 				
 				listTratta.add(tratta);
 			}
@@ -178,7 +214,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	
 	public String insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, String CodIATA, String Destinazione, String Scali) {
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, null, ?, ?, ?, null)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?, null)");
 			ps.setString(1, CodTratta);
 			ps.setInt(2, Nprenotazioni);
 			ps.setTime(3, OrarioDiPartenza);

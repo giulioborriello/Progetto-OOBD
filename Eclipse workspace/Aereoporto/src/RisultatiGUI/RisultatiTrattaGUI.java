@@ -35,13 +35,12 @@ public class RisultatiTrattaGUI extends JFrame {
 		
 		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
-		String titoli = "Codice Tratta " + "Destinazione " + "N° Prenotazioni " + "Scali";
+		String titoli = "Codice Tratta " +" "+ "N° Prenotazioni "+ " " +"Orario Di Partenza "+ " " +"Data "+"CodIATA"+" "+"Destinazione " + " " + "Scali" + "CodGate"+ " " + "Ritardo";
 		listModel.addElement(titoli);
 		
 		
 		for(Tratta tratta: list) {
-			String string = tratta.getCodTratta()+" "+tratta.getDestinazione()+" "+
-		tratta.getNprenotazioni()+" "+tratta.getScali();
+			String string = tratta.getCodTratta()+" "+ tratta.getNprenotazioni()+" "+ tratta.getOrarioDiPartenza()+" "+ tratta.getData()+" "+ tratta.getCompagnia().getCodIATA()+" "+tratta.getDestinazione()+" "+tratta.getScali()+" "+ tratta.getGate().getCodGate()+ " " + tratta.getRitardo();
 			listModel.addElement(string);
 			
 		}

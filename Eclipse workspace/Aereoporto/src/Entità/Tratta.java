@@ -78,7 +78,7 @@ public class Tratta {
 		scali = Scali;
 	}
 
-	public boolean isRitardo() {
+	public boolean getRitardo() {
 		return ritardo;
 	}
 

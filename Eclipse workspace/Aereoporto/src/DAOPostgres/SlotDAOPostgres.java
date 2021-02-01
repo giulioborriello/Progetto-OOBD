@@ -74,10 +74,10 @@ public class SlotDAOPostgres implements SlotDAO{
 		return slot;
 	}
 	
-	public List<Slot> getSlotByData(String Data) {
+	public List<Slot> getSlotByData(Date Data) {
 		try {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"Data\" = ?");
-			ps.setString(1, Data);
+			ps.setDate(1, Data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				

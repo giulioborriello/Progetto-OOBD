@@ -24,14 +24,13 @@ public class TrattaGUI extends JFrame {
 	
 	private JPanel contentPane;
 	private JTextField textFieldCodTratta;
-	private JTextField textFieldNprenotazioni;
 	private JTextField textFieldCodIATA;
 	private JTextField textFieldDestinazione;
 	private JTextField textFieldScali;
 	private JTextField textFieldElimina;
 	
 	
-	private String[] tipiDiRicerca = {"CodTratta","Ngate","Data","CodIATA","Destinazione" };
+	private String[] tipiDiRicerca = {"CodTratta","Data","CodIATA","Destinazione" };
 	private String[] oreOMinuti = {"0","1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 			"21","22","23","24","25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
 			"41","42","43","44","45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"};
@@ -93,13 +92,25 @@ public class TrattaGUI extends JFrame {
 		comboBox_Anno.setBounds(651, 330, 103, 22);
 		contentPane.add(comboBox_Anno);
 		
+		JComboBox comboBox_GiornoRicerca = new JComboBox(giorni);
+		comboBox_GiornoRicerca.setBounds(327, 131, 103, 22);
+		contentPane.add(comboBox_GiornoRicerca);
+		
+		JComboBox comboBox_MeseRicerca = new JComboBox(mesi);
+		comboBox_MeseRicerca.setBounds(452, 133, 103, 22);
+		contentPane.add(comboBox_MeseRicerca);
+		
+		JComboBox comboBox_AnnoRicerca = new JComboBox(anni);
+		comboBox_AnnoRicerca.setBounds(572, 133, 103, 22);
+		contentPane.add(comboBox_AnnoRicerca);
+		
 		
 		JButton Button_InviaRicerca = new JButton("Invia");
 		Button_InviaRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
 		Button_InviaRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String Data = comboBox_Giorno.getSelectedItem().toString() + "-" + comboBox_Mese.getSelectedItem().toString() + "-" + comboBox_Anno.getSelectedItem().toString(); 
-				
+				String Data = comboBox_GiornoRicerca.getSelectedItem().toString() + "/" + comboBox_MeseRicerca.getSelectedItem().toString() + "/" + comboBox_AnnoRicerca.getSelectedItem().toString(); 
+				System.out.println(Data + "GUI");
 				controller.openRisultatiTratta(comboBox_Ricerca.getSelectedItem().toString(), textFieldRicerca.getText(), Data);
 			}
 		});
@@ -110,11 +121,6 @@ public class TrattaGUI extends JFrame {
 		lbl_Cod_Tratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lbl_Cod_Tratta.setBounds(36, 305, 68, 14);
 		contentPane.add(lbl_Cod_Tratta);
-		
-		JLabel lbl_N_prentazioni = new JLabel("N Prenotazioni");
-		lbl_N_prentazioni.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_N_prentazioni.setBounds(132, 414, 92, 14);
-		contentPane.add(lbl_N_prentazioni);
 		
 		JLabel lbl_Orario_Partenza = new JLabel("Orario di partenza");
 		lbl_Orario_Partenza.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -154,7 +160,7 @@ public class TrattaGUI extends JFrame {
 				String Orario = comboBox_Ora.getSelectedItem().toString() + ":" + comboBox_Minuto.getSelectedItem().toString();
 				
 				try {
-					controller.inserisciTratta(textFieldCodTratta.getText(),textFieldNprenotazioni.getText(),Orario,Data, 
+					controller.inserisciTratta(textFieldCodTratta.getText(),"0",Orario,Data, 
 							textFieldCodIATA.getText(),textFieldDestinazione.getText(), textFieldScali.getText());
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
@@ -171,11 +177,6 @@ public class TrattaGUI extends JFrame {
 		textFieldCodTratta.setBounds(27, 330, 86, 20);
 		contentPane.add(textFieldCodTratta);
 		textFieldCodTratta.setColumns(10);
-		
-		textFieldNprenotazioni = new JTextField();
-		textFieldNprenotazioni.setColumns(10);
-		textFieldNprenotazioni.setBounds(138, 441, 86, 20);
-		contentPane.add(textFieldNprenotazioni);
 		
 		textFieldCodIATA = new JTextField();
 		textFieldCodIATA.setColumns(10);
@@ -264,13 +265,7 @@ public class TrattaGUI extends JFrame {
 		lbl_Giorno_1.setBounds(355, 107, 46, 14);
 		contentPane.add(lbl_Giorno_1);
 		
-		JComboBox comboBox_Giorno_1 = new JComboBox(giorni);
-		comboBox_Giorno_1.setBounds(327, 131, 103, 22);
-		contentPane.add(comboBox_Giorno_1);
 		
-		JComboBox comboBox_Mese_1 = new JComboBox(mesi);
-		comboBox_Mese_1.setBounds(452, 133, 103, 22);
-		contentPane.add(comboBox_Mese_1);
 		
 		JLabel lbl_Mese_1 = new JLabel("Mese");
 		lbl_Mese_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -282,9 +277,6 @@ public class TrattaGUI extends JFrame {
 		lbl_Anno_1.setBounds(606, 109, 35, 14);
 		contentPane.add(lbl_Anno_1);
 		
-		JComboBox comboBox_Anno_1 = new JComboBox(anni);
-		comboBox_Anno_1.setBounds(572, 133, 103, 22);
-		contentPane.add(comboBox_Anno_1);
 		
 		
 	}

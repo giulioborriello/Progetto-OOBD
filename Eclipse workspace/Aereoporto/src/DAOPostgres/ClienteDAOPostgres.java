@@ -25,9 +25,9 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Cliente\" WHERE \"CodFiscale\" = ?");
 			ps.setString(1, CodFiscale);
 			ResultSet rs=ps.executeQuery();
-				
-			cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Ngate"), 
-					rs.getString("CodSlot"));
+			rs.next();
+			cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"), 
+					rs.getString("Email"));
 				
 			rs.close();
 			ps.close();
@@ -49,8 +49,8 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			ps.setString(2, Nome);
 			ps.setString(3, Cognome);
 			ps.setString(4, Email);
-			ps.execute();
 			
+			ps.execute();
 			ps.close();
 			conn.close();
 			

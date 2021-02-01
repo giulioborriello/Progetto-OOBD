@@ -49,12 +49,13 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"CodIATA\" = ?");
 			ps.setString(1, CodIATA);
 			ResultSet rs=ps.executeQuery();
-			
-			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"));
-				
+			rs.next();
+			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("Nome compagnia"));
+			System.out.println(rs.getString("Nome compagnia"));
 			rs.close();
 			ps.close();
 			conn.close();
+		
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -69,6 +70,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"Nome Compagnia\" = ?");
 			ps.setString(1, Nome);
 			ResultSet rs=ps.executeQuery();
+			rs.next();
 			
 			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("NomeCompagnia"));
 			

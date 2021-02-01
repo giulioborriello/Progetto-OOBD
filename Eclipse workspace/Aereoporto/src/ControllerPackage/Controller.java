@@ -172,13 +172,24 @@ public class Controller {
 
 	public void openRisultatiGate(String ricerca, String valore, String data) {
 		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = null;
+		try {
+			date = sdf1.parse(data);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Date sqlDate = new java.sql.Date(date.getTime());  
+		
+		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(singleton);
 		List<Gate> list = new LinkedList<Gate>();
-		if(ricerca == "N gate") {
-			list.add(gatePostgres.getGateByCodGate(valore));
+		if(ricerca.equals("N gate")) {
+			list = gatePostgres.getGateByNGate(valore);
 		}
 		else if(ricerca == "CodTratta") {
-			list.add(gatePostgres.getGateByCodTratta(valore, data));
+			list.add(gatePostgres.getGateByCodTratta(valore, sqlDate));
 		}
 		
 		risultatiGate = new RisultatiGateGUI(list, this);
@@ -191,20 +202,30 @@ public class Controller {
 		
 		TrattaDAOPostgres trattaPostgres = new TrattaDAOPostgres(singleton);
 		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = null;
+		try {
+			date = sdf1.parse(data);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Date sqlDate = new java.sql.Date(date.getTime());  
+		
 		List<Tratta> list = new LinkedList<Tratta>();
 		if(ricerca == "CodTratta") {
 			list.add(trattaPostgres.getTrattaByCodTratta(valore));
 		}
 		else if(ricerca == "Data") {
-			list = (trattaPostgres.getTrattaByData(data));
+			list = (trattaPostgres.getTrattaByData(sqlDate));
 		}
 		
 		else if(ricerca == "CodIATA") {
-			list = (trattaPostgres.getTrattaByCodIATA(valore, data));
+			list = (trattaPostgres.getTrattaByCodIATA(valore, sqlDate));
 		}
 		
 		else if(ricerca == "Destinazione") {
-			list = (trattaPostgres.getTrattaByDestinazione(valore, data));
+			list = (trattaPostgres.getTrattaByDestinazione(valore, sqlDate));
 		}	
 		
 		
@@ -215,6 +236,17 @@ public class Controller {
 	}
 	
 	public void openRisultatiSlot(String ricerca, String valore) {
+		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = null;
+		try {
+			date = sdf1.parse(valore);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Date sqlDate = new java.sql.Date(date.getTime());  
+		
 		
 		SlotDAOPostgres slotPostgres = new SlotDAOPostgres(singleton);
 		List<Slot> list = new LinkedList<Slot>();
@@ -229,7 +261,7 @@ public class Controller {
 		}
 		
 		else if(ricerca == "Data") {
-			list = slotPostgres.getSlotByData(valore);
+			list = slotPostgres.getSlotByData(sqlDate);
 		}
 		
 		risultatiSlot = new RisultatiSlotGUI(list, this);
@@ -289,6 +321,15 @@ public class Controller {
 		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(singleton);
 		List<CodaDiImbarco> list = new LinkedList<CodaDiImbarco>();
 		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+		java.util.Date date = null;
+		try {
+			date = sdf1.parse(valore);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Date sqlDate = new java.sql.Date(date.getTime());  
 		
 		if(ricerca == "CodCoda") {
 			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodCoda(valore));
@@ -296,11 +337,11 @@ public class Controller {
 		
 
 		else if(ricerca == "CodSlot") {
-			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(valore, data));
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(valore, sqlDate));
 		}
 	
 		else if(ricerca == "N gate") {
-			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore, data));
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore, sqlDate));
 		}
 		risultatiCodaDiImbarco = new RisultatiCodaDiImbarcoGUI(list, this);
 		codaDiImbarco.setVisible(false);
@@ -349,6 +390,10 @@ public class Controller {
 	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data,String CodIATA, String destinazione, String scali) throws ParseException{
 		
 		if(checkBlank(codTratta, nPrenotazioni, orarioDiPartenza, data, CodIATA, destinazione, scali)) {
+			return;
+		}
+		
+		if(checkCodTratta(codTratta)) {
 			return;
 		}
 		

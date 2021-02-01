@@ -9,6 +9,8 @@ import java.util.List;
 
 import DAO.BigliettoDAO;
 import Entità.Biglietto;
+import Entità.Cliente;
+import Entità.Tratta;
 
 public class BigliettoDAOPostgres implements BigliettoDAO {
 	
@@ -34,12 +36,14 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			while(rs.next()) {
 				
 				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
+				Cliente clienteE = cliente.getClienteByCodFiscale(rs.getString("CodFiscale"));
 				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
+				Tratta trattaE = tratta.getTrattaByCodTratta(rs.getString("CodTratta"));
 				
-				Biglietto biglietto = new Biglietto(rs.getString("Posto"), rs.getString("Tipo_Di_Biglietto"), 
+				Biglietto biglietto = new Biglietto(rs.getString("Posto"), rs.getString("Tipo di biglietto"), 
 						rs.getString("CodBiglietto"),
-						tratta.getTrattaByCodTratta(rs.getString("CodTratta")), 
-						cliente.getClienteByCodFiscale(rs.getString("CodFiscale")));
+						trattaE, 
+						clienteE);
 				
 				listBiglietto.add(biglietto);
 				
@@ -61,17 +65,19 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Biglietto\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);
 			ResultSet rs=ps.executeQuery();
-
+			
 			while(rs.next()) {
 				
 				ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
+				Cliente clienteE = cliente.getClienteByCodFiscale(rs.getString("CodFiscale"));
 				TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
+				Tratta trattaE = tratta.getTrattaByCodTratta(rs.getString("CodTratta"));
 				
 				
 				Biglietto biglietto = new Biglietto( 
 				rs.getString("Posto"), rs.getString("Tipo di biglietto"), rs.getString("CodBiglietto"),
-				tratta.getTrattaByCodTratta(rs.getString("CodTratta")), 
-				cliente.getClienteByCodFiscale(rs.getString("CodFiscale")));
+				trattaE, 
+				clienteE);
 				
 				listBiglietto.add(biglietto);
 				}
@@ -110,7 +116,7 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 	public String deleteBiglietto(String CodBiglietto)	{
 		
 		try {
-			PreparedStatement ps = conn.prepareStatement("DELETE FROM \"Biglietto\"  WHERE CodBiglietto = ?; ");
+			PreparedStatement ps = conn.prepareStatement("DELETE FROM \"Biglietto\"  WHERE \"CodBiglietto\" = ?; ");
 			ps.setString(1, CodBiglietto);
 			ps.execute();
 			

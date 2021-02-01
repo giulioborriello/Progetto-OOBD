@@ -39,7 +39,7 @@ public class RisultatiGateGUI extends JFrame {
 		listModel.addElement(titoli);
 		
 		for(Gate gate: list) {
-			String string = gate.getCodGate() + " " + gate.getnGate() + " " + gate.getTratta().getCodTratta() + " " + gate.getData();
+			String string = gate.getCodGate() + " " + gate.getnGate() + " " + gate.getTratta().getCodTratta()+ " " + gate.getData();
 			listModel.addElement(string);
 		}
 		
