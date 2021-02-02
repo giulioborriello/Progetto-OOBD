@@ -37,9 +37,10 @@ public class GateDAOPostgres implements GateDAO{
 				Gate gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta(rs.getString("CodTratta")), rs.getDate("Data"));
 				gates.add(gate);
 			}
-			conn.close();
+			
 			rs.close();
 			ps.close();
+			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
