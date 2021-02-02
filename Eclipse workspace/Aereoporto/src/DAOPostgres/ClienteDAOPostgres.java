@@ -63,25 +63,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 		
 	}
 	
-	public String updateEmailByCodFiscale(String Email, String CodFiscale)	{
-	
-		try {
-			PreparedStatement ps = conn.prepareStatement("UPDATE \"Cliente\" SET \"Email\" = ? WHERE \"CodFiscale\" = ? ; ");
-			ps.setString(1, Email);
-			ps.setString(2, CodFiscale);
-			ps.execute();
-			
-			ps.close();
-			conn.close();
-			
-			return "Aggiornato Correttamente!";
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			return e.getMessage();
-		}
 		
-	}
-	
 	public String deleteCliente(String CodFiscale) {
 		
 		try {

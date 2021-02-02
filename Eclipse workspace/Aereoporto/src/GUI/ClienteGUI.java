@@ -27,8 +27,6 @@ public class ClienteGUI extends JFrame {
 	private JTextField textFieldNome;
 	private JTextField textFieldCognome;
 	private JTextField textFieldEmail;
-	private JTextField textFieldIndicareCodiceFiscale;
-	private JTextField textFieldNuovaEmail;
 	private JTextField textFieldRicerca;
 	private JTextField textFieldIndicaCodiceFiscale;
 	
@@ -38,7 +36,7 @@ public class ClienteGUI extends JFrame {
 		setResizable(false);
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 695);
+		setBounds(100, 100, 800, 532);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -105,43 +103,7 @@ public class ClienteGUI extends JFrame {
 		textFieldEmail.setBounds(507, 136, 86, 20);
 		contentPane.add(textFieldEmail);
 		
-		JLabel AggiornaEmaillbl = new JLabel("Aggiorna Email");
-		AggiornaEmaillbl.setHorizontalAlignment(SwingConstants.CENTER);
-		AggiornaEmaillbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		AggiornaEmaillbl.setBounds(320, 308, 176, 47);
-		contentPane.add(AggiornaEmaillbl);
-		
-		JLabel lblIndicareCodiceFiscale = new JLabel("Indicare Codice Fiscale");
-		lblIndicareCodiceFiscale.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIndicareCodiceFiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblIndicareCodiceFiscale.setBounds(144, 366, 154, 40);
-		contentPane.add(lblIndicareCodiceFiscale);
-		
-		JLabel lblNuovaEmail = new JLabel("Nuova email");
-		lblNuovaEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNuovaEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNuovaEmail.setBounds(365, 366, 104, 40);
-		contentPane.add(lblNuovaEmail);
-		
-		textFieldIndicareCodiceFiscale = new JTextField();
-		textFieldIndicareCodiceFiscale.setColumns(10);
-		textFieldIndicareCodiceFiscale.setBounds(181, 410, 86, 20);
-		contentPane.add(textFieldIndicareCodiceFiscale);
-		
-		textFieldNuovaEmail = new JTextField();
-		textFieldNuovaEmail.setColumns(10);
-		textFieldNuovaEmail.setBounds(377, 410, 86, 20);
-		contentPane.add(textFieldNuovaEmail);
-		
-		JButton AggiornaInviaButton = new JButton("Invia");
-//		AggiornaInviaButton.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				controller.AggiornaEmail(textFieldIndicareCodiceFiscale.getText(), textFieldNuovaEmail.getText());
-//			}
-//		});
-		AggiornaInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		AggiornaInviaButton.setBounds(512, 398, 85, 40);
-		contentPane.add(AggiornaInviaButton);
+
 		
 		JButton MenuButton = new JButton("Menu");
 		MenuButton.addActionListener(new ActionListener() {
@@ -150,7 +112,7 @@ public class ClienteGUI extends JFrame {
 			}
 		});
 		MenuButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		MenuButton.setBounds(28, 616, 85, 40);
+		MenuButton.setBounds(22, 446, 85, 40);
 		contentPane.add(MenuButton);
 		
 		JLabel Ricercalbl = new JLabel("Ricerca");
@@ -180,12 +142,12 @@ public class ClienteGUI extends JFrame {
 		JLabel Eliminalbl = new JLabel("Elimina");
 		Eliminalbl.setHorizontalAlignment(SwingConstants.CENTER);
 		Eliminalbl.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		Eliminalbl.setBounds(345, 462, 104, 47);
+		Eliminalbl.setBounds(345, 317, 104, 47);
 		contentPane.add(Eliminalbl);
 		
 		JLabel lblEliminaCodiceFiscale = new JLabel("Codice Fiscale");
 		lblEliminaCodiceFiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEliminaCodiceFiscale.setBounds(353, 510, 99, 14);
+		lblEliminaCodiceFiscale.setBounds(358, 375, 99, 14);
 		contentPane.add(lblEliminaCodiceFiscale);
 		
 		JButton EliminaButton = new JButton("Invia");
@@ -195,12 +157,12 @@ public class ClienteGUI extends JFrame {
 			}
 		});
 		EliminaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		EliminaButton.setBounds(507, 534, 85, 40);
+		EliminaButton.setBounds(507, 388, 85, 40);
 		contentPane.add(EliminaButton);
 		
 		textFieldIndicaCodiceFiscale = new JTextField();
 		textFieldIndicaCodiceFiscale.setColumns(10);
-		textFieldIndicaCodiceFiscale.setBounds(357, 546, 86, 20);
+		textFieldIndicaCodiceFiscale.setBounds(358, 400, 86, 20);
 		contentPane.add(textFieldIndicaCodiceFiscale);
 	}
 }

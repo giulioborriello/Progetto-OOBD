@@ -39,7 +39,7 @@ public class RisultatiClienteGUI extends JFrame {
 		
 		
 		for(Cliente cliente: list) {
-			String string = cliente.getCodFiscale() + cliente.getNome() + " " + cliente.getCognome() + " " + cliente.getEmail();
+			String string = cliente.getCodFiscale()+ " " + cliente.getNome() + " " + cliente.getCognome() + " " + cliente.getEmail();
 			listModel.addElement(string);
 			
 		}

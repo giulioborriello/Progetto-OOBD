@@ -186,10 +186,13 @@ public class Controller {
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(singleton);
 		List<Gate> list = new LinkedList<Gate>();
 		if(ricerca.equals("N gate")) {
-			list = gatePostgres.getGateByNGate(valore);
+			list = gatePostgres.getGateByNGate(valore, sqlDate);
+		}
+		else if(ricerca == "CodGate") {
+			list.add(gatePostgres.getGateByCodGate(valore));
 		}
 		else if(ricerca == "CodTratta") {
-			list.add(gatePostgres.getGateByCodTratta(valore, sqlDate));
+			list.add(gatePostgres.getGateByCodTratta(valore));
 		}
 		
 		risultatiGate = new RisultatiGateGUI(list, this);
@@ -220,11 +223,11 @@ public class Controller {
 			list = (trattaPostgres.getTrattaByData(sqlDate));
 		}
 		
-		else if(ricerca == "CodIATA") {
+		else if(ricerca == "CodIATA e data") {
 			list = (trattaPostgres.getTrattaByCodIATA(valore, sqlDate));
 		}
 		
-		else if(ricerca == "Destinazione") {
+		else if(ricerca == "Destinazione e data") {
 			list = (trattaPostgres.getTrattaByDestinazione(valore, sqlDate));
 		}	
 		
@@ -237,15 +240,7 @@ public class Controller {
 	
 	public void openRisultatiSlot(String ricerca, String valore) {
 		
-		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-		java.util.Date date = null;
-		try {
-			date = sdf1.parse(valore);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Date sqlDate = new java.sql.Date(date.getTime());  
+	
 		
 		
 		SlotDAOPostgres slotPostgres = new SlotDAOPostgres(singleton);
@@ -261,7 +256,20 @@ public class Controller {
 		}
 		
 		else if(ricerca == "Data") {
+			
+			SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
+			java.util.Date date = null;
+			try {
+				date = sdf1.parse(valore);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Date sqlDate = new java.sql.Date(date.getTime());  
+			
+			
 			list = slotPostgres.getSlotByData(sqlDate);
+			
 		}
 		
 		risultatiSlot = new RisultatiSlotGUI(list, this);
@@ -317,31 +325,20 @@ public class Controller {
 		
 	}	
 		
-	public void openRisultatiCodaDiImbarco(String ricerca, String valore, String data) {
+	public void openRisultatiCodaDiImbarco(String ricerca, String valore) {
 		CodaDiImbarcoDAOPostgres codaDiImbarcoPostgres = new CodaDiImbarcoDAOPostgres(singleton);
 		List<CodaDiImbarco> list = new LinkedList<CodaDiImbarco>();
 		
-		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-		java.util.Date date = null;
-		try {
-			date = sdf1.parse(valore);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Date sqlDate = new java.sql.Date(date.getTime());  
-		
-		if(ricerca == "CodCoda") {
+	
+		if(ricerca == "Codice Coda") {
 			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodCoda(valore));
 		}
-		
-
-		else if(ricerca == "CodSlot") {
-			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(valore, sqlDate));
+		else if(ricerca == "Codice Slot") {
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodSlot(valore));
 		}
 	
-		else if(ricerca == "N gate") {
-			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByNgate(valore, sqlDate));
+		else if(ricerca == "Codice Gate") {
+			list.add(codaDiImbarcoPostgres.getCodaDiImbarcoByCodGate(valore));
 		}
 		risultatiCodaDiImbarco = new RisultatiCodaDiImbarcoGUI(list, this);
 		codaDiImbarco.setVisible(false);
@@ -456,19 +453,16 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void inserisciCodaDiImbarco(String CodCoda, String TipoDiCoda, String CodGate, String CodSlot) {
+	public void inserisciCodaDiImbarco(String CodCoda, String TipoDiCoda, String CodGate) {
 		
-		if(checkBlank(CodCoda, TipoDiCoda, CodGate, CodSlot)) {
+		if(checkBlank(CodCoda, TipoDiCoda, CodGate)) {
 			return;
 		}
 		
-		if(checkSoloNumeri(CodCoda, CodGate, CodSlot)) {
-			return;
-		}
 		
 		
 		CodaDiImbarcoDAOPostgres codadiimbarco = new CodaDiImbarcoDAOPostgres(singleton);
-		String testo = codadiimbarco.insertCodaDiImbarco(CodCoda, TipoDiCoda, CodGate, CodSlot);
+		String testo = codadiimbarco.insertCodaDiImbarco(CodCoda, TipoDiCoda, CodGate);
 		openDialog(testo);
 	}
 
@@ -491,14 +485,14 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String Data, String OrarioDiPartenza) throws ParseException {
+	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String CodCoda) throws ParseException {
 		
 		
-		if(checkBlank(CodSlot, TempoDiImbarcoStimato, TempoDiImbarcoEffettivo, Data, OrarioDiPartenza)) {
+		if(checkBlank(CodSlot, TempoDiImbarcoStimato, TempoDiImbarcoEffettivo, CodCoda)) {
 			return;
 		}
 		
-		if(checkSoloNumeri(TempoDiImbarcoStimato, Data, OrarioDiPartenza)) {
+		if(checkSoloNumeri(TempoDiImbarcoStimato, TempoDiImbarcoEffettivo)) {
 			return;
 		}
 		
@@ -513,29 +507,15 @@ public class Controller {
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
 		java.util.Date date = null;
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("hh:mm");
-		long ms = sdf.parse(OrarioDiPartenza).getTime();
-		Time tempo = new Time(ms);
-		
-		
-		
-		try {
-			date = sdf1.parse(Data);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		Date sqlDate = new java.sql.Date(date.getTime());  
-		
-		String testo = slot.insertSlot(CodSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo,sqlDate, tempo);
+				
+				
+		String testo = slot.insertSlot(CodSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo, CodCoda);
 		openDialog(testo);
 	}
 
-	public void inserisciFedelt‡(String CentoKilometri, String CodIATA, String CodFiscale, String Punti) {
+	public void inserisciFedelt‡(String CentoKilometri, String CodIATA, String CodFiscale) {
 		
-		if(checkBlank(CentoKilometri, CodIATA, CodFiscale, Punti)) {
+		if(checkBlank(CentoKilometri, CodIATA, CodFiscale)) {
 			return;
 		}
 		
@@ -547,19 +527,13 @@ public class Controller {
 			return;
 		}
 		
-
-		if(checkSoloNumeri(Punti)) {
-			return;
-		}
-		
 		if(checkCentoKilometri(CentoKilometri)){
 			return;
 		}
 		
 		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(singleton);
-		int punti = Integer.valueOf(Punti);
 		
-		String testo = fedelt‡.insertFedelt‡(CentoKilometri, CodIATA, CodFiscale, punti);
+		String testo = fedelt‡.insertFedelt‡(CentoKilometri, CodIATA, CodFiscale);
 		openDialog(testo);
 	}
 
@@ -606,10 +580,6 @@ public class Controller {
 	public void eliminaCodaDiImbarco(String CodCoda) {
 		
 		if(checkBlank(CodCoda)) {
-			return;
-		}
-		
-		if(checkSoloNumeri(CodCoda)) {
 			return;
 		}
 		
@@ -727,10 +697,7 @@ public class Controller {
 		if(checkCodFiscale(CodFiscale)) {
 			return;
 		}
-		
-		if(checkSoloNumeri(CentoKilometri)) {
-			return;
-		}
+
 		
 		Fedelt‡DAOPostgres fedelt‡ = new Fedelt‡DAOPostgres(singleton);
 		
@@ -867,21 +834,36 @@ public class Controller {
 		dialog.setVisible(true);
 	}
 	
-	public void ricercaTempisticaGiorni(String mese, String anno) {
+	public void ricercaTempisticaGiorniMese(String Ngate ,String mese, String anno) {
+		
+		if(this.checkSoloNumeri(Ngate)) {
+			return;
+		}
+		
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
-		List<Tempistica> list = gateDAOP.getTempisticheGiorni(mese, anno);
+		List<Tempistica> list = gateDAOP.getTempisticheGiorni(Ngate, mese, anno);
 		this.openRisultatiTempisticheGateGUI(list, "Giorni");
 	}
 	
-	public void ricercaTempisticaMesi(String anno) {
+	public void ricercaTempisticaMesi(String Ngate ,String anno) {
+		
+		if(this.checkSoloNumeri(Ngate)) {
+			return;
+		}
+		
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
-		List<Tempistica> list = gateDAOP.getTempisticheMesi(anno);
+		List<Tempistica> list = gateDAOP.getTempisticheMesi(Ngate, anno);
 		this.openRisultatiTempisticheGateGUI(list, "Mesi");
 	}
 	
-	public void ricercaTempisticaSettimane(String anno) {
+	public void ricercaTempisticaSettimane(String Ngate , String anno) {
+		
+		if(this.checkSoloNumeri(Ngate)) {
+			return;
+		}
+		
 		GateDAOPostgres gateDAOP = new GateDAOPostgres(singleton);
-		List<Tempistica> list = gateDAOP.getTempisticheSettimane(anno);
+		List<Tempistica> list = gateDAOP.getTempisticheSettimane(Ngate, anno);
 		this.openRisultatiTempisticheGateGUI(list, "Settimane");
 	}
 

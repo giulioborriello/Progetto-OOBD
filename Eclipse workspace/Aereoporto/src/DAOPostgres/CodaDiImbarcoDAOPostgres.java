@@ -7,18 +7,19 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import DAO.CodaDiImbarcoDAO;
 import Entità.CodaDiImbarco;
+import Entità.Gate;
+import Entità.Slot;
 
 public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 	
 	private Connection conn;
 	private GateDAOPostgres gate;
 	private SlotDAOPostgres slot;
+	private SingletonPostgres sp;
 	
-	
-	public CodaDiImbarcoDAOPostgres(SingletonPostgres sp) {
-		conn = sp.getConnection();
-		gate = new GateDAOPostgres(sp);
-		slot = new SlotDAOPostgres(sp);
+	public CodaDiImbarcoDAOPostgres(SingletonPostgres singleton) {
+		conn = singleton.getConnection();
+		sp = singleton;
 	}
 	
 
@@ -30,9 +31,14 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("TipoDiCoda"), 
-						gate.getGateByCodGate(rs.getString("CodGate")),
-						slot.getSlotByCodSlot(rs.getString("CodSlot")));
+				gate = new GateDAOPostgres(sp);
+				Gate gate2 = gate.getGateByCodGate(rs.getString("CodGate"));
+				slot = new SlotDAOPostgres(sp);
+				Slot slot2 = slot.getSlotByCodSlot(rs.getString("CodSlot"), codaDiImbarco);
+				
+				
+				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("Tipo di coda"), 
+						gate2, slot2);
 			
 			}
 			rs.close();
@@ -46,20 +52,21 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 	}
 	
-	public CodaDiImbarco getCodaDiImbarcoByNgate(String Ngate, Date data){
+	public CodaDiImbarco getCodaDiImbarcoByCodGate(String CodGate){
 		CodaDiImbarco codaDiImbarco = null;
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"Ngate\" = ?"
-					+ "AND \"Data\" = ?");
-			ps.setString(1, Ngate);
-			ps.setDate(2, data);
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodGate\" = ?");
+			ps.setString(1, CodGate);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
+				gate = new GateDAOPostgres(sp);
+				Gate gate2 = gate.getGateByCodGate(rs.getString("CodGate"));		
+				slot = new SlotDAOPostgres(sp);
+				Slot slot2 = slot.getSlotByCodSlot(rs.getString("CodSlot"));
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("TipoDiCoda"), 
-						gate.getGateByCodGate(rs.getString("CodGate")),
-						slot.getSlotByCodSlot(rs.getString("CodSlot")));
-			
+				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("Tipo di coda"), gate2, slot2);
+					
+
 			}
 			rs.close();
 			ps.close();
@@ -72,19 +79,22 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 
 	}
 	
-	public CodaDiImbarco getCodaDiImbarcoByCodSlot(String CodSlot, Date data){
+	public CodaDiImbarco getCodaDiImbarcoByCodSlot(String CodSlot){
 		CodaDiImbarco codaDiImbarco = null;
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?"
-					+ "AND \"Data\" = ?");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Coda di imbarco\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
-			ps.setDate(2, data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("TipoDiCoda"), 
-						gate.getGateByCodGate(rs.getString("CodGate")),
-						slot.getSlotByCodSlot(rs.getString("CodSlot")));
+				gate = new GateDAOPostgres(sp);
+				Gate gate2 = gate.getGateByCodGate(rs.getString("CodGate"));		
+				slot = new SlotDAOPostgres(sp);
+				Slot slot2 = slot.getSlotByCodSlot(rs.getString("CodSlot"));
+				
+				
+				codaDiImbarco = new CodaDiImbarco(rs.getString("CodCoda"), rs.getString("Tipo di coda"), 
+						gate2, slot2);
 			}
 			rs.close();
 			ps.close();
@@ -96,13 +106,12 @@ public class CodaDiImbarcoDAOPostgres implements CodaDiImbarcoDAO{
 		return codaDiImbarco;
 	}
 	
-	public String insertCodaDiImbarco(String CodCoda, String TipoDiCoda, String Ngate, String CodSlot)	{
+	public String insertCodaDiImbarco(String CodCoda, String TipoDiCoda, String Ngate)	{
 			try {
-				PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, ?, null); ");
+				PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Coda di imbarco\"  VALUES (?, ?, ?, null, null); ");
 				ps.setString(1, CodCoda);
 				ps.setString(2, TipoDiCoda);
 				ps.setString(3, Ngate);
-				ps.setString(4, CodSlot);
 				ps.execute();
 				
 				ps.close();

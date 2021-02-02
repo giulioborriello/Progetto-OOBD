@@ -25,11 +25,10 @@ public class CodaDiImbarcoGUI extends JFrame {
 	private JPanel contentPane;
 	private JTextField codCodatextField;
 	private JTextField CodGatetextField;
-	private JTextField codSlottextField;
 	private JTextField eliminatextField;
 	private JLabel lblRicerca;
 	
-	private String[] tipiRicerca = {"CodCoda","N° Gate","Codice Slot"};
+	private String[] tipiRicerca = {"Codice Coda","Codice Gate","Codice Slot"};
 	private String[] tipiDiCoda = {"Business Class","Priority","Family","Diversamente abili"};
 	
 	private String[] giorni = {"1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
@@ -56,54 +55,21 @@ public class CodaDiImbarcoGUI extends JFrame {
 		contentPane.add(lblRicerca);
 		
 		JComboBox comboBoxRicerca = new JComboBox(tipiRicerca);
-		comboBoxRicerca.setBounds(38, 78, 149, 22);
+		comboBoxRicerca.setBounds(302, 64, 149, 22);
 		contentPane.add(comboBoxRicerca);
 		
 		JTextArea RicercatextArea = new JTextArea();
-		RicercatextArea.setBounds(44, 111, 136, 22);
+		RicercatextArea.setBounds(312, 97, 136, 22);
 		contentPane.add(RicercatextArea);
-		
-		JLabel lbl_Data = new JLabel("Data");
-		lbl_Data.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Data.setBounds(368, 51, 35, 14);
-		contentPane.add(lbl_Data);
-		
-		JLabel lbl_Giorno = new JLabel("Giorno");
-		lbl_Giorno.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Giorno.setBounds(237, 79, 46, 14);
-		contentPane.add(lbl_Giorno);
-		
-		JComboBox comboBox_Giorno = new JComboBox(giorni);
-		comboBox_Giorno.setBounds(209, 109, 103, 22);
-		contentPane.add(comboBox_Giorno);
-		
-		JLabel lbl_Mese = new JLabel("Mese");
-		lbl_Mese.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Mese.setBounds(368, 81, 35, 14);
-		contentPane.add(lbl_Mese);
-		
-		JComboBox comboBox_Mese = new JComboBox(mesi);
-		comboBox_Mese.setBounds(334, 111, 103, 22);
-		contentPane.add(comboBox_Mese);
-		
-		JLabel lbl_Anno = new JLabel("Anno");
-		lbl_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_Anno.setBounds(488, 81, 35, 14);
-		contentPane.add(lbl_Anno);
-		
-		JComboBox comboBox_Anno = new JComboBox(anni);
-		comboBox_Anno.setBounds(454, 111, 103, 22);
-		contentPane.add(comboBox_Anno);
 		
 		
 		JButton btnRicerca = new JButton("Invia");
 		btnRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				String data = comboBox_Giorno.getSelectedItem().toString() + "-" + comboBox_Mese.getSelectedItem().toString() + "-" + comboBox_Anno.getSelectedItem().toString(); 
 				
 				
-				controller.openRisultatiCodaDiImbarco(comboBoxRicerca.getSelectedItem().toString(), RicercatextArea.getText(), data);
+				controller.openRisultatiCodaDiImbarco(comboBoxRicerca.getSelectedItem().toString(), RicercatextArea.getText());
 			}
 		});
 		btnRicerca.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -119,45 +85,34 @@ public class CodaDiImbarcoGUI extends JFrame {
 		
 		JLabel lblCodCoda = new JLabel("Codice Coda");
 		lblCodCoda.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodCoda.setBounds(14, 244, 81, 14);
+		lblCodCoda.setBounds(106, 248, 81, 14);
 		contentPane.add(lblCodCoda);
 
 		
 		JLabel lblTipoDiCoda = new JLabel("Tipo di coda");
 		lblTipoDiCoda.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTipoDiCoda.setBounds(184, 240, 98, 22);
+		lblTipoDiCoda.setBounds(339, 225, 98, 22);
 		contentPane.add(lblTipoDiCoda);
-		
-		JLabel lblCodslot = new JLabel("Codice Slot");
-		lblCodslot.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodslot.setBounds(184, 326, 86, 14);
-		contentPane.add(lblCodslot);
 		
 		JLabel lblCodGate = new JLabel("Codice Gate");
 		lblCodGate.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodGate.setBounds(14, 317, 81, 22);
+		lblCodGate.setBounds(339, 317, 81, 22);
 		contentPane.add(lblCodGate);
 		
 		codCodatextField = new JTextField();
-		codCodatextField.setBounds(14, 272, 86, 20);
+		codCodatextField.setBounds(101, 273, 86, 20);
 		contentPane.add(codCodatextField);
 		codCodatextField.setColumns(10);
 		codCodatextField.getText();
 		
 		CodGatetextField = new JTextField();
 		CodGatetextField.setColumns(10);
-		CodGatetextField.setBounds(14, 350, 86, 20);
+		CodGatetextField.setBounds(334, 350, 86, 20);
 		CodGatetextField.getText();
 		contentPane.add(CodGatetextField);
 		
-		codSlottextField = new JTextField();
-		codSlottextField.setColumns(10);
-		codSlottextField.setBounds(184, 351, 86, 20);
-		codSlottextField.getText();
-		contentPane.add(codSlottextField);
-		
 		JComboBox comboBoxTipiDiCoda = new JComboBox(tipiDiCoda);
-		comboBoxTipiDiCoda.setBounds(149, 271, 149, 22);
+		comboBoxTipiDiCoda.setBounds(302, 271, 149, 22);
 		contentPane.add(comboBoxTipiDiCoda);
 		
 		JButton btnInserisci = new JButton("Invia");
@@ -166,7 +121,7 @@ public class CodaDiImbarcoGUI extends JFrame {
 				
 				
 				
-				controller.inserisciCodaDiImbarco(codCodatextField.getText(), comboBoxTipiDiCoda.getSelectedItem().toString(), CodGatetextField.getText(), codSlottextField.getText());
+				controller.inserisciCodaDiImbarco(codCodatextField.getText(), comboBoxTipiDiCoda.getSelectedItem().toString(), CodGatetextField.getText());
 			}
 		});
 		btnInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -181,16 +136,15 @@ public class CodaDiImbarcoGUI extends JFrame {
 		lblElimina.setBounds(299, 407, 149, 42);
 		contentPane.add(lblElimina);
 		
-		JLabel lblEliminaNgate = new JLabel("Inserisci N gate della riga da eliminare");
-		lblEliminaNgate.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEliminaNgate.setBounds(243, 445, 275, 22);
-		contentPane.add(lblEliminaNgate);
+		JLabel lblEliminaCodTratta = new JLabel("Inserisci CodTratta della riga da eliminare");
+		lblEliminaCodTratta.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEliminaCodTratta.setBounds(243, 445, 275, 22);
+		contentPane.add(lblEliminaCodTratta);
 		
 		eliminatextField = new JTextField();
 		eliminatextField.setBounds(333, 478, 86, 20);
 		contentPane.add(eliminatextField);
 		eliminatextField.setColumns(10);
-		codSlottextField.getText();
 		
 		
 		JButton btnMenu = new JButton("Menù");

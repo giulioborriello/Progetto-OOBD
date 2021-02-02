@@ -29,14 +29,12 @@ public class SlotGUI extends JFrame {
 	private JTextField textFieldCodSlot;
 	private JTextField textFieldCodCoda;
 	private JTextField textFieldTempoStimato;
-	private JTextField textFieldData;
 	private JTextField textFieldAggiornaIndicaCodSlot;
 	private JTextField textFieldAggiornaTempoEffettivo;
 	private JTextField textFieldElimina;
 	private JTextField textFieldTempoEffettivo;
 	
-	private String[] tipiRicerca = {"Seleziona tutti","CodSlot","CodCoda","Data"};
-	private JTextField textFieldOrarioDiPartenza;
+	private String[] tipiRicerca = {"CodSlot","CodCoda","Data"};
 	
 	
 	public SlotGUI(Controller c) {
@@ -123,24 +121,13 @@ public class SlotGUI extends JFrame {
 		contentPane.add(textFieldTempoEffettivo);
 		textFieldTempoEffettivo.setColumns(10);
 		
-		JLabel lblData = new JLabel("Data");
-		lblData.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblData.setHorizontalAlignment(SwingConstants.CENTER);
-		lblData.setBounds(245, 275, 46, 14);
-		contentPane.add(lblData);
-		
-		textFieldData = new JTextField();
-		textFieldData.setBounds(225, 304, 86, 20);
-		contentPane.add(textFieldData);
-		textFieldData.setColumns(10);
-		
 		JButton btnNewButtonInserisci = new JButton("Invia");
 		btnNewButtonInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					controller.inserisciSlot(textFieldCodCoda.getText(), textFieldTempoStimato.getText(),
-							textFieldTempoEffettivo.getText(), textFieldData.getText(), textFieldOrarioDiPartenza.getText());
+					controller.inserisciSlot(textFieldCodSlot.getText(), textFieldTempoStimato.getText(),
+							textFieldTempoEffettivo.getText(), textFieldCodCoda.getText());
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -230,17 +217,6 @@ public class SlotGUI extends JFrame {
 		btnMenù.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnMenù.setBounds(33, 673, 142, 42);
 		contentPane.add(btnMenù);
-		
-		textFieldOrarioDiPartenza = new JTextField();
-		textFieldOrarioDiPartenza.setColumns(10);
-		textFieldOrarioDiPartenza.setBounds(373, 304, 86, 20);
-		contentPane.add(textFieldOrarioDiPartenza);
-		
-		JLabel lblOrarioDiPartenza = new JLabel("Orario di partenza");
-		lblOrarioDiPartenza.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOrarioDiPartenza.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblOrarioDiPartenza.setBounds(353, 277, 149, 14);
-		contentPane.add(lblOrarioDiPartenza);
 		
 		JButton btnNewButton_4 = new JButton("Menu");
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 15));

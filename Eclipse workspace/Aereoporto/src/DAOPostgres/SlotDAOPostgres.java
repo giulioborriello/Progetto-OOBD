@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import DAO.SlotDAO;
+import Entità.CodaDiImbarco;
 import Entità.Slot;
 
 
@@ -19,24 +20,27 @@ public class SlotDAOPostgres implements SlotDAO{
 	private List<Slot> listSlot = new LinkedList<Slot>();
 	private Connection conn;
 	private CodaDiImbarcoDAOPostgres coda;
+	private SingletonPostgres sp;
 	
-	
-	public SlotDAOPostgres(SingletonPostgres sp) {
-		conn = sp.getConnection();
-		coda = new CodaDiImbarcoDAOPostgres(sp);
+	public SlotDAOPostgres(SingletonPostgres singleton) {
+		conn = singleton.getConnection();
+		sp = singleton;
 	}
 
 	
 	public Slot getSlotByCodSlot(String CodSlot) {
 		Slot slot = null;
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodSlot\" = ?");
+			
+			coda = new CodaDiImbarcoDAOPostgres(sp);
+			
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Slot\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
 				slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"), rs.getTime("OrarioDiPartenza"),
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"), 
 						coda.getCodaDiImbarcoByCodCoda("CodCoda"));
 				
 			}
@@ -50,9 +54,35 @@ public class SlotDAOPostgres implements SlotDAO{
 		return slot;
 	}
 	
+	public Slot getSlotByCodSlot(String CodSlot, CodaDiImbarco coda) {
+		Slot slot = null;
+		try {
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Slot\" WHERE \"CodSlot\" = ?");
+			ps.setString(1, CodSlot);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+				
+				slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"),
+						coda);
+				
+			
+			
+			ps.close();
+			rs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+		return slot;
+	}
+	
 	public Slot getSlotByCodCoda(String codCoda) {
 		Slot slot = null;
 		try {
+			
+			coda = new CodaDiImbarcoDAOPostgres(sp);
+			
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"CodCoda\" = ?");
 			ps.setString(1, codCoda);
 			
@@ -60,7 +90,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			while(rs.next()) {
 				
 				slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"), rs.getTime("OrarioDiPartenza"),
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"), 
 						coda.getCodaDiImbarcoByCodCoda("CodCoda"));
 				
 			}
@@ -76,13 +106,16 @@ public class SlotDAOPostgres implements SlotDAO{
 	
 	public List<Slot> getSlotByData(Date Data) {
 		try {
+			
+			coda = new CodaDiImbarcoDAOPostgres(sp);
+			
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"Data\" = ?");
 			ps.setDate(1, Data);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
 				Slot Slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"), rs.getTime("OrarioDiPartenza"),
+						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"),
 						coda.getCodaDiImbarcoByCodCoda("CodCoda"));
 				
 				listSlot.add(Slot);
@@ -98,15 +131,14 @@ public class SlotDAOPostgres implements SlotDAO{
 		return listSlot;	
 	}
 	
-	public String insertSlot(String CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, Date Data, Time OrarioDiPartenza)	{
+	public String insertSlot(String CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, String CodCoda)	{
 		
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, ?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, null, ?); ");
 			ps.setString(1, CodSlot);
 			ps.setInt(2, TempoDiImbarcoStimato);
 			ps.setInt(3, TempoDiImbarcoEffettivo);
-			ps.setDate(4, Data);
-			ps.setTime(5, OrarioDiPartenza);
+			ps.setString(4, CodCoda);
 			ps.execute();
 			ps.close();
 			conn.close();

@@ -11,7 +11,7 @@ public interface SlotDAO {
 	public Slot getSlotByCodSlot(String CodSlot);
 	public Slot getSlotByCodCoda(String CodCoda);
 	public List<Slot> getSlotByData(Date Data);
-	public String insertSlot(String CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, Date Data, Time OrarioDiPartenza);
+	public String insertSlot(String CodSlot, int Tempo_di_imbarco_stimato, int Tempo_di_imbarco_effettivo, String CodCoda);
 	public String updateTempoDiImbarcoEffettivoByCodSlot(int TempoDiImbarcoEffettivo, String CodSlot);
 	public String deleteSlot(String CodSlot);
 	

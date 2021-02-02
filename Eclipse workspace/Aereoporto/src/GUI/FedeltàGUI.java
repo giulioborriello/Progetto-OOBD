@@ -22,7 +22,6 @@ public class Fedelt‡GUI extends JFrame {
 	private JTextField textFieldCentokilometri;
 	private JTextField txtCodiatatextfield;
 	private JTextField txtCodfiscaletextfield;
-	private JTextField txtPuntitextfield;
 	private JTextField txtRicercatextfield;
 	private JTextField txtCodFiscaleElimina;
     private JTextField textFieldCodiceFiscale_AggiornaCentokilometri;
@@ -33,7 +32,7 @@ public class Fedelt‡GUI extends JFrame {
     private JTextField textField_NuovoPunteggio;
     private JTextField textFieldCodIATA_Elimina;
 		
-    private String [] tipiRicerca = {"Seleziona tutti","CentoKilometri","CodiATA","CodFiscale"};
+    private String [] tipiRicerca = {"CentoKilometri","CodiATA","CodFiscale"};
     private JTextField RicercaRitardiCentochilometriTextField;
     
 
@@ -55,50 +54,40 @@ public class Fedelt‡GUI extends JFrame {
 		
 		JLabel lbl_ContaChilometri = new JLabel("Centochilometri");
 		lbl_ContaChilometri.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lbl_ContaChilometri.setBounds(43, 70, 146, 31);
+		lbl_ContaChilometri.setBounds(127, 70, 146, 31);
 		contentPane.add(lbl_ContaChilometri);
 		
 		JLabel lbl_CodIATA = new JLabel("Codice IATA");
 		lbl_CodIATA.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lbl_CodIATA.setBounds(239, 69, 95, 31);
+		lbl_CodIATA.setBounds(348, 70, 95, 31);
 		contentPane.add(lbl_CodIATA);
 		
 		JLabel lbl_CodFiscale = new JLabel("Codice Fiscale");
 		lbl_CodFiscale.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lbl_CodFiscale.setBounds(428, 70, 109, 31);
+		lbl_CodFiscale.setBounds(553, 70, 109, 31);
 		contentPane.add(lbl_CodFiscale);
 		
-		JLabel lbl_Punti = new JLabel("Punti");
-		lbl_Punti.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lbl_Punti.setBounds(617, 71, 49, 31);
-		contentPane.add(lbl_Punti);
-		
 		textFieldCentokilometri = new JTextField();
-	    textFieldCentokilometri.setBounds(53, 101, 109, 31);
+	    textFieldCentokilometri.setBounds(138, 101, 109, 31);
 		contentPane.add(textFieldCentokilometri);
 		textFieldCentokilometri.setColumns(10);
 		
 		txtCodiatatextfield = new JTextField();
 		txtCodiatatextfield.setColumns(10);
-		txtCodiatatextfield.setBounds(232, 100, 109, 31);
+		txtCodiatatextfield.setBounds(343, 101, 109, 31);
 		contentPane.add(txtCodiatatextfield);
 		
 		txtCodfiscaletextfield = new JTextField();
 		txtCodfiscaletextfield.setColumns(10);
-		txtCodfiscaletextfield.setBounds(428, 101, 109, 31);
+		txtCodfiscaletextfield.setBounds(553, 101, 109, 31);
 		contentPane.add(txtCodfiscaletextfield);
-		
-		txtPuntitextfield = new JTextField();
-		txtPuntitextfield.setColumns(10);
-		txtPuntitextfield.setBounds(586, 101, 109, 31);
-		contentPane.add(txtPuntitextfield);
 		
 		JButton Button_InviaInserisci = new JButton("Invia");
 		Button_InviaInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				controller.inserisciFedelt‡(textFieldCentokilometri.getText(), txtCodiatatextfield.getText(), 
-						txtCodfiscaletextfield.getText(), txtPuntitextfield.getText());
+						txtCodfiscaletextfield.getText());
 					
 		}
 	});

@@ -41,11 +41,12 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			
 			compagnia = new CompagniaDAOPostgres(singleton);
 			Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
-			System.out.println("peni");
+			gate = new GateDAOPostgres(singleton);
+			Gate codGate = gate.getGateByCodGate(rs.getString("CodGate"), tratta);
+			
 			tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 					rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
-					codIATA,
-					null);
+					codIATA, codGate);
 			rs.close();
 			ps.close();
 			conn.close();
@@ -113,7 +114,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				compagnia = new CompagniaDAOPostgres(singleton);
 				Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
 				Tratta tratta = null;
-				gate = new GateDAOPostgres(singleton);
+				GateDAOPostgres gate = new GateDAOPostgres(singleton);
 				Gate codGate = gate.getGateByCodGate(rs.getString("CodGate"), tratta);
 				
 				 tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 

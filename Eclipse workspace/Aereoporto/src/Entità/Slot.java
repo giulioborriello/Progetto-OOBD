@@ -9,17 +9,15 @@ public class Slot {
 	private int tempoDiImbarcoStimato;
 	private int tempoDiImbarcoEffettivo;
 	private Date data;
-	private Time orarioDiPartenza;
 	private CodaDiImbarco coda;
 	
-	public Slot(String codSlot, int tempoDiImbarcoStimato, int tempoDiImbarcoEffettivo, Date data, Time orarioDiPartenza,
+	public Slot(String codSlot, int tempoDiImbarcoStimato, int tempoDiImbarcoEffettivo, Date data,
 			CodaDiImbarco coda) {
 		super();
 		this.codSlot = codSlot;
 		this.tempoDiImbarcoStimato = tempoDiImbarcoStimato;
 		this.tempoDiImbarcoEffettivo = tempoDiImbarcoEffettivo;
 		this.data = data;
-		this.orarioDiPartenza = orarioDiPartenza;
 		this.setCoda(coda);
 	}
 	public String getCodSlot() {
@@ -49,13 +47,6 @@ public class Slot {
 		this.data = data;
 	}
 
-	public Time getOrarioDiPartenza() {
-		return orarioDiPartenza;
-	}
-
-	public void setOrarioDiPartenza(Time orarioDiPartenza) {
-		this.orarioDiPartenza = orarioDiPartenza;
-	}
 	public CodaDiImbarco getCoda() {
 		return coda;
 	}

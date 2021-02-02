@@ -15,12 +15,13 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import ControllerPackage.Controller;
+import javax.swing.JTextPane;
 
 public class GateGUI extends JFrame {
 	private Controller controller;
 	private JPanel contentPane;
 	private JTextField textFieldRicerca;
-	private String[] tipiRicerca = {"N gate","CodTratta",};
+	private String[] tipiRicerca = {"CodGate","Ngate e data","CodTratta",};
 	private String[] giorni = {"1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 			"21","22","23","24","25", "26", "27", "28", "29", "30", "31"};
 	private String[] mesi = {"1", "2", "3", "4","5","6","7","8", "9", "10", "11", "12"};
@@ -43,6 +44,34 @@ public class GateGUI extends JFrame {
 		setContentPane(contentPane);
 		setResizable(false);
 		setTitle("Gate");
+		
+		JTextPane textFieldNgateTempisticheSettimane = new JTextPane();
+		textFieldNgateTempisticheSettimane.setBounds(332, 363, 76, 20);
+		contentPane.add(textFieldNgateTempisticheSettimane);
+		
+		JTextPane textFieldNgateTempisticheMesi = new JTextPane();
+		textFieldNgateTempisticheMesi.setBounds(332, 425, 76, 20);
+		contentPane.add(textFieldNgateTempisticheMesi);
+		
+		JTextPane textFieldNgateTempisticheGiorniMese = new JTextPane();
+		textFieldNgateTempisticheGiorniMese.setBounds(246, 297, 76, 20);
+		contentPane.add(textFieldNgateTempisticheGiorniMese);
+		
+		JLabel lblNgateTempisticheSettimane = new JLabel("Ngate");
+		lblNgateTempisticheSettimane.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNgateTempisticheSettimane.setBounds(342, 330, 46, 29);
+		contentPane.add(lblNgateTempisticheSettimane);
+		
+		JLabel lblNgateTempisticheGiorniMese = new JLabel("Ngate");
+		lblNgateTempisticheGiorniMese.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNgateTempisticheGiorniMese.setBounds(252, 259, 46, 29);
+		contentPane.add(lblNgateTempisticheGiorniMese);
+		
+		JLabel lblNgateTempisticheMesi = new JLabel("Ngate");
+		lblNgateTempisticheMesi.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNgateTempisticheMesi.setBounds(342, 394, 46, 29);
+		contentPane.add(lblNgateTempisticheMesi);
+		
 		
 		JLabel lblRicerca = new JLabel("Ricerca");
 		lblRicerca.setHorizontalAlignment(SwingConstants.CENTER);
@@ -143,76 +172,76 @@ public class GateGUI extends JFrame {
 		contentPane.add(lblMesi_Tempistiche);
 		
 		JComboBox comboBoxRicerca_GiorniMeseMesi = new JComboBox(mesi);
-		comboBoxRicerca_GiorniMeseMesi.setBounds(252, 299, 76, 20);
+		comboBoxRicerca_GiorniMeseMesi.setBounds(332, 299, 76, 20);
 		contentPane.add(comboBoxRicerca_GiorniMeseMesi);
 		
 		JComboBox comboBoxRicerca_GiorniMeseAnno = new JComboBox(anni);
-		comboBoxRicerca_GiorniMeseAnno.setBounds(344, 299, 50, 20);
+		comboBoxRicerca_GiorniMeseAnno.setBounds(437, 299, 50, 20);
 		contentPane.add(comboBoxRicerca_GiorniMeseAnno);
 		
 		JLabel lblRicercaSettimane_Anno = new JLabel("Anno");
 		lblRicercaSettimane_Anno.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRicercaSettimane_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblRicercaSettimane_Anno.setBounds(275, 337, 33, 19);
+		lblRicercaSettimane_Anno.setBounds(447, 340, 33, 19);
 		contentPane.add(lblRicercaSettimane_Anno);
 		
 		JComboBox comboBoxRicerca_Anno = new JComboBox(anni);
-		comboBoxRicerca_Anno.setBounds(265, 431, 50, 20);
+		comboBoxRicerca_Anno.setBounds(437, 425, 50, 20);
 		contentPane.add(comboBoxRicerca_Anno);
 		
 		JButton btnRicerca_Mesi = new JButton("Invia");
 		btnRicerca_Mesi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.ricercaTempisticaMesi(comboBoxRicerca_Anno.getSelectedItem().toString());
+				controller.ricercaTempisticaMesi(textFieldNgateTempisticheMesi.getText(),comboBoxRicerca_Anno.getSelectedItem().toString());
 			}
 		});
 		btnRicerca_Mesi.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_Mesi.setBounds(404, 426, 71, 27);
+		btnRicerca_Mesi.setBounds(514, 422, 71, 27);
 		contentPane.add(btnRicerca_Mesi);
 		
 		JButton btnRicerca_GiorniMese = new JButton("Invia");
 		btnRicerca_GiorniMese.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.ricercaTempisticaGiorni(comboBoxRicerca_GiorniMeseMesi.getSelectedItem().toString(), comboBoxRicerca_GiorniMeseAnno.getSelectedItem().toString());
+				controller.ricercaTempisticaGiorniMese(textFieldNgateTempisticheGiorniMese.getText(),comboBoxRicerca_GiorniMeseMesi.getSelectedItem().toString(), comboBoxRicerca_GiorniMeseAnno.getSelectedItem().toString());
 			}
 		});
 		btnRicerca_GiorniMese.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_GiorniMese.setBounds(404, 294, 71, 27);
+		btnRicerca_GiorniMese.setBounds(514, 294, 71, 27);
 		contentPane.add(btnRicerca_GiorniMese);
 		
 		
 		JComboBox comboBoxRicerca_Settimane = new JComboBox(anni);
-		comboBoxRicerca_Settimane.setBounds(265, 367, 50, 20);
+		comboBoxRicerca_Settimane.setBounds(437, 367, 50, 20);
 		contentPane.add(comboBoxRicerca_Settimane);
 		
 		JButton btnRicerca_Settimane = new JButton("Invia");
 		btnRicerca_Settimane.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controller.ricercaTempisticaSettimane(comboBoxRicerca_Settimane.getSelectedItem().toString());
+				controller.ricercaTempisticaSettimane(textFieldNgateTempisticheSettimane.getText(),comboBoxRicerca_Settimane.getSelectedItem().toString());
 			}
 		});
 		btnRicerca_Settimane.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnRicerca_Settimane.setBounds(404, 360, 71, 27);
+		btnRicerca_Settimane.setBounds(514, 360, 71, 27);
 		contentPane.add(btnRicerca_Settimane);
 		
-		JLabel lblRicercaGiorniMese_Mese = new JLabel("Mese");
-		lblRicercaGiorniMese_Mese.setHorizontalAlignment(SwingConstants.CENTER);
-		lblRicercaGiorniMese_Mese.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblRicercaGiorniMese_Mese.setBounds(273, 272, 35, 19);
-		contentPane.add(lblRicercaGiorniMese_Mese);
+		JLabel lblTempisticheGiorniMese_Mese = new JLabel("Mese");
+		lblTempisticheGiorniMese_Mese.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTempisticheGiorniMese_Mese.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTempisticheGiorniMese_Mese.setBounds(358, 269, 35, 19);
+		contentPane.add(lblTempisticheGiorniMese_Mese);
 		
 		
 		
 		JLabel lblRicercaGiorniMese_Anno = new JLabel("Anno");
 		lblRicercaGiorniMese_Anno.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRicercaGiorniMese_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblRicercaGiorniMese_Anno.setBounds(353, 268, 33, 19);
+		lblRicercaGiorniMese_Anno.setBounds(437, 269, 33, 19);
 		contentPane.add(lblRicercaGiorniMese_Anno);
 		
 		JLabel lblRicercaMesi_Anno = new JLabel("Anno");
 		lblRicercaMesi_Anno.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRicercaMesi_Anno.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblRicercaMesi_Anno.setBounds(274, 404, 33, 19);
+		lblRicercaMesi_Anno.setBounds(452, 398, 35, 19);
 		contentPane.add(lblRicercaMesi_Anno);
 		
 		JLabel lblInserimento = new JLabel("Inserimento");
@@ -291,6 +320,8 @@ public class GateGUI extends JFrame {
 		btnElimina.setFont(new Font("Tahoma", Font.BOLD, 15));
 		btnElimina.setBounds(585, 674, 85, 40);
 		contentPane.add(btnElimina);
+		
+	
 		
 		
 		

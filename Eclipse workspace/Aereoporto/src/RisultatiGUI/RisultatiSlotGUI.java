@@ -39,7 +39,7 @@ public class RisultatiSlotGUI extends JFrame {
 		
 		for(Slot slot: list) {
 			String string = slot.getCodSlot()+ " " + slot.getTempoDiImbarcoStimato() + " " +slot.getTempoDiImbarcoEffettivo() 
-			+ " " +slot.getOrarioDiPartenza() + " " +slot.getData();
+			 + " " +slot.getData();
 			listModel.addElement(string);
 			
 		}
