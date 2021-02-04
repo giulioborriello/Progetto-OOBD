@@ -80,10 +80,10 @@ m2=
     <coordinates>
       <x>154</x>
       <y>98</y>
-      <w>84</w>
+      <w>105</w>
       <h>21</h>
     </coordinates>
-    <panel_attributes>New Controller()
+    <panel_attributes>new Controller()
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -199,12 +199,6 @@ style=wordwrap</panel_attributes>
 
 
 
-
-
-
-
-
--.
 
 
 
@@ -825,24 +819,25 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>35</x>
+      <x>28</x>
       <y>1386</y>
-      <w>1008</w>
+      <w>1015</w>
       <h>21</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>1420.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>1430.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>42</x>
+      <x>35</x>
       <y>1351</y>
-      <w>105</w>
+      <w>119</w>
       <h>42</h>
     </coordinates>
     <panel_attributes>      Clicca su 
-"RicercaComboBox" Seleziona tutti
+"RicercaComboBox" 
+la voce: Codice Fiscale
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -951,30 +946,6 @@ style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>252</x>
-      <y>1771</y>
-      <w>189</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>list = bigliettoPostgres.getAllBiglietto()
-
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>238</x>
-      <y>1778</y>
-      <w>1274</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>1800.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>1498</x>
@@ -1022,30 +993,6 @@ style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLFrame</id>
-    <coordinates>
-      <x>1456</x>
-      <y>1890</y>
-      <w>252</w>
-      <h>238</h>
-    </coordinates>
-    <panel_attributes>Loop </panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>1652</x>
-      <y>1890</y>
-      <w>56</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>[rs.next()]
-
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>1519</x>
@@ -1071,30 +1018,6 @@ style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1519</x>
-      <y>2051</y>
-      <w>189</w>
-      <h>56</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;60.0;250.0;60.0;250.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>1526</x>
-      <y>2044</y>
-      <w>126</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>listBiglietto.add(biglietto)
-
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
       <x>161</x>
@@ -1102,7 +1025,7 @@ style=wordwrap</panel_attributes>
       <w>91</w>
       <h>21</h>
     </coordinates>
-    <panel_attributes>return listBiglietto
+    <panel_attributes>return biglietto
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -1110,12 +1033,15 @@ style=wordwrap</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>238</x>
-      <y>2142</y>
+      <y>2135</y>
       <w>1274</w>
-      <h>21</h>
+      <h>42</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;1800.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;.
+
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;1800.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Text</id>
@@ -1132,21 +1058,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>287</x>
-      <y>1736</y>
-      <w>189</w>
-      <h>21</h>
-    </coordinates>
-    <panel_attributes>[Se l'utente ha scelto Visualizza tutti]
-
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>245</x>
-      <y>2177</y>
+      <x>343</x>
+      <y>1743</y>
       <w>189</w>
       <h>21</h>
     </coordinates>
@@ -1158,8 +1071,8 @@ style=wordwrap</panel_attributes>
   <element>
     <id>Text</id>
     <coordinates>
-      <x>245</x>
-      <y>2254</y>
+      <x>252</x>
+      <y>2205</y>
       <w>189</w>
       <h>21</h>
     </coordinates>
@@ -1171,24 +1084,12 @@ style=wordwrap</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>287</x>
-      <y>2198</y>
+      <x>273</x>
+      <y>2261</y>
       <w>133</w>
       <h>35</h>
     </coordinates>
-    <panel_attributes>Lo stesso di visualizza tutti
-ma cambia la query</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLNote</id>
-    <coordinates>
-      <x>280</x>
-      <y>2268</y>
-      <w>133</w>
-      <h>35</h>
-    </coordinates>
-    <panel_attributes>Lo stesso di visualizza tutti
+    <panel_attributes>Lo stesso di Codice fiscale
 ma cambia la query</panel_attributes>
     <additional_attributes/>
   </element>

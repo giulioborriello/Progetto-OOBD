@@ -37,7 +37,7 @@ public class MenùGUI extends JFrame {
 				controller.openGate();
 			}
 		});
-		btnGate.setBounds(205, 181, 124, 70);
+		btnGate.setBounds(199, 299, 124, 70);
 		contentPane.add(btnGate);
 		
 		JButton btnSlot = new JButton("Slot");
@@ -47,7 +47,7 @@ public class MenùGUI extends JFrame {
 				controller.openSlot();
 			}
 		});
-		btnSlot.setBounds(485, 181, 124, 70);
+		btnSlot.setBounds(479, 299, 124, 70);
 		contentPane.add(btnSlot);
 		
 		JButton btnTratta = new JButton("Tratta");
@@ -57,7 +57,7 @@ public class MenùGUI extends JFrame {
 				controller.openTratta();
 			}
 		});
-		btnTratta.setBounds(205, 100, 124, 70);
+		btnTratta.setBounds(199, 218, 124, 70);
 		contentPane.add(btnTratta);
 		
 		JButton btnFedeltà = new JButton("Fedelt\u00E0");
@@ -67,7 +67,7 @@ public class MenùGUI extends JFrame {
 				controller.openFedeltà();
 			}
 		});
-		btnFedeltà.setBounds(205, 262, 124, 70);
+		btnFedeltà.setBounds(199, 380, 124, 70);
 		contentPane.add(btnFedeltà);
 		
 		JButton btnCompagnia = new JButton("Compagnia");
@@ -77,7 +77,7 @@ public class MenùGUI extends JFrame {
 				controller.openCompagnia();
 			}
 		});
-		btnCompagnia.setBounds(485, 262, 124, 70);
+		btnCompagnia.setBounds(479, 380, 124, 70);
 		contentPane.add(btnCompagnia);
 		
 		JButton btnCodaDiImbarco = new JButton("Coda di imbarco");
@@ -87,7 +87,7 @@ public class MenùGUI extends JFrame {
 				controller.openCodaDiImbarco();
 			}
 		});
-		btnCodaDiImbarco.setBounds(188, 343, 158, 70);
+		btnCodaDiImbarco.setBounds(182, 461, 158, 70);
 		contentPane.add(btnCodaDiImbarco);
 		
 		JButton btnBiglietto = new JButton("Biglietto");
@@ -97,13 +97,13 @@ public class MenùGUI extends JFrame {
 				controller.openBiglietto();
 			}
 		});
-		btnBiglietto.setBounds(485, 100, 124, 70);
+		btnBiglietto.setBounds(479, 218, 124, 70);
 		contentPane.add(btnBiglietto);
 		
 		JLabel lblTitolo = new JLabel("Scegli dove effettuare le operazioni");
 		lblTitolo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTitolo.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblTitolo.setBounds(129, 11, 564, 80);
+		lblTitolo.setFont(new Font("Tahoma", Font.PLAIN, 22));
+		lblTitolo.setBounds(126, 45, 564, 35);
 		contentPane.add(lblTitolo);
 		
 		JButton btnCliente = new JButton("Cliente");
@@ -113,7 +113,13 @@ public class MenùGUI extends JFrame {
 				controller.openCliente();
 			}
 		});
-		btnCliente.setBounds(485, 343, 124, 70);
+		btnCliente.setBounds(479, 461, 124, 70);
 		contentPane.add(btnCliente);
+		
+		JLabel lblSottotitolo2 = new JLabel("Per inserire un volo seguire la sequenza: Compagnia -> Tratta -> Gate -> Coda Di Imbarco -> Slot");
+		lblSottotitolo2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblSottotitolo2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSottotitolo2.setBounds(45, 106, 695, 25);
+		contentPane.add(lblSottotitolo2);
 	}
 }
