@@ -28,7 +28,6 @@ public class RisultatiClienteGUI extends JFrame {
 	private JTable table;
 	
 
-	@SuppressWarnings("serial")
 	public RisultatiClienteGUI(List<Cliente> list, Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
