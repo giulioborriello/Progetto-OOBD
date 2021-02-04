@@ -4,13 +4,17 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import ControllerPackage.Controller;
 import Entità.CodaDiImbarco;
@@ -20,6 +24,7 @@ public class RisultatiCodaDiImbarcoGUI extends JFrame {
 	private Controller controller;
 	
 	private JPanel contentPane;
+	private JTable table;
 
 	public RisultatiCodaDiImbarcoGUI(List<CodaDiImbarco> list, Controller c) {
 		controller = c;
@@ -32,23 +37,36 @@ public class RisultatiCodaDiImbarcoGUI extends JFrame {
 		setTitle("Risultati Coda Di Imbarco");		
 		setResizable(false);
 		
-		DefaultListModel<String> listModel = new DefaultListModel<String>();
-		String titoli = "Codice Coda " + "Tipo Di Coda " + "Codice Gate "+ "CodSlot ";
-		listModel.addElement(titoli);
 		
+		Vector<String> columns = new Vector<String>();
+		columns.add("Codice Coda");
+		columns.add("Tipo Di Coda");
+		columns.add("Codice Gate");		
+		columns.add("CodSlot");
+		
+		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 		
 		for(CodaDiImbarco coda: list) {
-			String string = coda.getCodCoda()+ " " + coda.getTipoDiCoda() + " " + coda.getGate().getCodGate() + " " +
-					coda.getSlot().getCodSlot();
-			listModel.addElement(string);
-			
+			Vector<Object> vector = new Vector<Object>();
+			vector.add(coda.getCodCoda());
+			vector.add(coda.getTipoDiCoda());
+			vector.add(coda.getGate().getCodGate());	
+			vector.add(coda.getSlot().getCodSlot());
+			data.add(vector);
 		}
 		
+		JScrollPane scrollpane = new JScrollPane();
+		scrollpane.setLocation(114, 11);
+		scrollpane.setSize(425, 347);
 		
-		JList jlist = new JList(listModel);
- 	    jlist.setLocation(62, 49);
- 	    jlist.setSize(772, 363);
- 	    contentPane.add(jlist);
+		table = new JTable(new DefaultTableModel(data, columns));
+		table.setEnabled(false);
+		table.setRowSelectionAllowed(false);
+		table.setBounds(114, 11, 425, 347);
+		
+		scrollpane.setViewportView(table);
+		contentPane.add(scrollpane);
+		
  	    
  	    JButton btnNewButton_3 = new JButton("Torna indietro ");
  	    btnNewButton_3.addActionListener(new ActionListener() {

@@ -4,22 +4,27 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import ControllerPackage.Controller;
 import Entità.Tempistica;
 
 public class RisultatiTempisticheGateGUI extends JFrame {
-
-	private JPanel contentPane;
+	
 	private Controller controller;
-
+	private JPanel contentPane;
+	
+	private JTable table;
+	
+	
 	public RisultatiTempisticheGateGUI(List<Tempistica> list, Controller c, String scelta) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -36,7 +41,12 @@ public class RisultatiTempisticheGateGUI extends JFrame {
 			String titoli = "Anno " + "Mese " + "Giorno "+ "Tempistica ";
 			listModel.addElement(titoli);
 			for (Tempistica valori : list) {
-				listModel.addElement(valori.getAnno() + " " + valori.getMese() + " " + valori.getGiorno() + " " + valori.getValore() );
+				Vector<Object> vector = new Vector<Object>();
+				vector.add(coda.getCodCoda());
+				vector.add(coda.getTipoDiCoda());
+				vector.add(coda.getGate().getCodGate());	
+				vector.add(coda.getSlot().getCodSlot());
+				data.add(vector);
 			}
 		} 
 		else if(scelta.equals("Settimane")) {
@@ -44,14 +54,24 @@ public class RisultatiTempisticheGateGUI extends JFrame {
 			String titoli = "Anno " + "Settimana " + "Tempistica ";
 			listModel.addElement(titoli);
 			for (Tempistica valori : list) {
-				listModel.addElement(valori.getAnno() + " " + valori.getSettimana() + " " + valori.getValore() );
+				Vector<Object> vector = new Vector<Object>();
+				vector.add(coda.getCodCoda());
+				vector.add(coda.getTipoDiCoda());
+				vector.add(coda.getGate().getCodGate());	
+				vector.add(coda.getSlot().getCodSlot());
+				data.add(vector);
 			}
 		}
 		else if(scelta.equals("Mesi")) {
 			String titoli = "Anno " + "Mese " + "Tempistica ";
 			listModel.addElement(titoli);
 			for (Tempistica valori : list) {
-				listModel.addElement(valori.getAnno() + " " + valori.getMese() + " " + valori.getValore() );
+				Vector<Object> vector = new Vector<Object>();
+				vector.add(coda.getCodCoda());
+				vector.add(coda.getTipoDiCoda());
+				vector.add(coda.getGate().getCodGate());	
+				vector.add(coda.getSlot().getCodSlot());
+				data.add(vector);
 			}
 		}
 		

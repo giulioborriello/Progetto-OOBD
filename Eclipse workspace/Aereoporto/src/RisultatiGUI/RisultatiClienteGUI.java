@@ -60,11 +60,11 @@ public class RisultatiClienteGUI extends JFrame {
 		columns.add("Cognome");		
 		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 		
-		for(int i = 0; i < list.size(); i++) {
+		for(Cliente cliente: list) {
 			Vector<Object> vector = new Vector<Object>();
-			vector.add(list.get(i).getCodFiscale());
-			vector.add(list.get(i).getNome());
-			vector.add(list.get(i).getCognome());			
+			vector.add(cliente.getCodFiscale());
+			vector.add(cliente.getNome());
+			vector.add(cliente.getCognome());			
 			data.add(vector);
 		}
 		JScrollPane scrollpane = new JScrollPane();

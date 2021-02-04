@@ -2,6 +2,7 @@ package RisultatiGUI;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import ControllerPackage.Controller;
@@ -12,6 +13,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.util.List;
+import java.util.Vector;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -20,6 +22,7 @@ public class RisultatiSlotGUI extends JFrame {
 	private Controller controller;
 	
 	private JPanel contentPane;
+	private JTable table;
 	
 	public RisultatiSlotGUI(List<Slot> list, Controller c) {
 		controller = c;
@@ -38,10 +41,12 @@ public class RisultatiSlotGUI extends JFrame {
 		listModel.addElement(titoli);
 		
 		for(Slot slot: list) {
-			String string = slot.getCodSlot()+ " " + slot.getTempoDiImbarcoStimato() + " " +slot.getTempoDiImbarcoEffettivo() 
-			 + " " +slot.getData();
-			listModel.addElement(string);
-			
+			Vector<Object> vector = new Vector<Object>();
+			vector.add(coda.getCodCoda());
+			vector.add(coda.getTipoDiCoda());
+			vector.add(coda.getGate().getCodGate());	
+			vector.add(coda.getSlot().getCodSlot());
+			data.add(vector);
 		}
 		
 		JList jlist = new JList(listModel);

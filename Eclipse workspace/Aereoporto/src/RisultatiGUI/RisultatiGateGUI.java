@@ -1,9 +1,11 @@
 package RisultatiGUI;
 
 import java.util.List;
+import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 
 import ControllerPackage.Controller;
@@ -21,7 +23,8 @@ public class RisultatiGateGUI extends JFrame {
 	private Controller controller;
 	
 	private JPanel contentPane;
-
+	private JTable table;
+	
 	public RisultatiGateGUI(List<Gate> list, Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,8 +42,12 @@ public class RisultatiGateGUI extends JFrame {
 		listModel.addElement(titoli);
 		
 		for(Gate gate: list) {
-			String string = gate.getCodGate() + " " + gate.getnGate() + " " + gate.getTratta().getCodTratta()+ " " + gate.getData();
-			listModel.addElement(string);
+			Vector<Object> vector = new Vector<Object>();
+			vector.add(coda.getCodCoda());
+			vector.add(coda.getTipoDiCoda());
+			vector.add(coda.getGate().getCodGate());	
+			vector.add(coda.getSlot().getCodSlot());
+			data.add(vector);
 		}
 		
 		JList jlist = new JList(listModel);
