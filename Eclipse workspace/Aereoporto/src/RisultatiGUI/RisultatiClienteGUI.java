@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 import ControllerPackage.Controller;
-import Entit‡.Cliente;
+import Entit√†.Cliente;
 
 import javax.swing.JList;
 import javax.swing.DefaultListModel;
@@ -28,6 +28,7 @@ public class RisultatiClienteGUI extends JFrame {
 	private JTable table;
 	
 
+	@SuppressWarnings("serial")
 	public RisultatiClienteGUI(List<Cliente> list, Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -67,14 +68,17 @@ public class RisultatiClienteGUI extends JFrame {
 			data.add(vector);
 		}
 		JScrollPane scrollpane = new JScrollPane();
-		scrollpane.setLocation(57, 26);
+		scrollpane.setLocation(114, 11);
 		scrollpane.setSize(425, 347);
 		
-		
-		
 		table = new JTable(new DefaultTableModel(data, columns));
+		table.setEnabled(false);
+		table.setRowSelectionAllowed(false);
+		table.setBounds(114, 11, 425, 347);
 		
-		scrollpane.add(table);
+		scrollpane.setViewportView(table);
 		contentPane.add(scrollpane);
 	}
+	
+	
 }
