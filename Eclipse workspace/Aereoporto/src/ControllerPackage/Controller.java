@@ -80,6 +80,9 @@ public class Controller {
 	singleton = SingletonPostgres.getInstance();
 	}
 	
+	
+	
+	
 	public void openSlot() {
 		if(risultatiSlot != null) {
 			risultatiSlot.setVisible(false);
@@ -170,6 +173,7 @@ public class Controller {
 	
 	
 
+	
 	public void openRisultatiGate(String ricerca, String valore, String data) {
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
@@ -346,9 +350,6 @@ public class Controller {
 	
 	}
 	
-	
-	
-	
 	public void openRisultatiCliente(String ricerca, String valore) {
 		ClienteDAOPostgres clientePostgres = new ClienteDAOPostgres(singleton);
 		List<Cliente> list = new LinkedList<Cliente>();
@@ -360,8 +361,6 @@ public class Controller {
 		cliente.setVisible(false);
 		risultatiCliente.setVisible(true);
 	}
-	
-	
 	
 	public void openRisultatiBiglietto(String ricerca, String valore) {
 		BigliettoDAOPostgres bigliettoPostgres = new BigliettoDAOPostgres(singleton);
@@ -427,7 +426,6 @@ public class Controller {
 		openDialog(testo);
 	}
 	
-
 	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) {
 		
 		if (checkBlank(CodFiscale, Nome, Cognome, Email)) {
@@ -560,7 +558,24 @@ public class Controller {
 		String testo = biglietto.insertBiglietto(CodFiscale, TipoDiBiglietto, CodBiglietto, CodTratta, Posto);
 		openDialog(testo);
 	}
+	
+	public void inserisciGate(String CodGate, String Ngate, String CodTratta) {
+		if(checkBlank(CodGate, Ngate, CodTratta)) {
+			return;
+		}
 
+		if(checkCodTratta(CodTratta)) {
+			return;
+		}
+
+		GateDAOPostgres gate = new GateDAOPostgres(singleton);
+		String testo = gate.insertGate(CodGate, Ngate, CodTratta);
+		openDialog(testo);
+		}
+	
+
+	
+	
 	public void eliminaSlot(String CodSlot) {
 		
 		if(checkBlank(CodSlot)) {
@@ -575,7 +590,6 @@ public class Controller {
 		String testo = slot.deleteSlot(CodSlot);
 		openDialog(testo);
 	}
-
 
 	public void eliminaCodaDiImbarco(String CodCoda) {
 		
@@ -673,22 +687,9 @@ public class Controller {
 	}
 	
 	
-	public void inserisciGate(String CodGate, String Ngate, String CodTratta) {
-		if(checkBlank(CodGate, Ngate, CodTratta)) {
-			return;
-		}
-
-		if(checkCodTratta(CodTratta)) {
-			return;
-		}
-
-		GateDAOPostgres gate = new GateDAOPostgres(singleton);
-		String testo = gate.insertGate(CodGate, Ngate, CodTratta);
-		openDialog(testo);
-		}
 	
 	
-
+	
 	public void aggiornaFedelt‡Centokilometri(String CentoKilometri, String CodFiscale, String CodIATA) {
 		if(checkCodIATA(CodIATA)) {
 			return;
@@ -741,6 +742,10 @@ public class Controller {
 		String testo = slot.updateTempoDiImbarcoEffettivoByCodSlot(tempoEffettivo, IndicaCodSlot);
 		openDialog(testo);
 	}
+	
+	
+	
+	
 	
 	public boolean checkBlank(String ... testi) {
 		for(String testo:testi) {
@@ -829,10 +834,17 @@ public class Controller {
 	}
 	
 	
+	
+	
+	
 	public void openDialog(String text) {
 		Dialog dialog = new Dialog(text);
 		dialog.setVisible(true);
 	}
+	
+	
+	
+	
 	
 	public void ricercaTempisticaGiorniMese(String Ngate ,String mese, String anno) {
 		
@@ -867,7 +879,6 @@ public class Controller {
 		this.openRisultatiTempisticheGateGUI(list, "Settimane");
 	}
 
-	
 	public void ricercaRitardi(String CentoKilometri) {
 		Fedelt‡DAOPostgres fedelt‡DAOP = new Fedelt‡DAOPostgres(singleton);
 		int NumeroRitardi = fedelt‡DAOP.GetRitardi(CentoKilometri);
