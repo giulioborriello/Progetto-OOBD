@@ -58,6 +58,7 @@ public class Controller {
 	private RisultatiClienteGUI risultatiCliente;
 	private RisultatiBigliettoGUI risultatiBiglietto;
 	private RisultatiTempisticheGateGUI risultatiTempisticheGateGUI; 
+	
 	private static SingletonPostgres singleton;
 	
 	public Controller() {
@@ -169,6 +170,16 @@ public class Controller {
 		gate.setVisible(false);
 		slot.setVisible(false);
 		menù.setVisible(true);
+		
+		risultatiSlot.dispose();
+		risultatiGate.dispose();
+		risultatiTratta.dispose();
+		risultatiFedeltà.dispose();
+		risultatiCompagnia.dispose();
+		risultatiCodaDiImbarco.dispose();
+		risultatiCliente.dispose();
+		risultatiBiglietto.dispose();
+		risultatiTempisticheGateGUI.dispose();
 	}
 	
 	
