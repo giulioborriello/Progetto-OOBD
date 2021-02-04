@@ -14176,7 +14176,7 @@
 											"top": 4092,
 											"width": 405.01220703125,
 											"height": 13,
-											"text": "-jlist: Jlist",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -14205,6 +14205,7 @@
 											"model": {
 												"$ref": "AAAAAAF23bQiPBgq03s="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 389,
 											"top": 4122,
@@ -14222,12 +14223,64 @@
 											"model": {
 												"$ref": "AAAAAAF3VCtxu63Kuqs="
 											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": 389,
+											"top": 4122,
+											"width": 405.01220703125,
+											"height": 13,
+											"text": "+titoli: Stringi = \"Codice Biglietto \"  \"Posto \"   \"Tipo \"  \"Tratta \"  \"Cliente\"",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bbnDW10wDto=",
+											"_parent": {
+												"$ref": "AAAAAAF23ZysWhYfcwg="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bbnDEV0tCwM="
+											},
+											"font": "Arial;13;0",
+											"left": 389,
+											"top": 4122,
+											"width": 405.01220703125,
+											"height": 13,
+											"text": "-scrollpane: JscrollPane",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bbqDAF03sLM=",
+											"_parent": {
+												"$ref": "AAAAAAF23ZysWhYfcwg="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bbqCwl00/LA="
+											},
 											"font": "Arial;13;0",
 											"left": 389,
 											"top": 4137,
 											"width": 405.01220703125,
 											"height": 13,
-											"text": "+titoli: Stringi = \"Codice Biglietto \"  \"Posto \"   \"Tipo \"  \"Tratta \"  \"Cliente\"",
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bbrEO10+oBg=",
+											"_parent": {
+												"$ref": "AAAAAAF23ZysWhYfcwg="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bbrEAV07zZo="
+											},
+											"font": "Arial;13;0",
+											"left": 389,
+											"top": 4152,
+											"width": 405.01220703125,
+											"height": 13,
+											"text": "-data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -14235,7 +14288,7 @@
 									"left": 384,
 									"top": 4057,
 									"width": 415.01220703125,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -14258,7 +14311,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 389,
-											"top": 4160,
+											"top": 4175,
 											"width": 405.01220703125,
 											"height": 13,
 											"text": "+RisultatiBigliettoGUI(list: List<Biglietto>, c: Controller)",
@@ -14267,7 +14320,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 384,
-									"top": 4155,
+									"top": 4170,
 									"width": 415.01220703125,
 									"height": 23
 								},
@@ -14312,7 +14365,7 @@
 							"left": 384,
 							"top": 4032,
 							"width": 415.01220703125,
-							"height": 146,
+							"height": 176,
 							"nameCompartment": {
 								"$ref": "AAAAAAF23ZysWRYaqRQ="
 							},
@@ -14478,7 +14531,7 @@
 											"top": 4084,
 											"width": 367.82763671875,
 											"height": 13,
-											"text": "-jlist: Jlist",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -14507,6 +14560,7 @@
 											"model": {
 												"$ref": "AAAAAAF23bRj+hgxLsk="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 861,
 											"top": 4114,
@@ -14524,12 +14578,64 @@
 											"model": {
 												"$ref": "AAAAAAF3VDAF+a3ZSIk="
 											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": 861,
+											"top": 4114,
+											"width": 367.82763671875,
+											"height": 13,
+											"text": "-titoli: Stringi = \"Codice Fiscale \"  \"Nome \"  \"Cognome \" \"Email \"",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bbu6Vl1K/Rk=",
+											"_parent": {
+												"$ref": "AAAAAAF23aF2ARZ0js4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bbu6El1HWKk="
+											},
+											"font": "Arial;13;0",
+											"left": 861,
+											"top": 4114,
+											"width": 367.82763671875,
+											"height": 13,
+											"text": "-scrollpane: JscrollPane",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bbwm6F1TPYM=",
+											"_parent": {
+												"$ref": "AAAAAAF23aF2ARZ0js4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bbwmsl1QJVs="
+											},
 											"font": "Arial;13;0",
 											"left": 861,
 											"top": 4129,
 											"width": 367.82763671875,
 											"height": 13,
-											"text": "-titoli: Stringi = \"Codice Fiscale \"  \"Nome \"  \"Cognome \" \"Email \"",
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bbxOrl1a+zM=",
+											"_parent": {
+												"$ref": "AAAAAAF23aF2ARZ0js4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bbxOeV1XwQI="
+											},
+											"font": "Arial;13;0",
+											"left": 861,
+											"top": 4144,
+											"width": 367.82763671875,
+											"height": 13,
+											"text": "-data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -14537,7 +14643,7 @@
 									"left": 856,
 									"top": 4049,
 									"width": 377.82763671875,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -14560,7 +14666,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 861,
-											"top": 4152,
+											"top": 4167,
 											"width": 367.82763671875,
 											"height": 13,
 											"text": "+RisultatiClienteGUI(list: List<Cliente>, c: Controller)",
@@ -14569,7 +14675,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 856,
-									"top": 4147,
+									"top": 4162,
 									"width": 377.82763671875,
 									"height": 23
 								},
@@ -14614,7 +14720,7 @@
 							"left": 856,
 							"top": 4024,
 							"width": 377.82763671875,
-							"height": 146,
+							"height": 161,
 							"nameCompartment": {
 								"$ref": "AAAAAAF23aF2ARZvTwc="
 							},
@@ -14780,7 +14886,7 @@
 											"top": 4068,
 											"width": 463,
 											"height": 13,
-											"text": "-jlist: JList",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -14814,7 +14920,7 @@
 											"top": 4098,
 											"width": 463,
 											"height": 13,
-											"text": "-listModel: DefaultListModel<String>",
+											"text": "-scrollpane: JscrollPane",
 											"horizontalAlignment": 0
 										},
 										{
@@ -14831,7 +14937,24 @@
 											"top": 4113,
 											"width": 463,
 											"height": 13,
-											"text": "-titoli: String = \"Codice Coda \" \"Tipo Di Coda \"  \"Codice Gate \" \"CodSlot \"",
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bcAG612Ttyc=",
+											"_parent": {
+												"$ref": "AAAAAAF23aT2yRbTBcQ="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bcAGcl2QgUY="
+											},
+											"font": "Arial;13;0",
+											"left": 1581,
+											"top": 4128,
+											"width": 463,
+											"height": 13,
+											"text": "-data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -14839,7 +14962,7 @@
 									"left": 1576,
 									"top": 4033,
 									"width": 473,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -14862,7 +14985,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1581,
-											"top": 4136,
+											"top": 4151,
 											"width": 463,
 											"height": 13,
 											"text": "+RisultatiCodaDiImbarcoGUI(list: List<CodaDiImbarco>, c: Controller>)",
@@ -14871,7 +14994,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 1576,
-									"top": 4131,
+									"top": 4146,
 									"width": 473,
 									"height": 23
 								},
@@ -15082,7 +15205,7 @@
 											"top": 4580,
 											"width": 354.39599609375,
 											"height": 13,
-											"text": "-jlist: JList",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -15116,7 +15239,7 @@
 											"top": 4610,
 											"width": 354.39599609375,
 											"height": 13,
-											"text": "-listModel: DefaultListModel<String>",
+											"text": "-scrollpane: JscrollPane",
 											"horizontalAlignment": 0
 										},
 										{
@@ -15133,7 +15256,24 @@
 											"top": 4625,
 											"width": 354.39599609375,
 											"height": 13,
-											"text": "-titoli: String = \"Codice IATA\"  \"Nome Compagnia ;",
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bcDr612eL+0=",
+											"_parent": {
+												"$ref": "AAAAAAF23ae26xclykY="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bcDral2bwfk="
+											},
+											"font": "Arial;13;0",
+											"left": 357,
+											"top": 4640,
+											"width": 354.39599609375,
+											"height": 13,
+											"text": "+data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -15141,7 +15281,7 @@
 									"left": 352,
 									"top": 4545,
 									"width": 364.39599609375,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -15164,7 +15304,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 357,
-											"top": 4648,
+											"top": 4663,
 											"width": 354.39599609375,
 											"height": 13,
 											"text": "+RisultatiCompagniaGUI(list: List<Compagnia>, c: Controller)",
@@ -15173,7 +15313,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 352,
-									"top": 4643,
+									"top": 4658,
 									"width": 364.39599609375,
 									"height": 23
 								},
@@ -15218,7 +15358,7 @@
 							"left": 352,
 							"top": 4520,
 							"width": 364.39599609375,
-							"height": 146,
+							"height": 161,
 							"nameCompartment": {
 								"$ref": "AAAAAAF23ae26xcgiZc="
 							},
@@ -15379,6 +15519,7 @@
 											"model": {
 												"$ref": "AAAAAAF23a70fBeqkuA="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 821,
 											"top": 4564,
@@ -15398,10 +15539,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 4579,
+											"top": 4564,
 											"width": 475.896484375,
 											"height": 13,
-											"text": "-jlist: JList",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -15415,7 +15556,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 4594,
+											"top": 4579,
 											"width": 475.896484375,
 											"height": 13,
 											"text": "-btnNewButton_3: JButton",
@@ -15432,10 +15573,44 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
+											"top": 4594,
+											"width": 475.896484375,
+											"height": 13,
+											"text": "-scrollpane: JscrollPane",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bcGdbF2nhjQ=",
+											"_parent": {
+												"$ref": "AAAAAAF23a1RRxd5otg="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bcGc8l2kfcQ="
+											},
+											"font": "Arial;13;0",
+											"left": 821,
 											"top": 4609,
 											"width": 475.896484375,
 											"height": 13,
-											"text": "#titoli: String = \"Codice Gate \"  \"N° Gate \"  \"Codice Tratta Corrispondente \"  \"Data \"",
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bcHV6F2uiZs=",
+											"_parent": {
+												"$ref": "AAAAAAF23a1RRxd5otg="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bcHVeV2rLQE="
+											},
+											"font": "Arial;13;0",
+											"left": 821,
+											"top": 4624,
+											"width": 475.896484375,
+											"height": 13,
+											"text": "-data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -15443,7 +15618,7 @@
 									"left": 816,
 									"top": 4529,
 									"width": 485.896484375,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -15466,7 +15641,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 821,
-											"top": 4632,
+											"top": 4647,
 											"width": 475.896484375,
 											"height": 13,
 											"text": "+RisultatiGateGUI(list: List<Gate>, c: Controller)",
@@ -15475,7 +15650,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 816,
-									"top": 4627,
+									"top": 4642,
 									"width": 485.896484375,
 									"height": 23
 								},
@@ -15686,7 +15861,7 @@
 											"top": 4260,
 											"width": 359,
 											"height": 13,
-											"text": "-jlist: JList",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -15715,6 +15890,7 @@
 											"model": {
 												"$ref": "AAAAAAF24mLZii+R9Ac="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 1461,
 											"top": 4290,
@@ -15734,7 +15910,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1461,
-											"top": 4305,
+											"top": 4290,
 											"width": 359,
 											"height": 13,
 											"text": "-btnTornaIndietro: JButton",
@@ -15749,9 +15925,10 @@
 											"model": {
 												"$ref": "AAAAAAF3VCijKq2uHG8="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 1461,
-											"top": 4320,
+											"top": 4305,
 											"width": 359,
 											"height": 13,
 											"text": "-lblValore: JLabel",
@@ -15766,9 +15943,10 @@
 											"model": {
 												"$ref": "AAAAAAF3VCjWx621cSQ="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 1461,
-											"top": 4335,
+											"top": 4320,
 											"width": 359,
 											"height": 13,
 											"text": "-lblTitolo: Jlabel",
@@ -15783,9 +15961,10 @@
 											"model": {
 												"$ref": "AAAAAAF3VDP8eq35ESc="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 1461,
-											"top": 4350,
+											"top": 4305,
 											"width": 359,
 											"height": 13,
 											"text": "-btnTornaIndietro: JButton",
@@ -15802,7 +15981,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1461,
-											"top": 4365,
+											"top": 4305,
 											"width": 359,
 											"height": 13,
 											"text": "-lblValore: JLabel",
@@ -15819,10 +15998,61 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1461,
-											"top": 4380,
+											"top": 4320,
 											"width": 359,
 											"height": 13,
 											"text": "-lblTitolo: JLabel",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bcgx2l3MC8s=",
+											"_parent": {
+												"$ref": "AAAAAAF24mF1Ii9SEb4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bcgxWl3JF+I="
+											},
+											"font": "Arial;13;0",
+											"left": 1461,
+											"top": 4335,
+											"width": 359,
+											"height": 13,
+											"text": "-scrollpane: JscrollPane",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bchDMF3Tx74=",
+											"_parent": {
+												"$ref": "AAAAAAF24mF1Ii9SEb4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bchC3l3Q3DE="
+											},
+											"font": "Arial;13;0",
+											"left": 1461,
+											"top": 4350,
+											"width": 359,
+											"height": 13,
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bchffF3a+zs=",
+											"_parent": {
+												"$ref": "AAAAAAF24mF1Ii9SEb4="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bchfLl3XKU0="
+											},
+											"font": "Arial;13;0",
+											"left": 1461,
+											"top": 4365,
+											"width": 359,
+											"height": 13,
+											"text": "-data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -15830,7 +16060,7 @@
 									"left": 1456,
 									"top": 4225,
 									"width": 369,
-									"height": 173
+									"height": 158
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -15853,7 +16083,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1461,
-											"top": 4403,
+											"top": 4388,
 											"width": 359,
 											"height": 13,
 											"text": "+RisultatiFedeltàGUI(list: List<Fedeltà>, c: Controller)",
@@ -15870,7 +16100,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1461,
-											"top": 4418,
+											"top": 4403,
 											"width": 359,
 											"height": 13,
 											"text": "+RisultatiFedeltàGUI(NumeroRitardi: int, controller: c)",
@@ -15879,7 +16109,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 1456,
-									"top": 4398,
+									"top": 4383,
 									"width": 369,
 									"height": 38
 								},
@@ -15924,7 +16154,7 @@
 							"left": 1456,
 							"top": 4200,
 							"width": 369,
-							"height": 236,
+							"height": 225,
 							"nameCompartment": {
 								"$ref": "AAAAAAF24mF1IS9NjMc="
 							},
@@ -16085,6 +16315,7 @@
 											"model": {
 												"$ref": "AAAAAAF23bNhfBgjJyk="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 317,
 											"top": 4404,
@@ -16104,10 +16335,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 317,
-											"top": 4419,
+											"top": 4404,
 											"width": 427.12109375,
 											"height": 13,
-											"text": "-jlist: JList",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16121,7 +16352,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 317,
-											"top": 4434,
+											"top": 4419,
 											"width": 427.12109375,
 											"height": 13,
 											"text": "-btnNewButton_3: JButton",
@@ -16136,12 +16367,64 @@
 											"model": {
 												"$ref": "AAAAAAF3VEK8Tq6kGZM="
 											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"left": 317,
+											"top": 4434,
+											"width": 427.12109375,
+											"height": 13,
+											"text": "#titoli: String = \"Codice Tratta \"  \"Destinazione \"  \"N° Prenotazioni \"  \"Scali\"",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bbz9uV1k1pM=",
+											"_parent": {
+												"$ref": "AAAAAAF23bEGtBfTzzs="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bbz9Ql1hvH0="
+											},
+											"font": "Arial;13;0",
+											"left": 317,
+											"top": 4434,
+											"width": 427.12109375,
+											"height": 13,
+											"text": "-scrollpane: JscrollPane",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bb0a/V1rO4g=",
+											"_parent": {
+												"$ref": "AAAAAAF23bEGtBfTzzs="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bb0aoF1o1W8="
+											},
 											"font": "Arial;13;0",
 											"left": 317,
 											"top": 4449,
 											"width": 427.12109375,
 											"height": 13,
-											"text": "#titoli: String = \"Codice Tratta \"  \"Destinazione \"  \"N° Prenotazioni \"  \"Scali\"",
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bb0zKl1xQxk=",
+											"_parent": {
+												"$ref": "AAAAAAF23bEGtBfTzzs="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bb0yul1uKPA="
+											},
+											"font": "Arial;13;0",
+											"left": 317,
+											"top": 4464,
+											"width": 427.12109375,
+											"height": 13,
+											"text": "-data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -16149,7 +16432,7 @@
 									"left": 312,
 									"top": 4369,
 									"width": 437.12109375,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -16172,7 +16455,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 317,
-											"top": 4472,
+											"top": 4487,
 											"width": 427.12109375,
 											"height": 13,
 											"text": "+RisultatiTrattaGUI(list: List<Tratta>, c: Controller)",
@@ -16181,7 +16464,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 312,
-									"top": 4467,
+									"top": 4482,
 									"width": 437.12109375,
 									"height": 23
 								},
@@ -16226,7 +16509,7 @@
 							"left": 312,
 							"top": 4344,
 							"width": 437.12109375,
-							"height": 146,
+							"height": 161,
 							"nameCompartment": {
 								"$ref": "AAAAAAF23bEGtBfOF+Y="
 							},
@@ -16392,7 +16675,7 @@
 											"top": 4524,
 											"width": 695,
 											"height": 13,
-											"text": "-jlist: JList",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16426,7 +16709,7 @@
 											"top": 4554,
 											"width": 695,
 											"height": 13,
-											"text": "-listModel: DefaultListModel<String>",
+											"text": "-scrollpane: JscrollPane",
 											"horizontalAlignment": 0
 										},
 										{
@@ -16443,7 +16726,24 @@
 											"top": 4569,
 											"width": 695,
 											"height": 13,
-											"text": "-titoli: String = \"Codice Slot \"  \"Tempo di imbarco stimato \"  \"Tempo di imbarco effettivo \" \"Orario di partenza \"  \"Data \"",
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bcLYtl27dCE=",
+											"_parent": {
+												"$ref": "AAAAAAF24mRXWS+tNnA="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bcLYOV24xkc="
+											},
+											"font": "Arial;13;0",
+											"left": 1413,
+											"top": 4584,
+											"width": 695,
+											"height": 13,
+											"text": "-data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -16451,7 +16751,7 @@
 									"left": 1408,
 									"top": 4489,
 									"width": 705,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -16474,7 +16774,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1413,
-											"top": 4592,
+											"top": 4607,
 											"width": 695,
 											"height": 13,
 											"text": "+RisultatiSlotGUI(list: List<Slot>, c: Controller)",
@@ -16483,7 +16783,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 1408,
-									"top": 4587,
+									"top": 4602,
 									"width": 705,
 									"height": 23
 								},
@@ -21000,6 +21300,7 @@
 											"model": {
 												"$ref": "AAAAAAF3VDuHAa5c83Y="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 805,
 											"top": 4364,
@@ -21019,10 +21320,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 4379,
+											"top": 4364,
 											"width": 461.30322265625,
 											"height": 13,
-											"text": "-jlist: JList",
+											"text": "-table: JTable",
 											"horizontalAlignment": 0
 										},
 										{
@@ -21036,7 +21337,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 4394,
+											"top": 4379,
 											"width": 461.30322265625,
 											"height": 13,
 											"text": "-btnNewButton_3: JButton",
@@ -21053,10 +21354,44 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
+											"top": 4394,
+											"width": 461.30322265625,
+											"height": 13,
+											"text": "-scrollpane: JscrollPane",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bb4zFl184O4=",
+											"_parent": {
+												"$ref": "AAAAAAF3VDmGo64qfNE="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bb4yil15e/k="
+											},
+											"font": "Arial;13;0",
+											"left": 805,
 											"top": 4409,
 											"width": 461.30322265625,
 											"height": 13,
-											"text": "#titoli: String = \"Anno \"  \"Mese \"  \"Giorno \" \"Tempistica \"",
+											"text": "-columns: Vector<String>",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAF3bb5Pll2DIeI=",
+											"_parent": {
+												"$ref": "AAAAAAF3VDmGo64qfNE="
+											},
+											"model": {
+												"$ref": "AAAAAAF3bb5PJl2A/jk="
+											},
+											"font": "Arial;13;0",
+											"left": 805,
+											"top": 4424,
+											"width": 461.30322265625,
+											"height": 13,
+											"text": "-data: Vector<Vector<Object>>",
 											"horizontalAlignment": 0
 										}
 									],
@@ -21064,7 +21399,7 @@
 									"left": 800,
 									"top": 4329,
 									"width": 471.30322265625,
-									"height": 98
+									"height": 113
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -21087,7 +21422,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 805,
-											"top": 4432,
+											"top": 4447,
 											"width": 461.30322265625,
 											"height": 13,
 											"text": "+RisultatiTempisticheGateGUI(list: List<Tempistica>, c: Controller, scelta: String)",
@@ -21096,7 +21431,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 800,
-									"top": 4427,
+									"top": 4442,
 									"width": 471.30322265625,
 									"height": 23
 								},
@@ -21141,7 +21476,7 @@
 							"left": 800,
 							"top": 4304,
 							"width": 471.30322265625,
-							"height": 148,
+							"height": 161,
 							"nameCompartment": {
 								"$ref": "AAAAAAF3VDmGoq4lLEk="
 							},
@@ -30997,9 +31332,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF23ZysWBYXlAQ="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "Jlist"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31030,6 +31365,36 @@
 									"name": "titoli",
 									"type": "Stringi",
 									"defaultValue": "\"Codice Biglietto \"  \"Posto \"   \"Tipo \"  \"Tratta \"  \"Cliente\""
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bbnDEV0tCwM=",
+									"_parent": {
+										"$ref": "AAAAAAF23ZysWBYXlAQ="
+									},
+									"name": "scrollpane",
+									"visibility": "private",
+									"type": "JscrollPane"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bbqCwl00/LA=",
+									"_parent": {
+										"$ref": "AAAAAAF23ZysWBYXlAQ="
+									},
+									"name": "columns",
+									"visibility": "private",
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bbrEAV07zZo=",
+									"_parent": {
+										"$ref": "AAAAAAF23ZysWBYXlAQ="
+									},
+									"name": "data",
+									"visibility": "private",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
@@ -31101,9 +31466,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF23aF2ABZsuOg="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "Jlist"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31135,6 +31500,36 @@
 									"visibility": "private",
 									"type": "Stringi",
 									"defaultValue": "\"Codice Fiscale \"  \"Nome \"  \"Cognome \" \"Email \""
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bbu6El1HWKk=",
+									"_parent": {
+										"$ref": "AAAAAAF23aF2ABZsuOg="
+									},
+									"name": "scrollpane",
+									"visibility": "private",
+									"type": "JscrollPane"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bbwmsl1QJVs=",
+									"_parent": {
+										"$ref": "AAAAAAF23aF2ABZsuOg="
+									},
+									"name": "columns",
+									"visibility": "private",
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bbxOeV1XwQI=",
+									"_parent": {
+										"$ref": "AAAAAAF23aF2ABZsuOg="
+									},
+									"name": "data",
+									"visibility": "private",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
@@ -31206,9 +31601,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF23aT2yBbL8u8="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "JList"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31226,9 +31621,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF23aT2yBbL8u8="
 									},
-									"name": "listModel",
+									"name": "scrollpane",
 									"visibility": "private",
-									"type": "DefaultListModel<String>"
+									"type": "JscrollPane"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31236,10 +31631,19 @@
 									"_parent": {
 										"$ref": "AAAAAAF23aT2yBbL8u8="
 									},
-									"name": "titoli",
+									"name": "columns",
 									"visibility": "private",
-									"type": "String",
-									"defaultValue": "\"Codice Coda \" \"Tipo Di Coda \"  \"Codice Gate \" \"CodSlot \""
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bcAGcl2QgUY=",
+									"_parent": {
+										"$ref": "AAAAAAF23aT2yBbL8u8="
+									},
+									"name": "data",
+									"visibility": "private",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
@@ -31309,9 +31713,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF23ae26xcdCMA="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "JList"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31329,9 +31733,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF23ae26xcdCMA="
 									},
-									"name": "listModel",
+									"name": "scrollpane",
 									"visibility": "private",
-									"type": "DefaultListModel<String>"
+									"type": "JscrollPane"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31339,10 +31743,18 @@
 									"_parent": {
 										"$ref": "AAAAAAF23ae26xcdCMA="
 									},
-									"name": "titoli",
+									"name": "columns",
 									"visibility": "private",
-									"type": "String",
-									"defaultValue": "\"Codice IATA\"  \"Nome Compagnia ;"
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bcDral2bwfk=",
+									"_parent": {
+										"$ref": "AAAAAAF23ae26xcdCMA="
+									},
+									"name": "data",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
@@ -31424,9 +31836,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF23a1RRhdxc/o="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "JList"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31444,10 +31856,29 @@
 									"_parent": {
 										"$ref": "AAAAAAF23a1RRhdxc/o="
 									},
-									"name": "titoli",
-									"visibility": "protected",
-									"type": "String",
-									"defaultValue": "\"Codice Gate \"  \"N° Gate \"  \"Codice Tratta Corrispondente \"  \"Data \""
+									"name": "scrollpane",
+									"visibility": "private",
+									"type": "JscrollPane"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bcGc8l2kfcQ=",
+									"_parent": {
+										"$ref": "AAAAAAF23a1RRhdxc/o="
+									},
+									"name": "columns",
+									"visibility": "private",
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bcHVeV2rLQE=",
+									"_parent": {
+										"$ref": "AAAAAAF23a1RRhdxc/o="
+									},
+									"name": "data",
+									"visibility": "private",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
@@ -31519,9 +31950,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF24mF1Hy9KklI="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "JList"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31602,6 +32033,36 @@
 									"name": "lblTitolo",
 									"visibility": "private",
 									"type": "JLabel"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bcgxWl3JF+I=",
+									"_parent": {
+										"$ref": "AAAAAAF24mF1Hy9KklI="
+									},
+									"name": "scrollpane",
+									"visibility": "private",
+									"type": "JscrollPane"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bchC3l3Q3DE=",
+									"_parent": {
+										"$ref": "AAAAAAF24mF1Hy9KklI="
+									},
+									"name": "columns",
+									"visibility": "private",
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bchfLl3XKU0=",
+									"_parent": {
+										"$ref": "AAAAAAF24mF1Hy9KklI="
+									},
+									"name": "data",
+									"visibility": "private",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
@@ -31711,9 +32172,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF23bEGsxfLwxs="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "JList"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31735,6 +32196,36 @@
 									"visibility": "protected",
 									"type": "String",
 									"defaultValue": "\"Codice Tratta \"  \"Destinazione \"  \"N° Prenotazioni \"  \"Scali\""
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bbz9Ql1hvH0=",
+									"_parent": {
+										"$ref": "AAAAAAF23bEGsxfLwxs="
+									},
+									"name": "scrollpane",
+									"visibility": "private",
+									"type": "JscrollPane"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bb0aoF1o1W8=",
+									"_parent": {
+										"$ref": "AAAAAAF23bEGsxfLwxs="
+									},
+									"name": "columns",
+									"visibility": "private",
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bb0yul1uKPA=",
+									"_parent": {
+										"$ref": "AAAAAAF23bEGsxfLwxs="
+									},
+									"name": "data",
+									"visibility": "private",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
@@ -31806,9 +32297,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF24mRXWC+lwiM="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "JList"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31826,9 +32317,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF24mRXWC+lwiM="
 									},
-									"name": "listModel",
+									"name": "scrollpane",
 									"visibility": "private",
-									"type": "DefaultListModel<String>"
+									"type": "JscrollPane"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31836,10 +32327,19 @@
 									"_parent": {
 										"$ref": "AAAAAAF24mRXWC+lwiM="
 									},
-									"name": "titoli",
+									"name": "columns",
 									"visibility": "private",
-									"type": "String",
-									"defaultValue": "\"Codice Slot \"  \"Tempo di imbarco stimato \"  \"Tempo di imbarco effettivo \" \"Orario di partenza \"  \"Data \""
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bcLYOV24xkc=",
+									"_parent": {
+										"$ref": "AAAAAAF24mRXWC+lwiM="
+									},
+									"name": "data",
+									"visibility": "private",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
@@ -31921,9 +32421,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF3VDmGoq4i5Vo="
 									},
-									"name": "jlist",
+									"name": "table",
 									"visibility": "private",
-									"type": "JList"
+									"type": "JTable"
 								},
 								{
 									"_type": "UMLAttribute",
@@ -31941,10 +32441,29 @@
 									"_parent": {
 										"$ref": "AAAAAAF3VDmGoq4i5Vo="
 									},
-									"name": "titoli",
-									"visibility": "protected",
-									"type": "String",
-									"defaultValue": "\"Anno \"  \"Mese \"  \"Giorno \" \"Tempistica \""
+									"name": "scrollpane",
+									"visibility": "private",
+									"type": "JscrollPane"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bb4yil15e/k=",
+									"_parent": {
+										"$ref": "AAAAAAF3VDmGoq4i5Vo="
+									},
+									"name": "columns",
+									"visibility": "private",
+									"type": "Vector<String>"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAF3bb5PJl2A/jk=",
+									"_parent": {
+										"$ref": "AAAAAAF3VDmGoq4i5Vo="
+									},
+									"name": "data",
+									"visibility": "private",
+									"type": "Vector<Vector<Object>>"
 								}
 							],
 							"operations": [
