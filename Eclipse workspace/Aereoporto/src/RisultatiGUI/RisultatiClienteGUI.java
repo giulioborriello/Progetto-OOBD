@@ -2,6 +2,7 @@ package RisultatiGUI;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -55,24 +56,21 @@ public class RisultatiClienteGUI extends JFrame {
 		Vector<String> columns = new Vector<String>();
 		columns.add("Codice Fiscale");
 		columns.add("Nome");
-		columns.add("Cognome");
-		columns.add("Email");
-		
+		columns.add("Cognome");		
 		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 		
 		for(int i = 0; i < list.size(); i++) {
 			Vector<Object> vector = new Vector<Object>();
 			vector.add(list.get(i).getCodFiscale());
 			vector.add(list.get(i).getNome());
-			vector.add(list.get(i).getCognome());
-			vector.add(list.get(i).getEmail());
-			
+			vector.add(list.get(i).getCognome());			
 			data.add(vector);
 		}
 		
 		
 		table = new JTable(new DefaultTableModel(data, columns));
 		table.setBounds(327, 229, -217, -136);
-		contentPane.add(table);
+		JScrollPane scrollpane = new JScrollPane(table);
+		contentPane.add(scrollpane);
 	}
 }

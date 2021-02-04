@@ -22,6 +22,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 		conn = sp.getConnection();
 	}
 	
+	
 	public List<Compagnia> getAllCompagnia() {
 		try {
 			Statement st = conn.createStatement();
@@ -41,7 +42,6 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 		}	
 		return listCompagnia;
 	}
-	
 	
 	public Compagnia getCompagniaByCodIATA(String CodIATA) {
 		Compagnia compagnia = null;
@@ -82,6 +82,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 		}	
 		return compagnia;
 	}
+	
 	
 	public String insertCompagnia(String CodIATA, String NomeCompagnia)	{		
 		try {

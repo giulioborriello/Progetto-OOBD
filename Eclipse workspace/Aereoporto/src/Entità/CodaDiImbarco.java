@@ -1,5 +1,6 @@
 package Entità;
 
+
 public class CodaDiImbarco {
 	private String codCoda;
 	private String tipoDiCoda;

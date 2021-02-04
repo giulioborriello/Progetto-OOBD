@@ -26,7 +26,6 @@ public class ClienteGUI extends JFrame {
 	private JTextField textFieldCodiceFiscale;
 	private JTextField textFieldNome;
 	private JTextField textFieldCognome;
-	private JTextField textFieldEmail;
 	private JTextField textFieldRicerca;
 	private JTextField textFieldIndicaCodiceFiscale;
 	
@@ -51,32 +50,27 @@ public class ClienteGUI extends JFrame {
 		JLabel lblCodiceFiscale = new JLabel("Codice Fiscale");
 		lblCodiceFiscale.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCodiceFiscale.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCodiceFiscale.setBounds(40, 85, 104, 40);
+		lblCodiceFiscale.setBounds(212, 85, 104, 40);
 		contentPane.add(lblCodiceFiscale);
 		
 		JLabel lblNome = new JLabel("Nome");
 		lblNome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNome.setBounds(193, 85, 85, 40);
+		lblNome.setBounds(362, 85, 85, 40);
 		contentPane.add(lblNome);
 		
 		JLabel lblCognome = new JLabel("Cognome");
 		lblCognome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCognome.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCognome.setBounds(358, 85, 85, 40);
+		lblCognome.setBounds(511, 85, 85, 40);
 		contentPane.add(lblCognome);
-		
-		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEmail.setBounds(507, 85, 85, 40);
-		contentPane.add(lblEmail);
+
 		
 		JButton InserisciInviaButton = new JButton("Invia");
 		InserisciInviaButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controller.inserisciCliente(textFieldCodiceFiscale.getText(), textFieldNome.getText(), 
-						textFieldCognome.getText(), textFieldEmail.getText());
+						textFieldCognome.getText());
 			}
 		});
 		InserisciInviaButton.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -85,23 +79,18 @@ public class ClienteGUI extends JFrame {
 		
 		textFieldCodiceFiscale = new JTextField();
 		textFieldCodiceFiscale.setColumns(10);
-		textFieldCodiceFiscale.setBounds(50, 136, 86, 20);
+		textFieldCodiceFiscale.setBounds(216, 136, 86, 20);
 		contentPane.add(textFieldCodiceFiscale);
 		
 		textFieldNome = new JTextField();
 		textFieldNome.setColumns(10);
-		textFieldNome.setBounds(192, 136, 86, 20);
+		textFieldNome.setBounds(362, 136, 86, 20);
 		contentPane.add(textFieldNome);
 		
 		textFieldCognome = new JTextField();
 		textFieldCognome.setColumns(10);
-		textFieldCognome.setBounds(358, 136, 86, 20);
+		textFieldCognome.setBounds(511, 136, 86, 20);
 		contentPane.add(textFieldCognome);
-		
-		textFieldEmail = new JTextField();
-		textFieldEmail.setColumns(10);
-		textFieldEmail.setBounds(507, 136, 86, 20);
-		contentPane.add(textFieldEmail);
 		
 
 		

@@ -5,16 +5,13 @@ public class Cliente {
 	
 	private String codFiscale;
 	private String nome;
-	private String cognome;
-	private String email;
+	private String cognome;	
 	
-	
-public Cliente(String CodFiscale, String Nome, String Cognome, String Email) {
+public Cliente(String CodFiscale, String Nome, String Cognome) {
 		super();
 		codFiscale = CodFiscale;
 		nome = Nome;
 		cognome = Cognome;
-		email = Email;
 	}
 
 public String getCodFiscale() {
@@ -40,13 +37,6 @@ public String getCodFiscale() {
 		cognome = Cognome;
 	}
 	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String Email) {
-		email = Email;
-	}
 	
 
 }

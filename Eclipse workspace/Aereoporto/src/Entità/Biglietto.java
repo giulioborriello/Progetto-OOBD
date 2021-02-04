@@ -9,7 +9,6 @@ public class Biglietto {
 	private String codBiglietto;
 
 	
-
 	public Biglietto(String posto, String tipoDiBiglietto, String codBiglietto, Tratta tratta, Cliente cliente) {
 		super();
 		this.tratta = tratta;

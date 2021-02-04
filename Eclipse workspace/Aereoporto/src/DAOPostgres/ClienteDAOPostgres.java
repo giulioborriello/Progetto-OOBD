@@ -26,8 +26,7 @@ public class ClienteDAOPostgres implements ClienteDAO {
 			ps.setString(1, CodFiscale);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
-			cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"), 
-					rs.getString("Email"));
+			cliente = new Cliente(rs.getString("CodFiscale"), rs.getString("Nome"), rs.getString("Cognome"));
 				
 			rs.close();
 			ps.close();
@@ -42,13 +41,13 @@ public class ClienteDAOPostgres implements ClienteDAO {
 
 	}
 	
-	public String insertCliente(String CodFiscale, String Nome, String Cognome, String Email)	{
+	
+	public String insertCliente(String CodFiscale, String Nome, String Cognome)	{
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Cliente\"  VALUES (?, ?, ?, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Cliente\"  VALUES (?, ?, ?); ");
 			ps.setString(1, CodFiscale);
 			ps.setString(2, Nome);
 			ps.setString(3, Cognome);
-			ps.setString(4, Email);
 			
 			ps.execute();
 			ps.close();

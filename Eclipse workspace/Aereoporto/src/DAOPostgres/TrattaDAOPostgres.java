@@ -29,7 +29,6 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	}
 	
 		
-		
 	public Tratta getTrattaByCodTratta(String CodTratta){
 		Tratta tratta = null;
 		try {
@@ -137,8 +136,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 		return listTratta;	
 		
 	}
-	
-	
+
 	public List<Tratta> getTrattaByCodIATA(String CodIATA, Date data){
 		try {
 			listTratta = new LinkedList<Tratta>();
@@ -234,6 +232,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			return e.getMessage();
 		}
 	}
+	
 	
 	public String deleteTratta(String CodTratta) {
 		

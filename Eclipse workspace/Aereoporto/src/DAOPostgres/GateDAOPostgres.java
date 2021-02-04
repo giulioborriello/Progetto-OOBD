@@ -55,6 +55,7 @@ public class GateDAOPostgres implements GateDAO{
 		return gates;	
 	}
 	
+	
 	public Gate getGateByCodGate(String CodGate) {
 		Gate gate = null;
 		try {
@@ -122,6 +123,7 @@ public class GateDAOPostgres implements GateDAO{
 		return gate;	
 	}
 
+	
 	public List<Tempistica> getTempisticheGiorni(String Ngate, String mese, String anno) {
 		List<Tempistica> list = new LinkedList<Tempistica>();
 		
@@ -180,7 +182,6 @@ public class GateDAOPostgres implements GateDAO{
 		return list;
 	}
 	
-	
 	public List<Tempistica> getTempisticheSettimane(String Ngate ,String anno) {
 		List<Tempistica> list = new LinkedList<Tempistica>();
 		
@@ -209,6 +210,7 @@ public class GateDAOPostgres implements GateDAO{
 		}
 		return list;
 	}
+	
 	
 	public String insertGate(String CodGate, String Ngate, String CodTratta)	{
 		

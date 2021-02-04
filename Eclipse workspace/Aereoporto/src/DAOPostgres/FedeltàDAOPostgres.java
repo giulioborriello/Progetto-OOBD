@@ -22,6 +22,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 		conn = sp.getConnection();
 		singleton = sp; 
 	}
+
 	
 	public List<Fedelt‡> getFedelt‡ByCentoKilometri(String Centokilometri) {
 		try {
@@ -107,6 +108,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 		return listFedelt‡;	
 	}
 	
+	
 	public int GetRitardi(String CentoKilometri) {
 		long numeroRitardi = 0;
 		try {
@@ -126,8 +128,6 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	}
 		
 	
-	
-	
 	public String insertFedelt‡(String CentoKilometri, String CodIATA, String CodFiscale)	{
 		
 		try {
@@ -142,6 +142,8 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 			return e.getMessage();
 		} 
 	}
+	
+	
 	
 	public String updateCentoKilometriByCodFiscaleANDCodIATA(String CentoKilometri, String CodFiscale, String CodIATA)	{
 			
@@ -178,6 +180,8 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 		}
 	}
 
+	
+	
 	public String deleteFedelt‡(String CodFiscale) {
 		
 		try {

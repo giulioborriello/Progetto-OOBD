@@ -104,6 +104,7 @@ public class SlotDAOPostgres implements SlotDAO{
 		return slot;
 	}
 	
+	
 	public List<Slot> getSlotByData(Date Data) {
 		try {
 			
@@ -130,6 +131,7 @@ public class SlotDAOPostgres implements SlotDAO{
 		}
 		return listSlot;	
 	}
+	
 	
 	public String insertSlot(String CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, String CodCoda)	{
 		

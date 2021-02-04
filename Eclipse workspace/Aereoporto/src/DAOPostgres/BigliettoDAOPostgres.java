@@ -23,8 +23,6 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 		singleton = sp;
 	}
 	
-	
-	
 
 	public List<Biglietto> getBigliettoByCodFiscale(String CodFiscale){
 		
@@ -92,6 +90,8 @@ public class BigliettoDAOPostgres implements BigliettoDAO {
 		return listBiglietto;
 
 	}
+	
+	
 	
 	public String insertBiglietto(String CodFiscale, String Tipo_di_biglietto, String CodBiglietto, String CodTratta, String Posto)	{
 		

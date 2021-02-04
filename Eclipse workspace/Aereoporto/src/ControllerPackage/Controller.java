@@ -426,17 +426,13 @@ public class Controller {
 		openDialog(testo);
 	}
 	
-	public void inserisciCliente(String CodFiscale, String Nome, String Cognome, String Email) {
+	public void inserisciCliente(String CodFiscale, String Nome, String Cognome) {
 		
-		if (checkBlank(CodFiscale, Nome, Cognome, Email)) {
+		if (checkBlank(CodFiscale, Nome, Cognome)) {
 			return;
 		}
 		
 		if(checkCodFiscale(CodFiscale)) {
-			return;
-		}
-		
-		if(checkEmail(Email)) {
 			return;
 		}
 		
@@ -447,7 +443,7 @@ public class Controller {
 		
 		
 		ClienteDAOPostgres cliente = new ClienteDAOPostgres(singleton);
-		String testo = cliente.insertCliente(CodFiscale, Nome, Cognome, Email);
+		String testo = cliente.insertCliente(CodFiscale, Nome, Cognome);
 		openDialog(testo);
 	}
 
@@ -782,16 +778,6 @@ public class Controller {
 		String espressioneCodTratta = "^[A-Za-z]{3}[A-Za-z0-9]*$";
 		if(!cod.matches(espressioneCodTratta)) {
 			openDialog("Il codice Tratta deve essere di 3 caratteri!");
-
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean checkEmail(String email) {
-		String espressioneEmail = "^[A-z0-9\\.\\+_-]+@[A-z0-9\\._-]+\\.[A-z]{2,6}$";
-		if(!email.matches(espressioneEmail)) {
-			openDialog("L'email non è corretta!");
 
 			return true;
 		}
