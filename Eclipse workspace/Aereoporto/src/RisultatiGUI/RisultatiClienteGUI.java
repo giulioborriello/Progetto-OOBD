@@ -48,7 +48,7 @@ public class RisultatiClienteGUI extends JFrame {
 			}
 		});
 		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnNewButton_3.setBounds(10, 385, 180, 57);
+		btnNewButton_3.setBounds(55, 385, 180, 57);
 		contentPane.add(btnNewButton_3);
 		
 		
@@ -66,11 +66,15 @@ public class RisultatiClienteGUI extends JFrame {
 			vector.add(list.get(i).getCognome());			
 			data.add(vector);
 		}
+		JScrollPane scrollpane = new JScrollPane();
+		scrollpane.setLocation(57, 26);
+		scrollpane.setSize(425, 347);
+		
 		
 		
 		table = new JTable(new DefaultTableModel(data, columns));
-		table.setBounds(327, 229, -217, -136);
-		JScrollPane scrollpane = new JScrollPane(table);
+		
+		scrollpane.add(table);
 		contentPane.add(scrollpane);
 	}
 }
