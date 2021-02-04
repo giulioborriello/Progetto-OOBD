@@ -8,7 +8,6 @@ import Entità.Tratta;
 
 public interface TrattaDAO {
 
-	
 	public Tratta getTrattaByCodTratta(String CodTratta);
 	public List<Tratta> getTrattaByData(Date Data);
 	public List<Tratta> getTrattaByCodGate(String Ngate, String gate);
