@@ -1116,17 +1116,6 @@ ClienteDAOPostgres</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>176</x>
-      <y>1904</y>
-      <w>1616</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
-    <additional_attributes>10.0;10.0;2000.0;10.0</additional_attributes>
-  </element>
-  <element>
     <id>Text</id>
     <coordinates>
       <x>184</x>
@@ -1135,18 +1124,6 @@ ClienteDAOPostgres</panel_attributes>
       <h>24</h>
     </coordinates>
     <panel_attributes>cliente = new ClienteDAOPostgres(singleton);
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>200</x>
-      <y>1896</y>
-      <w>264</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes>ClienteDAOPostgres
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -1210,18 +1187,6 @@ style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Text</id>
-    <coordinates>
-      <x>1824</x>
-      <y>2040</y>
-      <w>48</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
       <x>1800</x>
@@ -1242,30 +1207,6 @@ style=wordwrap</panel_attributes>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;60.0;150.0;60.0;150.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>1824</x>
-      <y>2128</y>
-      <w>48</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Text</id>
-    <coordinates>
-      <x>1824</x>
-      <y>2208</y>
-      <w>48</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>void
-style=wordwrap</panel_attributes>
-    <additional_attributes/>
   </element>
   <element>
     <id>Text</id>
@@ -1478,7 +1419,7 @@ style=wordwrap</panel_attributes>
       <x>2040</x>
       <y>2552</y>
       <w>32</w>
-      <h>464</h>
+      <h>272</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -1528,5 +1469,27 @@ style=wordwrap</panel_attributes>
     <panel_attributes>L'utente chiude il programma
 style=wordwrap</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>288</y>
+      <w>160</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>180.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>408</y>
+      <w>392</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>470.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
