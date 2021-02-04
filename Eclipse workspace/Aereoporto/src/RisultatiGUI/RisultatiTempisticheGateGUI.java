@@ -11,8 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import ControllerPackage.Controller;
 import Entità.Tempistica;
@@ -35,50 +37,69 @@ public class RisultatiTempisticheGateGUI extends JFrame {
 		contentPane.setLayout(null);
 		setResizable(false);
 		
-		DefaultListModel<String> listModel = new DefaultListModel<String>();
+		Vector<String> columns = new Vector<String>();
+		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
+		
 		if (scelta.equals("Giorni")) {
+
+			columns.add("Anno");
+			columns.add("Mese");
+			columns.add("Giorno");		
+			columns.add("Tempistica");
 			
-			String titoli = "Anno " + "Mese " + "Giorno "+ "Tempistica ";
-			listModel.addElement(titoli);
+			
+			
 			for (Tempistica valori : list) {
 				Vector<Object> vector = new Vector<Object>();
-				vector.add(coda.getCodCoda());
-				vector.add(coda.getTipoDiCoda());
-				vector.add(coda.getGate().getCodGate());	
-				vector.add(coda.getSlot().getCodSlot());
+				vector.add(valori.getAnno());
+				vector.add(valori.getMese());
+				vector.add(valori.getGiorno());	
+				vector.add(valori.getValore());
 				data.add(vector);
 			}
 		} 
 		else if(scelta.equals("Settimane")) {
 			
-			String titoli = "Anno " + "Settimana " + "Tempistica ";
-			listModel.addElement(titoli);
+			columns.add("Anno");
+			columns.add("Settimana");
+			columns.add("Tempistica");
+			
+			
 			for (Tempistica valori : list) {
 				Vector<Object> vector = new Vector<Object>();
-				vector.add(coda.getCodCoda());
-				vector.add(coda.getTipoDiCoda());
-				vector.add(coda.getGate().getCodGate());	
-				vector.add(coda.getSlot().getCodSlot());
+				vector.add(valori.getAnno());
+				vector.add(valori.getSettimana());
+				vector.add(valori.getValore());	
 				data.add(vector);
 			}
 		}
 		else if(scelta.equals("Mesi")) {
-			String titoli = "Anno " + "Mese " + "Tempistica ";
-			listModel.addElement(titoli);
+			
+			columns.add("Anno");
+			columns.add("Mese");
+			columns.add("Tempistica");	
+			
+			
 			for (Tempistica valori : list) {
 				Vector<Object> vector = new Vector<Object>();
-				vector.add(coda.getCodCoda());
-				vector.add(coda.getTipoDiCoda());
-				vector.add(coda.getGate().getCodGate());	
-				vector.add(coda.getSlot().getCodSlot());
+				vector.add(valori.getAnno());
+				vector.add(valori.getMese());
+				vector.add(valori.getValore());	
 				data.add(vector);
 			}
 		}
 		
-		JList jlist = new JList(listModel);
- 	    jlist.setLocation(5, 5);
- 	    jlist.setSize(726, 309);
- 	    contentPane.add(jlist);
+		JScrollPane scrollpane = new JScrollPane();
+		scrollpane.setLocation(114, 11);
+		scrollpane.setSize(425, 347);
+		
+		table = new JTable(new DefaultTableModel(data, columns));
+		table.setEnabled(false);
+		table.setRowSelectionAllowed(false);
+		table.setBounds(114, 11, 425, 347);
+		
+		scrollpane.setViewportView(table);
+		contentPane.add(scrollpane);
  	    
  	    JButton btnNewButton_3 = new JButton("Torna indietro ");
  	    btnNewButton_3.addActionListener(new ActionListener() {

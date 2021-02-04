@@ -38,8 +38,6 @@ public class RisultatiBigliettoGUI extends JFrame {
 		setResizable(false);
 		
 		
-		
-		
 		Vector<String> columns = new Vector<String>();
 		columns.add("Codice Biglietto");
 		columns.add("Posto");

@@ -5,8 +5,10 @@ import java.util.Vector;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import ControllerPackage.Controller;
 import Entità.Gate;
@@ -36,24 +38,35 @@ public class RisultatiGateGUI extends JFrame {
 		setTitle("Risultati Gate");
 		setResizable(false);
 		
-		DefaultListModel<String> listModel = new DefaultListModel<String>();
 		
-		String titoli = "Codice Gate " + "N° Gate " + "Codice Tratta Corrispondente " + "Data ";
-		listModel.addElement(titoli);
+		Vector<String> columns = new Vector<String>();
+		columns.add("Codice Gate");
+		columns.add("N° Gate");
+		columns.add("Codice Tratta Corrispondente");		
+		columns.add("Data");
+		
+		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 		
 		for(Gate gate: list) {
 			Vector<Object> vector = new Vector<Object>();
-			vector.add(coda.getCodCoda());
-			vector.add(coda.getTipoDiCoda());
-			vector.add(coda.getGate().getCodGate());	
-			vector.add(coda.getSlot().getCodSlot());
+			vector.add(gate.getCodGate());
+			vector.add(gate.getnGate());
+			vector.add(gate.getTratta().getCodTratta());	
+			vector.add(gate.getData());
 			data.add(vector);
 		}
 		
-		JList jlist = new JList(listModel);
- 	    jlist.setLocation(62, 49);
- 	    jlist.setSize(400, 363);
- 	    contentPane.add(jlist);
+		JScrollPane scrollpane = new JScrollPane();
+		scrollpane.setLocation(114, 11);
+		scrollpane.setSize(425, 347);
+		
+		table = new JTable(new DefaultTableModel(data, columns));
+		table.setEnabled(false);
+		table.setRowSelectionAllowed(false);
+		table.setBounds(114, 11, 425, 347);
+		
+		scrollpane.setViewportView(table);
+		contentPane.add(scrollpane);
  	    
  	    JButton btnNewButton_3 = new JButton("Torna indietro ");
  	    btnNewButton_3.addActionListener(new ActionListener() {

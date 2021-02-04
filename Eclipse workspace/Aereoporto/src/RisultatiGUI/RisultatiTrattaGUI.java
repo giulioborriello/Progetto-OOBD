@@ -26,6 +26,7 @@ public class RisultatiTrattaGUI extends JFrame {
 	
 	private JPanel contentPane;
 	private JTable table;
+	
 	public RisultatiTrattaGUI(List<Tratta> list, Controller c) {
 		controller = c;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,7 +39,6 @@ public class RisultatiTrattaGUI extends JFrame {
 		setResizable(false);
 		
 		
-		String titoli = "Codice Tratta " +" "+ "N° Prenotazioni "+ " " +"Orario Di Partenza "+ " " +"Data "+"CodIATA"+" "+"Destinazione " + " " + "Scali" + "CodGate"+ " " + "Ritardo";
 		Vector<String> columns = new Vector<String>();
 		columns.add("Codice Tratta");
 		columns.add("N° Prenotazioni");
@@ -55,10 +55,15 @@ public class RisultatiTrattaGUI extends JFrame {
 		
 		for(Tratta tratta: list) {
 			Vector<Object> vector = new Vector<Object>();
-			vector.add(coda.getCodCoda());
-			vector.add(coda.getTipoDiCoda());
-			vector.add(coda.getGate().getCodGate());	
-			vector.add(coda.getSlot().getCodSlot());
+			vector.add(tratta.getCodTratta());
+			vector.add(tratta.getNprenotazioni());
+			vector.add(tratta.getOrarioDiPartenza());	
+			vector.add(tratta.getData());
+			vector.add(tratta.getCompagnia().getCodIATA());
+			vector.add(tratta.getDestinazione());
+			vector.add(tratta.getScali());	
+			vector.add(tratta.getGate().getCodGate());
+			vector.add(tratta.getRitardo());
 			data.add(vector);
 		}
 		
