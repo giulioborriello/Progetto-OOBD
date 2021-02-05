@@ -45,7 +45,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			
 			tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 					rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
-					codIATA, codGate);
+					rs.getString("Ngate"),codIATA, codGate);
 			rs.close();
 			ps.close();
 			conn.close();
@@ -79,6 +79,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				
 				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"),rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
+						rs.getString("Ngate"),
 						codIATA,
 						codGate);
 				
@@ -118,6 +119,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				
 				 tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
+						rs.getString("Ngate"),
 						codIATA,
 						codGate);
 				
@@ -157,6 +159,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				
 				 tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
+						rs.getString("Ngate"),
 						codIATA,
 						codGate);
 				
@@ -193,6 +196,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 				
 				 tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
 						rs.getDate("Data"), rs.getString("destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
+						rs.getString("Ngate"),
 						codIATA,
 						codGate);
 				
@@ -211,9 +215,9 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	
 	
 	
-	public String insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, String CodIATA, String Destinazione, String Scali) {
+	public String insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, String CodIATA, String Destinazione, String Scali, String Ngate) {
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?, null)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?, null, ?)");
 			ps.setString(1, CodTratta);
 			ps.setInt(2, Nprenotazioni);
 			ps.setTime(3, OrarioDiPartenza);
@@ -221,6 +225,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			ps.setString(5, CodIATA);
 			ps.setString(6, Destinazione);
 			ps.setString(7, Scali);
+			ps.setString(8, Ngate);
 			ps.execute();
 			ps.close();
 			conn.close();

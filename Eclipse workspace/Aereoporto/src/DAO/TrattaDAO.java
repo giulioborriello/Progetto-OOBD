@@ -13,6 +13,6 @@ public interface TrattaDAO {
 	public List<Tratta> getTrattaByCodGate(String Ngate, String gate);
 	public List<Tratta> getTrattaByCodIATA(String CodIATA, Date data);
 	public List<Tratta> getTrattaByDestinazione(String Destinazione, Date data);
-	public String insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, String CodIATA, String Destinazione, String Scali);
+	public String insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, String CodIATA, String Destinazione, String Scali, String Ngate);
 	public String deleteTratta(String CodTratta);
 }

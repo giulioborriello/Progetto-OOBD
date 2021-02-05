@@ -394,7 +394,7 @@ public class Controller {
 		risultatiTempisticheGateGUI.setVisible(true); 
 	}
 	
-	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data,String CodIATA, String destinazione, String scali) throws ParseException{
+	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data,String CodIATA, String destinazione, String scali, String Ngate) throws ParseException{
 		
 		if(checkBlank(codTratta, nPrenotazioni, orarioDiPartenza, data, CodIATA, destinazione, scali)) {
 			return;
@@ -433,7 +433,7 @@ public class Controller {
 		Date sqlDate = new java.sql.Date(date.getTime());  
 		
 		TrattaDAOPostgres tratta = new TrattaDAOPostgres(singleton);
-		String testo = tratta.insertTratta(codTratta, intNPrenotazioni, tempo, sqlDate,CodIATA, destinazione, scali);
+		String testo = tratta.insertTratta(codTratta, intNPrenotazioni, tempo, sqlDate,CodIATA, destinazione, scali, Ngate);
 		openDialog(testo);
 	}
 	
@@ -566,8 +566,8 @@ public class Controller {
 		openDialog(testo);
 	}
 	
-	public void inserisciGate(String CodGate, String Ngate, String CodTratta) {
-		if(checkBlank(CodGate, Ngate, CodTratta)) {
+	public void inserisciGate(String CodGate, String CodTratta) {
+		if(checkBlank(CodGate, CodTratta)) {
 			return;
 		}
 
@@ -576,7 +576,7 @@ public class Controller {
 		}
 
 		GateDAOPostgres gate = new GateDAOPostgres(singleton);
-		String testo = gate.insertGate(CodGate, Ngate, CodTratta);
+		String testo = gate.insertGate(CodGate, CodTratta);
 		openDialog(testo);
 		}
 	

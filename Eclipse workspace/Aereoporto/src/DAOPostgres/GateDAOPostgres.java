@@ -212,13 +212,12 @@ public class GateDAOPostgres implements GateDAO{
 	}
 	
 	
-	public String insertGate(String CodGate, String Ngate, String CodTratta)	{
+	public String insertGate(String CodGate, String CodTratta)	{
 		
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Gate\"  VALUES (?, ?, null, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Gate\"  VALUES (?, ?, null, null); ");
 			ps.setString(1, CodGate);
 			ps.setString(2, CodTratta);
-			ps.setString(3, Ngate);
 
 			ps.execute();
 			

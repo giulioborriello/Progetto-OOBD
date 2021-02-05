@@ -16,6 +16,6 @@ public interface GateDAO {
 	public List<Tempistica> getTempisticheGiorni(String Ngate, String mese, String anno);
 	public List<Tempistica> getTempisticheMesi(String Ngate, String anno);
 	public List<Tempistica> getTempisticheSettimane(String Ngate, String anno);
-	public String insertGate(String CodGate, String Ngate, String CodTratta);
+	public String insertGate(String CodGate, String CodTratta);
 	public String deleteGate(String CodGate);
 }

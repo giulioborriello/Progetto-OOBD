@@ -14,10 +14,11 @@ public class Tratta {
 	private boolean ritardo;
 	private Compagnia compagnia;
 	private Gate gate;
+	private String Ngate;
 	
 
 	public Tratta(String codTratta, int nPrenotazioni, Time orarioDiPartenza, Date data, String destinazione,
-			String scali, boolean ritardo, Compagnia compagnia, Gate gate) {
+			String scali, boolean ritardo, String Ngate, Compagnia compagnia, Gate gate) {
 		super();
 		this.codTratta = codTratta;
 		this.nPrenotazioni = nPrenotazioni;
@@ -26,6 +27,8 @@ public class Tratta {
 		this.destinazione = destinazione;
 		this.scali = scali;
 		this.ritardo = ritardo;
+		this.Ngate = Ngate;
+
 		this.setCompagnia(compagnia);
 		this.setGate(gate);
 	}
@@ -100,6 +103,14 @@ public class Tratta {
 
 	public void setGate(Gate gate) {
 		this.gate = gate;
+	}
+
+	public String getNgate() {
+		return Ngate;
+	}
+
+	public void setNgate(String ngate) {
+		Ngate = ngate;
 	}
 
 	

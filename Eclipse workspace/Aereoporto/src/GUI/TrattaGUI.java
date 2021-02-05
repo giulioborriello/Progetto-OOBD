@@ -29,7 +29,8 @@ public class TrattaGUI extends JFrame {
 	private JTextField textFieldScali;
 	private JTextField textFieldElimina;
 	
-	
+	private String[] Ngate = {"1", "2", "3", "4", "5"};
+
 	private String[] tipiDiRicerca = {"CodTratta","Data","CodIATA e data","Destinazione e data" };
 	private String[] oreOMinuti = {"0","1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
 			"21","22","23","24","25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
@@ -75,6 +76,10 @@ public class TrattaGUI extends JFrame {
 		JComboBox comboBox_Ora = new JComboBox(oreOMinuti);
 		comboBox_Ora.setBounds(148, 327, 103, 22);
 		contentPane.add(comboBox_Ora);
+		
+		JComboBox comboBox_Ngate_Inserimento = new JComboBox(Ngate);
+		comboBox_Ngate_Inserimento.setBounds(148, 438, 103, 22);
+		contentPane.add(comboBox_Ngate_Inserimento);
 		
 		JComboBox comboBox_Minuto = new JComboBox(oreOMinuti);
 		comboBox_Minuto.setBounds(261, 327, 103, 22);
@@ -161,7 +166,7 @@ public class TrattaGUI extends JFrame {
 				
 				try {
 					controller.inserisciTratta(textFieldCodTratta.getText(),"0",Orario,Data, 
-							textFieldCodIATA.getText(),textFieldDestinazione.getText(), textFieldScali.getText());
+							textFieldCodIATA.getText(),textFieldDestinazione.getText(), textFieldScali.getText(), comboBox_Ngate_Inserimento.getSelectedItem().toString());
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -276,6 +281,11 @@ public class TrattaGUI extends JFrame {
 		lbl_Anno_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lbl_Anno_1.setBounds(606, 109, 35, 14);
 		contentPane.add(lbl_Anno_1);
+		
+		JLabel lblNewLabel = new JLabel("Ngate");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(178, 410, 46, 22);
+		contentPane.add(lblNewLabel);
 		
 		
 		

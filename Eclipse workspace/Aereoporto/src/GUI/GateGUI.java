@@ -32,7 +32,6 @@ public class GateGUI extends JFrame {
 	JButton btnMenu;
 	private JTextField CodGateInserimentoTextField;
 	private JTextField CodTrattaInserimentoTextField;
-	private JComboBox comboBoxNgateInserimento;
 	private JTextField textFieldCodGateElimina;
 	
 	public GateGUI(Controller c) {
@@ -261,16 +260,6 @@ public class GateGUI extends JFrame {
 		CodGateInserimentoTextField.setBounds(126, 576, 94, 20);
 		contentPane.add(CodGateInserimentoTextField);
 		
-		comboBoxNgateInserimento = new JComboBox(Ngate);
-		comboBoxNgateInserimento.setBounds(273, 575, 94, 22);
-		contentPane.add(comboBoxNgateInserimento);
-		
-		JLabel lblnGate = new JLabel("NGate");
-		lblnGate.setHorizontalAlignment(SwingConstants.CENTER);
-		lblnGate.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblnGate.setBounds(264, 540, 108, 25);
-		contentPane.add(lblnGate);
-		
 		JLabel lblCodTratta = new JLabel("CodTratta");
 		lblCodTratta.setHorizontalAlignment(SwingConstants.CENTER);
 		lblCodTratta.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -285,7 +274,7 @@ public class GateGUI extends JFrame {
 		JButton btnInserisci = new JButton("Invia");
 		btnInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controller.inserisciGate(CodGateInserimentoTextField.getText(), comboBoxNgateInserimento.getSelectedItem().toString(), CodTrattaInserimentoTextField.getText());
+				controller.inserisciGate(CodGateInserimentoTextField.getText(), CodTrattaInserimentoTextField.getText());
 
 			}
 		});
