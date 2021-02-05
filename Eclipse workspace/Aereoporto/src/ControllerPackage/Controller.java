@@ -416,12 +416,9 @@ public class Controller {
 			return;
 		}
 		
-		if(checkSoloLettere(scali)) {
+		if(checkSoloLettereEunderscore(scali)) {
 			return;
 		}
-		
-		
-		
 		
 		int intNPrenotazioni = Integer.valueOf(nPrenotazioni);
 		
@@ -532,7 +529,7 @@ public class Controller {
 			return;
 		}
 		
-		if(checkCentoKilometri(CentoKilometri)){
+		if(checkSoloLettere(CentoKilometri)){
 			return;
 		}
 		
@@ -805,6 +802,16 @@ public class Controller {
 		return false;
 	}
 	
+	public boolean checkSoloLettereEunderscore(String parola) {
+		String espressioneSoloLettere = "^[A-Za-z_]*$";
+		if(!parola.matches(espressioneSoloLettere)) {
+			openDialog("Una o più caselle devono avere solo Lettere!");
+
+			return true;
+		}
+		return false;
+	}
+		
 	public boolean checkSoloNumeri(String ... numeri ) {
 		String espressioneSoloNumeri = "^[0-9]*$";
 		for(String numero:numeri) {
@@ -819,18 +826,6 @@ public class Controller {
 		
 		
 	}
-	
-	public boolean checkCentoKilometri (String parola) {
-		String espressioneSoloLettere = "^[A-Za-z]*$";
-		if(!parola.matches(espressioneSoloLettere)) {
-			openDialog("Una o più caselle devono avere solo Lettere!");
-
-			return true;
-		}
-		return false;
-	}
-	
-	
 	
 	
 	

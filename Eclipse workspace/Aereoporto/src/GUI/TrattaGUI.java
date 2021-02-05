@@ -287,6 +287,10 @@ public class TrattaGUI extends JFrame {
 		lblNewLabel.setBounds(178, 410, 46, 22);
 		contentPane.add(lblNewLabel);
 		
+		JLabel lblNewLabel_1 = new JLabel("Per separare gli scali utilizzare _");
+		lblNewLabel_1.setBounds(472, 389, 169, 14);
+		contentPane.add(lblNewLabel_1);
+		
 		
 		
 	}

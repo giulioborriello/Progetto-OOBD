@@ -49,6 +49,7 @@ public class RisultatiTrattaGUI extends JFrame {
 		columns.add("Scali");
 		columns.add("CodGate");
 		columns.add("Ritardo");
+		columns.add("Ngate");
 		
 		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 		
@@ -64,6 +65,7 @@ public class RisultatiTrattaGUI extends JFrame {
 			vector.add(tratta.getScali());	
 			vector.add(tratta.getGate().getCodGate());
 			vector.add(tratta.getRitardo());
+			vector.add(tratta.getNgate());
 			data.add(vector);
 		}
 		
