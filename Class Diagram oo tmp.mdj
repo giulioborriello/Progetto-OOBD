@@ -1269,7 +1269,7 @@
 											"top": 6707,
 											"width": 2612.1796875,
 											"height": 36,
-											"text": "+checkSoloLettereEunderscore(parola: String): boolean",
+											"text": "+checkSoloLettereEunderscore(parola: String, parola2: String): boolean",
 											"horizontalAlignment": 0
 										},
 										{
@@ -12492,23 +12492,6 @@
 										},
 										{
 											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF201lLslq38D0=",
-											"_parent": {
-												"$ref": "AAAAAAF201TS6FpKlaM="
-											},
-											"model": {
-												"$ref": "AAAAAAF201lLa1q0biA="
-											},
-											"font": "Arial;13;0",
-											"left": 261,
-											"top": 2052,
-											"width": 408.3447265625,
-											"height": 13,
-											"text": "-textFieldTempoEffettivo: JTextField",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
 											"_id": "AAAAAAF3WTnMv4KhJHY=",
 											"_parent": {
 												"$ref": "AAAAAAF201TS6FpKlaM="
@@ -12518,7 +12501,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2067,
+											"top": 2052,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-JTextField: textFieldOrarioDiPartenza",
@@ -12535,7 +12518,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2082,
+											"top": 2067,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-comboBoxRicerca: JComboBox",
@@ -12552,7 +12535,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2097,
+											"top": 2082,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-textAreaRicerca: JTextArea",
@@ -12569,7 +12552,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2112,
+											"top": 2097,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-btnRicerca: JButton",
@@ -12586,7 +12569,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2127,
+											"top": 2112,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblRicerca: JLabel",
@@ -12603,7 +12586,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2142,
+											"top": 2127,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblInserisci: JLabel",
@@ -12620,7 +12603,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2157,
+											"top": 2142,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblCodSlot: JLabel",
@@ -12637,7 +12620,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2172,
+											"top": 2157,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblCodCoda: JLabel",
@@ -12654,27 +12637,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2187,
+											"top": 2172,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblTempoStimato: JLabel",
-											"horizontalAlignment": 0
-										},
-										{
-											"_type": "UMLAttributeView",
-											"_id": "AAAAAAF201vT6lr1PSE=",
-											"_parent": {
-												"$ref": "AAAAAAF201TS6FpKlaM="
-											},
-											"model": {
-												"$ref": "AAAAAAF201vTCVryf8U="
-											},
-											"font": "Arial;13;0",
-											"left": 261,
-											"top": 2202,
-											"width": 408.3447265625,
-											"height": 13,
-											"text": "-lblTempoEffettivo: JLabel",
 											"horizontalAlignment": 0
 										},
 										{
@@ -12688,7 +12654,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2217,
+											"top": 2187,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblData: JLabel",
@@ -12705,7 +12671,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2232,
+											"top": 2202,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblAggiorna: JLabel",
@@ -12722,7 +12688,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2247,
+											"top": 2217,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblElimina: JLabel",
@@ -12739,7 +12705,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2262,
+											"top": 2232,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblIndicaCodSlot: JLabel",
@@ -12756,7 +12722,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2277,
+											"top": 2247,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblAggiornaTempoEffettivo: JLabel",
@@ -12773,7 +12739,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2292,
+											"top": 2262,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-btnAggiorna: JButton",
@@ -12790,7 +12756,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2307,
+											"top": 2277,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-btnNewButtonInserisci: JButton",
@@ -12807,7 +12773,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2322,
+											"top": 2292,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-btnElimina: JButton",
@@ -12824,7 +12790,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2337,
+											"top": 2307,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "-lblOrarioDiPartenza: JLabel",
@@ -12835,7 +12801,7 @@
 									"left": 256,
 									"top": 1897,
 									"width": 418.3447265625,
-									"height": 458
+									"height": 428
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -12858,7 +12824,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 261,
-											"top": 2360,
+											"top": 2330,
 											"width": 408.3447265625,
 											"height": 13,
 											"text": "+SlotGUI(c: Controller)",
@@ -12867,7 +12833,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 256,
-									"top": 2355,
+									"top": 2325,
 									"width": 418.3447265625,
 									"height": 23
 								},
@@ -19411,7 +19377,7 @@
 											"top": 3455,
 											"width": 550.67822265625,
 											"height": 13,
-											"text": "+insertSlot(CodSlot: int, TempoDiImbarcoStimato: int, TempoDiImbarcoEffettivo: int, Data: Date)",
+											"text": "+insertSlot(CodSlot: int, TempoDiImbarcoStimato: int, Data: Date)",
 											"horizontalAlignment": 0
 										},
 										{
@@ -23724,6 +23690,15 @@
 									},
 									"type": "boolean",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAF3c0DBOgf4kp4=",
+									"_parent": {
+										"$ref": "AAAAAAF3WVtCtoOSoNc="
+									},
+									"name": "parola2",
+									"type": "String"
 								}
 							]
 						},
@@ -25054,7 +25029,8 @@
 											"_parent": {
 												"$ref": "AAAAAAF20qk1TVHiAts="
 											},
-											"name": "Ngate String"
+											"name": "Ngate String",
+											"type": ""
 										},
 										{
 											"_type": "UMLParameter",
@@ -30678,16 +30654,6 @@
 								},
 								{
 									"_type": "UMLAttribute",
-									"_id": "AAAAAAF201lLa1q0biA=",
-									"_parent": {
-										"$ref": "AAAAAAF201TS51pCi08="
-									},
-									"name": "textFieldTempoEffettivo",
-									"visibility": "private",
-									"type": "JTextField"
-								},
-								{
-									"_type": "UMLAttribute",
 									"_id": "AAAAAAF3WTnMUIKeO2k=",
 									"_parent": {
 										"$ref": "AAAAAAF201TS51pCi08="
@@ -30773,16 +30739,6 @@
 										"$ref": "AAAAAAF201TS51pCi08="
 									},
 									"name": "lblTempoStimato",
-									"visibility": "private",
-									"type": "JLabel"
-								},
-								{
-									"_type": "UMLAttribute",
-									"_id": "AAAAAAF201vTCVryf8U=",
-									"_parent": {
-										"$ref": "AAAAAAF201TS51pCi08="
-									},
-									"name": "lblTempoEffettivo",
 									"visibility": "private",
 									"type": "JLabel"
 								},
@@ -34659,15 +34615,6 @@
 										{
 											"_type": "UMLParameter",
 											"_id": "AAAAAAF2zWgTXLXVOCE=",
-											"_parent": {
-												"$ref": "AAAAAAF2zWZpf7XLmGM="
-											},
-											"name": "TempoDiImbarcoEffettivo",
-											"type": "int"
-										},
-										{
-											"_type": "UMLParameter",
-											"_id": "AAAAAAF2zWgTXbXWlwQ=",
 											"_parent": {
 												"$ref": "AAAAAAF2zWZpf7XLmGM="
 											},
