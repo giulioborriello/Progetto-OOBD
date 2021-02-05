@@ -60,7 +60,6 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	
 	public List<Tratta> getTrattaByData(Date Data){
 		try {
-			System.out.println(Data);
 			listTratta = new LinkedList<Tratta>();
 			
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"Data\" = ?");
