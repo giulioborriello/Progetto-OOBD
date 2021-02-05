@@ -43,8 +43,8 @@ public class RisultatiSlotGUI extends JFrame {
 		columns.add("Codice Slot");
 		columns.add("Tempo di imbarco stimato");
 		columns.add("Tempo di imbarco effettivo");		
-		columns.add("Orario di partenza");
 		columns.add("Data");
+		columns.add("Codice Coda");
 		
 		Vector<Vector<Object>> data = new Vector<Vector<Object>>();
 		
@@ -53,6 +53,11 @@ public class RisultatiSlotGUI extends JFrame {
 			vector.add(slot.getCodSlot());
 			vector.add(slot.getTempoDiImbarcoStimato());
 			vector.add(slot.getTempoDiImbarcoEffettivo());	
+			vector.add(slot.getData());
+			if(slot.getCoda() != null) {
+				vector.add(slot.getCoda().getCodCoda());	
+			}
+			
 			data.add(vector);
 		}
 		

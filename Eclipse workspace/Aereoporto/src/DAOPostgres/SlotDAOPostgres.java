@@ -37,7 +37,7 @@ public class SlotDAOPostgres implements SlotDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Slot\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
-			while(rs.next()) {
+			if(rs.next()) {
 				
 				slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"), 
@@ -60,12 +60,12 @@ public class SlotDAOPostgres implements SlotDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Slot\" WHERE \"CodSlot\" = ?");
 			ps.setString(1, CodSlot);
 			ResultSet rs=ps.executeQuery();
-			rs.next();
+			if(rs.next()) {
 				
 				slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"),
 						coda);
-				
+			}
 			
 			
 			ps.close();

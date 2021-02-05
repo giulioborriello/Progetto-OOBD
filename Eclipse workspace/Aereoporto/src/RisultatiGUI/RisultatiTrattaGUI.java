@@ -63,7 +63,9 @@ public class RisultatiTrattaGUI extends JFrame {
 			vector.add(tratta.getCompagnia().getCodIATA());
 			vector.add(tratta.getDestinazione());
 			vector.add(tratta.getScali());	
-			vector.add(tratta.getGate().getCodGate());
+			if(tratta.getGate() != null) {
+				vector.add(tratta.getGate().getCodGate());
+			}
 			vector.add(tratta.getRitardo());
 			vector.add(tratta.getNgate());
 			data.add(vector);

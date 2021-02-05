@@ -254,7 +254,7 @@ public class Controller {
 		List<Slot> list = new LinkedList<Slot>();
 		
 		if(ricerca == "CodSlot") {
-			list.add(slotPostgres.getSlotByCodSlot("CodSlot"));
+			list.add(slotPostgres.getSlotByCodSlot(valore));
 		}
 	
 		else if(ricerca == "CodCoda") {
@@ -388,7 +388,7 @@ public class Controller {
 	
 	public void inserisciTratta(String codTratta, String nPrenotazioni,String orarioDiPartenza, String data,String CodIATA, String destinazione, String scali, String Ngate) throws ParseException{
 		
-		if(checkBlank(codTratta, nPrenotazioni, orarioDiPartenza, data, CodIATA, destinazione, scali)) {
+		if(checkBlank(codTratta, nPrenotazioni, orarioDiPartenza, data, CodIATA, destinazione)) {
 			return;
 		}
 		
@@ -719,7 +719,7 @@ public class Controller {
 
 	public void aggiornaSlot(String IndicaCodSlot, String AggiornaTempoEffettivo) {
 		
-		if(checkSoloNumeri(IndicaCodSlot,AggiornaTempoEffettivo)) {
+		if(checkSoloNumeri(AggiornaTempoEffettivo)) {
 			return;
 		}
 		
