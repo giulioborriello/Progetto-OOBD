@@ -171,15 +171,7 @@ public class Controller {
 		slot.setVisible(false);
 		menù.setVisible(true);
 		
-		risultatiSlot.dispose();
-		risultatiGate.dispose();
-		risultatiTratta.dispose();
-		risultatiFedeltà.dispose();
-		risultatiCompagnia.dispose();
-		risultatiCodaDiImbarco.dispose();
-		risultatiCliente.dispose();
-		risultatiBiglietto.dispose();
-		risultatiTempisticheGateGUI.dispose();
+		
 	}
 	
 	
@@ -411,14 +403,11 @@ public class Controller {
 		if(checkSoloNumeri(nPrenotazioni)) {
 			return;
 		}
-		
-		if(checkSoloLettere(destinazione)) {
+	
+		if(checkSoloLettereEunderscore(scali, destinazione)) {
 			return;
 		}
 		
-		if(checkSoloLettereEunderscore(scali)) {
-			return;
-		}
 		
 		int intNPrenotazioni = Integer.valueOf(nPrenotazioni);
 		
@@ -487,14 +476,14 @@ public class Controller {
 		openDialog(testo);
 	}
 
-	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String TempoDiImbarcoEffettivo, String CodCoda) throws ParseException {
+	public void inserisciSlot(String CodSlot, String TempoDiImbarcoStimato, String CodCoda) throws ParseException {
 		
 		
-		if(checkBlank(CodSlot, TempoDiImbarcoStimato, TempoDiImbarcoEffettivo, CodCoda)) {
+		if(checkBlank(CodSlot, TempoDiImbarcoStimato, CodCoda)) {
 			return;
 		}
 		
-		if(checkSoloNumeri(TempoDiImbarcoStimato, TempoDiImbarcoEffettivo)) {
+		if(checkSoloNumeri(TempoDiImbarcoStimato)) {
 			return;
 		}
 		
@@ -505,13 +494,12 @@ public class Controller {
 		
 		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
 		int tempoDiImbarcoStimato =  Integer.valueOf(TempoDiImbarcoStimato);
-		int tempoDiImbarcoEffettivo =  Integer.valueOf(TempoDiImbarcoEffettivo);
 		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
 		java.util.Date date = null;
 				
 				
-		String testo = slot.insertSlot(CodSlot,tempoDiImbarcoStimato,tempoDiImbarcoEffettivo, CodCoda);
+		String testo = slot.insertSlot(CodSlot,tempoDiImbarcoStimato, CodCoda);
 		openDialog(testo);
 	}
 
@@ -720,7 +708,7 @@ public class Controller {
 			return;
 		}
 		
-		if(checkSoloNumeri(Punti,CentoKilometri)) {
+		if(checkSoloNumeri(Punti)) {
 			return;
 		}
 		
@@ -795,17 +783,17 @@ public class Controller {
 	public boolean checkSoloLettere(String parola) {
 		String espressioneSoloLettere = "^[A-Za-z]*$";
 		if(!parola.matches(espressioneSoloLettere)) {
-			openDialog("Una o più caselle devono avere solo Lettere!");
+			openDialog("Una o più caselle devono avere solo lettere!");
 
 			return true;
 		}
 		return false;
 	}
 	
-	public boolean checkSoloLettereEunderscore(String parola) {
+	public boolean checkSoloLettereEunderscore(String parola, String parola2) {
 		String espressioneSoloLettere = "^[A-Za-z_]*$";
-		if(!parola.matches(espressioneSoloLettere)) {
-			openDialog("Una o più caselle devono avere solo Lettere!");
+		if(!parola.matches(espressioneSoloLettere) || !parola2.matches(espressioneSoloLettere)) {
+			openDialog("Una o più caselle devono avere solo lettere o underscore!");
 
 			return true;
 		}
@@ -816,7 +804,7 @@ public class Controller {
 		String espressioneSoloNumeri = "^[0-9]*$";
 		for(String numero:numeri) {
 			if(!numero.matches(espressioneSoloNumeri)) {
-				openDialog("Una o più caselle devono avere solo Numeri!");
+				openDialog("Una o più caselle devono avere solo numeri!");
 
 				return true;
 			}

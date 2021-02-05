@@ -133,14 +133,13 @@ public class SlotDAOPostgres implements SlotDAO{
 	}
 	
 	
-	public String insertSlot(String CodSlot, int TempoDiImbarcoStimato, int TempoDiImbarcoEffettivo, String CodCoda)	{
+	public String insertSlot(String CodSlot, int TempoDiImbarcoStimato, String CodCoda)	{
 		
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, ?, null, ?); ");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Slot\"  VALUES (?, ?, null, null, ?); ");
 			ps.setString(1, CodSlot);
 			ps.setInt(2, TempoDiImbarcoStimato);
-			ps.setInt(3, TempoDiImbarcoEffettivo);
-			ps.setString(4, CodCoda);
+			ps.setString(3, CodCoda);
 			ps.execute();
 			ps.close();
 			conn.close();

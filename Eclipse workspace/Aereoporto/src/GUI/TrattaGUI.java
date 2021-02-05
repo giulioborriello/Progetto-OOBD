@@ -78,7 +78,7 @@ public class TrattaGUI extends JFrame {
 		contentPane.add(comboBox_Ora);
 		
 		JComboBox comboBox_Ngate_Inserimento = new JComboBox(Ngate);
-		comboBox_Ngate_Inserimento.setBounds(148, 438, 103, 22);
+		comboBox_Ngate_Inserimento.setBounds(27, 436, 103, 22);
 		contentPane.add(comboBox_Ngate_Inserimento);
 		
 		JComboBox comboBox_Minuto = new JComboBox(oreOMinuti);
@@ -115,7 +115,6 @@ public class TrattaGUI extends JFrame {
 		Button_InviaRicerca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String Data = comboBox_GiornoRicerca.getSelectedItem().toString() + "/" + comboBox_MeseRicerca.getSelectedItem().toString() + "/" + comboBox_AnnoRicerca.getSelectedItem().toString(); 
-				System.out.println(Data + "GUI");
 				controller.openRisultatiTratta(comboBox_Ricerca.getSelectedItem().toString(), textFieldRicerca.getText(), Data);
 			}
 		});
@@ -139,7 +138,7 @@ public class TrattaGUI extends JFrame {
 		
 		JLabel lbl_CodIATA = new JLabel("CodIATA");
 		lbl_CodIATA.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lbl_CodIATA.setBounds(280, 414, 70, 14);
+		lbl_CodIATA.setBounds(162, 414, 70, 14);
 		contentPane.add(lbl_CodIATA);
 		
 		JLabel lbl_Destinazione = new JLabel("Destinazione");
@@ -185,7 +184,7 @@ public class TrattaGUI extends JFrame {
 		
 		textFieldCodIATA = new JTextField();
 		textFieldCodIATA.setColumns(10);
-		textFieldCodIATA.setBounds(268, 439, 86, 20);
+		textFieldCodIATA.setBounds(148, 437, 86, 20);
 		contentPane.add(textFieldCodIATA);
 		
 		textFieldDestinazione = new JTextField();
@@ -284,12 +283,12 @@ public class TrattaGUI extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Ngate");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(178, 410, 46, 22);
+		lblNewLabel.setBounds(54, 403, 46, 22);
 		contentPane.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Per separare gli scali utilizzare _");
-		lblNewLabel_1.setBounds(472, 389, 169, 14);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblSuggerimentoScaliEDestinazione = new JLabel("Per separare gli scali e le Destinazioni con nome composto utilizzare _");
+		lblSuggerimentoScaliEDestinazione.setBounds(327, 389, 384, 14);
+		contentPane.add(lblSuggerimentoScaliEDestinazione);
 		
 		
 		

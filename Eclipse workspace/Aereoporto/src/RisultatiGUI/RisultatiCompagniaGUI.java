@@ -45,7 +45,8 @@ public class RisultatiCompagniaGUI extends JFrame {
 		for(Compagnia compagnia: list) {
 			Vector<Object> vector = new Vector<Object>();
 			vector.add(compagnia.getCodIATA());
-			vector.add(compagnia.getCodIATA());
+			vector.add(compagnia.getNomeCompagnia());
+			data.add(vector);
 		}
 		
 		

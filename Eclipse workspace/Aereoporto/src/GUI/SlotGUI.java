@@ -32,7 +32,6 @@ public class SlotGUI extends JFrame {
 	private JTextField textFieldAggiornaIndicaCodSlot;
 	private JTextField textFieldAggiornaTempoEffettivo;
 	private JTextField textFieldElimina;
-	private JTextField textFieldTempoEffettivo;
 	
 	private String[] tipiRicerca = {"CodSlot","CodCoda","Data"};
 	
@@ -111,23 +110,12 @@ public class SlotGUI extends JFrame {
 		contentPane.add(textFieldTempoStimato);
 		textFieldTempoStimato.setColumns(10);
 		
-		JLabel lblTempoEffettivo = new JLabel("Tempo di imbarco effettivo");
-		lblTempoEffettivo.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTempoEffettivo.setBounds(21, 275, 177, 14);
-		contentPane.add(lblTempoEffettivo);
-		
-		textFieldTempoEffettivo = new JTextField();
-		textFieldTempoEffettivo.setBounds(66, 304, 86, 20);
-		contentPane.add(textFieldTempoEffettivo);
-		textFieldTempoEffettivo.setColumns(10);
-		
 		JButton btnNewButtonInserisci = new JButton("Invia");
 		btnNewButtonInserisci.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-					controller.inserisciSlot(textFieldCodSlot.getText(), textFieldTempoStimato.getText(),
-							textFieldTempoEffettivo.getText(), textFieldCodCoda.getText());
+					controller.inserisciSlot(textFieldCodSlot.getText(), textFieldTempoStimato.getText(), textFieldCodCoda.getText());
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -135,7 +123,7 @@ public class SlotGUI extends JFrame {
 			}
 		});
 		btnNewButtonInserisci.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButtonInserisci.setBounds(584, 289, 142, 42);
+		btnNewButtonInserisci.setBounds(584, 213, 142, 42);
 		contentPane.add(btnNewButtonInserisci);
 		
 		

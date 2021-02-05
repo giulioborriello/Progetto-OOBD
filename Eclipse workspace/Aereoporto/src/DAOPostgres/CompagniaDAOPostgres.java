@@ -28,7 +28,7 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			Statement st = conn.createStatement();
 			ResultSet rs=st.executeQuery("SELECT * FROM public.\"Compagnia\"");
 			while(rs.next()) {
-				
+				System.out.println(rs.getString("CodIATA"));
 				Compagnia compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("Nome compagnia"));
 				
 				listCompagnia.add(compagnia);
