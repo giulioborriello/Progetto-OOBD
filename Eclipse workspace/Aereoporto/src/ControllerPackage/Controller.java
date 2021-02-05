@@ -574,10 +574,6 @@ public class Controller {
 			return;
 		}
 		
-		if(checkSoloNumeri(CodSlot)) {
-			return;
-		}
-		
 		SlotDAOPostgres slot = new SlotDAOPostgres(singleton);
 		String testo = slot.deleteSlot(CodSlot);
 		openDialog(testo);
