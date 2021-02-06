@@ -112,7 +112,7 @@ public class Fedelt‡DAOPostgres implements FedeltaDAO {
 	public int GetRitardi(String CentoKilometri) {
 		long numeroRitardi = 0;
 		try {
-			PreparedStatement ps = conn.prepareStatement("SELECT  COUNT(\"CodTratta\") FROM public.\"Fedelt‡\" NATURAL JOIN public.\"Compagnia\" NATURAL JOIN  public.\"Tratta\"  WHERE \"CentoKilometri\" = ? AND \"Ritardo\" = true ; ");
+			PreparedStatement ps = conn.prepareStatement("select Count(\"CodTratta\")from ((public.\"Fedelt‡\" natural join public.\"Tratta\") natural join public.\"Biglietto\") as h where h.\"CentoKilometri\" = ? AND h.\"Ritardo\" = true");
 			ps.setString(1, CentoKilometri);
 			ResultSet rs=ps.executeQuery();
 			rs.next();

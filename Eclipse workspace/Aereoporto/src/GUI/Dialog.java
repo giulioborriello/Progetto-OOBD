@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
 
 public class Dialog extends JDialog {
 
@@ -24,15 +25,11 @@ public class Dialog extends JDialog {
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		{
-			JLabel lbTesto = new JLabel("New label");
-			lbTesto.setFont(new Font("Tahoma", Font.PLAIN, 15));
-			lbTesto.setVerticalAlignment(SwingConstants.TOP);
-			lbTesto.setHorizontalAlignment(SwingConstants.CENTER);
-			lbTesto.setBounds(26, 31, 1198, 396);
-			lbTesto.setText(testo);
-			contentPanel.add(lbTesto);
-		}
+		
+		JTextArea TADialog = new JTextArea();
+		TADialog.setBounds(20, 11, 1188, 412);
+		TADialog.setText(testo);
+		contentPanel.add(TADialog);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -50,5 +47,4 @@ public class Dialog extends JDialog {
 			}
 		}
 	}
-
 }

@@ -33,7 +33,7 @@ public class SlotGUI extends JFrame {
 	private JTextField textFieldAggiornaTempoEffettivo;
 	private JTextField textFieldElimina;
 	
-	private String[] tipiRicerca = {"CodSlot","CodCoda","Data"};
+	private String[] tipiRicerca = {"CodSlot","CodCoda"};
 	
 	
 	public SlotGUI(Controller c) {

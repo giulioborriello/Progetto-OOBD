@@ -48,8 +48,10 @@ public class CompagniaDAOPostgres implements CompagniaDAO {
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Compagnia\" WHERE \"CodIATA\" = ?");
 			ps.setString(1, CodIATA);
 			ResultSet rs=ps.executeQuery();
-			rs.next();
-			compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("Nome compagnia"));
+			
+			if(rs.next()) {
+				compagnia = new Compagnia(rs.getString("CodIATA"), rs.getString("Nome compagnia"));
+			}
 			rs.close();
 			ps.close();
 			conn.close();

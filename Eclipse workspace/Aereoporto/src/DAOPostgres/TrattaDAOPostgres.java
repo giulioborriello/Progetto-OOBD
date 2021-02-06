@@ -36,16 +36,17 @@ public class TrattaDAOPostgres implements TrattaDAO{
 			PreparedStatement ps = conn.prepareStatement("SELECT * FROM public.\"Tratta\" WHERE \"CodTratta\" = ?");
 			ps.setString(1, CodTratta);	
 			ResultSet rs=ps.executeQuery();
-			rs.next();
+			if(rs.next()) {
 			
-			compagnia = new CompagniaDAOPostgres(singleton);
-			Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
-			gate = new GateDAOPostgres(singleton);
-			Gate codGate = gate.getGateByCodGate(rs.getString("CodGate"), tratta);
+				compagnia = new CompagniaDAOPostgres(singleton);
+				Compagnia codIATA = compagnia.getCompagniaByCodIATA(rs.getString("CodIATA"));
+				gate = new GateDAOPostgres(singleton);
+				Gate codGate = gate.getGateByCodGate(rs.getString("CodGate"), tratta);
 			
-			tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
-					rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
-					rs.getString("Ngate"),codIATA, codGate);
+				tratta = new Tratta(rs.getString("CodTratta"), rs.getInt("Nprenotazioni"), rs.getTime("OrarioDiPartenza"), 
+						rs.getDate("Data"), rs.getString("Destinazione"), rs.getString("Scali"), rs.getBoolean("Ritardo"),
+						rs.getString("Ngate"),codIATA, codGate);
+			}
 			rs.close();
 			ps.close();
 			conn.close();
@@ -216,7 +217,7 @@ public class TrattaDAOPostgres implements TrattaDAO{
 	
 	public String insertTratta(String CodTratta, int Nprenotazioni, Time OrarioDiPartenza, Date Data, String CodIATA, String Destinazione, String Scali, String Ngate) {
 		try {
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?, null, null, ?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO \"Tratta\" VALUES (?, ?, ?, ?, ?, ?, ?, null, false, ?)");
 			ps.setString(1, CodTratta);
 			ps.setInt(2, Nprenotazioni);
 			ps.setTime(3, OrarioDiPartenza);

@@ -50,8 +50,13 @@ public class RisultatiCodaDiImbarcoGUI extends JFrame {
 			Vector<Object> vector = new Vector<Object>();
 			vector.add(coda.getCodCoda());
 			vector.add(coda.getTipoDiCoda());
-			vector.add(coda.getGate().getCodGate());	
-			vector.add(coda.getSlot().getCodSlot());
+			vector.add(coda.getGate().getCodGate());
+			if(coda.getSlot() != null) {
+				vector.add(coda.getSlot().getCodSlot());
+			}
+			else{
+				vector.add("");
+			}
 			data.add(vector);
 		}
 		
