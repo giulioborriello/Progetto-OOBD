@@ -19957,7 +19957,7 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;36;0",
-							"left": 4304,
+							"left": 4376,
 							"top": 4032,
 							"width": 51.044921875,
 							"height": 48,
@@ -19970,8 +19970,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;36;0",
-							"left": 4480,
-							"top": 4112,
+							"left": 4320,
+							"top": 4104,
 							"width": 60,
 							"height": 48,
 							"text": "+1"
@@ -19999,8 +19999,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;36;0",
-							"left": 5312,
-							"top": 2592,
+							"left": 5576,
+							"top": 2688,
 							"width": 60,
 							"height": 48,
 							"text": "+1"
@@ -20012,8 +20012,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;36;0",
-							"left": 5288,
-							"top": 2880,
+							"left": 5336,
+							"top": 2864,
 							"width": 60,
 							"height": 48,
 							"text": "+1"
@@ -20041,8 +20041,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;36;0",
-							"left": 2640,
-							"top": 4120,
+							"left": 2856,
+							"top": 4080,
 							"width": 60,
 							"height": 48,
 							"text": "+1"
@@ -20054,8 +20054,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;36;0",
-							"left": 2680,
-							"top": 2968,
+							"left": 2288,
+							"top": 2984,
 							"width": 72.068359375,
 							"height": 48,
 							"text": "+1"
@@ -20083,8 +20083,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;36;0",
-							"left": 2176,
-							"top": 5240,
+							"left": 2168,
+							"top": 4824,
 							"width": 60,
 							"height": 48,
 							"text": "+1"
@@ -20097,7 +20097,7 @@
 							},
 							"font": "Arial;36;0",
 							"left": 1928,
-							"top": 4456,
+							"top": 4696,
 							"width": 60,
 							"height": 48,
 							"text": "+1"
@@ -20390,8 +20390,8 @@
 								"$ref": "AAAAAAFF+qBtyKM79qY="
 							},
 							"font": "Arial;36;0",
-							"left": 4592,
-							"top": 2872,
+							"left": 4696,
+							"top": 2880,
 							"width": 60,
 							"height": 48,
 							"text": "+1"

@@ -2424,28 +2424,6 @@
 							"subViews": [
 								{
 									"_type": "EdgeLabelView",
-									"_id": "AAAAAAF3bNJrTXHL1AA=",
-									"_parent": {
-										"$ref": "AAAAAAF2ZxhgErym2/A="
-									},
-									"model": {
-										"$ref": "AAAAAAF2ZxhgEryiwn0="
-									},
-									"font": "Arial;13;0",
-									"left": 295,
-									"top": 427,
-									"width": 14.82177734375,
-									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
-									"hostEdge": {
-										"$ref": "AAAAAAF2ZxhgErym2/A="
-									},
-									"edgePosition": 1,
-									"text": "+1"
-								},
-								{
-									"_type": "EdgeLabelView",
 									"_id": "AAAAAAF2ZxhgEryo95M=",
 									"_parent": {
 										"$ref": "AAAAAAF2ZxhgErym2/A="
@@ -2648,9 +2626,6 @@
 							"lineStyle": 1,
 							"points": "205:448;399:449",
 							"showVisibility": true,
-							"nameLabel": {
-								"$ref": "AAAAAAF3bNJrTXHL1AA="
-							},
 							"stereotypeLabel": {
 								"$ref": "AAAAAAF2ZxhgEryo95M="
 							},
