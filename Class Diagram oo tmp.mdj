@@ -21711,7 +21711,7 @@
 											"top": 2653,
 											"width": 352.23046875,
 											"height": 13,
-											"text": "-lbTesto: JLabel",
+											"text": "-TADialog: JTextArea",
 											"horizontalAlignment": 0
 										},
 										{
@@ -31429,9 +31429,9 @@
 									"_parent": {
 										"$ref": "AAAAAAF20zDvmFg2N4g="
 									},
-									"name": "lbTesto",
+									"name": "TADialog",
 									"visibility": "private",
-									"type": "JLabel"
+									"type": "JTextArea"
 								},
 								{
 									"_type": "UMLAttribute",
