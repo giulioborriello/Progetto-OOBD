@@ -192,7 +192,7 @@ public class Controller {
 		
 		GateDAOPostgres gatePostgres = new GateDAOPostgres(singleton);
 		List<Gate> list = new LinkedList<Gate>();
-		if(ricerca.equals("N gate")) {
+		if(ricerca.equals("Ngate e data")) {
 			list = gatePostgres.getGateByNGate(valore, sqlDate);
 		}
 		else if(ricerca == "CodGate") {
@@ -261,24 +261,8 @@ public class Controller {
 			list.add(slotPostgres.getSlotByCodCoda(valore));
 			
 		}
-		
-		else if(ricerca == "Data") {
+	
 			
-			SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
-			java.util.Date date = null;
-			try {
-				date = sdf1.parse(valore);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			Date sqlDate = new java.sql.Date(date.getTime());  
-			
-			
-			list = slotPostgres.getSlotByData(sqlDate);
-			
-		}
-		
 		risultatiSlot = new RisultatiSlotGUI(list, this);
 		slot.setVisible(false);
 		risultatiSlot.setVisible(true);

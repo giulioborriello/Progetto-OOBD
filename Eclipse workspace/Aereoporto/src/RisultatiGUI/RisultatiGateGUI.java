@@ -51,7 +51,12 @@ public class RisultatiGateGUI extends JFrame {
 			Vector<Object> vector = new Vector<Object>();
 			vector.add(gate.getCodGate());
 			vector.add(gate.getnGate());
-			vector.add(gate.getTratta().getCodTratta());	
+			if(gate.getTratta() != null) {
+				vector.add(gate.getTratta().getCodTratta());
+			}
+			else {
+				vector.add("");
+			}
 			vector.add(gate.getData());
 			data.add(vector);
 		}

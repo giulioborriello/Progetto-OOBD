@@ -37,10 +37,10 @@ public class GateDAOPostgres implements GateDAO{
 			ps.setDate(2, data);
 			ResultSet rs=ps.executeQuery();
 			
-			TrattaDAOPostgres tratta2 = new TrattaDAOPostgres(singleton);
-			codTratta2 = tratta2.getTrattaByCodTratta("CodTratta");
+			
 			while(rs.next()) {
-				
+				TrattaDAOPostgres tratta2 = new TrattaDAOPostgres(singleton);
+				codTratta2 = tratta2.getTrattaByCodTratta(rs.getString("CodTratta"));
 				Gate gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), codTratta2, rs.getDate("Data"));
 				gates.add(gate);
 			}
@@ -63,10 +63,10 @@ public class GateDAOPostgres implements GateDAO{
 			ps.setString(1, CodGate);
 			ResultSet rs=ps.executeQuery();
 			
-			rs.next();
+			if(rs.next()){
 				
 				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), tratta.getTrattaByCodTratta(rs.getString("CodTratta")), rs.getDate("Data"));
-				
+			}
 			
 			conn.close();
 			rs.close();
@@ -108,11 +108,11 @@ public class GateDAOPostgres implements GateDAO{
 			ResultSet rs=ps.executeQuery();
 			
 			
-			rs.next();
+			if(rs.next()) {
 				TrattaDAOPostgres tratta2 = new TrattaDAOPostgres(singleton);
 				codTratta2 = tratta2.getTrattaByCodTratta(rs.getString("CodTratta"));
 				gate = new Gate(rs.getString("CodGate"), rs.getString("Ngate"), codTratta2, rs.getDate("Data"));
-				
+			}
 			conn.close();
 			rs.close();
 			ps.close();
@@ -135,7 +135,6 @@ public class GateDAOPostgres implements GateDAO{
 			ps.setDouble(1, Mese);
 			ps.setDouble(2, Anno);
 			ps.setString(3, Ngate);
-			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
@@ -188,17 +187,17 @@ public class GateDAOPostgres implements GateDAO{
 		try {
 			st = conn.createStatement();
 			double Anno = Double.valueOf(anno);
-			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"Data\") AS yeard , extract(week from B.\"Data\" ) AS weekd, SUM (B.\"TempoDiImbarcoEffettivo\") AS add "
-					+ "FROM ((public.\"Gate\" NATURAL JOIN public.\"Coda di imbarco\" ) AS AA NATURAL JOIN public.\"Slot\") AS B "
-					+ "WHERE extract(year from B.\"Data\") = ?, AND \"Ngate\" = ?  "
-					+ "GROUP BY yeard , weekd;");
+			PreparedStatement ps = conn.prepareStatement("SELECT extract(year from B.\"Data\") AS yeard , extract(week from B.\"Data\" ) AS weekd, SUM (B.\"TempoDiImbarcoEffettivo\")  AS addd"
+					+ "					FROM ((public.\"Gate\" NATURAL JOIN public.\"Coda di imbarco\" ) NATURAL JOIN public.\"Slot\") AS B "
+					+ "				 WHERE extract(year from B.\"Data\") = ? AND B.\"Ngate\" = ?"
+					+ "				GROUP BY yeard , weekd;");
 			ps.setDouble(1, Anno);
 			ps.setString(2, Ngate);
 			
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				
-				Tempistica tempo = new Tempistica(rs.getString("yeard"), null, rs.getString("weekd"), null, rs.getString("add"));
+				Tempistica tempo = new Tempistica(rs.getString("yeard"), null, rs.getString("weekd"), null, rs.getString("addd"));
 				list.add(tempo);
 			}
 			rs.close();

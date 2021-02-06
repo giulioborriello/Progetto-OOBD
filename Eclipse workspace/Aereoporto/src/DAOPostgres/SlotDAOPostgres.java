@@ -41,7 +41,7 @@ public class SlotDAOPostgres implements SlotDAO{
 				
 				slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"), 
-						coda.getCodaDiImbarcoByCodCoda("CodCoda"));
+						coda.getCodaDiImbarcoByCodCoda(rs.getString("CodCoda")));
 				
 			}
 			conn.close();
@@ -91,7 +91,7 @@ public class SlotDAOPostgres implements SlotDAO{
 				
 				slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
 						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"), 
-						coda.getCodaDiImbarcoByCodCoda("CodCoda"));
+						coda.getCodaDiImbarcoByCodCoda(rs.getString("CodCoda")));
 				
 			}
 			conn.close();
@@ -104,33 +104,6 @@ public class SlotDAOPostgres implements SlotDAO{
 		return slot;
 	}
 	
-	
-	public List<Slot> getSlotByData(Date Data) {
-		try {
-			
-			coda = new CodaDiImbarcoDAOPostgres(sp);
-			
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM \"Slot\" WHERE \"Data\" = ?");
-			ps.setDate(1, Data);
-			ResultSet rs=ps.executeQuery();
-			while(rs.next()) {
-				
-				Slot Slot = new Slot(rs.getString("CodSlot"), rs.getInt("TempoDiImbarcoStimato"), 
-						rs.getInt("TempoDiImbarcoEffettivo"), rs.getDate("Data"),
-						coda.getCodaDiImbarcoByCodCoda("CodCoda"));
-				
-				listSlot.add(Slot);
-			}
-			conn.close();
-			ps.close();
-			rs.close();
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return listSlot;	
-	}
 	
 	
 	public String insertSlot(String CodSlot, int TempoDiImbarcoStimato, String CodCoda)	{

@@ -66,6 +66,9 @@ public class RisultatiTrattaGUI extends JFrame {
 			if(tratta.getGate() != null) {
 				vector.add(tratta.getGate().getCodGate());
 			}
+			else {
+				vector.add("");
+			}
 			vector.add(tratta.getRitardo());
 			vector.add(tratta.getNgate());
 			data.add(vector);
